@@ -1,10 +1,11 @@
 
-# Open Soil Spectral Library Manual
+# OpenLandMap Open Land Data services
 
-[**SoilSpec4GG**](https://soilspectroscopy.org/) is a USDA-funded [Food and Agriculture Cyberinformatics
-Tools Coordinated Innovation Network NIFA Award #2020-67021-32467](https://nifa.usda.gov/press-release/nifa-invests-over-7-million-big-data-artificial-intelligence-and-other) project.
-
-<img src="img/ossl_page.jpg" alt="To learn more about this project please visit: https://soilspectroscopy.org." width="90%" />
+[OpenLandMap](https://openlandmap.org) are Open Land Data services providing access to spatial layers 
+covering global land mass (at spatial resolutions of 1 km, 250 m or finer) hosted by the OpenGeoHub foundation, GILAB.rs and collaborators. 
+It aims at becoming an [OpenStreetMap-type system for land data](https://towardsdatascience.com/everybody-has-a-right-to-know-whats-happening-with-the-planet-towards-a-global-commons-5a1ad4ba0bdd). Access to spatial layers is 
+possible via interactive visualizations and/or Open Source software solutions. 
+Read more about this project [here](https://opengeohub.org/about-openlandmap/).
 
 ## Contributing
 
