@@ -1,11 +1,30 @@
-# OpenLandMap tools and users
+# OpenLandMap layers
 
 ```{r, results = "asis", echo = FALSE}
 status("drafting")
 ```
 
-## OpenLandMap layers
+## List of collections
 
+```{r}
+col = read.csv("./tabular/OpenLandMap_tables_collections.csv")
+```
 
-## OpenLandMap software
-
+```{r, echo = FALSE}
+if(!file.exists("016-project.Rmd")){
+sink("016-project.Rmd")
+for(i in 1:nrow(col)){
+  cat(paste0("### ", col$title[i]))
+  cat("\n\n")
+  cat(paste0('- `r emo::ji("link")` URL: https://stac.openlandmap.org/', col$id[i], '/collection.json'))
+  cat("\n")
+  cat(paste0('- `r emo::ji("news")` Description: ', col$description[i]))
+  cat("\n")
+  cat(paste0('- `r emo::ji("memo")` Theme: ', col$Theme[i]))
+  cat("\n")
+  cat(paste0('- `r emo::ji("open_file_folder")` DOI: ', col$doi[i]))
+  cat("\n\n")
+}
+sink()
+}
+```

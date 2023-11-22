@@ -7,6 +7,8 @@ rmd_files: [
 
   "010-start_here.Rmd",
   "015-project.Rmd",
+  "016-project.Rmd",
+  "020-stac.Rmd",
   "references.Rmd",
 
 ]

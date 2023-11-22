@@ -29,14 +29,14 @@ site: bookdown::bookdown_site
 ## OpenLandMap project 
 
 ```{r, include=FALSE, message=FALSE, results='hide'}
-ls <- c("rgdal", "jsonlite", "RCurl", "emo")
+ls <- c("rgdal", "jsonlite", "RCurl", "emo", "stringi")
 new.packages <- ls[!(ls %in% installed.packages()[,"Package"])]
-if(length(new.packages)) install.packages(new.packages)
+if(length(new.packages)) install.packages(new.packages, repos = "https://cloud.r-project.org")
 lapply(ls, require, character.only = TRUE)
 ```
 
 [OpenLandMap](https://openlandmap.org) are Open Land Data services providing access to spatial layers 
-covering global land mass (at spatial resolutions of 1 km, 250 m or finer) hosted by the OpenGeoHub foundation, GILAB.rs and collaborators. 
+covering global land mass (at spatial resolutions of 1 km, 250 m, 100 m, 30 m or finer) hosted by the OpenGeoHub foundation, GILAB.rs and collaborators. 
 It aims at becoming an [OpenStreetMap-type system for land data](https://towardsdatascience.com/everybody-has-a-right-to-know-whats-happening-with-the-planet-towards-a-global-commons-5a1ad4ba0bdd). Access to spatial layers is 
 possible via interactive visualizations and/or Open Source software solutions. 
 Read more about this project [here](https://opengeohub.org/about-openlandmap/).
@@ -56,10 +56,8 @@ knitr::include_graphics("img/openlandmap_soil_pH_Istria.gif")
 Users can access OpenLandMap data via the five main channels:
 
 - **OpenLandMap App** at https://openlandmap.org,
-- **OpenLandMap training points** at https://gitlab.com/openlandmap/compiled-ess-point-data-sets,
+- **OpenLandMap training points** at https://github.com/openlandmap/compiled-ess-point-data-sets,
 - **OpenGeoHub STAC** installation at https://stac.opengeohub.org,
-- **OpenLandMap REST API services** at https://api.openlandmap.org,
-- **OpenLandMap Wasabi service** see detailed tutorial,
 - [Zenodo.org](https://zenodo.org/search?page=1&size=20&q=OpenLandMap) to access a (version-controlled) back-up copy of data via a DOI,
 
 Data portal https://openlandmap.org is the landing page (running on Geoserver + OpenLayers) where users can browse maps, query values by
@@ -69,97 +67,57 @@ It allow users i.e. producers of layers to edit and update metadata and descript
 create map views, learn how to use WCS, WMS or similar. A copy of the raw data can be obtained 
 via zenodo.org or similar public data repositories.
 
-The [training data repository](https://gitlab.com/openlandmap/compiled-ess-point-data-sets) contains 
+The [training data repository](https://github.com/openlandmap/compiled-ess-point-data-sets) contains 
 import and processing steps run to clean up and standardize global compilations of training 
-points, most importantly the land cover, vegetation, meteo, soil and ecological observations.
+points, most importantly the land cover, vegetation, meteo, soil and similar observations.
+
+## Layers and themes of interest
+
+OpenLandMap.org provides access to global environmental layers focused on land surface. 
+We are aiming at serving Analysis-Ready, Cloud-Optimized (ARCO) data which passes [four simple C checks](https://medium.com/mlearning-ai/present-and-future-of-data-cubes-an-european-eo-perspective-735d3f16f7c9) (4C): 
+(1) completeness (meaning: data is available for all or at least 99% of pixels of interest), 
+(2) consistency (meaning: consistent file names, variable names and relationships, 
+and everything is documented via metadata), (3) currency (in this context: the user 
+is using the most up-to-date version of the data), (4) correctness (in this context: 
+making sure that the served data is the most correct / highest possible quality version). 
+In other words, ARCO version of the data should be something that is highest quality, 
+fully documented and optimized for web-services / advanced analysis.
+
+Thus, the following five primary requirements need to be satisfied before a layer can be considered for inclusion:
+
+-  Global coverage with at least 98% of the land mask represented in the layer (as not-NA values).
+-  An [Open Data license](https://opendefinition.org/licenses/).
+-  Metadata is supplied following the format specified below (all columns are filled-in and up-to-date).
+-  Sufficient technical documentation is supplied — usually as a scientific paper or a report.
+-  A GDAL/proj4-compatible data format and projection system is used that allows for inclusion into Geoserver or similar.
+
+All layers are organized around the following themes 
+(based on the [UN-GGIM The Global Fundamental Geospatial Data Themes](https://ggim.un.org/meetings/GGIM-committee/9th-Session/documents/Fundamental_Data_Publication.pdf)):
+- Buildings and Settlements,
+- Elevation and Depth,
+- Geology and Soils,
+- Land Cover and Land Use,
+- Population Distribution,
+- Water,
+- Physical Infrastructure,
+- Climate (_added entry_),
+- Biodiversity and Nature Conservation (_added entry_),
+
+Some layers maybe match two or more themes and are difficult to classify using a 
+simple definition. 
 
 ## Accessing data 
 
-OpenLandMap data can be best accessed using the OpenLandMap Wasabi file service. 
+OpenLandMap data can be best accessed using the OpenLandMap [S3](https://en.wikipedia.org/wiki/Amazon_S3) file service. 
 This service is based on [Cloud-Optimized GeoTIFFs](https://www.cogeo.org/) and is 
-probably also the best solution for doing spatial queries and spatial analysis. The Wasabi 
-service is explained in detail in this **[COG tutorial](./tutorial/OpenLandMap_COG_tutorial.md)**.
+probably also the best solution for doing spatial queries and spatial analysis. 
 
-### OpenLandMap REST API 
-
-OpenLandMap data services **REST API** (https://api.openlandmap.org) contains scripts and functions 
-that allow users to and developers to fetch raw data (point queries) in some simple textual 
-formats such as GeoJSON, csv, compressed GeoTIFFs or similar. The following query would fetch monthly precipitations at a location X, Y: 
-
-```
-https://api.openlandmap.org/query/point?lat=7.58033&lon=35.6561&coll=layers1km&regex=clm_precipitation_imerge.(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)_m_1km_s0..0cm_.*_v0.1.tif
-```
-
-which results in:
-
-```
-Project description	
-0	"https://opengeohub.org/about-openlandmap/"
-Description of all codes	
-0	"https://gitlab.com/openlandmap"
-response	
-0	
-lon	35.6561
-lat	7.5803
-clm_precipitation_imerge.apr_m_1km_s0..0cm_2014..2018_v0.1.tif	149
-clm_precipitation_imerge.aug_m_1km_s0..0cm_2014..2018_v0.1.tif	194
-clm_precipitation_imerge.dec_m_1km_s0..0cm_2014..2018_v0.1.tif	48
-clm_precipitation_imerge.feb_m_1km_s0..0cm_2014..2018_v0.1.tif	51
-clm_precipitation_imerge.jan_m_1km_s0..0cm_2014..2018_v0.1.tif	56
-clm_precipitation_imerge.jul_m_1km_s0..0cm_2014..2018_v0.1.tif	184
-clm_precipitation_imerge.jun_m_1km_s0..0cm_2014..2018_v0.1.tif	198
-clm_precipitation_imerge.mar_m_1km_s0..0cm_2014..2018_v0.1.tif	109
-clm_precipitation_imerge.may_m_1km_s0..0cm_2014..2018_v0.1.tif	203
-clm_precipitation_imerge.nov_m_1km_s0..0cm_2014..2018_v0.1.tif	81
-clm_precipitation_imerge.oct_m_1km_s0..0cm_2014..2018_v0.1.tif	152
-clm_precipitation_imerge.sep_m_1km_s0..0cm_2014..2018_v0.1.tif	197
-```
-
-to determine a soil type (USDA great group) use:
-
-```
-https://api.openlandmap.org/query/point?lat=30.2543&lon=-95.5811&coll=predicted250m&regex=sol_grtgroup_usda.soiltax_c_250m_b0..0cm_1950..2017_v0.1.tif
-```
-
-which gives e.g.:
-
-```	
-Project description	
-0	"https://opengeohub.org/about-openlandmap/"
-Description of all codes	
-0	"https://gitlab.com/openlandmap/global-layers"
-response	
-0	
-lon	-95.5811
-lat	30.2543
-sol_grtgroup_usda.soiltax_c_250m_s0..0cm_1950..2017_v0.1.tif	30
-info	
-0	
-X	30
-Number	30
-Group	"paleudalfs"
-Great_Group_2015_match	"Paleudalfs"
-Suborder	"Udalfs"
-Order	"Alfisols"
-```
-
-To list all available layers use: https://api.openlandmap.org/query/populate
-
-To query values for multiple points (currently limited to **max 50 points**) 
-provide a GeoJSON with point feature collection and layer name from the table:
-
-```	
-curl -X POST --form "points=@test_points.geojson" --form "layer=pnv_fapar_proba.v.jul_d_1km_s0..0cm_2014..2017_v0.1.tif" https://api.openlandmap.org/query/points -o results.json 
-```
-
-where `test_points.geojson` is the GeoJSON file containing coordinates of points. 
-More examples of how to construct spatial queries are available at: 
-https://api.openlandmap.org
-
-In addition to the REST access, you can access the OpenLandMap data using the 
-[Wasabi file service](https://gitlab.com/openlandmap/global-layers/-/blob/master/tutorial/OpenLandMap_COG_tutorial.md). We recommend using the Wasabi file service only to overlay, download parts of data. 
-For downloading whole GeoTIFFs we recommend instead using Zenodo.
-
+To connect and use data seamlessly in your code, we recommend using STAC tools e.g. 
+[RStac](https://cran.r-project.org/web/packages/rstac/) to access the OpenLanMap catalog 
+then program analysis by using the most up-to-date version of the data. You 
+can use the https://s3.eu-central-1.wasabisys.com/stac/openlandmap/catalog.json and 
+the `collection_id` (example: `fapar_essd.lstm`) to access description of data and 
+URLs of filenames on S3.
 
 ### Accessing data from Zenodo 
 
@@ -183,7 +141,7 @@ To download the [MODIS LST images at 1 km](https://doi.org/10.5281/zenodo.142011
 ```{r, eval=FALSE}
 dep.id = "1435938"
 x = fromJSON(system(paste0('curl -H \"Accept: application/json\" -H \"Authorization: Bearer ', 
-        TOKEN, '\" \"https://www.zenodo.org/api/deposit/depositions/', dep.id, '\"'), intern=TRUE))
+        TOKEN, '\" \"https://zenodo.org/api/deposit/depositions/', dep.id, '\"'), intern=TRUE))
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100 58704  100 58704    0     0  80219      0 --:--:-- --:--:-- --:--:-- 80196
@@ -196,21 +154,21 @@ x = fromJSON(system(paste0('curl -H \"Accept: application/json\" -H \"Authorizat
 100 58704  100 58704    0     0  80219      0 --:--:-- --:--:-- --:--:-- 80196
 > str(x, max.level = 1)
 List of 15
- $ conceptdoi  : chr "10.5281/zenodo.1420114"
- $ conceptrecid: chr "1420114"
- $ created     : chr "2018-09-26T18:29:02.934312+00:00"
- $ doi         : chr "10.5281/zenodo.1435938"
- $ doi_url     : chr "https://doi.org/10.5281/zenodo.1435938"
- $ files       :'data.frame':	102 obs. of  5 variables:
+ $ created     : chr "2018-09-26T18:37:50.432468+00:00"
+ $ modified    : chr "2022-04-14T07:11:06.399928+00:00"
  $ id          : int 1435938
- $ links       :List of 18
+ $ conceptrecid: chr "1420114"
+ $ doi         : chr "10.5281/zenodo.1435938"
+ $ conceptdoi  : chr "10.5281/zenodo.1420114"
+ $ doi_url     : chr "https://doi.org/10.5281/zenodo.1435938"
  $ metadata    :List of 15
- $ modified    : chr "2018-10-07T16:28:33.956582+00:00"
- $ owner       : int 43652
+ $ title       : chr "Long-term MODIS LST day-time and night-time temperatures, sd and differences at 1 km based on the 2000–2017 time series"
+ $ links       :List of 21
  $ record_id   : int 1435938
+ $ owner       : int 43652
+ $ files       :'data.frame':	102 obs. of  5 variables:
  $ state       : chr "done"
  $ submitted   : logi TRUE
- $ title       : chr "Long-term MODIS LST day-time and night-time temperatures, sd and differences at 1 km based on the 2000–2017 time series"
 ```
 
 This shows that there are total of 102 files in this folder. To download all temperatures for August, 
@@ -224,19 +182,64 @@ which gives a total of 9 files:
 
 ```
 > sel.tif
-[1] "https://www.zenodo.org/api/files/57591d98-08b1-464d-86b2-aff632b16f82/clm_lst_mod11a2.aug.day_l.025_1km_s0..0cm_2000..2017_v1.0.tif"
-[2] "https://www.zenodo.org/api/files/57591d98-08b1-464d-86b2-aff632b16f82/clm_lst_mod11a2.aug.day_m_1km_s0..0cm_2000..2017_v1.0.tif"
-[3] "https://www.zenodo.org/api/files/57591d98-08b1-464d-86b2-aff632b16f82/clm_lst_mod11a2.aug.daynight_m_1km_s0..0cm_2000..2017_v1.0.tif" 
-[4] "https://www.zenodo.org/api/files/57591d98-08b1-464d-86b2-aff632b16f82/clm_lst_mod11a2.aug.day_sd_1km.png"
-[5] "https://www.zenodo.org/api/files/57591d98-08b1-464d-86b2-aff632b16f82/clm_lst_mod11a2.aug.day_sd_1km_s0..0cm_2000..2017_v1.0.tif"
-[6] "https://www.zenodo.org/api/files/57591d98-08b1-464d-86b2-aff632b16f82/clm_lst_mod11a2.aug.day_u.975_1km_s0..0cm_2000..2017_v1.0.tif"
-[7] "https://www.zenodo.org/api/files/57591d98-08b1-464d-86b2-aff632b16f82/clm_lst_mod11a2.aug.night_l.025_1km_s0..0cm_2000..2017_v1.0.tif"
-[8] "https://www.zenodo.org/api/files/57591d98-08b1-464d-86b2-aff632b16f82/clm_lst_mod11a2.aug.night_m_1km_s0..0cm_2000..2017_v1.0.tif"
-[9] "https://www.zenodo.org/api/files/57591d98-08b1-464d-86b2-aff632b16f82/clm_lst_mod11a2.aug.night_u.975_1km_s0..0cm_2000..2017_v1.0.tif"
+[1] "https://zenodo.org/api/records/1435938/draft/files/clm_lst_mod11a2.aug.day_u.975_1km_s0..0cm_2000..2017_v1.0.tif/content"  
+[2] "https://zenodo.org/api/records/1435938/draft/files/clm_lst_mod11a2.aug.day_l.025_1km_s0..0cm_2000..2017_v1.0.tif/content"  
+[3] "https://zenodo.org/api/records/1435938/draft/files/clm_lst_mod11a2.aug.day_m_1km_s0..0cm_2000..2017_v1.0.tif/content"      
+[4] "https://zenodo.org/api/records/1435938/draft/files/clm_lst_mod11a2.aug.daynight_m_1km_s0..0cm_2000..2017_v1.0.tif/content" 
+[5] "https://zenodo.org/api/records/1435938/draft/files/clm_lst_mod11a2.aug.day_sd_1km.png/content"                             
+[6] "https://zenodo.org/api/records/1435938/draft/files/clm_lst_mod11a2.aug.day_sd_1km_s0..0cm_2000..2017_v1.0.tif/content"     
+[7] "https://zenodo.org/api/records/1435938/draft/files/clm_lst_mod11a2.aug.night_l.025_1km_s0..0cm_2000..2017_v1.0.tif/content"
+[8] "https://zenodo.org/api/records/1435938/draft/files/clm_lst_mod11a2.aug.night_u.975_1km_s0..0cm_2000..2017_v1.0.tif/content"
+[9] "https://zenodo.org/api/records/1435938/draft/files/clm_lst_mod11a2.aug.night_m_1km_s0..0cm_2000..2017_v1.0.tif/content" 
 ```
 
-these can be further downloaded using `download.file` function or similar.
-There is also an R package for zenodo (**[zen4R](https://github.com/eblondel/zen4R)**) that makes downloading files even easier.
+We can test accessing the file by using:
+
+```
+tif = stringi::stri_replace_all_fixed(sel.tif[1], c("api/", "draft/", "/content"), "", vectorize_all=FALSE)
+> system(paste0("gdalinfo /vsicurl/", tif))
+Driver: GTiff/GeoTIFF
+Files: /vsicurl/https://zenodo.org/records/1435938/files/clm_lst_mod11a2.aug.day_u.975_1km_s0..0cm_2000..2017_v1.0.tif
+Size is 43200, 17924
+Coordinate System is:
+GEOGCRS["WGS 84",
+    DATUM["World Geodetic System 1984",
+        ELLIPSOID["WGS 84",6378137,298.257223563,
+            LENGTHUNIT["metre",1]]],
+    PRIMEM["Greenwich",0,
+        ANGLEUNIT["degree",0.0174532925199433]],
+    CS[ellipsoidal,2],
+        AXIS["geodetic latitude (Lat)",north,
+            ORDER[1],
+            ANGLEUNIT["degree",0.0174532925199433]],
+        AXIS["geodetic longitude (Lon)",east,
+            ORDER[2],
+            ANGLEUNIT["degree",0.0174532925199433]],
+    ID["EPSG",4326]]
+Data axis to CRS axis mapping: 2,1
+Origin = (-180.000000000000000,87.370000000000005)
+Pixel Size = (0.008333333333333,-0.008333333333333)
+Metadata:
+  AREA_OR_POINT=Area
+Image Structure Metadata:
+  COMPRESSION=DEFLATE
+  INTERLEAVE=BAND
+Corner Coordinates:
+Upper Left  (-180.0000000,  87.3700000) (180d 0' 0.00"W, 87d22'12.00"N)
+Lower Left  (-180.0000000, -61.9966667) (180d 0' 0.00"W, 61d59'48.00"S)
+Upper Right ( 180.0000000,  87.3700000) (180d 0' 0.00"E, 87d22'12.00"N)
+Lower Right ( 180.0000000, -61.9966667) (180d 0' 0.00"E, 61d59'48.00"S)
+Center      (  -0.0000000,  12.6866667) (  0d 0' 0.00"W, 12d41'12.00"N)
+Band 1 Block=43200x1 Type=Int16, ColorInterp=Gray
+  NoData Value=-32767
+  Overviews: 21600x8962, 10800x4481, 5400x2241, 2700x1121, 1350x561, 675x281, 338x141
+```
+
+These files can be further downloaded using `download.file(tif, basename(tif))` function or similar.
+There is also an R package for Zenodo **[zen4R](https://github.com/eblondel/zen4R)** 
+that makes downloading files even easier. In python you can also the library 
+**[zen](https://github.com/Open-Earth-Monitor/zen)** that is especially useful 
+for uploading very large data sets to Zenodo.
 
 ### Accessing data from Google Earth Engine 
 
@@ -425,649 +428,6 @@ This will add tiles and optimize compression. `CO=YES` indicates that the GeoTIF
 The OpenLandMap.org COG's are all available publicly without restrictions via the 
 [Wasabi file service](https://gitlab.com/openlandmap/global-layers/-/blob/master/tutorial/OpenLandMap_COG_tutorial.md).
 
-## Relief and geology 
-
-Relief parameters were derived derived using SAGA GIS (http://www.saga-gis.org/) 
-and the MERIT DEM (Yamazaki et al. 2017) projected in the Equi7 grid system 
-(Bauer-Marschallinger et al. 2014). Once derived, DEM derivatives were then 
-reprojected to the lon-lat system. See [processing steps](https://gitlab.com/openlandmap/global-layers/tree/master/input_layers/MERIT).
-
-### Slope in radians 
-
-Based on the MERIT DEM (Yamazaki et al. 2017) derived using SAGA GIS and Equi7 grid system.
-
-```
-dtm_slope_merit.dem_m_250m_s0..0cm_2017_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1447209)
-
-### SAGA Topographic Wetness Index (TWI) 
-
-Based on the MERIT DEM (Yamazaki et al. 2017) derived using SAGA GIS and Equi7 grid system.
-
-```
-dtm_twi_merit.dem_m_500m_s0..0cm_2017_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1447209)
-
-### Module Multiresolution Index of Valley Bottom Flatness (MRVBF) 
-
-Based on the MERIT DEM (Yamazaki et al. 2017) derived using SAGA GIS and Equi7 grid system.
-
-```
-dtm_vbf_merit.dem_m_250m_s0..0cm_2017_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1447209)
-
-### Rock type 
-
-Based on the [USGS Global Ecophysiography map](https://rmgsc.cr.usgs.gov/ecosystems/datadownload.shtml) / Global Lithological Map database v1.1 (GLiM, Hartmann and Moosdorf, 2012).
-
-```
-dtm_lithology_usgs.ecotapestry_c_250m_s0..0cm_2017..2018_v0.1.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1447198)
-:information_source: [Classes](/tables/dtm_lithology_usgs.ecotapestry_c_250m_s0..0cm_2014_v1.0.tif.csv)
-
-### Landform class 
-
-Based on the [USGS Global Ecophysiography map](https://rmgsc.cr.usgs.gov/ecosystems/datadownload.shtml) (Sayre et al. 2014).
-
-```
-dtm_landform_usgs.ecotapestry_c_250m_s0..0cm_2017..2018_v0.1.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1447198)
-:information_source: [Classes](/tables/dtm_landform_usgs.ecotapestry_c_250m_s0..0cm_2014_v1.0.tif.csv)
-
-[USGS Global Ecophysiography map](https://rmgsc.cr.usgs.gov/ecosystems/global.shtml) is property of the U.S. Department of the Interior, U.S. Geological Survey.
-
-### Density of Earthquakes for the last 100 years 
-
-Based on the USGS global earthquakes database (http://earthquake.usgs.gov/earthquakes/). We considered only earthquakes with magntiude 4 or higher (405,885 quakes in total). 
-Processing steps are explained [here](https://gitlab.com/openlandmap/global-layers/tree/master/input_layers/earthquakes).
-
-```
-dtm_earthquakes.dens_earthquake.usgs_m_1km_s0..0cm_1910..2017_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1458946)
-
-### Cosine of the aspect 
-
-Based on the MERIT DEM [@MERITDEM] described in @amatulli2020geomorpho90m "Geomorpho90m" dataset.
-
-```
-dtm_aspect-cosine_merit.dem_m_250m_s0..0cm_2018_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://drive.google.com/drive/folders/1D4YHUycBBhNFVVsz4ohaJI7QXV9BEh94)
-
-### Sine of the aspect 
-
-Based on the MERIT DEM (Yamazaki et al. 2017) described in [Amatulli et al. (2019; Geomorpho90m dataset)](https://dx.doi.org/10.7287/peerj.preprints.27595v1).
-
-```
-dtm_aspect-sine_merit.dem_m_250m_s0..0cm_2018_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://drive.google.com/drive/folders/1D4YHUycBBhNFVVsz4ohaJI7QXV9BEh94)
-
-### Convergence 
-
-Based on the MERIT DEM (Yamazaki et al. 2017) described in [Amatulli et al. (2019; Geomorpho90m dataset)](https://dx.doi.org/10.7287/peerj.preprints.27595v1). Derived using GRASS and Equi7 grid system.
-
-```
-dtm_convergence_merit.dem_m_250m_s0..0cm_2018_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://drive.google.com/drive/folders/1D4YHUycBBhNFVVsz4ohaJI7QXV9BEh94)
-
-### Compound topographic index 
-
-Based on the MERIT DEM (Yamazaki et al. 2017) described in [Amatulli et al. (2019; Geomorpho90m dataset)](https://dx.doi.org/10.7287/peerj.preprints.27595v1). Derived using GRASS and Equi7 grid system.
-
-```
-dtm_cti_merit.dem_m_250m_s0..0cm_2018_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://drive.google.com/drive/folders/1D4YHUycBBhNFVVsz4ohaJI7QXV9BEh94)
-
-### Maximum multiscale deviation 
-
-Based on the MERIT DEM (Yamazaki et al. 2017) described in [Amatulli et al. (2019; Geomorpho90m dataset)](https://dx.doi.org/10.7287/peerj.preprints.27595v1). Derived using WHITEBOX and Equi7 grid system.
-
-```
-dtm_dev-magnitude_merit.dem_m_250m_s0..0cm_2018_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://drive.google.com/drive/folders/1D4YHUycBBhNFVVsz4ohaJI7QXV9BEh94)
-
-### Scale of the maximum multiscale deviation 
-
-Based on the MERIT DEM (Yamazaki et al. 2017) described in [Amatulli et al. (2019; Geomorpho90m dataset)](https://dx.doi.org/10.7287/peerj.preprints.27595v1). Derived using WHITEBOX and Equi7 grid system.
-
-```
-dtm_dev-scale_merit.dem_m_250m_s0..0cm_2018_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://drive.google.com/drive/folders/1D4YHUycBBhNFVVsz4ohaJI7QXV9BEh94)
-
-### Easthness 
-
-Based on the MERIT DEM (Yamazaki et al. 2017) described in [Amatulli et al. (2019; Geomorpho90m dataset)](https://dx.doi.org/10.7287/peerj.preprints.27595v1). Derived using GDAL.
-
-```
-dtm_easthness_merit.dem_m_250m_s0..0cm_2018_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://drive.google.com/drive/folders/1D4YHUycBBhNFVVsz4ohaJI7QXV9BEh94)
-
-### Geomorphon clasess 
-
-Based on the MERIT DEM (Yamazaki et al. 2017) described in [Amatulli et al. (2019; Geomorpho90m dataset)](https://dx.doi.org/10.7287/peerj.preprints.27595v1). Derived using GRASS and Equi7 grid system. See description of [the geomorphon classes](https://grass.osgeo.org/grass74/manuals/addons/r.geomorphon.html).
-
-```
-dtm_geom_merit.dem_c_250m_s0..0cm_2018_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://drive.google.com/drive/folders/1D4YHUycBBhNFVVsz4ohaJI7QXV9BEh94)
-
-### Northness 
-
-Based on the MERIT DEM (Yamazaki et al. 2017) described in [Amatulli et al. (2019; Geomorpho90m dataset)](https://dx.doi.org/10.7287/peerj.preprints.27595v1). Derived using GDAL.
-
-```
-dtm_northness_merit.dem_m_250m_s0..0cm_2018_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://drive.google.com/drive/folders/1D4YHUycBBhNFVVsz4ohaJI7QXV9BEh94)
-
-### Profile curvature 
-
-Based on the MERIT DEM (Yamazaki et al. 2017) described in [Amatulli et al. (2019; Geomorpho90m dataset)](https://dx.doi.org/10.7287/peerj.preprints.27595v1). Derived using GRASS and Equi7 grid system.
-
-```
-dtm_pcurv_merit.dem_m_250m_s0..0cm_2018_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://drive.google.com/drive/folders/1D4YHUycBBhNFVVsz4ohaJI7QXV9BEh94)
-
-### Maximum multiscale roughness 
-
-Based on the MERIT DEM (Yamazaki et al. 2017) described in [Amatulli et al. (2019; Geomorpho90m dataset)](https://dx.doi.org/10.7287/peerj.preprints.27595v1). Derived using WHITEBOX and Equi7 grid system.
-
-```
-dtm_rough-magnitude_merit.dem_m_250m_s0..0cm_2018_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://drive.google.com/drive/folders/1D4YHUycBBhNFVVsz4ohaJI7QXV9BEh94)
-
-### Roughness 
-
-Based on the MERIT DEM (Yamazaki et al. 2017) described in [Amatulli et al. (2019; Geomorpho90m dataset)](https://dx.doi.org/10.7287/peerj.preprints.27595v1). Derived using GDAL.
-
-```
-dtm_roughness_merit.dem_m_250m_s0..0cm_2018_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://drive.google.com/drive/folders/1D4YHUycBBhNFVVsz4ohaJI7QXV9BEh94)
-
-### Scale of the maximum multiscale roughness 
-
-Based on the MERIT DEM (Yamazaki et al. 2017) described in [Amatulli et al. (2019; Geomorpho90m dataset)](https://dx.doi.org/10.7287/peerj.preprints.27595v1). Derived using WHITEBOX and Equi7 grid system.
-
-```
-dtm_rough-scale_merit.dem_m_250m_s0..0cm_2018_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://drive.google.com/drive/folders/1D4YHUycBBhNFVVsz4ohaJI7QXV9BEh94)
-
-### Tangential curvature 
-
-Based on the MERIT DEM (Yamazaki et al. 2017) described in [Amatulli et al. (2019; Geomorpho90m dataset)](https://dx.doi.org/10.7287/peerj.preprints.27595v1). Derived using GRASS and Equi7 grid system.
-
-```
-dtm_tcurv_merit.dem_m_250m_s0..0cm_2018_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://drive.google.com/drive/folders/1D4YHUycBBhNFVVsz4ohaJI7QXV9BEh94)
-
-### Vector ruggedness measure 
-
-Based on the MERIT DEM (Yamazaki et al. 2017) described in [Amatulli et al. (2019; Geomorpho90m dataset)](https://dx.doi.org/10.7287/peerj.preprints.27595v1). Derived using GRASS and Equi7 grid system.
-
-```
-dtm_vrm_merit.dem_m_250m_s0..0cm_2018_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://drive.google.com/drive/folders/1D4YHUycBBhNFVVsz4ohaJI7QXV9BEh94)
-
-## Land cover, land use and administrative data 
-
-### Land cover images for 1992 to 2018 
-
-Based on the [European Space Agency (ESA) Climate Change Initiative (ESACCI-LC)](https://www.esa-landcover-cci.org/?q=node/175). 
-
-```
-lcv_land.cover_esacci.lc.l4_c_250m_s0..0cm_*_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](http://maps.elie.ucl.ac.be/CCI/viewer/download.php)
-:information_source: [Classes](/tables/lcv_land.cover_esacci.lc.l4_c.csv)
-
-[CCI Land cover time series](https://www.esa-landcover-cci.org/) © ESA Climate Change Initiative — Land Cover led by UCLouvain (2017).
-
-<img src="img/openlandmap_indonesia_250m.gif" width="650">
-
-### Surface water occurrence probability 
-
-Based on the Pekel et al. (2016) / provided by EC Joint Research Centre. 
-To download the higher resolution version of this map visit https://global-surface-water.appspot.com/
-
-```
-lcv_water.occurance_jrc.surfacewater_p_250m_b0..200cm_1984..2016_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1439253)
-
-### Nightlights changes 
-
-2nd principal component based on the Version 4 [DMSP-OLS Nighttime Lights Time Series 1997–2014](https://ngdc.noaa.gov/eog/dmsp/downloadV4composites.html). See [processing steps](https://gitlab.com/openlandmap/global-layers/tree/master/input_layers/DMSP).
-
-```
-lcv_nightlights.stable_dmsp.pc2_m_1km_s0..0cm_1992..2013_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1458946)
-
-### Croplands historic 
-
-Time-series of maps showing cropland evolution for the past 12,000 years 
-based on the HYDE v3.2 data set (Klein Goldewijk et al. 2017).
-
-```
-lcv_landuse.cropland_hyde_p_10km_s0..0cm_*_v3.2.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](http://themasites.pbl.nl/tridion/en/themasites/hyde/download/index-2.html)
-
-### Pastures historic 
-
-Time-series of maps showing pastures evolution for the past 12,000 years 
-based on the HYDE v3.2 data set (Klein Goldewijk et al. 2017).
-
-```
-lcv_landuse.pasture_hyde_p_10km_s0..0cm_*_v3.2.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](http://themasites.pbl.nl/tridion/en/themasites/hyde/download/index-2.html)
-
-[Historic land use maps HYDE data set](http://themasites.pbl.nl/tridion/en/themasites/hyde/) is property of Netherlands Environmental Assessment Agency (PBL).
-
-###  Land cover images (100m) 
-
-Produced by the global component of the [Copernicus Land Service](https://land.copernicus.eu/global/), derived from PROBA-V satellite observations and ancillary datasets.
-
-```
-lcv_land.cover_copernicus_c_100m_s0..0cm_*_v3.0.1.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.3606361)
-
-To explore and download global 100-m resolution land cover maps please use https://lcviewer.vito.be.
-
-## Vegetation indices  
-
-FAPAR vegetation indices have been derived using the quantile function and data.table package. 
-For detailed processing steps please refer to [Hengl et al. (2018)](https://peerj.com/articles/5457/).
-
-### FAPAR median monthly value 2014–2017 
-
-Based on the [Copernicus PROB-V FAPAR](https://land.copernicus.eu/global/products/fapar) product. 
-
-```
-veg_fapar_proba.v.*_d_250m_s0..0cm_2014..2017_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1450336)
-
-### FAPAR median annual value 2014–2017 
-
-Based on the [Copernicus PROB-V FAPAR](https://land.copernicus.eu/global/products/fapar) product.
-
-```
-veg_fapar_proba.v.annual_d_250m_s0..0cm_2014..2017_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1450336)
-
-### Time-series Gapfilled NDVI P90 AVHRR 1982–2019 
-
-Based on the [AVHRR](https://www.usgs.gov/centers/eros/science/usgs-eros-archive-avhrr-normalized-difference-vegetation-index-ndvi-composites) NDVI product.
-
-```
-veg_ndvi_avhrr.mod09ga_p90_5km_s0..0cm_*..*_v0.1.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](http://doi.org/10.5281/zenodo.4320407)
-
-
-## Land degradation indices  
-
-### Soil organic carbon stock change (0–30 cm)
-
-Estimated SOC loss (0–30 cm) based on the European Space Agency (ESA) Climate Change Initiative 
-(ESACCI-LC) land cover maps 2001–2015. This only shows estimated SOC loss (in kg/m2) as a result of 
-change in land use / land cover. See [processing steps](https://gitlab.com/openlandmap/global-layers/tree/master/soil/LDN).
-
-```
-ldg_organic.carbon.stock_msa.kgm2_td_250m_b0..30cm_2001..2015_v0.1.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1475449)
-
-### Tree-covered and intact forest landscapes 
-
-Based on the [UNEP historic forest cover map](http://www.unep-wcmc.org/resources-and-data/generalised-original-and-current-forest), ESA land cover time series and 
-[intact forest landscape (IFL 2000, 2013 and 2016)](http://www.intactforests.org/data.ifl.html) data (Potapov et al. 2013). 
-Only two classes are considered: (1) intact forest areas, and (2) tree-covered areas. See [processing steps](https://gitlab.com/openlandmap/global-layers/tree/master/soil/LDN).
-
-```
-ldg_forest.cover_esacci.ifl_c_250m_s0..0cm_*_v0.1.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1476464)
-
-The [intact forest landscapes](http://www.intactforests.org) is a project supported by University of Maryland, Greenpeace, World Resources Institute, and Transparent World. 
-
-### Landscape degradation degree 
-
-Based on the comparison of [land cover changes in a 9 km search radius (Nowosad et al., 2018)](https://doi.org/10.1016/j.jag.2018.09.013).
-
-```
-ldg_landscape.degradation_sil.9km_c_250m_s0..0cm_1992..2015_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.2360376)
-
-Produced by Space Informatics Lab, University of Cincinnati.
-
-## Climatic layers  
-
-Climatic layers are available only at resolution of 1 km or 500 m. 
-Long-term Land Surface Temperature was derived from the [MODIS MOD11A2](https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table/mod11a2_v006)
-Land Surface Temperature (LST) images 2000–2017 using the data.table package and quantile function in R. 
-See [processing steps](https://gitlab.com/openlandmap/global-layers/tree/master/input_layers/MOD11A2).
-[MODIS land products](https://modis-land.gsfc.nasa.gov/) are property of Land Processes Distributed Active Archive Center, U.S. Geological Survey. 
-
-### Long-term Land Surface Temperature daytime monthly mean 
-
-Based on the MODIS MOD11A2 Land Surface Temperature (LST) images 2000–2017.
-
-```
-clm_lst_mod11a2.*.day_m_1km_s0..0cm_2000..2017_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1420114)
-
-### Long-term Land Surface Temperature daytime monthly sd 
-
-Based on the MODIS MOD11A2 Land Surface Temperature (LST) images 2000–2017.
-
-```
-clm_lst_mod11a2.*.day_sd_1km_s0..0cm_2000..2017_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1420114)
-
-### Long-term Land Surface Temperature monthly day-night difference 
-
-Based on the MODIS MOD11A2 Land Surface Temperature (LST) images 2000–2017.
-
-```
-clm_lst_mod11a2.*.daynight_m_1km_s0..0cm_2000..2017_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1420114)
-
-### Precipitation monthly in mm 
-
-Based on the Global Precipitation Measurement Integrated Multi-satellitE Retrievals for GPM ([IMERG](ftp://jsimpson.pps.eosdis.nasa.gov/NRTPUB/imerg/gis/)) 2014–2018 and WorldClim v2 (Fick and Hijmans 2017), [CHELSA climate](http://chelsa-climate.org/downloads/) (Karger et al. 2017) rainfall monthly images.
-
-```
-clm_precipitation_imerge.*_m_1km_s0..0cm_2014..2018_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1435912)
-
-[Global Precipitation Measurement Integrated Multi-satellitE Retrievals for GPM (IMERG)](https://pmm.nasa.gov/) is provided by NASA Goddard Space Flight Center.
-
-### Snow probability monthly 
-
-Based on the CCI Land Cover dataset / [MOD10A2 product](https://nsidc.org/data/mod10a2) at 500 m for the period 2000–2012.
-
-```
-clm_snow.prob_esacci.*_p_1km_s0..0cm_2000..2016_v1.0.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://www.esa-landcover-cci.org/?q=node/161)
-
-
-## Soil properties and classes  
-
-For mapping soil properties and classes we use a compilation of published point data 
-coming from various national and [international soil point data providers](http://www.fao.org/soils-portal/soil-survey/soil-maps-and-databases/soil-profile-databases/en/). 
-The most important sources of training points include:
-
-- [USDA National Cooperative Soil Characterization Database](https://ncsslabdatamart.sc.egov.usda.gov/),
-- [Africa Soil Profiles Database](https://www.isric.org/projects/africa-soil-profiles-database-afsp),
-- [LUCAS Soil database](https://doi.org/10.1111/ejss.12499),
-- [Repositório Brasileiro Livre para Dados Abertos do Solo (FEBR)](http://coral.ufsm.br/febr/),
-- [Sistema de Información de Suelos de Latinoamérica y el Caribe (SISLAC)](http://www.fao.org/soils-portal/soil-survey/soil-maps-and-databases/soil-profile-databases/en/),
-- [The Northern Circumpolar Soil Carbon Database (NCSCD)](http://bolin.su.se/data/ncscd/),
-- [Dokuchaev Soil Science Institute / Ministry of Agriculture of Russia (soil profiles for Russia)](http://egrpr.esoil.ru/),
-- [WHRC global mangrove soil carbon dataset](http://dx.doi.org/10.7910/DVN/OCYUIT),
-- Local data sets such as [Silva et al. (2019)](https://doi.org/10.1038/s41598-019-50376-w),
-
-Additional points, if not available through these databases, have been also imported from the [WoSIS Soil Profile Database](https://www.isric.org/explore/wosis) (Batjes et al. 2017).
-
-Predictions are based on 3D Machine Learning ensemble models estimated using 
-the SuperLearner and caret packages. Predictive Soil Mapping steps and sample outputs are 
-described in detail in [Hengl and MacMillan (2019)](http://soilmapper.org).
-
-For soil variable names we use consistently the National Cooperative Soil Characterization Database 
-column names and codes. For example:
-
-```
-sol_bulkdens.fineearth_usda.4a1h_m_250m_b30..30cm_1950..2017_v0.2.tif
-```
-
-refers to the `db_od` column in the database and `4a1h` laboratory method (bulk density oven-dry), as described in:
-
--   [Laboratory Methods Manual (SSIR 42) - NRCS - USDA](https://www.nrcs.usda.gov/Internet/FSE_DOCUMENTS/nrcseprd1026806.pdf),
--   [Soil Survey Field and Laboratory Methods Manual - NRCS - USDA](https://www.nrcs.usda.gov/Internet/FSE_DOCUMENTS/stelprdb1244466.pdf)
-
-Continuous 3D soil properties are predicted at 6 standard depths:
-
--   0, 10, 30, 60, 100 and 200 cm
-
-and then aggregated to standard depth intervals (5): 
-
--   0–10, 10–30, 30–60, 60–100 and 100–200 cm
-
-Standard prediction errors (eithers as the prediction variance of prediction confidence limits) 
-are provided for each soil property / depth. For example:
-
-```
-sol_bulkdens.fineearth_usda.4a1h_md_250m_b30..30cm_1950..2017_v0.2.tif
-```
-
-contains standard deviation of the ensemble models (independent prediction variance). The `md` provides **only an estimate of the prediction error** and currently can not be used to derive prediction intervals.
-
-Data import, overlay and model fitting to produce predictions of soil properties and classes are 
-explained in detail [here](https://gitlab.com/openlandmap/global-layers/tree/master/soil). Principles of Predictive Soil Mapping are outlined in detail in the [PSMwR book](https://envirometrix.github.io/PredictiveSoilMapping/).
-
-```{r id-workflow, echo=FALSE, fig.cap="OpenLandMap workflow for soil mapping: general workflow for generation of soil properties and classes using Machine Learning.", out.width="100%"}
-knitr::include_graphics("img/LandGIS_workflow_soil.png")
-```
-
-Several improvements have been implemented to spatial prediction of soil properties and classes (in comparison to Hengl et al. 2017, and Sanderman et al. 2017):
-
--   New RS-based layers have been added to the list of covariates including Copernicus FAPAR time series of images, 
-      MERIT DEM multiscale DEM derivatives, ALOS radar images, MODIST LST aggregates and IMERGE precipitation images,
-
--   Selection of the ensemble model is now run via the [SuperLearner package](https://cran.r-project.org/web/packages/SuperLearner/vignettes/Guide-to-SuperLearner.html) framework, which allows for incorporating spatial subsetting in the Cross-Validation of models,
-
--   An estimate of the prediction uncertainty / error is provided via the ensemble model standard deviation,
-
--   Soil type maps are now based on over 360,000 training points (compare with ca 70,000 in the previous run),
-
--   For each point quality flag (completeness) is used as [case.weights](https://topepo.github.io/caret/using-recipes-with-train.html#case-weights) in the training process,
-
--   Artifacts / extrapolation problems, especially in the soil carbon maps, are now dealt with by using the most up-to-date (ESA) land cover map,
-
-To use these soil maps in combination with local data (e.g. to produce ensemble or finer resolution maps for local areas),
-consider following some of these approaches:
-
--   Manon, C., Dobarco, M.R, Arrouays, D., Minasny, B. and N.P.A. Saby. (2019). “Merging Country, Continental and Global Predictions of Soil Texture: Lessons from Ensemble Modelling in France.” Geoderma 337: 99–110. https://dx.doi.org/10.1016/j.geoderma.2018.09.007.
--   Ramcharan, A., Hengl, T., Nauman, T., Brungard, C., Waltman, S., Wills, S., & Thompson, J. (2018). “Soil Property and Class Maps of the Conterminous United States at 100-Meter Spatial Resolution.” Soil Science Society of America Journal, 82(1), 186-201. https://dl.sciencesocieties.org/publications/sssaj/abstracts/82/1/186
-
-
-### USDA soil taxonomy great groups 
-
-Predicted distribution based on machine learning predictions (random forest) from global compilation of soil profiles.
-
-```
-sol_grtgroup_usda.soiltax_c_250m_s0..0cm_1950..2017_v0.1.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1476844)
-:information_source: [Classes](/tables/sol_grtgroup_usda.soiltax_c_250m_s0..0cm_1950..2017_v0.1.tif.csv)
-
-USDA great groups are explained in detail in:
-
--  [Illustrated Guide to Soil Taxonomy - NRCS - USDA](https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download/?cid=stelprdb1247203.pdf),
--  [USDA: Soil Formation and Classification](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/edu/?cid=nrcs142p2_054278),
-
-More detailed soil class maps of USA can be found in [Ramcharan et al. (2018)](https://dl.sciencesocieties.org/publications/sssaj/abstracts/82/1/186).
-
-```{r usda-workflow, echo=FALSE, fig.cap="Example of a general workflow of how OpenLandMap can be used to recommend optimal soil use practices at farm scale based on accurately predicting the soil type (in this case USDA great group).", out.width="100%"}
-knitr::include_graphics("https://raw.githubusercontent.com/Envirometrix/PredictiveSoilMapping/master/figures/Fig_soil_type_workflow.svg.png")
-```
-
-### Hapludalfs 
-
-Example of predicted distribution of the “hapludalfs”: soils with argillic (clay accumulation) subsoil horizon.
-
-```
-sol_grtgroup_usda.soiltax.hapludalfs_p_250m_s0..0cm_1950..2017_v0.2.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1476844)
-
-### Soil organic carbon content in x 5 g / kg 
-
-Based on machine learning predictions from global compilation of soil profiles and samples.
-To convert to % divide by 2.
-
-```
-sol_organic.carbon_usda.6a1c_m_250m_b*..*cm_1950..2017_v0.2.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1475457)
-
-### Bulk density in x 10 kg/m3 
-
-Based on machine learning predictions from global compilation of soil profiles and samples.
-
-```
-sol_bulkdens.fineearth_usda.4a1h_m_250m_b*..*cm_1950..2017_v0.2.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1475970)
-
-### Clay content in % 
-
-Based on machine learning predictions from global compilation of soil profiles and samples.
-
-```
-sol_clay.wfraction_usda.3a1a1a_m_250m_b*..*cm_1950..2017_v0.2.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1476854)
-
-### Sand content in % 
-
-Based on machine learning predictions from global compilation of soil profiles and samples.
-
-```
-sol_sand.wfraction_usda.3a1a1a_m_250m_b*..*cm_1950..2017_v0.2.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1476851)
-
-### Soil texture class (USDA system) 
-
-Derived using the predicted clay, silt and sand content images and the [soiltexture](https://cran.r-project.org/package=soiltexture) R package.
-
-```
-sol_texture.class_usda.tt_m_250m_b*..*cm_1950..2017_v0.2.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1475451)
-:information_source: [Classes](/tables/sol_texture.class_usda.tt_m_250m_b_1950..2017_v0.1.tif.csv)
-
-### Soil pH in H2O 
-
-Based on machine learning predictions from global compilation of soil profiles and samples.
-
-```
-sol_ph.h2o_usda.4c1a2a_m_250m_b*..*cm_1950..2017_v0.2.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.1475459)
-
-### Soil water content at 33kPa (field capacity)
-
-Based on machine learning predictions from global compilation of soil profiles and samples.
-Training points are based on a global compilation of soil profiles 
-([USDA NCSS](https://ncsslabdatamart.sc.egov.usda.gov/), [AfSPDB](https://www.isric.org/projects/africa-soil-profiles-database-afsp), [ISRIC WISE](https://data.isric.org/geonetwork/srv/eng/catalog.search#/metadata/a351682c-330a-4995-a5a1-57ad160e621c), [EGRPR](http://egrpr.esoil.ru/), [SPADE](https://esdac.jrc.ec.europa.eu/content/soil-profile-analytical-database-2), [CanNPDB](https://open.canada.ca/data/en/dataset/6457fad6-b6f5-47a3-9bd1-ad14aea4b9e0), [UNSODA](https://data.nal.usda.gov/dataset/unsoda-20-unsaturated-soil-hydraulic-database-database-and-program-indirect-methods-estimating-unsaturated-hydraulic-properties), [SWIG](https://doi.pangaea.de/10.1594/PANGAEA.885492), [HYBRAS](http://www.cprm.gov.br/en/Hydrology/Research-and-Innovation/HYBRAS-4208.html) and [HydroS](http://dx.doi.org/10.4228/ZALF.2003.273)). 
-Data import steps are available [here](https://gitlab.com/openlandmap/global-layers/blob/master/training_points/soil/Import_soilWater_variables.R). Spatial prediction steps are described in detail [here](https://gitlab.com/openlandmap/global-layers/tree/master/soil/soil_water). 
-
-```
-sol_watercontent.33kPa_usda.4b1c_m_250m_b*..*cm_1950..2017_v0.1.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](https://doi.org/10.5281/zenodo.2629589)
-
-
-## Potential Natural Vegetation 
-
-### Potential distribution of biomes 
-
-Potential Natural Vegetation biomes global predictions of classes (based on the BIOMES 6000 data set).
-Processing steps and generation of predictions is explained in detail in [Hengl et al. (2018)](https://peerj.com/articles/5457/).
-
-```
-pnv_biome.type_biome00k_c_1km_s0..0cm_2000..2017_v0.1.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](http://dx.doi.org/10.7910/DVN/QQHCIK)
-:information_source: [Classes](/tables/pnv_biome.type_biome00k_c_1km_s0..0cm_2000..2017_v0.1.tif.csv)
-
-### Potential FAPAR monthly 
-
-Potential Natural Vegetation FAPAR predicted monthly median (based on PROB-V FAPAR 2014–2017).
-
-```
-pnv_fapar_proba.v.***_d_1km_s0..0cm_2014..2017_v0.1.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](http://dx.doi.org/10.7910/DVN/QQHCIK)
-:information_source: [Classes](/tables/pnv_biome.type_biome00k_c_1km_s0..0cm_2000..2017_v0.1.tif.csv)
-
-### Difference potential vs actual FAPAR monthly 
-
-Derived as a difference between the predicted potential and actual Copernicus FAPAR 2014–2017.
-
-```
-pnv_fapar_proba.v.annualdiff_d_1km_s0..0cm_2014..2017_v0.1.tif
-```
-`r emo::ji("open_file_folder")` [Download layer](http://dx.doi.org/10.7910/DVN/QQHCIK)
-
-
-## Hydrology and water dynamics 
-
-### FLO1K mean annual streamflow 1960–2015 
-
-[FLO1K](https://www.nature.com/articles/sdata201852) mean annual streamflow in m3 / sec 1960–2015 derived at 1 km resolution 
-using data from 1960 through 2015.
-
-```
-hyd_ann.streamflow_flo1k.mean_m_1km_s0..0cm_*_v1.0.tif
-```
-
-`r emo::ji("open_file_folder")` [Download layer](https://dx.doi.org/10.6084/m9.figshare.c.3890224)
-
-### FLO1K maximum annual streamflow 1960–2015 
-
-[FLO1K](https://www.nature.com/articles/sdata201852) maximum annual streamflow in m3 / sec 1960–2015 derived at 1 km resolution 
-using data from 1960 through 2015.
-
-```
-hyd_ann.streamflow_flo1k.max_m_1km_s0..0cm_*_v1.0.tif
-```
-
-`r emo::ji("open_file_folder")` [Download layer](https://dx.doi.org/10.6084/m9.figshare.c.3890224)
-
-### FLO1K minimum annual streamflow 1960–2015 
-
-[FLO1K](https://www.nature.com/articles/sdata201852) minimum annual streamflow in m3 / sec 1960–2015 derived at 1 km resolution 
-using data from 1960 through 2015.
-
-```
-hyd_ann.streamflow_flo1k.min_m_1km_s0..0cm_*_v1.0.tif
-```
-
-`r emo::ji("open_file_folder")` [Download layer](https://dx.doi.org/10.6084/m9.figshare.c.3890224)
-
-
 ## Contributing data {.unnumbered}
 
 We encourage public and private entities to help this project and share SSL data. 
@@ -1108,6 +468,7 @@ below:
 
 [Tomislav Hengl](https://github.com/thengl),
 [Leandro L. Parente](https://www.linkedin.com/in/leal-parente/), 
+[Rolf Simoes](),
 
 ## Disclaimer {.unnumbered}
 
@@ -1134,6 +495,23 @@ please submit a correction / pull request or **[open an issue](https://github.co
 This is a community project. No profits are being made from building and serving 
 OpenLandMap. If you would like to become a sponsor of the project, please 
 contact us via: <https://opengeohub.org/contact-us/>.  
+
+## How to cite {.unnumbered}
+
+To cite this document please use:
+
+```
+@dataset{openlandmap_2023,
+  author       = {Hengl, T., Parente, L., Ho, Y.-F. and contributors},
+  title        = {{OpenLandMap Open Land Data services}},
+  year         = {2023},
+  publisher    = {OpenGeoHub foundation},
+  address      = {Wageningen},
+  version      = {v2},
+  doi          = {10.5281/zenodo.1476464},
+  url          = {https://doi.org/10.5281/zenodo.1476464}
+}
+```
 
 ## Licence {.unnumbered}
 

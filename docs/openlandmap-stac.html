@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>4 OpenLandMap STAC | OpenLandMap Open Land Data services</title>
+<meta name="author" content="OpenGeoHub foundation, GILAB.rs and contributors">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.14/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-06HBX7FM0K"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-06HBX7FM0K');
+    </script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">OpenLandMap Open Land Data services</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
+<li><a class="" href="new-to-markdown.html"><span class="header-section-number">2</span> New to markdown</a></li>
+<li><a class="" href="openlandmap-layers.html"><span class="header-section-number">3</span> OpenLandMap layers</a></li>
+<li><a class="active" href="openlandmap-stac.html"><span class="header-section-number">4</span> OpenLandMap STAC</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">5</span> References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/OpenLandMap/book">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="openlandmap-stac" class="section level1" number="4">
+<h1>
+<span class="header-section-number">4</span> OpenLandMap STAC<a class="anchor" aria-label="anchor" href="#openlandmap-stac"><i class="fas fa-link"></i></a>
+</h1>
+<div class="rmdnote">
+<p>You are reading the work-in-progress OpenLandMap.org Open Land Data Services. This chapter is currently draft version, a peer-review publication is pending. You can find the polished first edition at <a href="https://openlandmap.github.io/book/" class="uri">https://openlandmap.github.io/book/</a>.</p>
+</div>
+<div id="listing-layers" class="section level2" number="4.1">
+<h2>
+<span class="header-section-number">4.1</span> Listing layers<a class="anchor" aria-label="anchor" href="#listing-layers"><i class="fas fa-link"></i></a>
+</h2>
+<p>Thanks to the STAC functionality and RStac package, it is possible to query directly
+which collections are available on the stac.OpenLandMap.org (Note: some layers that
+are available in STAC, might not be available in the front-end / web-GIS):</p>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://brazil-data-cube.github.io/rstac/">rstac</a></span><span class="op">)</span>
+<span class="va">s_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/stac.html">stac</a></span><span class="op">(</span><span class="st">"https://s3.eu-central-1.wasabisys.com/stac/openlandmap/"</span><span class="op">)</span>
+<span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/collections.html">collections</a></span><span class="op">(</span><span class="va">s_obj</span><span class="op">)</span>
+<span class="co">#&gt; <span style="font-weight: bold;">###RSTACQuery</span></span>
+<span class="co">#&gt; - <span style="font-weight: bold;">url:</span><span> https://s3.eu-central-1.wasabisys.com/stac/openlandmap/</span></span>
+<span class="co">#&gt; - <span style="font-weight: bold;">params:</span></span>
+<span class="co">#&gt; - <span style="font-weight: bold;">field(s):</span><span> version, base_url, endpoint, params, verb, encode</span></span></code></pre></div>
+<p>For example, to list all layers with <code>collection_id</code> matching the land cover annual
+time-series from <code>lc_glc.fcs30d</code>, we can use e.g.:</p>
+</div>
+<div id="spatial-overlay" class="section level2" number="4.2">
+<h2>
+<span class="header-section-number">4.2</span> Spatial overlay<a class="anchor" aria-label="anchor" href="#spatial-overlay"><i class="fas fa-link"></i></a>
+</h2>
+<p>To overlay multiple new points with some COGs, we can create a new function:</p>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">extract_xy</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">lon</span>, <span class="va">lat</span>, <span class="va">cogs</span>, <span class="va">mc.cores</span><span class="op">=</span><span class="fl">10</span><span class="op">)</span><span class="op">{</span>
+  <span class="va">out</span> <span class="op">=</span> <span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/mclapply.html">mclapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"/vsicurl/"</span>, <span class="va">cogs</span><span class="op">$</span><span class="va">filename.lst</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span><span class="op">{</span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/extract.html">extract</a></span><span class="op">(</span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html">rast</a></span><span class="op">(</span><span class="va">i</span><span class="op">)</span>, 
+        <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, crs<span class="op">=</span><span class="st">"EPSG:4326"</span><span class="op">)</span><span class="op">)</span><span class="op">}</span>, mc.cores<span class="op">=</span><span class="va">mc.cores</span><span class="op">)</span>
+  <span class="va">out</span> <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_cols.html">bind_cols</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">out</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span><span class="op">{</span><span class="va">i</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span><span class="op">}</span><span class="op">)</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/make.names.html">make.names</a></span><span class="op">(</span><span class="va">cogs</span><span class="op">$</span><span class="va">d.lst</span><span class="op">)</span>
+  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+<p>This only needs URL address of the COGs on some S3 storage and then longitude and
+latitude of the query points (in the WGS84 system). This is an example of query of
+all land cover classes from 1985 to 2022:</p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#cogs</span></code></pre></div>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="openlandmap-layers.html"><span class="header-section-number">3</span> OpenLandMap layers</a></div>
+<div class="next"><a href="references.html"><span class="header-section-number">5</span> References</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#openlandmap-stac"><span class="header-section-number">4</span> OpenLandMap STAC</a></li>
+<li><a class="nav-link" href="#listing-layers"><span class="header-section-number">4.1</span> Listing layers</a></li>
+<li><a class="nav-link" href="#spatial-overlay"><span class="header-section-number">4.2</span> Spatial overlay</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/OpenLandMap/book/blob/master/020-stac.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/OpenLandMap/book/edit/master/020-stac.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>OpenLandMap Open Land Data services</strong>" was written by OpenGeoHub foundation, GILAB.rs and contributors. </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

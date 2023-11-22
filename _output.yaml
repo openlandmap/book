@@ -1,6 +1,6 @@
 bookdown::bs4_book:
   theme:
-    primary: "#35cf02"
+    primary: "#5db658"
   repo: https://github.com/OpenLandMap/book
   includes:
     in_header: [ga_script.html]
@@ -35,5 +35,3 @@ bookdown::pdf_book:
   toc_appendix: true
   quote_footer: ["\\VA{", "}{}"]
   highlight_bw: true
-
-
