@@ -17,7 +17,7 @@ lapply(ls, require, character.only = TRUE)
 
 ## Listing layers
 
-Thanks to the STAC functionality and RStac package, it is possible to query directly 
+Thanks to the STAC functionality and `rstac` package, it is possible to query directly 
 which collections are available on the stac.OpenLandMap.org (Note: some layers that 
 are available in STAC, might not be available in the front-end / web-GIS):
 
