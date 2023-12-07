@@ -7,7 +7,11 @@ status("drafting")
 ```{r, include=FALSE, message=FALSE, results='hide'}
 ls <- c("rstac")
 new.packages <- ls[!(ls %in% installed.packages()[,"Package"])]
-if(length(new.packages)) install.packages(new.packages, repos = "https://cloud.r-project.org")
+if (length(new.packages)) {
+  install.packages(new.packages, repos = "https://cloud.r-project.org")
+  # temporarily up to the package's new version is available on CRAN
+  devtools::install_github("rolfsimoes/rstac@b-1.0.0-beta")
+}
 lapply(ls, require, character.only = TRUE)
 ```
 
@@ -19,25 +23,77 @@ are available in STAC, might not be available in the front-end / web-GIS):
 
 ```{r}
 library(rstac)
-s_obj <- stac("https://s3.eu-central-1.wasabisys.com/stac/openlandmap/")
-collections(s_obj)
+olm <- stac_read("https://s3.eu-central-1.wasabisys.com/stac/openlandmap/catalog.json")
+olm
 ```
 
-For example, to list all layers with `collection_id` matching the land cover annual 
-time-series from `lc_glc.fcs30d`, we can use e.g.:
+To list all available collections in the OpenLandMap catalog, we can inspect the `links` entry:
+
+```{r}
+links(olm)
+```
+For example, to list all layers with the `title` containing the `"GLC"` text for land cover annual 
+time-series, we can use e.g.:
+
+```{r}
+links(olm, grepl("GLC", title))
+```
+
+Let's open the third link that refers to the `GLC_FCS30D` annual land land-cover dynamic monitoring product:
+
+```{r}
+glc_link <- links(olm, grepl("GLC", title))[[3]]
+glc <- link_open(glc_link)
+glc
+```
+
+Lets list its available items by filtering those links containing the `rel == "item"` attribute:
+
+```{r}
+links(glc, rel == "item")
+```
+
+To be able to filter items by space/time attributes we need to open them:
+
+```{r}
+glc_items <- read_items(glc, progress = FALSE)
+glc_items
+```
+
+We have items for all these dates:
+
+```{r}
+items_datetime(glc_items)
+```
+
+To list all available assets on all these items:
+
+```{r}
+items_assets(glc_items)
+```
 
 
 ## Spatial overlay
 
-To overlay multiple new points with some COGs, we can create a new function:
+To overlay multiple new points with some COGs, we can use `rstac` function `assets_url()` to get the URL of all COG files, and pass these URLs to a extracting function:
 
 ```{r}
-extract_xy = function(lon, lat, cogs, mc.cores=10){
-  out = parallel::mclapply(paste0("/vsicurl/", cogs$filename.lst), function(i){terra::extract(terra::rast(i), 
-        terra::vect(matrix(c(x, y), ncol = 2), crs="EPSG:4326"))}, mc.cores=mc.cores)
-  out = dplyr::bind_cols(lapply(out, function(i){i[,2]}))
-  names(out) = make.names(cogs$d.lst)
-  return(out)
+urls <- assets_url(glc_items, asset_names = "lc_glc.fcs30d_c_30m_s", append_gdalvsi = TRUE)
+urls[1:3]
+```
+
+The function to extract the values can do it in parallel:
+
+```{r}
+extract_xy = function(lon, lat, cogs, mc.cores = 10) {
+  values = parallel::mclapply(cogs, function(i) {
+    point <- terra::vect(matrix(c(lon, lat), ncol = 2), crs = "EPSG:4326")
+    value <- terra::extract(terra::rast(i), point)
+    #dplyr::as_tibble(value)[,2]
+    value[,2]
+  }, mc.cores = mc.cores)
+  values = dplyr::tibble(glc = unlist(values))
+  return(values)
 }
 ```
 
@@ -46,7 +102,10 @@ latitude of the query points (in the WGS84 system). This is an example of query 
 all land cover classes from 1985 to 2022:
 
 ```{r}
-#cogs
+values <- extract_xy(-35.5, -9.0, urls)
+# add date column
+values$date <- as.Date(items_datetime(glc_items))
+values
 ```
 
 
