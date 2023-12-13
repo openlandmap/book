@@ -89,18 +89,30 @@ Thus, the following five primary requirements need to be satisfied before a laye
 
 All layers are organized around the following themes 
 (based on the [UN-GGIM The Global Fundamental Geospatial Data Themes](https://ggim.un.org/meetings/GGIM-committee/9th-Session/documents/Fundamental_Data_Publication.pdf)):
-- Buildings and Settlements,
-- Elevation and Depth,
-- Geology and Soils,
-- Land Cover and Land Use,
-- Population Distribution,
-- Water,
-- Physical Infrastructure,
-- Climate (_added entry_),
-- Biodiversity and Nature Conservation (_added entry_),
 
-Some layers maybe match two or more themes and are difficult to classify using a 
-simple definition. 
+-  Buildings and Settlements,
+-  Elevation and Depth,
+-  Geology and Soils,
+-  Land Cover and Land Use,
+-  Population Distribution,
+-  Water,
+-  Physical Infrastructure,
+-  Climate (_added entry_),
+-  Biodiversity and Nature Conservation (_added entry_),
+
+Note some layers maybe match two or more themes and are difficult to classify using a 
+simple definition, hence we might mention them at multiple places / within multiple themes.
+
+@RADELOFF2024113918 (the Landsat science team) have proposed 13 essential and 
+many more desirable/ aspirational products using medium resolution imagery referred 
+to as “Medium-resolution satellite image-based products that meet the identified information needs for sustainable management, societal benefits, and global change challenges”. 
+The desirable products include: maps of crop types, irrigated fields, land abandonment, 
+forest loss agents, LAI/FAPAR, green vegetation cover fraction, emissivity, ice sheet 
+velocity, surface water quality and evaporative stress. The aspirational land monitoring 
+products include: forest types, and tree species, urban structure, forest recovery, crop yields, 
+forest biomass, habitat heterogeneity and winter habitat indices, net radiation, 
+snow and ice sheet surface melt, ice sheet and glacier melt ponds, sea ice motion and 
+evaporation and transpiration. This list is largely a basis for OpenLandMap activities for the years to come.
 
 ## Accessing data 
 

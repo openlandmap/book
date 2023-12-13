@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>4 OpenLandMap STAC | OpenLandMap Open Land Data services</title>
+<title>5 OpenLandMap STAC | OpenLandMap Open Land Data services</title>
 <meta name="author" content="OpenGeoHub foundation, GILAB.rs and contributors">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.14/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
@@ -39,9 +39,10 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
 <li><a class="" href="new-to-markdown.html"><span class="header-section-number">2</span> New to markdown</a></li>
-<li><a class="" href="openlandmap-layers.html"><span class="header-section-number">3</span> OpenLandMap layers</a></li>
-<li><a class="active" href="openlandmap-stac.html"><span class="header-section-number">4</span> OpenLandMap STAC</a></li>
-<li><a class="" href="references.html"><span class="header-section-number">5</span> References</a></li>
+<li><a class="" href="compendium-of-global-gridded-environmental-data-sets.html"><span class="header-section-number">3</span> Compendium of Global Gridded Environmental Data Sets</a></li>
+<li><a class="" href="openlandmap-layers.html"><span class="header-section-number">4</span> OpenLandMap layers</a></li>
+<li><a class="active" href="openlandmap-stac.html"><span class="header-section-number">5</span> OpenLandMap STAC</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">6</span> References</a></li>
 </ul>
 
         <div class="book-extra">
@@ -49,16 +50,16 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="openlandmap-stac" class="section level1" number="4">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="openlandmap-stac" class="section level1" number="5">
 <h1>
-<span class="header-section-number">4</span> OpenLandMap STAC<a class="anchor" aria-label="anchor" href="#openlandmap-stac"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5</span> OpenLandMap STAC<a class="anchor" aria-label="anchor" href="#openlandmap-stac"><i class="fas fa-link"></i></a>
 </h1>
 <div class="rmdnote">
 <p>You are reading the work-in-progress OpenLandMap.org Open Land Data Services. This chapter is currently draft version, a peer-review publication is pending. You can find the polished first edition at <a href="https://openlandmap.github.io/book/" class="uri">https://openlandmap.github.io/book/</a>.</p>
 </div>
-<div id="listing-layers" class="section level2" number="4.1">
+<div id="listing-layers" class="section level2" number="5.1">
 <h2>
-<span class="header-section-number">4.1</span> Listing layers<a class="anchor" aria-label="anchor" href="#listing-layers"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.1</span> Listing layers<a class="anchor" aria-label="anchor" href="#listing-layers"><i class="fas fa-link"></i></a>
 </h2>
 <p>Thanks to the STAC functionality and RStac package, it is possible to query directly
 which collections are available on the stac.OpenLandMap.org (Note: some layers that
@@ -74,9 +75,9 @@ are available in STAC, might not be available in the front-end / web-GIS):</p>
 <p>For example, to list all layers with <code>collection_id</code> matching the land cover annual
 time-series from <code>lc_glc.fcs30d</code>, we can use e.g.:</p>
 </div>
-<div id="spatial-overlay" class="section level2" number="4.2">
+<div id="spatial-overlay" class="section level2" number="5.2">
 <h2>
-<span class="header-section-number">4.2</span> Spatial overlay<a class="anchor" aria-label="anchor" href="#spatial-overlay"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.2</span> Spatial overlay<a class="anchor" aria-label="anchor" href="#spatial-overlay"><i class="fas fa-link"></i></a>
 </h2>
 <p>To overlay multiple new points with some COGs, we can create a new function:</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
@@ -96,14 +97,14 @@ all land cover classes from 1985 to 2022:</p>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="openlandmap-layers.html"><span class="header-section-number">3</span> OpenLandMap layers</a></div>
-<div class="next"><a href="references.html"><span class="header-section-number">5</span> References</a></div>
+<div class="prev"><a href="openlandmap-layers.html"><span class="header-section-number">4</span> OpenLandMap layers</a></div>
+<div class="next"><a href="references.html"><span class="header-section-number">6</span> References</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#openlandmap-stac"><span class="header-section-number">4</span> OpenLandMap STAC</a></li>
-<li><a class="nav-link" href="#listing-layers"><span class="header-section-number">4.1</span> Listing layers</a></li>
-<li><a class="nav-link" href="#spatial-overlay"><span class="header-section-number">4.2</span> Spatial overlay</a></li>
+<li><a class="nav-link" href="#openlandmap-stac"><span class="header-section-number">5</span> OpenLandMap STAC</a></li>
+<li><a class="nav-link" href="#listing-layers"><span class="header-section-number">5.1</span> Listing layers</a></li>
+<li><a class="nav-link" href="#spatial-overlay"><span class="header-section-number">5.2</span> Spatial overlay</a></li>
 </ul>
 
       <div class="book-extra">
