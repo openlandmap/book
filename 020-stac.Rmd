@@ -5,7 +5,7 @@ status("drafting")
 ```
 
 ```{r, include=FALSE, message=FALSE, results='hide'}
-ls <- c("rstac")
+ls <- c("rstac", "curl")
 new.packages <- ls[!(ls %in% installed.packages()[,"Package"])]
 if (length(new.packages)) {
   install.packages(new.packages, repos = "https://cloud.r-project.org")
@@ -23,7 +23,7 @@ are available in STAC, might not be available in the front-end / web-GIS):
 
 ```{r}
 library(rstac)
-olm <- stac_read("https://s3.eu-central-1.wasabisys.com/stac/openlandmap/catalog.json")
+olm <- stac_read("http://s3.eu-central-1.wasabisys.com/stac/openlandmap/catalog.json")
 olm
 ```
 

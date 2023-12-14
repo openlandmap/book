@@ -58,7 +58,7 @@ and counties (more than 100,000 areas). Lower level administrative boundaries ca
 be obtained via the [FAO's GeoNetwork server](http://www.fao.org/geonetwork/srv/en/main.home).
 Even more detailed is the [FAO GAUL: Global Administrative Unit Layers](https://data.apps.fao.org/map/catalog/static/search?keyword=HiH_boundaries) which is 
 available for different periods and up to the 3rd admin level, so one can potentially 
-also track changes in political units (the [table](/tabular/GAUL_g2015_2014_1_legend.csv) `GAUL_g2015_2014_1_legend.csv` 
+also track changes in political units (the [table](https://github.com/openlandmap/book/blob/master/tabular/GAUL_g2015_2014_1_legend.csv) `GAUL_g2015_2014_1_legend.csv` 
 contains an example of cca 3500 administrative units with codes). The [geoBoundaries](http://www.geoboundaries.org/) 
 is a global Database of Political Administrative Boundaries and contains a snapshot 
 of political and administrative boundaries since 2017.
@@ -137,7 +137,7 @@ products are now available at very high resolution (but then only covering recen
 * **[Global canopy top height map for the year 2020](https://langnico.github.io/globalcanopyheight/)** at 10-m [@lang2023high];
 
 Several initiatives aim at integrating multiple land cover products [@rs8121036] 
-and/or running land cover classification by fusing multisource EO data [@Song2017, @Liu2021]. 
+and/or running land cover classification by fusing multisource EO data [@Song2017; @Liu2021]. 
 
 ### Forest resources
 
