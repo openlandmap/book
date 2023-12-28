@@ -1,7 +1,7 @@
 # Compendium of Global Gridded Environmental Data Sets
 
 This is an open compendium of global (gridded) environmental datasets (bio-geophysical variables). Here you can 
-you find systematic reviews of published data sets (a selection of cutting-edge datasets we plan to upload to OpenLandMap.org) 
+find systematic listings of published data sets (a selection of the cutting-edge datasets we plan to upload to OpenLandMap.org) 
 with emphasis on publicly available data sets available under open data license. These reviews are periodically 
 maintained by the [www.OpenLandMap.org](https://openlandmap.org/) development team and 
 collaborators. They are only meant to serve as general inventories of what is 
@@ -12,15 +12,21 @@ Please check also the working version of the [OEMC global Land Use Land Cover Ta
 
 Minimum conditions to include your contribution to this compendium:
 
--  Please submit / register **only global data sets** (at least 80% complete; at least 4 continents),
--  The data sets should be peer-reviewed or at least come with fully documented processing steps / metadata,
--  The data set should have one of the compatible **[open data licenses](https://opendefinition.org/licenses/)** or at least allow for the derivative works to be released as open data,
--  The data set should be current i.e. still in use and the citation / URL should mention the most recent update.
+-  Please submit / register **only global data sets** (at least 80% complete; at least 5 continents);
+-  The data sets should be peer-reviewed or at least come with fully documented processing steps / metadata;
+-  Refer to computational notebooks or materials that explain how was the data produced: **open science** data sets are especially encouraged; 
+-  The data set should have one of the compatible **[open data licenses](https://opendefinition.org/licenses/)** or at least allow for the derivative works to be released as open data;
+-  The data set should be current i.e. still in use and the citation / URL should mention the most recent update;
 -  Mention of the data should focus on practical things such as _"where I can read about how was this data set produced?"_, _"where can I download this data?"_, _"what are its technical characteristics such as spatial resolution, temporal coverage, biophysical variables and measurement units?"_;
 
-Mentioning, listing and/or self-promoting of proprietary / commercial data sets will not 
-be accepted. You can however mention some data sets that are not open if they are without any 
-open data / open source alternative.
+Examples of contributions that will not be welcomed:
+
+-  Registering and submitting regional or local data sets i.e. covering only continents or countries;
+-  Mentioning, listing and/or self-promoting of proprietary / commercial data sets will not be accepted;
+-  Rating or criticizing data sets or expressing personal opinions;
+-  Deleting text submitted by others or inserting code that is computational or difficult to maintain;
+
+You can however mention some data sets that are not open if they are without any open data / open source alternative.
 
 ## Thematic data groups:
 
@@ -63,6 +69,10 @@ Sorted alphabetically:
 * [The awesome-gee-community-catalog](https://gee-community-catalog.org/) by Samapriya Roy et al.;
 * [UNEP/GRID GEO DataPortal](http://geodata.grid.unep.ch/) and [UNEP/GRID-Arendal](http://maps.grida.no/region/global) — a large repository of global grids at various resolutions;
 * [UNEP Data Catalog](https://datacatalog.unep.org/app/);
+
+```{r usgs-modis, echo=FALSE, fig.cap="LP DAAC data catalog at https://lpdaac.usgs.gov/product_search/ is an example of continuosly updated and complete catalog of global environmental data (primarily based on MODIS and similar EO missions) which are available publicly without restrictions.", out.width="100%"}
+knitr::include_graphics("img/lpdaac_usgs_preview.jpg")
+```
 
 ## Buildings and Settlements
 
@@ -115,7 +125,7 @@ correct DTM. Both are available for [download](https://hydro.iis.u-tokyo.ac.jp/~
 [Hydrography90m](https://doi.org/10.18728/igb-fred-762.1) [@amatulli2022hydrography90m] data sets. 
 
 A complete land surface model ETOPO1 Global Relief Model (includes bathymetry data) 
-is available at resolution of 1 km and can be obtained from the [NOAA's National Geophysical Data Center](http://ngdc.noaa.gov/) [@amante2009etopo1]. 
+is available at resolution of 1-km and can be obtained from the [NOAA's National Geophysical Data Center](http://ngdc.noaa.gov/) [@amante2009etopo1]. 
 An updated version of the ETOPO is the Global Land One-km Base Elevation Project ([GLOBE](http://www.ngdc.noaa.gov/mgg/topo/globe.html)) DEM. Global bathymetry data ([GEBCO data set](http://www.gebco.net/data_and_products/gridded_bathymetry_data/)) can also obtained from the British Oceanographic Data Centre.
 
 [OpenTopography.org](https://portal.opentopography.org/dataCatalog?group=global) maintains a catalog of 
@@ -204,13 +214,13 @@ which contains a number of global layers including a [map of Global Airports](ht
 ### Soils
 
 Soil maps (physical, chemical, biological soil properties and soil classes) are especially important for spatial prediction of distribution 
-of vegetation and (plant) species distribution. One harmonized global soil-type map is the [USGS Global Soil Regions](https://www.nrcs.usda.gov/conservation-basics/natural-resource-concerns/soils/soil-geography) 
-map at resolution of 60 arcsec, and which is based on the FAO-UNESCO soil map. 
-
-FAO, IIASA, ISRIC, ISSCAS, JRC have produced in 2007 a 1 km resolution gridded 
+of vegetation and (plant) species distribution. 
+FAO, IIASA, ISRIC, ISSCAS, JRC have produced in 2007 a 1-km resolution gridded 
 soil-class map, produced by merging various national soil maps. This product is 
 also known as the **[Harmonized World Soil Database](https://www.fao.org/soils-portal/data-hub/soil-maps-and-databases/harmonized-world-soil-database-v20/en/)**. 
 Global predicted WRB soil type maps at 1-km can be download as geotifs from [here](https://doi.org/10.5281/zenodo.7820796).
+USGS / USDA have produced a map of [Global Soil Regions](https://www.nrcs.usda.gov/conservation-basics/natural-resource-concerns/soils/soil-geography) 
+map at resolution of 60 arcsec, and which is based on the FAO-UNESCO soil map.
 
 A list of seven gridded soil property maps (at resolution of 5 arc-minutes i.e. about 10-km) — 
 soil-carbon density, total nitrogen density, field capacity, wilting point, profile 
@@ -261,15 +271,22 @@ but these datasets are significant in size and hence require significant process
 Current publicly available global land cover and/or land use maps include [@Liu2021]:
 
 * **[GLASS-GLC](https://doi.org/10.1594/PANGAEA.913496)** is global land cover time-series 1982 to 2015 at 5-km resolution derived directly in Google Earth Engine [@Liu2020ESSD].
-* **[MCD12Q1 Land Cover Type Yearly L3 Global](https://lpdaac.usgs.gov/products/mcd12q1v061/)** product available in resolution from 500 m. MODIS Land cover maps (17 land cover classes based on the [International Geosphere Biosphere Programme](http://www.igbp.net/) IGBP classification system) is a temporal dataset so that one can also derive various change indices and quantify the land cover dynamics.
+* **[MCD12Q1 Land Cover Type Yearly L3 Global](https://lpdaac.usgs.gov/products/mcd12q1v061/)** product available in resolution from 500-km. MODIS Land cover maps (17 land cover classes based on the [International Geosphere Biosphere Programme](http://www.igbp.net/) IGBP classification system) is a temporal dataset so that one can also derive various change indices and quantify the land cover dynamics.
 * **[ESA CCI Land cover](http://www.esa-landcover-cci.org/)** is a global land cover time series from 1992 to 2020+ derived at 300-m spatial resolution from MERIS, SPOT and PROBA-V imagery. Maps can be accessed through a [viewer](http://maps.elie.ucl.ac.be/CCI/viewer/) and downloaded from the ESA website or from zenodo.org [@defourny2012land].
 * **[Copernicus Global Land Cover](https://land.copernicus.eu/global/products/lc)** products at 100-m for years 2015, 2016, 2017 and 2018 and based on the PROBA-V imagery [@rs12061044]. The maps which can be downloaded directly from [zenodo.org](https://zenodo.org/communities/copernicus-land-cover/). This maps contain also predicted fractions for the main land cover classes (per pixel).
 * **[GLAD Global Land Cover and Land Use Change 2000–2020 (GLCLUC2020)](https://glad.umd.edu/dataset/GLCLUC2020)** provides estimate of the land cover for the last 20+ years but also quantifies changes in forest extent and height, cropland, built-up lands, surface water, and perennial snow and ice extent [@Potapov2022].
 * **[GLC FCS30D](https://zenodo.org/doi/10.5281/zenodo.8239304)** is a global 30-m annual land-cover time-series data set with 17-class system for the period 1982–2021 [@Zhang2021].
 
+**HYDE (History database of the Global Environment)** contains historic (estimated) maps (10-km resolution) of main land use 
+categories up to pre-historic times 10,000 BCE to CE 2020 [@klein2017anthropogenic]. 
+HYDE includes irrigated areas, rice, intensive pasture, extensive rangelands and similar. Data can be downloaded from 
+the [University of Utrecht Copernicus Land Change Lab](https://landuse.sites.uu.nl/datasets/).
+The **[ArcheoGLOBE project](https://archaeoglobe.com/)** has produced number of similar historic land 
+use data sets that are available as open data via [Harvard dataverse](https://dataverse.harvard.edu/dataverse/ArchaeoGLOBE).
+
 A detailed Water mask of the world is available also from the [Global Surface Water Explorer](https://global-surface-water.appspot.com/) hosted by European Commission JRC 
 [@Pekel2016]. A Landsat-based water 
-dynamics assessment at 30-m is also provided by @pickens2020mapping. 
+dynamics assessment (annual maps) at 30-m is also provided by @pickens2020mapping. 
 
 Due to the availability of the Sentinel-2 10-m resolution data, several land cover 
 products are now available at very high resolution (but then only covering recent 3–5 years). These include:
@@ -336,7 +353,7 @@ forest cover change at 30-m resolution.
 For global modeling one of the most important global socio-economic data layers are the population density 
 maps and attached socio-economic variables. The [Socioeconomic Data and Applications Center](https://sedac.ciesin.columbia.edu/) (SEDAC) distributes The [Global Population Density Grid Time Series Estimates](https://doi.org/10.7927/H47M05W2) (1970–2000), 
 Global Rural-Urban Mapping Project, Version 1 ([GRUMPv1](https://doi.org/10.7927/np6p-qe61)) and **Gridded Population 
-of the World, Version 4** ([GPWv4](https://doi.org/10.7927/H49C6VHW)) all at resolution of up to 1 km. These are the currently most 
+of the World, Version 4** ([GPWv4](https://doi.org/10.7927/H49C6VHW)) all at resolution of up to 1-km. These are the currently most 
 detailed gridded time-series dataset with consistent population density and structure; for modeling future, 
 a [Global 1-km Downscaled Population Base Year and Projection Grids Based on the SSPs](https://doi.org/10.7927/q7z9-9r69) (1990–2100) [@gao2020global] is also available. It consists of global urban, rural, and total population 
 for the base year 2000, population projections at ten-year intervals for 2010–2100 
@@ -360,7 +377,7 @@ are available for download from https://portal.mwater.co/.
 The lights at night map contains the lights from cities, towns, and other sites 
 with persistent lighting, including gas flares. Images of lights at night have shown 
 to be highly correlated with industrial activity and Gross Domestic Product (GPP) [@doll2006mapping]. 
-A time-series of (1 km resolution) annual global night light images (1992–2013) is available via the NOAA's 
+A time-series of (1-km resolution) annual global night light images (1992–2013) is available via the NOAA's 
 National Geophysical Data Center [the Version 4 DMSP-OLS Nighttime Lights Time Series](https://ngdc.noaa.gov/eog/dmsp/downloadV4composites.html). 
 The [harmonized nighttime light (NTL) time-series composites for 1992–2020](https://doi.org/10.6084/m9.figshare.16602224.v1) are 
 available at 1-km resolution [@zhao2022global].
@@ -493,7 +510,7 @@ classification zones and bioclimatic variables, available for download from http
 
 -  [Long-term MODIS Land Surface Temperature (LST) monthly daytime and nightime](https://zenodo.org/doi/10.5281/zenodo.1420114) images at 1-km resolution for 2000–2022;
 -  [Global monthly water vapor at 1-km resolution](https://zenodo.org/doi/10.5281/zenodo.8193740) for 2000–2022 based on [MCD19A2](https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/MCD19A2);
--  [Global MODIS-based snow cover monthly long-term at 500 m resolution](https://zenodo.org/doi/10.5281/zenodo.5774953) for 2000–2012;
+-  [Global MODIS-based snow cover monthly long-term at 500-km resolution](https://zenodo.org/doi/10.5281/zenodo.5774953) for 2000–2012;
 -  [SM2RAIN global precipitation daily and monthly](https://zenodo.org/doi/10.5281/zenodo.2615278) at 10-km resolution;
 
 ### Meteorological images
@@ -509,7 +526,7 @@ MODIS produces [daily estimates of the global Land Surface Temperature](https://
 which are supposedly highly accurate with an average accuracy of ±1 degree Kelvin [@Wan2004]. 
 
 The [Meteosat](http://www.eumetsat.int/) Second Generation (MSG) satellites 
-(from Meteosat-8 onwards) produce SEVIRI 15–minutes images at resolution of 1 km. 
+(from Meteosat-8 onwards) produce SEVIRI 15–minutes images at resolution of 1-km. 
 The most interesting SEVIRI data set for environmental applications is the High Rate SEVIRI, 
 which consists of 12 spectral channels including: visible and near infrared light, 
 water vapor band, carbon dioxide and ozone bands. Meteosat LST products are available 
@@ -567,7 +584,9 @@ and not subject to human management. When considering PNV, one needs to distingu
 between potential _natural_ and potential _managed_ vegetation, and _actual_ natural 
 and _actual_ managed vegetation [@hengl2018global]. 
 
-<img src="img/fig_scheme_pnv.png" alt="Schematic explanation of differences between (A) potential and actual natural/managed vegetation, and (B) current and historic vegetation in the context of global land area. Image source: https://doi.org/10.7717/peerj.5457." width="850">
+```{r scheme-pnv, echo=FALSE, fig.cap="Schematic explanation of differences between (A) potential and actual natural/managed vegetation, and (B) current and historic vegetation in the context of global land area. Image source: https://doi.org/10.7717/peerj.5457.", out.width="100%"}
+knitr::include_graphics("img/fig_scheme_pnv.png")
+```
 
 @griscom2017natural produced the [Global Reforestation Potential Map](https://zenodo.org/record/883444) at 1-km resolution. 
 @bastin2019global produced [Potential forest cover map](https://crowtherlab.com/maps/) at 1-km resolution assuming no humans present. 

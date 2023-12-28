@@ -2,6 +2,8 @@ fig:olm-istria
 fig:mask-word
 fig:igh-world
 fig:pull-request
+fig:usgs-modis
+fig:scheme-pnv
 about
 openlandmap-project
 layers-and-themes-of-interest
