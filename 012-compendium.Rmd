@@ -109,7 +109,7 @@ Poverty, Sustainability, Urban and Water.
 
 ### Digital Terrain Models
 
-Global Shuttle Radar Topography Mission (SRTM) [Digital Elevation Model](http://en.wikipedia.org/wiki/Digital_elevation_model) was 
+Global Shuttle Radar Topography Mission (SRTM) [Digital Elevation Model](http://en.wikipedia.org/wiki/Digital_elevation_model) is 
 on of the most well-known global environmental dataset [@rabus2003shuttle] 
 available with a resolution of approximately 30-m (1 arcsec). The most recent 
 version of the SRTM DEM is the [NASADEM](https://lpdaac.usgs.gov/products/nasadem_hgtv001/).
@@ -131,6 +131,11 @@ An updated version of the ETOPO is the Global Land One-km Base Elevation Project
 [OpenTopography.org](https://portal.opentopography.org/dataCatalog?group=global) maintains a catalog of 
 global elevation data sets including national data sets. A combination (Ensemble-DTM) of 
 GLO-30, AW3D30, MERIT DEM and number of continental / national DTM's is available via [OpenLandMap.org](https://stac.openlandmap.org/dtm.bareearth_ensemble/collection.json).
+
+@iwahashi2007automated produced a global landform type map of the world at 250-m.
+Geomorphological forms (Geomorphon classification system) at 100-m are also available for download 
+via the [OpenTopography.org](https://doi.org/10.5069/G91R6NPX) repository.
+@Frye2023 produced **[Named Landforms of the World (NLW2)](https://www.esri.com/arcgis-blog/products/arcgis-living-atlas/announcements/introducing_nlwv2/)** with most of data at 250-m resolution.
 
 ### Canopy height data
 
@@ -241,6 +246,10 @@ with over 100,000 profiles and over 50 analytical and descriptive parameters [@b
 [Crowther's lab](https://crowtherlab.com/maps/#/) distributes a number of soil-biology global data sets (1-km) 
 including maps of soil nematodes density, bacterial biomass, fungal biomass and similar.
 
+Some soil properties are often directly estimated from the EO data. For example the soil moisture 
+[GLASS SM data set](http://glass.umd.edu/soil_moisture/) and the [gap-free global daily surface soil moisture at 1-km grid resolution](https://doi.org/10.11888/RemoteSen.tpdc.272760). 
+Bare soil surface fraction and spectral bands can be also derived directly from EO data e.g. @dematte2020bare; data available via [GEE](https://gee-community-catalog.org/projects/bss/).
+
 An in-depth review of the global soil data sets is available in @Dai2019. 
 Status of the soil information in the world can be also followed via David G. Rossiter's [compendium of On-Line Soil Survey Information](https://www.isric.org/explore/soil-geographic-databases#world).
 
@@ -273,7 +282,7 @@ Current publicly available global land cover and/or land use maps include [@Liu2
 * **[GLASS-GLC](https://doi.org/10.1594/PANGAEA.913496)** is global land cover time-series 1982 to 2015 at 5-km resolution derived directly in Google Earth Engine [@Liu2020ESSD].
 * **[MCD12Q1 Land Cover Type Yearly L3 Global](https://lpdaac.usgs.gov/products/mcd12q1v061/)** product available in resolution from 500-km. MODIS Land cover maps (17 land cover classes based on the [International Geosphere Biosphere Programme](http://www.igbp.net/) IGBP classification system) is a temporal dataset so that one can also derive various change indices and quantify the land cover dynamics.
 * **[ESA CCI Land cover](http://www.esa-landcover-cci.org/)** is a global land cover time series from 1992 to 2020+ derived at 300-m spatial resolution from MERIS, SPOT and PROBA-V imagery. Maps can be accessed through a [viewer](http://maps.elie.ucl.ac.be/CCI/viewer/) and downloaded from the ESA website or from zenodo.org [@defourny2012land].
-* **[Copernicus Global Land Cover](https://land.copernicus.eu/global/products/lc)** products at 100-m for years 2015, 2016, 2017 and 2018 and based on the PROBA-V imagery [@rs12061044]. The maps which can be downloaded directly from [zenodo.org](https://zenodo.org/communities/copernicus-land-cover/). This maps contain also predicted fractions for the main land cover classes (per pixel).
+* **[Copernicus Global Land Cover](https://land.copernicus.eu/global/products/lc)** products at 100-m for years 2015, 2016, 2017 and 2018 and based on the PROBA-V imagery [@rs12061044]. The maps which can be downloaded directly from [zenodo.org](https://zenodo.org/communities/copernicus-land-cover/). These maps contain also predicted fractions for the main land cover classes (per pixel).
 * **[GLAD Global Land Cover and Land Use Change 2000–2020 (GLCLUC2020)](https://glad.umd.edu/dataset/GLCLUC2020)** provides estimate of the land cover for the last 20+ years but also quantifies changes in forest extent and height, cropland, built-up lands, surface water, and perennial snow and ice extent [@Potapov2022].
 * **[GLC FCS30D](https://zenodo.org/doi/10.5281/zenodo.8239304)** is a global 30-m annual land-cover time-series data set with 17-class system for the period 1982–2021 [@Zhang2021].
 
@@ -281,8 +290,6 @@ Current publicly available global land cover and/or land use maps include [@Liu2
 categories up to pre-historic times 10,000 BCE to CE 2020 [@klein2017anthropogenic]. 
 HYDE includes irrigated areas, rice, intensive pasture, extensive rangelands and similar. Data can be downloaded from 
 the [University of Utrecht Copernicus Land Change Lab](https://landuse.sites.uu.nl/datasets/).
-The **[ArcheoGLOBE project](https://archaeoglobe.com/)** has produced number of similar historic land 
-use data sets that are available as open data via [Harvard dataverse](https://dataverse.harvard.edu/dataverse/ArchaeoGLOBE).
 
 A detailed Water mask of the world is available also from the [Global Surface Water Explorer](https://global-surface-water.appspot.com/) hosted by European Commission JRC 
 [@Pekel2016]. A Landsat-based water 
@@ -478,6 +485,7 @@ Key climatic variables of interest are usually:
 -  water vapor pressure (kPa),
 -  probability of occurrence of snow,
 -  snow thickness,
+-  soil moisture,
 -  water vapor (cm liquid water),
 
 The key public gridded global climatic data sets (current and past climate) include: 
@@ -505,6 +513,23 @@ and southern hemisphere at resolution of 25-km.
 
 @cui20211 have produced 1-km resolution maps of present-time and future Koppen-Geiger climate 
 classification zones and bioclimatic variables, available for download from http://glass.umd.edu/KGClim. 
+
+There are multiple daily and monthly global soil moisture products either purely based 
+on EO images or a combination of downscaling and modeling. 
+@Fang2022 produced 1-km soil moisture data set covering years 2015 to 2020 by downscaling the SMAP product.
+National Snow and Ice Data Center has also produced SMAP-Derived 1-km Downscaled Surface Soil Moisture Product. 
+This data set is available for download from https://nsidc.org/data/nsidc-0779/versions/1.
+@han2023global produced a global daily soil moisture data set at 1-km 
+resolution called **GSSM1-km** covering period 2000–2020.
+The GSSM1-km dataset can be downloaded from [Figshare](https://doi.org/10.6084/m9.figshare.21806457.v1). 
+@Zhang2023 used ensemble learning to produce a daily 1-km spatiotemporally continuous soil moisture product for 2000–2020 called **GLASS SM**. 
+The GLASS SM is freely available at http://glass.umd.edu/soil_moisture/; the annual average global soil moisture dataset at 1-km resolution was also generated, which can be downloaded from [zenodo](https://doi.org/10.5281/zenodo.7172664).
+@zheng202321 produced a gap-free global daily surface soil moisture at 1-km grid resolution 
+for 2000–2020, which is available for download from the [National Tibetan Plateau/Third Pole Environment Data Center](https://doi.org/10.11888/RemoteSen.tpdc.272760) (almost 1TB of data).  
+Coarser resolution (10-km or coarser) soil moisture global images are also 
+available such as the [ESA's CCI soil moisture product](https://climate.esa.int/en/projects/soil-moisture/data/), 
+[SMAP Enhanced L3 Radiometer Global Daily 9 km EASE-Grid Soil Moisture](https://nsidc.org/data/spl3smp_e/versions/3) and 
+the [ASCAT](https://hsaf.meteoam.it/Products/ProductsList?type=soil_moisture) **Soil Wetness Profile Index** and **Root Zone Soil Moisture Profile Index**.  
 
 [OpenLandMap.org](https://stac.openlandmap.org/wv_mcd19a2v061.seasconv/collection.json) provides access to number of original climatic data sets produced at OpenGeoHub including:
 

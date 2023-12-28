@@ -242,7 +242,7 @@ Poverty, Sustainability, Urban and Water.</p>
 <h3>
 <span class="header-section-number">3.4.1</span> Digital Terrain Models<a class="anchor" aria-label="anchor" href="#digital-terrain-models"><i class="fas fa-link"></i></a>
 </h3>
-<p>Global Shuttle Radar Topography Mission (SRTM) <a href="http://en.wikipedia.org/wiki/Digital_elevation_model">Digital Elevation Model</a> was
+<p>Global Shuttle Radar Topography Mission (SRTM) <a href="http://en.wikipedia.org/wiki/Digital_elevation_model">Digital Elevation Model</a> is
 on of the most well-known global environmental dataset <span class="citation">(<a href="references.html#ref-rabus2003shuttle">Rabus, M., A., &amp; R., 2003</a>)</span>
 available with a resolution of approximately 30-m (1 arcsec). The most recent
 version of the SRTM DEM is the <a href="https://lpdaac.usgs.gov/products/nasadem_hgtv001/">NASADEM</a>.
@@ -262,6 +262,10 @@ An updated version of the ETOPO is the Global Land One-km Base Elevation Project
 <p><a href="https://portal.opentopography.org/dataCatalog?group=global">OpenTopography.org</a> maintains a catalog of
 global elevation data sets including national data sets. A combination (Ensemble-DTM) of
 GLO-30, AW3D30, MERIT DEM and number of continental / national DTM’s is available via <a href="https://stac.openlandmap.org/dtm.bareearth_ensemble/collection.json">OpenLandMap.org</a>.</p>
+<p><span class="citation">Iwahashi &amp; Pike (<a href="references.html#ref-iwahashi2007automated">2007</a>)</span> produced a global landform type map of the world at 250-m.
+Geomorphological forms (Geomorphon classification system) at 100-m are also available for download
+via the <a href="https://doi.org/10.5069/G91R6NPX">OpenTopography.org</a> repository.
+<span class="citation">Charlie Frye &amp; Richards (<a href="references.html#ref-Frye2023">2023</a>)</span> produced <strong><a href="https://www.esri.com/arcgis-blog/products/arcgis-living-atlas/announcements/introducing_nlwv2/">Named Landforms of the World (NLW2)</a></strong> with most of data at 250-m resolution.</p>
 </div>
 <div id="canopy-height-data" class="section level3" number="3.4.2">
 <h3>
@@ -392,6 +396,9 @@ with over 100,000 profiles and over 50 analytical and descriptive parameters <sp
 </ul>
 <p><a href="https://crowtherlab.com/maps/#/">Crowther’s lab</a> distributes a number of soil-biology global data sets (1-km)
 including maps of soil nematodes density, bacterial biomass, fungal biomass and similar.</p>
+<p>Some soil properties are often directly estimated from the EO data. For example the soil moisture
+<a href="http://glass.umd.edu/soil_moisture/">GLASS SM data set</a> and the <a href="https://doi.org/10.11888/RemoteSen.tpdc.272760">gap-free global daily surface soil moisture at 1-km grid resolution</a>.
+Bare soil surface fraction and spectral bands can be also derived directly from EO data e.g. <span class="citation">Demattê et al. (<a href="references.html#ref-dematte2020bare">2020</a>)</span>; data available via <a href="https://gee-community-catalog.org/projects/bss/">GEE</a>.</p>
 <p>An in-depth review of the global soil data sets is available in <span class="citation">Dai et al. (<a href="references.html#ref-Dai2019">2019</a>)</span>.
 Status of the soil information in the world can be also followed via David G. Rossiter’s <a href="https://www.isric.org/explore/soil-geographic-databases#world">compendium of On-Line Soil Survey Information</a>.</p>
 </div>
@@ -431,18 +438,16 @@ but these datasets are significant in size and hence require significant process
 <li>
 <strong><a href="http://www.esa-landcover-cci.org/">ESA CCI Land cover</a></strong> is a global land cover time series from 1992 to 2020+ derived at 300-m spatial resolution from MERIS, SPOT and PROBA-V imagery. Maps can be accessed through a <a href="http://maps.elie.ucl.ac.be/CCI/viewer/">viewer</a> and downloaded from the ESA website or from zenodo.org <span class="citation">(<a href="references.html#ref-defourny2012land">Defourny et al., 2012</a>)</span>.</li>
 <li>
-<strong><a href="https://land.copernicus.eu/global/products/lc">Copernicus Global Land Cover</a></strong> products at 100-m for years 2015, 2016, 2017 and 2018 and based on the PROBA-V imagery <span class="citation">(<a href="references.html#ref-rs12061044">Buchhorn et al., 2020</a>)</span>. The maps which can be downloaded directly from <a href="https://zenodo.org/communities/copernicus-land-cover/">zenodo.org</a>. This maps contain also predicted fractions for the main land cover classes (per pixel).</li>
+<strong><a href="https://land.copernicus.eu/global/products/lc">Copernicus Global Land Cover</a></strong> products at 100-m for years 2015, 2016, 2017 and 2018 and based on the PROBA-V imagery <span class="citation">(<a href="references.html#ref-rs12061044">Buchhorn et al., 2020</a>)</span>. The maps which can be downloaded directly from <a href="https://zenodo.org/communities/copernicus-land-cover/">zenodo.org</a>. These maps contain also predicted fractions for the main land cover classes (per pixel).</li>
 <li>
 <strong><a href="https://glad.umd.edu/dataset/GLCLUC2020">GLAD Global Land Cover and Land Use Change 2000–2020 (GLCLUC2020)</a></strong> provides estimate of the land cover for the last 20+ years but also quantifies changes in forest extent and height, cropland, built-up lands, surface water, and perennial snow and ice extent <span class="citation">(<a href="references.html#ref-Potapov2022">Potapov et al., 2022</a>)</span>.</li>
 <li>
-<strong><a href="https://zenodo.org/doi/10.5281/zenodo.8239304">GLC FCS30D</a></strong> is a global 30-m annual land-cover time-series data set with 17-class system for the period 1982–2021 <span class="citation">(<a href="references.html#ref-Zhang2021">Zhang et al., 2021</a>)</span>.</li>
+<strong><a href="https://zenodo.org/doi/10.5281/zenodo.8239304">GLC FCS30D</a></strong> is a global 30-m annual land-cover time-series data set with 17-class system for the period 1982–2021 <span class="citation">(<a href="references.html#ref-Zhang2021">X. Zhang et al., 2021</a>)</span>.</li>
 </ul>
 <p><strong>HYDE (History database of the Global Environment)</strong> contains historic (estimated) maps (10-km resolution) of main land use
 categories up to pre-historic times 10,000 BCE to CE 2020 <span class="citation">(<a href="references.html#ref-klein2017anthropogenic">Klein Goldewijk, Beusen, Doelman, &amp; Stehfest, 2017</a>)</span>.
 HYDE includes irrigated areas, rice, intensive pasture, extensive rangelands and similar. Data can be downloaded from
-the <a href="https://landuse.sites.uu.nl/datasets/">University of Utrecht Copernicus Land Change Lab</a>.
-The <strong><a href="https://archaeoglobe.com/">ArcheoGLOBE project</a></strong> has produced number of similar historic land
-use data sets that are available as open data via <a href="https://dataverse.harvard.edu/dataverse/ArchaeoGLOBE">Harvard dataverse</a>.</p>
+the <a href="https://landuse.sites.uu.nl/datasets/">University of Utrecht Copernicus Land Change Lab</a>.</p>
 <p>A detailed Water mask of the world is available also from the <a href="https://global-surface-water.appspot.com/">Global Surface Water Explorer</a> hosted by European Commission JRC
 <span class="citation">(<a href="references.html#ref-Pekel2016">Pekel et al., 2016</a>)</span>. A Landsat-based water
 dynamics assessment (annual maps) at 30-m is also provided by <span class="citation">Pickens et al. (<a href="references.html#ref-pickens2020mapping">2020</a>)</span>.</p>
@@ -573,7 +578,7 @@ and are hence compatible with other global land products.</p>
 <li>
 <a href="https://glad.umd.edu/dataset/global-surface-water-dynamics">Landsat-based water dynamics</a> at 30-m for 1999 to 2018 period by <span class="citation">Pickens et al. (<a href="references.html#ref-pickens2020mapping">2020</a>)</span>.</li>
 <li>
-<a href="https://zenodo.org/doi/10.5281/zenodo.8239304">GLC FCS30D</a> a global 30-m annual land-cover time-series data set with 17-class system (includes ocean and fresh-water) for the period 1982–2021 <span class="citation">(<a href="references.html#ref-Zhang2021">Zhang et al., 2021</a>)</span>.</li>
+<a href="https://zenodo.org/doi/10.5281/zenodo.8239304">GLC FCS30D</a> a global 30-m annual land-cover time-series data set with 17-class system (includes ocean and fresh-water) for the period 1982–2021 <span class="citation">(<a href="references.html#ref-Zhang2021">X. Zhang et al., 2021</a>)</span>.</li>
 </ul>
 <p>A <a href="https://lpdaac.usgs.gov/products/mod44wv006/">MODIS-based water mask</a> product at somewhat coarser resolution (250-m) is also available.
 MODIS distributes a number of global products for global oceans including <strong><a href="https://doi.org/10.5067/MODAM-8D9N9">sea surface temperature (SST)</a></strong>
@@ -658,6 +663,7 @@ global scale.</p>
 <li>water vapor pressure (kPa),</li>
 <li>probability of occurrence of snow,</li>
 <li>snow thickness,</li>
+<li>soil moisture,</li>
 <li>water vapor (cm liquid water),</li>
 </ul>
 <p>The key public gridded global climatic data sets (current and past climate) include:</p>
@@ -688,6 +694,22 @@ equivalent (SWE) climatologies and similar. These data can be obtained for north
 and southern hemisphere at resolution of 25-km.</p>
 <p><span class="citation">Cui, Liang, Wang, &amp; Liu (<a href="references.html#ref-cui20211">2021</a>)</span> have produced 1-km resolution maps of present-time and future Koppen-Geiger climate
 classification zones and bioclimatic variables, available for download from <a href="http://glass.umd.edu/KGClim" class="uri">http://glass.umd.edu/KGClim</a>.</p>
+<p>There are multiple daily and monthly global soil moisture products either purely based
+on EO images or a combination of downscaling and modeling.
+<span class="citation">Fang et al. (<a href="references.html#ref-Fang2022">2022</a>)</span> produced 1-km soil moisture data set covering years 2015 to 2020 by downscaling the SMAP product.
+National Snow and Ice Data Center has also produced SMAP-Derived 1-km Downscaled Surface Soil Moisture Product.
+This data set is available for download from <a href="https://nsidc.org/data/nsidc-0779/versions/1" class="uri">https://nsidc.org/data/nsidc-0779/versions/1</a>.
+<span class="citation">Han et al. (<a href="references.html#ref-han2023global">2023</a>)</span> produced a global daily soil moisture data set at 1-km
+resolution called <strong>GSSM1-km</strong> covering period 2000–2020.
+The GSSM1-km dataset can be downloaded from <a href="https://doi.org/10.6084/m9.figshare.21806457.v1">Figshare</a>.
+<span class="citation">Y. Zhang et al. (<a href="references.html#ref-Zhang2023">2023</a>)</span> used ensemble learning to produce a daily 1-km spatiotemporally continuous soil moisture product for 2000–2020 called <strong>GLASS SM</strong>.
+The GLASS SM is freely available at <a href="http://glass.umd.edu/soil_moisture/" class="uri">http://glass.umd.edu/soil_moisture/</a>; the annual average global soil moisture dataset at 1-km resolution was also generated, which can be downloaded from <a href="https://doi.org/10.5281/zenodo.7172664">zenodo</a>.
+<span class="citation">Zheng, Jia, &amp; Zhao (<a href="references.html#ref-zheng202321">2023</a>)</span> produced a gap-free global daily surface soil moisture at 1-km grid resolution
+for 2000–2020, which is available for download from the <a href="https://doi.org/10.11888/RemoteSen.tpdc.272760">National Tibetan Plateau/Third Pole Environment Data Center</a> (almost 1TB of data).<br>
+Coarser resolution (10-km or coarser) soil moisture global images are also
+available such as the <a href="https://climate.esa.int/en/projects/soil-moisture/data/">ESA’s CCI soil moisture product</a>,
+<a href="https://nsidc.org/data/spl3smp_e/versions/3">SMAP Enhanced L3 Radiometer Global Daily 9 km EASE-Grid Soil Moisture</a> and
+the <a href="https://hsaf.meteoam.it/Products/ProductsList?type=soil_moisture">ASCAT</a> <strong>Soil Wetness Profile Index</strong> and <strong>Root Zone Soil Moisture Profile Index</strong>.</p>
 <p><a href="https://stac.openlandmap.org/wv_mcd19a2v061.seasconv/collection.json">OpenLandMap.org</a> provides access to number of original climatic data sets produced at OpenGeoHub including:</p>
 <ul>
 <li>
