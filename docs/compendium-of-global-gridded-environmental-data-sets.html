@@ -99,6 +99,8 @@ collaborators. They are only meant to serve as general inventories of what is
 available, and NOT as an in-depth review article.</p>
 <p>To contribute to this portal, consider submitting new data by editing this Markdown document.
 Please check also the working version of the <a href="https://docs.google.com/spreadsheets/d/1SX51OilNt-cUYpAa7t0LAvZRTzq3Sd4WJLnX6mWKfQk/edit?usp=sharing">OEMC global Land Use Land Cover Taxonomy Tables</a>.</p>
+<p>If your work / products are cited here you are for us <strong>a champion of open environmental data</strong> and
+we are enormeously thanksful for your contirbution (please never stop!).</p>
 <p>Minimum conditions to include your contribution to this compendium:</p>
 <ul>
 <li>Please submit / register <strong>only global data sets</strong> (at least 80% complete; at least 5 continents);</li>
@@ -467,9 +469,49 @@ and/or running land cover classification by fusing multisource EO data <span cla
 <p>ESA’s <strong><a href="https://esa-worldcereal.org/en">WorldCereal</a></strong> provides access to <a href="https://doi.org/10.5281/zenodo.7875104">high resolution predictions</a> (10-m)
 of winter and spring cereals, maize, active cropland, irrigation and similar for year 2021 <span class="citation">(<a href="references.html#ref-essd-15-5491-2023">Van Tricht et al., 2023</a>)</span>.</p>
 </div>
-<div id="forest-resources" class="section level3" number="3.6.2">
+<div id="biophysical-indices" class="section level3" number="3.6.2">
 <h3>
-<span class="header-section-number">3.6.2</span> Forest resources<a class="anchor" aria-label="anchor" href="#forest-resources"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.6.2</span> Biophysical indices<a class="anchor" aria-label="anchor" href="#biophysical-indices"><i class="fas fa-link"></i></a>
+</h3>
+<p>There are number of biophysical indices including vegetation indices
+that can be derivd from optical EO images such as MODIS, Landsat and/or Sentinel.
+This includes (note: formulas for biophysical indices for MODIS, Landsat etc might differ):</p>
+<ul>
+<li>
+<a href="https://www.mdpi.com/2072-4292/13/3/474">Bare Soil Fraction</a> (BSF),</li>
+<li>
+<a href="https://www.usgs.gov/landsat-missions/landsat-surface-reflectance-derived-spectral-indices">Enhanced Vegetation Index</a> (EVI),</li>
+<li>
+<a href="https://doi.org/10.1016/j.srs.2022.100060">Fraction of Absorbed Photosynthetically Active Radiation</a> (FAPAR),</li>
+<li>
+<a href="https://www.usgs.gov/landsat-missions/landsat-surface-reflectance-derived-spectral-indices">Leaf Area Index</a> (LAI),</li>
+<li>
+<a href="https://www.usgs.gov/landsat-missions/landsat-surface-reflectance-derived-spectral-indices">Normalized Burn Ratio</a> (NBR),</li>
+<li>
+<a href="https://www.usgs.gov/landsat-missions/normalized-difference-snow-index">Normalized Difference Snow Index</a> (NDSI),</li>
+<li>
+<a href="https://www.mdpi.com/2072-4292/12/16/2665">Normalized Difference Tillage Index</a> (NDTI),</li>
+<li>
+<a href="https://www.usgs.gov/landsat-missions/landsat-surface-reflectance-derived-spectral-indices">Normalized Difference Vegetation Index</a> (NDVI),</li>
+<li>
+<a href="https://edo.jrc.ec.europa.eu/documents/factsheets/factsheet_ndwi.pdf">Normalized Difference Water Index</a> (NDWI),</li>
+</ul>
+<p>8-day and monthly biophysical indiced from MODIS (250-m) are available from the <a href="https://lpdaac.usgs.gov/products/mod13q1v061/">MOD13Q1</a>.
+These, however, often come with many missing pixels due to clouds and artifacts
+and require significant post-processing to reach a <a href="https://medium.com/mlearning-ai/present-and-future-of-data-cubes-an-european-eo-perspective-735d3f16f7c9">complete consistent structured product</a>.</p>
+<p><span class="citation">Ma et al. (<a href="references.html#ref-ma2022global">2022</a>)</span> produced global consistent 8-day Fraction of Absorbed Photosynthetically Active Radiation (FAPAR)
+product at 250-m spatial resolution (available for download from <a href="https://zenodo.org/doi/10.5281/zenodo.6405563">Zenodo</a>).
+<span class="citation">Xiong et al. (<a href="references.html#ref-xiong2023improved">2023</a>)</span> produced an improved global consistent and complete 8-day 250-m NDVI and EVI products
+covering 2000 to 2021 (data is available for download from <a href="https://doi.org/10.6084/m9.figshare.22220050">Figshare</a>).
+<a href="http://www.glass.umd.edu/Download.html">Global LAnd Surface Satellite (GLASS)</a> serves a number of post-processed products
+including FAPAR and Leaf Area Index (LAI) at 250-m and also covering period 2000 to 2021.
+Based on the <span class="citation">Ma et al. (<a href="references.html#ref-ma2022global">2022</a>)</span>, <span class="citation">Hackländer et al. (<a href="references.html#ref-Hacklaender2024PeerJ">2024</a>)</span> produced an aggregated
+complete consistent <a href="https://zenodo.org/doi/10.5281/zenodo.8418441">monthly FAPAR product</a> with P25, P50 and P75 quantiles.</p>
+<p>Global cloud-free Landsat composites (Red, NIR, SWIR1, SWIR2) for the world for multiple periods (2000, 2014, 2018, 2022) can be obtained from <a href="https://glad.earthengine.app/view/global-forest-change">GLAD Global Forest Change</a>.</p>
+</div>
+<div id="forest-resources" class="section level3" number="3.6.3">
+<h3>
+<span class="header-section-number">3.6.3</span> Forest resources<a class="anchor" aria-label="anchor" href="#forest-resources"><i class="fas fa-link"></i></a>
 </h3>
 <p>FAO periodically (every 5 years) organizes the so called <a href="https://www.fao.org/forest-resources-assessment/en/">Forest Resources Assessment</a> (FRA) —
 an international compilation of forest resource assessment (forest maps, health
@@ -489,9 +531,9 @@ can be temporary i.e. effect of fires, floods, pests and similar), therefore it
 is important to consider any forest inventory data within time-frame, previous state and
 considering succession rates.</p>
 </div>
-<div id="land-use-change" class="section level3" number="3.6.3">
+<div id="land-use-change" class="section level3" number="3.6.4">
 <h3>
-<span class="header-section-number">3.6.3</span> Land use change<a class="anchor" aria-label="anchor" href="#land-use-change"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.6.4</span> Land use change<a class="anchor" aria-label="anchor" href="#land-use-change"><i class="fas fa-link"></i></a>
 </h3>
 <p>Land use change often comes with a special legend and should not be confused with
 land cover mapping. Some typical legend entries for land use change includes:</p>
@@ -879,8 +921,9 @@ Distribution maps (presence) for these species (with limited coverage) can be do
 <li>
 <a class="nav-link" href="#land-cover-and-land-use"><span class="header-section-number">3.6</span> Land Cover and Land Use</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#land-cover"><span class="header-section-number">3.6.1</span> Land cover</a></li>
-<li><a class="nav-link" href="#forest-resources"><span class="header-section-number">3.6.2</span> Forest resources</a></li>
-<li><a class="nav-link" href="#land-use-change"><span class="header-section-number">3.6.3</span> Land use change</a></li>
+<li><a class="nav-link" href="#biophysical-indices"><span class="header-section-number">3.6.2</span> Biophysical indices</a></li>
+<li><a class="nav-link" href="#forest-resources"><span class="header-section-number">3.6.3</span> Forest resources</a></li>
+<li><a class="nav-link" href="#land-use-change"><span class="header-section-number">3.6.4</span> Land use change</a></li>
 </ul>
 </li>
 <li>

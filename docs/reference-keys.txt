@@ -31,6 +31,7 @@ earthquakes-natural-hazards
 soils
 land-cover-and-land-use
 land-cover
+biophysical-indices
 forest-resources
 land-use-change
 population-distribution

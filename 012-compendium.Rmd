@@ -10,6 +10,9 @@ available, and NOT as an in-depth review article.
 To contribute to this portal, consider submitting new data by editing this Markdown document. 
 Please check also the working version of the [OEMC global Land Use Land Cover Taxonomy Tables](https://docs.google.com/spreadsheets/d/1SX51OilNt-cUYpAa7t0LAvZRTzq3Sd4WJLnX6mWKfQk/edit?usp=sharing).
 
+If your work / products are cited here you are for us **a champion of open environmental data** and 
+we are enormeously thanksful for your contirbution (please never stop!).
+
 Minimum conditions to include your contribution to this compendium:
 
 -  Please submit / register **only global data sets** (at least 80% complete; at least 5 continents);
@@ -307,6 +310,37 @@ and/or running land cover classification by fusing multisource EO data [@Song201
 
 ESA's **[WorldCereal](https://esa-worldcereal.org/en)** provides access to [high resolution predictions](https://doi.org/10.5281/zenodo.7875104) (10-m) 
 of winter and spring cereals, maize, active cropland, irrigation and similar for year 2021 [@essd-15-5491-2023]. 
+
+### Biophysical indices
+
+There are number of biophysical indices including vegetation indices 
+that can be derivd from optical EO images such as MODIS, Landsat and/or Sentinel. 
+This includes (note: formulas for biophysical indices for MODIS, Landsat etc might differ):
+
+-  [Bare Soil Fraction](https://www.mdpi.com/2072-4292/13/3/474) (BSF),
+-  [Enhanced Vegetation Index](https://www.usgs.gov/landsat-missions/landsat-surface-reflectance-derived-spectral-indices) (EVI),
+-  [Fraction of Absorbed Photosynthetically Active Radiation](https://doi.org/10.1016/j.srs.2022.100060) (FAPAR),
+-  [Leaf Area Index](https://www.usgs.gov/landsat-missions/landsat-surface-reflectance-derived-spectral-indices) (LAI),
+-  [Normalized Burn Ratio](https://www.usgs.gov/landsat-missions/landsat-surface-reflectance-derived-spectral-indices) (NBR),
+-  [Normalized Difference Snow Index](https://www.usgs.gov/landsat-missions/normalized-difference-snow-index) (NDSI),
+-  [Normalized Difference Tillage Index](https://www.mdpi.com/2072-4292/12/16/2665) (NDTI),
+-  [Normalized Difference Vegetation Index](https://www.usgs.gov/landsat-missions/landsat-surface-reflectance-derived-spectral-indices) (NDVI),
+-  [Normalized Difference Water Index](https://edo.jrc.ec.europa.eu/documents/factsheets/factsheet_ndwi.pdf) (NDWI),
+
+8-day and monthly biophysical indiced from MODIS (250-m) are available from the [MOD13Q1](https://lpdaac.usgs.gov/products/mod13q1v061/).
+These, however, often come with many missing pixels due to clouds and artifacts 
+and require significant post-processing to reach a [complete consistent structured product](https://medium.com/mlearning-ai/present-and-future-of-data-cubes-an-european-eo-perspective-735d3f16f7c9). 
+
+@ma2022global produced global consistent 8-day Fraction of Absorbed Photosynthetically Active Radiation (FAPAR) 
+product at 250-m spatial resolution (available for download from [Zenodo](https://zenodo.org/doi/10.5281/zenodo.6405563)). 
+@xiong2023improved produced an improved global consistent and complete 8-day 250-m NDVI and EVI products 
+covering 2000 to 2021 (data is available for download from [Figshare](https://doi.org/10.6084/m9.figshare.22220050)).
+[Global LAnd Surface Satellite (GLASS)](http://www.glass.umd.edu/Download.html) serves a number of post-processed products 
+including FAPAR and Leaf Area Index (LAI) at 250-m and also covering period 2000 to 2021.
+Based on the @ma2022global, @Hacklaender2024PeerJ produced an aggregated 
+complete consistent [monthly FAPAR product](https://zenodo.org/doi/10.5281/zenodo.8418441) with P25, P50 and P75 quantiles. 
+
+Global cloud-free Landsat composites (Red, NIR, SWIR1, SWIR2) for the world for multiple periods (2000, 2014, 2018, 2022) can be obtained from [GLAD Global Forest Change](https://glad.earthengine.app/view/global-forest-change).
 
 ### Forest resources
 
