@@ -53,6 +53,7 @@ Sorted alphabetically:
 * [Amazon AWS Open EO Data](https://registry.opendata.aws/tag/earth-observation/);
 * [Atlas of the Biosphere portal](http://www.sage.wisc.edu/atlas/maps.php);
 * [Copernicus Global Land Service](https://land.copernicus.eu/global/) — global data sets (bio-geophysical products) produced by the Land Monitoring Core Service (LMCS) of Copernicus, the European flagship programme on Earth Observation;
+* [DLR Geoportal](https://geoservice.dlr.de/web/maps);
 * [Earth Engine Data Catalog](https://developers.google.com/earth-engine/datasets) — Google's repository of global and local data sets;
 * [EarthEnv.org](http://earthenv.org/) — Global, remote-sensing supported environmental layers for assessing status and trends in biodiversity, ecosystems, and climate (hosted by Yale University / NASA and others);
 * [Environmental Information Portal](http://earthtrends.wri.org/) of the World Resources Institute contains a number of global grids derived by the WRI and collaborators;
@@ -74,6 +75,7 @@ Sorted alphabetically:
 * [The awesome-gee-community-catalog](https://gee-community-catalog.org/) by Samapriya Roy et al.;
 * [UNEP/GRID GEO DataPortal](http://geodata.grid.unep.ch/) and [UNEP/GRID-Arendal](http://maps.grida.no/region/global) — a large repository of global grids at various resolutions;
 * [UNEP Data Catalog](https://datacatalog.unep.org/app/);
+* [World Resources Institute Resource Watch](https://resourcewatch.org/data/explore) — features hundreds of data sets all in one place on the state of the planet’s resources and citizens.
 
 <div class="figure" style="text-align: center">
 <img src="img/lpdaac_usgs_preview.jpg" alt="LP DAAC data catalog at https://lpdaac.usgs.gov/product_search/ is an example of continuosly updated and complete catalog of global environmental data (primarily based on MODIS and similar EO missions) which are available publicly without restrictions." width="100%" />
@@ -117,11 +119,11 @@ of tools for making geospatial data more usable and more **[FAIR](https://www.go
 
 Administrative data can be used to calculate proximity-based parameters and to 
 orient the users geographically. One publicly accessible global administrative 
-data database is the [GADM](http://gadm.org/) database of Global Administrative Areas 
-GADM. It comprises borders of countries and lower level subdivisions such as provinces 
+data database is the [GADM](http://gadm.org/) database of **Global Administrative Areas**. 
+It comprises borders of countries and lower level subdivisions such as provinces 
 and counties (more than 100,000 areas). Lower level administrative boundaries can 
 be obtained via the [FAO's GeoNetwork server](http://www.fao.org/geonetwork/srv/en/main.home).
-Even more detailed is the [FAO GAUL: Global Administrative Unit Layers](https://data.apps.fao.org/map/catalog/static/search?keyword=HiH_boundaries) which is 
+Even more detailed is the **[FAO GAUL: Global Administrative Unit Layers](https://data.apps.fao.org/map/catalog/static/search?keyword=HiH_boundaries)** which is 
 available for different periods and up to the 3rd admin level, so one can potentially 
 also track changes in political units (the [table](https://github.com/openlandmap/book/blob/master/tabular/GAUL_g2015_2014_1_legend.csv) `GAUL_g2015_2014_1_legend.csv` 
 contains an example of cca 3500 administrative units with codes). The [geoBoundaries](http://www.geoboundaries.org/) 
@@ -132,11 +134,11 @@ An important global vector dataset is the [World Vector Shoreline](https://shore
 data set at scale 1:250,000 [@carlotto2017enhancing]. This can be, for example, 
 used to derive the global distance from the sea coast line map and similar. 
 
-The [Overture Maps foundation](https://overturemaps.org/download/) provides up-to-date (current) global vectors on 
+The **[Overture Maps foundation](https://overturemaps.org/download/)** provides up-to-date (current) global vectors on 
 Layers of interest include: admins, base, buildings, places etc. You can simply [download](https://github.com/OvertureMaps/data/) 
-the data for are of interest, then convert to [PMTiles](https://msbarry.github.io/planetiler-overture-demo/) or similar, then add to back-end/front-end as a clickable layer.
+the data for are of interest, then convert to [PMTiles](https://msbarry.github.io/planetiler-overture-demo/) or similar, then add to your back-end/front-end as a clickable layer.
 
-The **[World Settlement Footprint (WSF)](https://geoservice.dlr.de/web/maps/eoc:wsf)** is a series of datasets that provide comprehensive, high-resolution mapping of human settlements across the globe. WSF is a 10-m resolution binary mask outlining the extent of human settlements globally derived from 2014–2015 multitemporal Landsat-8 and Sentinel-1 imagery ([WFS2015] (https://geoservice.dlr.de/web/maps/eoc:wsf)) and 2019 multitemporal Sentinel-1 and Sentinel-2 imagery ([WFS 2019] (https://geoservice.dlr.de/web/maps/eoc:wsf2019)). [WSF Evolution](https://geoservice.dlr.de/web/maps/eoc:wsfevolution) is a 30–m resolution dataset outlining the global settlement extent on a yearly basis from 1985 to 2015.
+The **[World Settlement Footprint (WSF)](https://geoservice.dlr.de/web/maps/eoc:wsf)** is a series of datasets that provide comprehensive, high-resolution mapping of human settlements across the globe. WSF is a 10-m resolution binary mask outlining the extent of human settlements globally derived from 2014–2015 multitemporal Landsat-8 and Sentinel-1 imagery ([WFS2015](https://geoservice.dlr.de/web/maps/eoc:wsf)) and 2019 multitemporal Sentinel-1 and Sentinel-2 imagery ([WFS 2019](https://geoservice.dlr.de/web/maps/eoc:wsf2019)). [WSF Evolution](https://geoservice.dlr.de/web/maps/eoc:wsfevolution) is a 30-m resolution dataset outlining the global settlement extent on a yearly basis from 1985 to 2015.
 
 The [Socioeconomic Data and Applications Center (SEDAC)](https://sedac.ciesin.columbia.edu/data/sets/browse) a Data Center in NASA's Earth 
 Observing System Data and Information System (EOSDIS) Hosted by CIESIN at Columbia University 
@@ -229,10 +231,10 @@ of the [International Surface Geology](https://certmapper.cr.usgs.gov/data/apps/
 GLiM consists of over 1.25 million digital polygons with classified in three levels (a total of 42 rock-type classes).
 
 USGS, jointly with ESRI, have released in 2014 a **[Global Ecological Land Units map](https://www.esri.com/about/newsroom/insider/the-first-detailed-ecological-land-unitsmap-in-the-world/)** 
-at 250-m resolution. This also includes a world layer of rock types. This data can 
+at 250-m resolution. This also includes a world layer of rock types. The data can 
 be downloaded from the [USGS site](http://rmgsc.cr.usgs.gov/outgoing/ecosystems/Global/) or via [Zenodo](https://zenodo.org/doi/10.5281/zenodo.1447198).
 
-@fan2013global produced global maps of Groundwater Table Depth that has been systematically updated in 2022. 
+@fan2013global produced global maps of **Groundwater Table Depth** that has been systematically updated in 2022. 
 The modeled monthly water table depth can be [downloaded for each continent](http://thredds-gfnl.usc.es/thredds/catalog/GLOBALWTDFTP/catalog.html).
 @cuthbert2019global produced water table ratio and groundwater response times maps at 1-km resolution (available from [figshare](https://doi.org/10.6084/m9.figshare.7393304)).
 The International Groundwater Resources Assessment Centre (IGRAC) maintains the 
@@ -261,6 +263,9 @@ and generate a (kernel density) map for Earthquake magnitude.
 
 University of Hawaii maintains a [Global Hazards Information Network](https://www.pdc.org/risk-and-vulnerability/), 
 which contains a number of global layers including a [map of Global Airports](https://hub.arcgis.com/datasets/esri-de-content::world-airports), locations of [significant earthquakes](https://earthquake.usgs.gov/earthquakes/browse/significant.php) and earthquake zones.
+
+Copernicus Global Land Service distributes a global assessment of **[Burnt Area](https://land.copernicus.eu/global/products/ba)** 
+at 300-m spatial resolution, but available only from 2019 onwards.
 
 ### Soils
 
@@ -385,7 +390,7 @@ covering 2000 to 2021 (data is available for download from [Figshare](https://do
 [Global LAnd Surface Satellite (GLASS)](http://www.glass.umd.edu/Download.html) serves a number of post-processed products 
 including FAPAR and Leaf Area Index (LAI) at 250-m and also covering period 2000 to 2021.
 Based on the @ma2022global, @Hacklaender2024PeerJ produced an aggregated 
-complete consistent [monthly FAPAR product](https://zenodo.org/doi/10.5281/zenodo.8418441) with P25, P50 and P75 quantiles. 
+complete & consistent [monthly FAPAR product](https://zenodo.org/doi/10.5281/zenodo.8418441) with P25, P50 and P75 quantiles. 
 
 Global cloud-free Landsat composites (Red, NIR, SWIR1, SWIR2) for the world for multiple periods (2000, 2014, 2018, 2022) can be obtained from [GLAD Global Forest Change](https://glad.earthengine.app/view/global-forest-change).
 
@@ -406,7 +411,8 @@ Forest resources and canopy height have been mapped by the GLAD group from the M
 The data is publicly available under open data license from: https://glad.umd.edu/dataset. 
 The **[WRI's Global Forest Watch](https://www.globalforestwatch.org/map/)** service can be used to access annual tree cover maps for 2000–2022+, 
 forest cover change and canopy height change [@hansen2013high]. These global forest change data is openly available and can be [downloaded](https://glad.earthengine.app/view/global-forest-change) including the Landsat cloud-free mosaics for the whole world at 30-m resolution. 
-Tree cover loss can be permanent (e.g. change in land use, permanent deforestation, or natural transition i.e. [ecological succession](https://en.wikipedia.org/wiki/Ecological_succession)) or 
+
+Note that tree cover loss can be permanent (e.g. change in land use, permanent deforestation, or natural transition i.e. [ecological succession](https://en.wikipedia.org/wiki/Ecological_succession)) or 
 can be temporary i.e. effect of fires, floods, pests and similar), therefore it 
 is important to consider any forest inventory data within time-frame, previous state and 
 considering succession rates.
@@ -486,11 +492,12 @@ Global surface water dynamics can be followed from three global data sets:
 -  [Global Surface Water Explorer](https://global-surface-water.appspot.com/) 1985 to 2018 hosted by European Commission JRC 
 [@Pekel2016];
 -  [Landsat-based water dynamics](https://glad.umd.edu/dataset/global-surface-water-dynamics) at 30-m for 1999 to 2018 period by @pickens2020mapping.
--  [GLC FCS30D](https://zenodo.org/doi/10.5281/zenodo.8239304) a global 30-m annual land-cover time-series data set with 17-class system (includes ocean and fresh-water) for the period 1982–2021 [@Zhang2021].
+-  [GLC FCS30D](https://zenodo.org/doi/10.5281/zenodo.8239304) a global 30-m annual land-cover time-series data set with 17-class system (also includes oceans, sees and fresh-water resources) for the period 1982–2021 [@Zhang2021].
 
-A [MODIS-based water mask](https://lpdaac.usgs.gov/products/mod44wv006/) product at somewhat coarser resolution (250-m) is also available.
+A [MODIS-based water mask](https://lpdaac.usgs.gov/products/mod44wv006/) product at somewhat 
+coarser resolution (250-m) can be also used to represent water dynamics for the last 25 years.
 MODIS distributes a number of global products for global oceans including **[sea surface temperature (SST)](https://doi.org/10.5067/MODAM-8D9N9)** 
-at 4-km resolution (daily, 8-day, monthly or annual) and similar.
+at 4-km resolution (daily, 8-day, monthly or annual) and similar (SST images are available for download from https://opendata.oraclecloud.com/).
 
 **[World Ocean Database](https://www.ncei.noaa.gov/products/world-ocean-database)** (world's largest collection of uniformly formatted, quality controlled, publicly available ocean profile data) is distributed by NOAA. 
 The data set covers 1990 to 2021 period.
@@ -612,7 +619,10 @@ available such as the [ESA's CCI soil moisture product](https://climate.esa.int/
 [SMAP Enhanced L3 Radiometer Global Daily 9 km EASE-Grid Soil Moisture](https://nsidc.org/data/spl3smp_e/versions/3) and 
 the [ASCAT](https://hsaf.meteoam.it/Products/ProductsList?type=soil_moisture) **Soil Wetness Profile Index** and **Root Zone Soil Moisture Profile Index**.  
 
-Global soil temperatures i.e. **Global Soil Bioclimatic variables** are available at [1-km spatial resolution](https://zenodo.org/doi/10.5281/zenodo.4558731) [@lembrechts2022global].
+Global soil temperatures i.e. **Global Soil Bioclimatic variables** are available at [1-km spatial resolution](https://zenodo.org/doi/10.5281/zenodo.4558731) thanks to @lembrechts2022global.
+
+DLR (German Space Agency) Geoportal hosts the **[Global SnowPack](https://geoservice.dlr.de/web/maps/eoc:gsp:yearly)** monthly 
+and annual products at 500-m spatial resolution covering 2000 to 2023 (current).
 
 [OpenLandMap.org](https://stac.openlandmap.org/wv_mcd19a2v061.seasconv/collection.json) provides access to number of original climatic data sets produced at OpenGeoHub including:
 
@@ -706,9 +716,9 @@ predictions of the potential distribution of **[global biomes](https://zenodo.or
 
 ### Species distribution and biodiversity maps
 
-**Global Biodiversity Information Facility** ([GBIF](http://data.gbif.org/)) provides access to global data showing the distribution of 
+**[Global Biodiversity Information Facility (GBIF)](http://data.gbif.org/)** provides access to global data showing the distribution of 
 all flora and fauna species. The density maps are available only at resolution of 
-1 arcdegree (about 100 km). Global maps of biodiversity measures for various groups 
+1 arcdegree (about 100-km). Global maps of biodiversity measures for various groups 
 of taxa (e.g. vascular plants, birds and mammals) can be browsed using the [Global Ecosystem Atlas](https://earthobservations.org/solutions/incubators/global-ecosystems-atlas). 
 Similar type of maps can be browsed via the [UNEP's World Conservation Monitoring Centre](http://www.unep-wcmc.org/). 
 
@@ -722,7 +732,7 @@ indicating “[Endemic and Important Bird Areas](https://datazone.birdlife.org/s
 mammals, birds, amphibians and other taxa at 10-km spatial resolution. 
 [EarthMap project](https://explorer.naturemap.earth/) produced a species richness (number of species per grid cell) maps 
 for amphibians, birds, mammals, reptiles and a representative set of plant taxa whose 
-distribution overlaps in each 10-km cell.
+distribution overlaps in each 10-km cell, and a global map of Areas of global significance for conservation [@brooks2019measuring].
 
 @sabatini2022global produced a number of [global biodiversity maps](https://doi.org/10.25829/idiv.3506-p4c0mo) 
 including the map of plant species richness at 1-km spatial resolutions. These maps are based using [sPlot database](http://www.idiv.de/splot) 
