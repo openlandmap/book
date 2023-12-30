@@ -19,6 +19,7 @@ video-course-getting-started-with-r
 compendium-of-global-gridded-environmental-data-sets
 thematic-data-groups
 other-repositories-of-global-open-environmental-layers
+make-your-data-more-accessible-more-usable
 buildings-and-settlements
 administrative-and-socio-economic-data
 elevation-and-depth

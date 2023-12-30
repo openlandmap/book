@@ -100,7 +100,7 @@ available, and NOT as an in-depth review article.</p>
 <p>To contribute to this portal, consider submitting new data by editing this Markdown document.
 Please check also the working version of the <a href="https://docs.google.com/spreadsheets/d/1SX51OilNt-cUYpAa7t0LAvZRTzq3Sd4WJLnX6mWKfQk/edit?usp=sharing">OEMC global Land Use Land Cover Taxonomy Tables</a>.</p>
 <p>If your work / products are cited here you are for us <strong>a champion of open environmental data</strong> and
-we are enormeously thanksful for your contirbution (please never stop!).</p>
+we are enormously thankful for your contribution (please never stop!).</p>
 <p>Minimum conditions to include your contribution to this compendium:</p>
 <ul>
 <li>Please submit / register <strong>only global data sets</strong> (at least 80% complete; at least 5 continents);</li>
@@ -182,6 +182,8 @@ we are enormeously thanksful for your contirbution (please never stop!).</p>
 <li>
 <a href="http://www.naturalearthdata.com/downloads/">Natural Earth Data</a> website compiled by Nathaniel Vaughn (KELSO) and volunteers;</li>
 <li>
+<a href="https://github.com/opengeos/geospatial-data-catalogs">Open Geospatial Catalogs</a> a list of open geospatial datasets available on AWS, Earth Engine, Planetary Computer, NASA CMR, and STAC Index;</li>
+<li>
 <a href="https://opendata.oraclecloud.com/">Oracle Open Data Repository (geospatial)</a>;</li>
 <li>
 <a href="https://daac.ornl.gov/get_data/">ORNL DAAC</a> The Oak Ridge National Laboratory Distributed Active Archive Center (ORNL DAAC) for Biogeochemical Dynamics is a NASA Earth Observing System Data and Information System (<a href="https://earthdata.nasa.gov/eosdis/daacs">EOSDIS</a>) data center managed by the Earth Science Data and Information System (<a href="https://earthdata.nasa.gov/esds">ESDIS</a>) Project;</li>
@@ -189,6 +191,8 @@ we are enormeously thanksful for your contirbution (please never stop!).</p>
 <a href="https://overturemaps.org/download/">Overture Maps</a> by the Overture Maps Foundation serves some basic admin layers e.g. buildings, road networks, places etc all as open data.</li>
 <li>
 <a href="https://sedac.ciesin.columbia.edu/data/sets/browse">SEDAC</a> — A Data Center in NASA’s Earth Observing System Data and Information System (EOSDIS) — Hosted by CIESIN at Columbia University;</li>
+<li>
+<a href="https://stacindex.org/catalogs">STAC index</a> an international telephone book for STAC Catalogs, Collections, APIs, Software and Tools (you can also add your own data and tools to the list);</li>
 <li>
 <a href="https://gee-community-catalog.org/">The awesome-gee-community-catalog</a> by Samapriya Roy et al.;</li>
 <li>
@@ -203,13 +207,51 @@ Figure 3.1: LP DAAC data catalog at <a href="https://lpdaac.usgs.gov/product_sea
 </p>
 </div>
 </div>
-<div id="buildings-and-settlements" class="section level2" number="3.3">
+<div id="make-your-data-more-accessible-more-usable" class="section level2" number="3.3">
 <h2>
-<span class="header-section-number">3.3</span> Buildings and Settlements<a class="anchor" aria-label="anchor" href="#buildings-and-settlements"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.3</span> Make your data more accessible more usable<a class="anchor" aria-label="anchor" href="#make-your-data-more-accessible-more-usable"><i class="fas fa-link"></i></a>
 </h2>
-<div id="administrative-and-socio-economic-data" class="section level3" number="3.3.1">
+<p>If you are making open global data aiming at enabling others
+to do more advanced analysis &amp; eventually help with better management of
+natural resources, what are the key steps to improve usability of
+your data? Within the <a href="https://earthmonitor.org/">Open-Earth-Monitor project</a> we specifically
+looked at hundreds of cases of data sets that have a high potential
+but are somewhat under-used or not used at all. This is what we believe is especially
+important to help boost usability and accessibility of your global geospatial data:</p>
+<ul>
+<li>Aim at making your data <strong><a href="https://medium.com/mlearning-ai/present-and-future-of-data-cubes-an-european-eo-perspective-735d3f16f7c9">4C-ARCO</a></strong>: complete, consistent, current and correct, then on top of it Analysis-ready and Cloud Optimized;</li>
+<li>Use <strong>(open) cloud-native data formats</strong> to distribute data (especially for large data) either <a href="https://www.cogeo.org/">COG’s</a>, <a href="https://radiant.earth/blog/2023/06/exploring-the-potential-of-geozarr-for-storage-and-analysis/">GeoZarr</a>, <a href="https://docs.xarray.dev/en/stable/">XArray</a> and/or <a href="https://geoparquet.org/">Geoparquet</a> / <a href="https://flatgeobuf.org/">Flatgeobuf</a> for tabular / vector data;</li>
+<li>Use <strong><a href="https://stacspec.org/en">SpatioTemporal Asset Catalogs (STAC)</a></strong> or similar to register data and the access points (usually also requires that you publish your data via a Simple Storage Service (S3));</li>
+<li>Best technical documentation for the data is (A) a peer-review publication, and (B) a <a href="https://www.datacamp.com/blog/jupyter-and-r-markdown-notebooks-with-r">computational notebook</a> providing a demo of the method used and key results; a peer-review publication increases confidence for non-experts; computational notebooks help increase quality as people then try to extend your work, then discover and report problems and help you make revisions;</li>
+<li>Always register all versions of your data so that anyone can track fixes and improvements; for each version try to obtain DOI, so that it is also kept for ever;</li>
+<li>Try to register your data in some higher level aggregator such as <a href="https://stacindex.org/">STAC index</a> (or this compendium!);</li>
+<li>Test if your data can be easily used in most-popular GIS software such as <a href="https://www.cogeo.org/qgis-tutorial.html">QGIS</a>: does it have the right legend? can users quickly find metadata, explanation of units, how was the map produced etc?;</li>
+</ul>
+<p>Of course, not every version or testing of your data / mapping skills
+needs to be registered with unique DOI. Also, writing metadata &amp;
+computational notebooks requires time and resource investments, so you
+need to plan carefully your time. Here are some world-leading providers
+of tools for making geospatial data more usable and more <strong><a href="https://www.go-fair.org/fair-principles/">FAIR</a> (Findable, Accessible, Interoperable, and Reusable)</strong>:</p>
+<ul>
+<li>
+<a href="https://gdal.org" class="uri">https://gdal.org</a> software backbone of any open geospatial data project;</li>
+<li>
+<a href="https://radiant.earth/" class="uri">https://radiant.earth/</a> is organization largely behind COGs and STAC;</li>
+<li>
+<a href="https://pangeo.io/" class="uri">https://pangeo.io/</a> a project developing tools for Big Data geoscience;</li>
+<li>
+<a href="https://github.com/opengeospatial" class="uri">https://github.com/opengeospatial</a> the Open Geospatial Consortium repositories hosting many open source solutions for Big Data geoscience;</li>
+<li>
+<a href="https://github.com/opengeos/" class="uri">https://github.com/opengeos/</a> a collection of open-source software packages for the geospatial community;</li>
+</ul>
+</div>
+<div id="buildings-and-settlements" class="section level2" number="3.4">
+<h2>
+<span class="header-section-number">3.4</span> Buildings and Settlements<a class="anchor" aria-label="anchor" href="#buildings-and-settlements"><i class="fas fa-link"></i></a>
+</h2>
+<div id="administrative-and-socio-economic-data" class="section level3" number="3.4.1">
 <h3>
-<span class="header-section-number">3.3.1</span> Administrative and socio economic data<a class="anchor" aria-label="anchor" href="#administrative-and-socio-economic-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.4.1</span> Administrative and socio economic data<a class="anchor" aria-label="anchor" href="#administrative-and-socio-economic-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>Administrative data can be used to calculate proximity-based parameters and to
 orient the users geographically. One publicly accessible global administrative
@@ -229,6 +271,7 @@ used to derive the global distance from the sea coast line map and similar.</p>
 <p>The <a href="https://overturemaps.org/download/">Overture Maps foundation</a> provides up-to-date (current) global vectors on
 Layers of interest include: admins, base, buildings, places etc. You can simply <a href="https://github.com/OvertureMaps/data/">download</a>
 the data for are of interest, then convert to <a href="https://msbarry.github.io/planetiler-overture-demo/">PMTiles</a> or similar, then add to back-end/front-end as a clickable layer.</p>
+<p>The <strong><a href="https://geoservice.dlr.de/web/maps/eoc:wsf">World Settlement Footprint (WSF)</a></strong> is a series of datasets that provide comprehensive, high-resolution mapping of human settlements across the globe. WSF is a 10-m resolution binary mask outlining the extent of human settlements globally derived from 2014–2015 multitemporal Landsat-8 and Sentinel-1 imagery ([WFS2015] (<a href="https://geoservice.dlr.de/web/maps/eoc:wsf" class="uri">https://geoservice.dlr.de/web/maps/eoc:wsf</a>)) and 2019 multitemporal Sentinel-1 and Sentinel-2 imagery ([WFS 2019] (<a href="https://geoservice.dlr.de/web/maps/eoc:wsf2019" class="uri">https://geoservice.dlr.de/web/maps/eoc:wsf2019</a>)). <a href="https://geoservice.dlr.de/web/maps/eoc:wsfevolution">WSF Evolution</a> is a 30–m resolution dataset outlining the global settlement extent on a yearly basis from 1985 to 2015.</p>
 <p>The <a href="https://sedac.ciesin.columbia.edu/data/sets/browse">Socioeconomic Data and Applications Center (SEDAC)</a> a Data Center in NASA’s Earth
 Observing System Data and Information System (EOSDIS) Hosted by CIESIN at Columbia University
 has produced a number of open global socio-economic data sets including on themes such as: Agriculture, Climate, Conservation,
@@ -236,13 +279,13 @@ Governance, Hazards, Health, Infrastructure, Land Use, Marine and Coastal, Popul
 Poverty, Sustainability, Urban and Water.</p>
 </div>
 </div>
-<div id="elevation-and-depth" class="section level2" number="3.4">
+<div id="elevation-and-depth" class="section level2" number="3.5">
 <h2>
-<span class="header-section-number">3.4</span> Elevation and Depth<a class="anchor" aria-label="anchor" href="#elevation-and-depth"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.5</span> Elevation and Depth<a class="anchor" aria-label="anchor" href="#elevation-and-depth"><i class="fas fa-link"></i></a>
 </h2>
-<div id="digital-terrain-models" class="section level3" number="3.4.1">
+<div id="digital-terrain-models" class="section level3" number="3.5.1">
 <h3>
-<span class="header-section-number">3.4.1</span> Digital Terrain Models<a class="anchor" aria-label="anchor" href="#digital-terrain-models"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.5.1</span> Digital Terrain Models<a class="anchor" aria-label="anchor" href="#digital-terrain-models"><i class="fas fa-link"></i></a>
 </h3>
 <p>Global Shuttle Radar Topography Mission (SRTM) <a href="http://en.wikipedia.org/wiki/Digital_elevation_model">Digital Elevation Model</a> is
 on of the most well-known global environmental dataset <span class="citation">(<a href="references.html#ref-rabus2003shuttle">Rabus, M., A., &amp; R., 2003</a>)</span>
@@ -269,9 +312,9 @@ Geomorphological forms (Geomorphon classification system) at 100-m are also avai
 via the <a href="https://doi.org/10.5069/G91R6NPX">OpenTopography.org</a> repository.
 <span class="citation">Charlie Frye &amp; Richards (<a href="references.html#ref-Frye2023">2023</a>)</span> produced <strong><a href="https://www.esri.com/arcgis-blog/products/arcgis-living-atlas/announcements/introducing_nlwv2/">Named Landforms of the World (NLW2)</a></strong> with most of data at 250-m resolution.</p>
 </div>
-<div id="canopy-height-data" class="section level3" number="3.4.2">
+<div id="canopy-height-data" class="section level3" number="3.5.2">
 <h3>
-<span class="header-section-number">3.4.2</span> Canopy height data<a class="anchor" aria-label="anchor" href="#canopy-height-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.5.2</span> Canopy height data<a class="anchor" aria-label="anchor" href="#canopy-height-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>There are several global reference point data set and products that represent canopy height (often
 including heights of building / human-built structures). Currently the two global
@@ -298,9 +341,9 @@ The complete global gridded canopy height / biomass density products include:</p
 <a href="https://daac.ornl.gov/cgi-bin/dataset_lister.pl?p=40">GEDI L4B</a> gridded aboveground biomass density (nominal latitude extent of -52 to 52 degrees) at 1-km resolution <span class="citation">(<a href="references.html#ref-Dubayah2023">Dubayah et al., 2023</a>)</span>;</li>
 </ul>
 </div>
-<div id="hydrological-hydrographic-data" class="section level3" number="3.4.3">
+<div id="hydrological-hydrographic-data" class="section level3" number="3.5.3">
 <h3>
-<span class="header-section-number">3.4.3</span> Hydrological / hydrographic data<a class="anchor" aria-label="anchor" href="#hydrological-hydrographic-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.5.3</span> Hydrological / hydrographic data<a class="anchor" aria-label="anchor" href="#hydrological-hydrographic-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>World river and stream networks (vector files) are available from the <a href="https://www.hydrosheds.org/page/gloric">Global River Classification (GLORIC) DB</a>.
 A <a href="https://zenodo.org/doi/10.5281/zenodo.3355006">rasterized version of this data set</a> is available at resolution of 250-m.
@@ -320,13 +363,13 @@ fresh-water resources in general:</p>
 </ul>
 </div>
 </div>
-<div id="geology-and-soils" class="section level2" number="3.5">
+<div id="geology-and-soils" class="section level2" number="3.6">
 <h2>
-<span class="header-section-number">3.5</span> Geology and Soils<a class="anchor" aria-label="anchor" href="#geology-and-soils"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.6</span> Geology and Soils<a class="anchor" aria-label="anchor" href="#geology-and-soils"><i class="fas fa-link"></i></a>
 </h2>
-<div id="geology-and-lithology" class="section level3" number="3.5.1">
+<div id="geology-and-lithology" class="section level3" number="3.6.1">
 <h3>
-<span class="header-section-number">3.5.1</span> Geology and lithology<a class="anchor" aria-label="anchor" href="#geology-and-lithology"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.6.1</span> Geology and lithology<a class="anchor" aria-label="anchor" href="#geology-and-lithology"><i class="fas fa-link"></i></a>
 </h3>
 <p>The current global geological map approved by the Commission for the Geological Map of
 the World is the <a href="https://ccgm.org/en/">1:25M Geological Map of the World</a> (maps not available publicly).
@@ -341,10 +384,16 @@ GLiM consists of over 1.25 million digital polygons with classified in three lev
 <p>USGS, jointly with ESRI, have released in 2014 a <strong><a href="https://www.esri.com/about/newsroom/insider/the-first-detailed-ecological-land-unitsmap-in-the-world/">Global Ecological Land Units map</a></strong>
 at 250-m resolution. This also includes a world layer of rock types. This data can
 be downloaded from the <a href="http://rmgsc.cr.usgs.gov/outgoing/ecosystems/Global/">USGS site</a> or via <a href="https://zenodo.org/doi/10.5281/zenodo.1447198">Zenodo</a>.</p>
+<p><span class="citation">Fan, Li, &amp; Miguez-Macho (<a href="references.html#ref-fan2013global">2013</a>)</span> produced global maps of Groundwater Table Depth that has been systematically updated in 2022.
+The modeled monthly water table depth can be <a href="http://thredds-gfnl.usc.es/thredds/catalog/GLOBALWTDFTP/catalog.html">downloaded for each continent</a>.
+<span class="citation">Cuthbert et al. (<a href="references.html#ref-cuthbert2019global">2019</a>)</span> produced water table ratio and groundwater response times maps at 1-km resolution (available from <a href="https://doi.org/10.6084/m9.figshare.7393304">figshare</a>).
+The International Groundwater Resources Assessment Centre (IGRAC) maintains the
+<a href="https://ggis.un-igrac.org/">Global Groundwater Information System (GGIS)</a>. IGRAC is
+aiming at producing <a href="https://sdgs.un.org/partnerships/produce-and-disseminate-open-global-groundwater-datasets">global groundwater datasets</a>.</p>
 </div>
-<div id="earthquakes-natural-hazards" class="section level3" number="3.5.2">
+<div id="earthquakes-natural-hazards" class="section level3" number="3.6.2">
 <h3>
-<span class="header-section-number">3.5.2</span> Earthquakes / natural hazards<a class="anchor" aria-label="anchor" href="#earthquakes-natural-hazards"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.6.2</span> Earthquakes / natural hazards<a class="anchor" aria-label="anchor" href="#earthquakes-natural-hazards"><i class="fas fa-link"></i></a>
 </h3>
 <p>Natural hazards include:</p>
 <ul>
@@ -366,9 +415,9 @@ and generate a (kernel density) map for Earthquake magnitude.</p>
 <p>University of Hawaii maintains a <a href="https://www.pdc.org/risk-and-vulnerability/">Global Hazards Information Network</a>,
 which contains a number of global layers including a <a href="https://hub.arcgis.com/datasets/esri-de-content::world-airports">map of Global Airports</a>, locations of <a href="https://earthquake.usgs.gov/earthquakes/browse/significant.php">significant earthquakes</a> and earthquake zones.</p>
 </div>
-<div id="soils" class="section level3" number="3.5.3">
+<div id="soils" class="section level3" number="3.6.3">
 <h3>
-<span class="header-section-number">3.5.3</span> Soils<a class="anchor" aria-label="anchor" href="#soils"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.6.3</span> Soils<a class="anchor" aria-label="anchor" href="#soils"><i class="fas fa-link"></i></a>
 </h3>
 <p>Soil maps (physical, chemical, biological soil properties and soil classes) are especially important for spatial prediction of distribution
 of vegetation and (plant) species distribution.
@@ -400,18 +449,21 @@ with over 100,000 profiles and over 50 analytical and descriptive parameters <sp
 including maps of soil nematodes density, bacterial biomass, fungal biomass and similar.</p>
 <p>Some soil properties are often directly estimated from the EO data. For example the soil moisture
 <a href="http://glass.umd.edu/soil_moisture/">GLASS SM data set</a> and the <a href="https://doi.org/10.11888/RemoteSen.tpdc.272760">gap-free global daily surface soil moisture at 1-km grid resolution</a>.
-Bare soil surface fraction and spectral bands can be also derived directly from EO data e.g. <span class="citation">Demattê et al. (<a href="references.html#ref-dematte2020bare">2020</a>)</span>; data available via <a href="https://gee-community-catalog.org/projects/bss/">GEE</a>.</p>
+Bare soil surface fraction and spectral bands can be also derived directly from EO data e.g. 
+global composites produced <span class="citation">Demattê et al. (<a href="references.html#ref-dematte2020bare">2020</a>)</span>; data available via <a href="https://gee-community-catalog.org/projects/bss/">GEE</a>.</p>
+<p><span class="citation">Lembrechts et al. (<a href="references.html#ref-lembrechts2022global">2022</a>)</span> produced maps of <strong>Global Soil Bioclimatic variables</strong> (including soil temperatures)
+which are available at <a href="https://zenodo.org/doi/10.5281/zenodo.4558731">1-km spatial resolution</a> for depth intervals 0–5 and 5–15 cm (training data used to produce these maps is <a href="https://zenodo.org/doi/10.5281/zenodo.4558662">also available</a>).</p>
 <p>An in-depth review of the global soil data sets is available in <span class="citation">Dai et al. (<a href="references.html#ref-Dai2019">2019</a>)</span>.
 Status of the soil information in the world can be also followed via David G. Rossiter’s <a href="https://www.isric.org/explore/soil-geographic-databases#world">compendium of On-Line Soil Survey Information</a>.</p>
 </div>
 </div>
-<div id="land-cover-and-land-use" class="section level2" number="3.6">
+<div id="land-cover-and-land-use" class="section level2" number="3.7">
 <h2>
-<span class="header-section-number">3.6</span> Land Cover and Land Use<a class="anchor" aria-label="anchor" href="#land-cover-and-land-use"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.7</span> Land Cover and Land Use<a class="anchor" aria-label="anchor" href="#land-cover-and-land-use"><i class="fas fa-link"></i></a>
 </h2>
-<div id="land-cover" class="section level3" number="3.6.1">
+<div id="land-cover" class="section level3" number="3.7.1">
 <h3>
-<span class="header-section-number">3.6.1</span> Land cover<a class="anchor" aria-label="anchor" href="#land-cover"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.7.1</span> Land cover<a class="anchor" aria-label="anchor" href="#land-cover"><i class="fas fa-link"></i></a>
 </h3>
 <p>Land cover maps show distribution of above-surface cover in general categories and
 are used primarily for spatial planning and modeling. Ground truth observations of
@@ -469,9 +521,9 @@ and/or running land cover classification by fusing multisource EO data <span cla
 <p>ESA’s <strong><a href="https://esa-worldcereal.org/en">WorldCereal</a></strong> provides access to <a href="https://doi.org/10.5281/zenodo.7875104">high resolution predictions</a> (10-m)
 of winter and spring cereals, maize, active cropland, irrigation and similar for year 2021 <span class="citation">(<a href="references.html#ref-essd-15-5491-2023">Van Tricht et al., 2023</a>)</span>.</p>
 </div>
-<div id="biophysical-indices" class="section level3" number="3.6.2">
+<div id="biophysical-indices" class="section level3" number="3.7.2">
 <h3>
-<span class="header-section-number">3.6.2</span> Biophysical indices<a class="anchor" aria-label="anchor" href="#biophysical-indices"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.7.2</span> Biophysical indices<a class="anchor" aria-label="anchor" href="#biophysical-indices"><i class="fas fa-link"></i></a>
 </h3>
 <p>There are number of biophysical indices including vegetation indices
 that can be derivd from optical EO images such as MODIS, Landsat and/or Sentinel.
@@ -509,9 +561,9 @@ Based on the <span class="citation">Ma et al. (<a href="references.html#ref-ma20
 complete consistent <a href="https://zenodo.org/doi/10.5281/zenodo.8418441">monthly FAPAR product</a> with P25, P50 and P75 quantiles.</p>
 <p>Global cloud-free Landsat composites (Red, NIR, SWIR1, SWIR2) for the world for multiple periods (2000, 2014, 2018, 2022) can be obtained from <a href="https://glad.earthengine.app/view/global-forest-change">GLAD Global Forest Change</a>.</p>
 </div>
-<div id="forest-resources" class="section level3" number="3.6.3">
+<div id="forest-resources" class="section level3" number="3.7.3">
 <h3>
-<span class="header-section-number">3.6.3</span> Forest resources<a class="anchor" aria-label="anchor" href="#forest-resources"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.7.3</span> Forest resources<a class="anchor" aria-label="anchor" href="#forest-resources"><i class="fas fa-link"></i></a>
 </h3>
 <p>FAO periodically (every 5 years) organizes the so called <a href="https://www.fao.org/forest-resources-assessment/en/">Forest Resources Assessment</a> (FRA) —
 an international compilation of forest resource assessment (forest maps, health
@@ -531,9 +583,9 @@ can be temporary i.e. effect of fires, floods, pests and similar), therefore it
 is important to consider any forest inventory data within time-frame, previous state and
 considering succession rates.</p>
 </div>
-<div id="land-use-change" class="section level3" number="3.6.4">
+<div id="land-use-change" class="section level3" number="3.7.4">
 <h3>
-<span class="header-section-number">3.6.4</span> Land use change<a class="anchor" aria-label="anchor" href="#land-use-change"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.7.4</span> Land use change<a class="anchor" aria-label="anchor" href="#land-use-change"><i class="fas fa-link"></i></a>
 </h3>
 <p>Land use change often comes with a special legend and should not be confused with
 land cover mapping. Some typical legend entries for land use change includes:</p>
@@ -557,13 +609,13 @@ This data set can be downloaded (per tile) via the <a href="https://glad.earthen
 forest cover change at 30-m resolution.</p>
 </div>
 </div>
-<div id="population-distribution" class="section level2" number="3.7">
+<div id="population-distribution" class="section level2" number="3.8">
 <h2>
-<span class="header-section-number">3.7</span> Population Distribution<a class="anchor" aria-label="anchor" href="#population-distribution"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.8</span> Population Distribution<a class="anchor" aria-label="anchor" href="#population-distribution"><i class="fas fa-link"></i></a>
 </h2>
-<div id="population-density-maps" class="section level3" number="3.7.1">
+<div id="population-density-maps" class="section level3" number="3.8.1">
 <h3>
-<span class="header-section-number">3.7.1</span> Population density maps<a class="anchor" aria-label="anchor" href="#population-density-maps"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.8.1</span> Population density maps<a class="anchor" aria-label="anchor" href="#population-density-maps"><i class="fas fa-link"></i></a>
 </h3>
 <p>For global modeling one of the most important global socio-economic data layers are the population density
 maps and attached socio-economic variables. The <a href="https://sedac.ciesin.columbia.edu/">Socioeconomic Data and Applications Center</a> (SEDAC) distributes The <a href="https://doi.org/10.7927/H47M05W2">Global Population Density Grid Time Series Estimates</a> (1970–2000),
@@ -585,9 +637,9 @@ that are then used to downscale the values to high spatial resolution <span clas
 The 30-m resolution population density maps for 160+ countries and territories around the world
 are available for download from <a href="https://portal.mwater.co/" class="uri">https://portal.mwater.co/</a>.</p>
 </div>
-<div id="lights-at-night-images" class="section level3" number="3.7.2">
+<div id="lights-at-night-images" class="section level3" number="3.8.2">
 <h3>
-<span class="header-section-number">3.7.2</span> Lights at night images<a class="anchor" aria-label="anchor" href="#lights-at-night-images"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.8.2</span> Lights at night images<a class="anchor" aria-label="anchor" href="#lights-at-night-images"><i class="fas fa-link"></i></a>
 </h3>
 <p>The lights at night map contains the lights from cities, towns, and other sites
 with persistent lighting, including gas flares. Images of lights at night have shown
@@ -604,13 +656,13 @@ The <a href="https://stac.openlandmap.org/nightlights.average_viirs.v21/collecti
 and are hence compatible with other global land products.</p>
 </div>
 </div>
-<div id="water-resources" class="section level2" number="3.8">
+<div id="water-resources" class="section level2" number="3.9">
 <h2>
-<span class="header-section-number">3.8</span> Water resources<a class="anchor" aria-label="anchor" href="#water-resources"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.9</span> Water resources<a class="anchor" aria-label="anchor" href="#water-resources"><i class="fas fa-link"></i></a>
 </h2>
-<div id="global-surface-water-dynamics" class="section level3" number="3.8.1">
+<div id="global-surface-water-dynamics" class="section level3" number="3.9.1">
 <h3>
-<span class="header-section-number">3.8.1</span> Global Surface Water dynamics<a class="anchor" aria-label="anchor" href="#global-surface-water-dynamics"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.9.1</span> Global Surface Water dynamics<a class="anchor" aria-label="anchor" href="#global-surface-water-dynamics"><i class="fas fa-link"></i></a>
 </h3>
 <p>Global surface water dynamics can be followed from three global data sets:</p>
 <ul>
@@ -629,13 +681,13 @@ at 4-km resolution (daily, 8-day, monthly or annual) and similar.</p>
 The data set covers 1990 to 2021 period.</p>
 </div>
 </div>
-<div id="physical-infrastructure" class="section level2" number="3.9">
+<div id="physical-infrastructure" class="section level2" number="3.10">
 <h2>
-<span class="header-section-number">3.9</span> Physical Infrastructure<a class="anchor" aria-label="anchor" href="#physical-infrastructure"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.10</span> Physical Infrastructure<a class="anchor" aria-label="anchor" href="#physical-infrastructure"><i class="fas fa-link"></i></a>
 </h2>
-<div id="urbanization-human-induced-changes" class="section level3" number="3.9.1">
+<div id="urbanization-human-induced-changes" class="section level3" number="3.10.1">
 <h3>
-<span class="header-section-number">3.9.1</span> Urbanization / human-induced changes<a class="anchor" aria-label="anchor" href="#urbanization-human-induced-changes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.10.1</span> Urbanization / human-induced changes<a class="anchor" aria-label="anchor" href="#urbanization-human-induced-changes"><i class="fas fa-link"></i></a>
 </h3>
 <p>Quantification of urbanization and human impact is usually modeled by using population density maps, lights at night
 images and/or data on buildings. Partners in the <a href="https://www.globio.info/resources">GLOBIO consortium</a> created a World Map
@@ -665,9 +717,9 @@ around the world and provides independently produced estimates of how much each 
 These data is available publicly, but requires pre-processing as it is a combination of
 point and polygon sources.</p>
 </div>
-<div id="intact-forest-landscapes" class="section level3" number="3.9.2">
+<div id="intact-forest-landscapes" class="section level3" number="3.10.2">
 <h3>
-<span class="header-section-number">3.9.2</span> Intact forest landscapes<a class="anchor" aria-label="anchor" href="#intact-forest-landscapes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.10.2</span> Intact forest landscapes<a class="anchor" aria-label="anchor" href="#intact-forest-landscapes"><i class="fas fa-link"></i></a>
 </h3>
 <p>An important global forest landscape coverage / wildlife datasets is <a href="http://www.intactforests.org/">the world map of intact forest landscapes (IFL)</a> (areas hardly touched by mankind)
 at scale 1:1,000,000 (includes four classes of intact forests: 1. intact closed forests;
@@ -680,13 +732,13 @@ shows where were forest in past (assumed) and can be used to quantify deforestat
 global scale.</p>
 </div>
 </div>
-<div id="climate" class="section level2" number="3.10">
+<div id="climate" class="section level2" number="3.11">
 <h2>
-<span class="header-section-number">3.10</span> Climate<a class="anchor" aria-label="anchor" href="#climate"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.11</span> Climate<a class="anchor" aria-label="anchor" href="#climate"><i class="fas fa-link"></i></a>
 </h2>
-<div id="climatic-datasets" class="section level3" number="3.10.1">
+<div id="climatic-datasets" class="section level3" number="3.11.1">
 <h3>
-<span class="header-section-number">3.10.1</span> Climatic datasets<a class="anchor" aria-label="anchor" href="#climatic-datasets"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.11.1</span> Climatic datasets<a class="anchor" aria-label="anchor" href="#climatic-datasets"><i class="fas fa-link"></i></a>
 </h3>
 <p><a href="https://climate.copernicus.eu/climate-datasets">Copernicus</a> makes a difference between three groups of climatic data sets:</p>
 <ul>
@@ -752,6 +804,7 @@ Coarser resolution (10-km or coarser) soil moisture global images are also
 available such as the <a href="https://climate.esa.int/en/projects/soil-moisture/data/">ESA’s CCI soil moisture product</a>,
 <a href="https://nsidc.org/data/spl3smp_e/versions/3">SMAP Enhanced L3 Radiometer Global Daily 9 km EASE-Grid Soil Moisture</a> and
 the <a href="https://hsaf.meteoam.it/Products/ProductsList?type=soil_moisture">ASCAT</a> <strong>Soil Wetness Profile Index</strong> and <strong>Root Zone Soil Moisture Profile Index</strong>.</p>
+<p>Global soil temperatures i.e. <strong>Global Soil Bioclimatic variables</strong> are available at <a href="https://zenodo.org/doi/10.5281/zenodo.4558731">1-km spatial resolution</a> <span class="citation">(<a href="references.html#ref-lembrechts2022global">Lembrechts et al., 2022</a>)</span>.</p>
 <p><a href="https://stac.openlandmap.org/wv_mcd19a2v061.seasconv/collection.json">OpenLandMap.org</a> provides access to number of original climatic data sets produced at OpenGeoHub including:</p>
 <ul>
 <li>
@@ -764,9 +817,9 @@ the <a href="https://hsaf.meteoam.it/Products/ProductsList?type=soil_moisture">A
 <a href="https://zenodo.org/doi/10.5281/zenodo.2615278">SM2RAIN global precipitation daily and monthly</a> at 10-km resolution;</li>
 </ul>
 </div>
-<div id="meteorological-images" class="section level3" number="3.10.2">
+<div id="meteorological-images" class="section level3" number="3.11.2">
 <h3>
-<span class="header-section-number">3.10.2</span> Meteorological images<a class="anchor" aria-label="anchor" href="#meteorological-images"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.11.2</span> Meteorological images<a class="anchor" aria-label="anchor" href="#meteorological-images"><i class="fas fa-link"></i></a>
 </h3>
 <p>A number of <a href="https://modis.gsfc.nasa.gov/data/dataprod/">MODIS atmospheric / terrestrial products</a>
 are available with daily updates (usually at 1-km spatial resolution) including:</p>
@@ -792,13 +845,13 @@ observation capabilities at high spatial resolution (30–50-m) over land and co
 regions in support of agriculture management services, and possibly a range of additional services.</p>
 </div>
 </div>
-<div id="biodiversity-and-nature-conservation" class="section level2" number="3.11">
+<div id="biodiversity-and-nature-conservation" class="section level2" number="3.12">
 <h2>
-<span class="header-section-number">3.11</span> Biodiversity and Nature Conservation<a class="anchor" aria-label="anchor" href="#biodiversity-and-nature-conservation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.12</span> Biodiversity and Nature Conservation<a class="anchor" aria-label="anchor" href="#biodiversity-and-nature-conservation"><i class="fas fa-link"></i></a>
 </h2>
-<div id="world-ecosystems-biomes-ecoregions" class="section level3" number="3.11.1">
+<div id="world-ecosystems-biomes-ecoregions" class="section level3" number="3.12.1">
 <h3>
-<span class="header-section-number">3.11.1</span> World ecosystems / biomes / ecoregions<a class="anchor" aria-label="anchor" href="#world-ecosystems-biomes-ecoregions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.12.1</span> World ecosystems / biomes / ecoregions<a class="anchor" aria-label="anchor" href="#world-ecosystems-biomes-ecoregions"><i class="fas fa-link"></i></a>
 </h3>
 <p>Numerous global data products have been produced to show either boundaries of natural
 ecosystems also referred to as <a href="https://en.wikipedia.org/wiki/Ecoregion">ecoregions</a> or biomes.
@@ -834,9 +887,9 @@ needleleaved deciduous trees, broadleaved evergreen shrubs, broadleaved deciduou
 needleleaved evergreen shrubs, needleleaved deciduous shrubs, natural grasses,
 herbaceous cropland (i.e., managed grasses), built, water, bare areas, and snow and ice.</p>
 </div>
-<div id="potential-natural-vegetation-maps" class="section level3" number="3.11.2">
+<div id="potential-natural-vegetation-maps" class="section level3" number="3.12.2">
 <h3>
-<span class="header-section-number">3.11.2</span> Potential Natural Vegetation maps<a class="anchor" aria-label="anchor" href="#potential-natural-vegetation-maps"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.12.2</span> Potential Natural Vegetation maps<a class="anchor" aria-label="anchor" href="#potential-natural-vegetation-maps"><i class="fas fa-link"></i></a>
 </h3>
 <p>Potential Natural Vegetation (PNV) is the hypothetical vegetation cover that would be present if the vegetation
 were in equilibrium with environmental controls, including climatic factors and disturbance,
@@ -856,9 +909,9 @@ on the UN FAO Land Cover Classification System (LCCS) is part of the
 <a href="https://naturemap.earth/">NatureMap project</a>. <span class="citation">Bonannella, Hengl, Parente, &amp; Bruin (<a href="references.html#ref-bonannella2023biomes">2023</a>)</span> provides an updated
 predictions of the potential distribution of <strong><a href="https://zenodo.org/doi/10.5281/zenodo.7520813">global biomes</a></strong> at 1-km including for the future climate scenarios (2040, 2060 and beyond).</p>
 </div>
-<div id="species-distribution-and-biodiversity-maps" class="section level3" number="3.11.3">
+<div id="species-distribution-and-biodiversity-maps" class="section level3" number="3.12.3">
 <h3>
-<span class="header-section-number">3.11.3</span> Species distribution and biodiversity maps<a class="anchor" aria-label="anchor" href="#species-distribution-and-biodiversity-maps"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.12.3</span> Species distribution and biodiversity maps<a class="anchor" aria-label="anchor" href="#species-distribution-and-biodiversity-maps"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Global Biodiversity Information Facility</strong> (<a href="http://data.gbif.org/">GBIF</a>) provides access to global data showing the distribution of
 all flora and fauna species. The density maps are available only at resolution of
@@ -879,9 +932,9 @@ distribution overlaps in each 10-km cell.</p>
 including the map of plant species richness at 1-km spatial resolutions. These maps are based using <a href="http://www.idiv.de/splot">sPlot database</a>
 (whichs is available upon request by submitting a project proposal to sPlot’s Steering Committee).</p>
 </div>
-<div id="protected-areas" class="section level3" number="3.11.4">
+<div id="protected-areas" class="section level3" number="3.12.4">
 <h3>
-<span class="header-section-number">3.11.4</span> Protected areas<a class="anchor" aria-label="anchor" href="#protected-areas"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.12.4</span> Protected areas<a class="anchor" aria-label="anchor" href="#protected-areas"><i class="fas fa-link"></i></a>
 </h3>
 <p>National and international protected sites and attributes can be downloaded
 (ESRI Shapefiles; after registering on the website) via the <strong><a href="http://protectedplanet.net/">World Database On Protected Areas</a></strong>.
@@ -901,58 +954,59 @@ Distribution maps (presence) for these species (with limited coverage) can be do
 <li><a class="nav-link" href="#compendium-of-global-gridded-environmental-data-sets"><span class="header-section-number">3</span> Compendium of Global Gridded Environmental Data Sets</a></li>
 <li><a class="nav-link" href="#thematic-data-groups"><span class="header-section-number">3.1</span> Thematic data groups:</a></li>
 <li><a class="nav-link" href="#other-repositories-of-global-open-environmental-layers"><span class="header-section-number">3.2</span> Other repositories of global (open) environmental layers</a></li>
+<li><a class="nav-link" href="#make-your-data-more-accessible-more-usable"><span class="header-section-number">3.3</span> Make your data more accessible more usable</a></li>
 <li>
-<a class="nav-link" href="#buildings-and-settlements"><span class="header-section-number">3.3</span> Buildings and Settlements</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#administrative-and-socio-economic-data"><span class="header-section-number">3.3.1</span> Administrative and socio economic data</a></li></ul>
+<a class="nav-link" href="#buildings-and-settlements"><span class="header-section-number">3.4</span> Buildings and Settlements</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#administrative-and-socio-economic-data"><span class="header-section-number">3.4.1</span> Administrative and socio economic data</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#elevation-and-depth"><span class="header-section-number">3.4</span> Elevation and Depth</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#digital-terrain-models"><span class="header-section-number">3.4.1</span> Digital Terrain Models</a></li>
-<li><a class="nav-link" href="#canopy-height-data"><span class="header-section-number">3.4.2</span> Canopy height data</a></li>
-<li><a class="nav-link" href="#hydrological-hydrographic-data"><span class="header-section-number">3.4.3</span> Hydrological / hydrographic data</a></li>
+<a class="nav-link" href="#elevation-and-depth"><span class="header-section-number">3.5</span> Elevation and Depth</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#digital-terrain-models"><span class="header-section-number">3.5.1</span> Digital Terrain Models</a></li>
+<li><a class="nav-link" href="#canopy-height-data"><span class="header-section-number">3.5.2</span> Canopy height data</a></li>
+<li><a class="nav-link" href="#hydrological-hydrographic-data"><span class="header-section-number">3.5.3</span> Hydrological / hydrographic data</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#geology-and-soils"><span class="header-section-number">3.5</span> Geology and Soils</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#geology-and-lithology"><span class="header-section-number">3.5.1</span> Geology and lithology</a></li>
-<li><a class="nav-link" href="#earthquakes-natural-hazards"><span class="header-section-number">3.5.2</span> Earthquakes / natural hazards</a></li>
-<li><a class="nav-link" href="#soils"><span class="header-section-number">3.5.3</span> Soils</a></li>
+<a class="nav-link" href="#geology-and-soils"><span class="header-section-number">3.6</span> Geology and Soils</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#geology-and-lithology"><span class="header-section-number">3.6.1</span> Geology and lithology</a></li>
+<li><a class="nav-link" href="#earthquakes-natural-hazards"><span class="header-section-number">3.6.2</span> Earthquakes / natural hazards</a></li>
+<li><a class="nav-link" href="#soils"><span class="header-section-number">3.6.3</span> Soils</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#land-cover-and-land-use"><span class="header-section-number">3.6</span> Land Cover and Land Use</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#land-cover"><span class="header-section-number">3.6.1</span> Land cover</a></li>
-<li><a class="nav-link" href="#biophysical-indices"><span class="header-section-number">3.6.2</span> Biophysical indices</a></li>
-<li><a class="nav-link" href="#forest-resources"><span class="header-section-number">3.6.3</span> Forest resources</a></li>
-<li><a class="nav-link" href="#land-use-change"><span class="header-section-number">3.6.4</span> Land use change</a></li>
+<a class="nav-link" href="#land-cover-and-land-use"><span class="header-section-number">3.7</span> Land Cover and Land Use</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#land-cover"><span class="header-section-number">3.7.1</span> Land cover</a></li>
+<li><a class="nav-link" href="#biophysical-indices"><span class="header-section-number">3.7.2</span> Biophysical indices</a></li>
+<li><a class="nav-link" href="#forest-resources"><span class="header-section-number">3.7.3</span> Forest resources</a></li>
+<li><a class="nav-link" href="#land-use-change"><span class="header-section-number">3.7.4</span> Land use change</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#population-distribution"><span class="header-section-number">3.7</span> Population Distribution</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#population-density-maps"><span class="header-section-number">3.7.1</span> Population density maps</a></li>
-<li><a class="nav-link" href="#lights-at-night-images"><span class="header-section-number">3.7.2</span> Lights at night images</a></li>
+<a class="nav-link" href="#population-distribution"><span class="header-section-number">3.8</span> Population Distribution</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#population-density-maps"><span class="header-section-number">3.8.1</span> Population density maps</a></li>
+<li><a class="nav-link" href="#lights-at-night-images"><span class="header-section-number">3.8.2</span> Lights at night images</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#water-resources"><span class="header-section-number">3.8</span> Water resources</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#global-surface-water-dynamics"><span class="header-section-number">3.8.1</span> Global Surface Water dynamics</a></li></ul>
+<a class="nav-link" href="#water-resources"><span class="header-section-number">3.9</span> Water resources</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#global-surface-water-dynamics"><span class="header-section-number">3.9.1</span> Global Surface Water dynamics</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#physical-infrastructure"><span class="header-section-number">3.9</span> Physical Infrastructure</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#urbanization-human-induced-changes"><span class="header-section-number">3.9.1</span> Urbanization / human-induced changes</a></li>
-<li><a class="nav-link" href="#intact-forest-landscapes"><span class="header-section-number">3.9.2</span> Intact forest landscapes</a></li>
+<a class="nav-link" href="#physical-infrastructure"><span class="header-section-number">3.10</span> Physical Infrastructure</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#urbanization-human-induced-changes"><span class="header-section-number">3.10.1</span> Urbanization / human-induced changes</a></li>
+<li><a class="nav-link" href="#intact-forest-landscapes"><span class="header-section-number">3.10.2</span> Intact forest landscapes</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#climate"><span class="header-section-number">3.10</span> Climate</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#climatic-datasets"><span class="header-section-number">3.10.1</span> Climatic datasets</a></li>
-<li><a class="nav-link" href="#meteorological-images"><span class="header-section-number">3.10.2</span> Meteorological images</a></li>
+<a class="nav-link" href="#climate"><span class="header-section-number">3.11</span> Climate</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#climatic-datasets"><span class="header-section-number">3.11.1</span> Climatic datasets</a></li>
+<li><a class="nav-link" href="#meteorological-images"><span class="header-section-number">3.11.2</span> Meteorological images</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#biodiversity-and-nature-conservation"><span class="header-section-number">3.11</span> Biodiversity and Nature Conservation</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#world-ecosystems-biomes-ecoregions"><span class="header-section-number">3.11.1</span> World ecosystems / biomes / ecoregions</a></li>
-<li><a class="nav-link" href="#potential-natural-vegetation-maps"><span class="header-section-number">3.11.2</span> Potential Natural Vegetation maps</a></li>
-<li><a class="nav-link" href="#species-distribution-and-biodiversity-maps"><span class="header-section-number">3.11.3</span> Species distribution and biodiversity maps</a></li>
-<li><a class="nav-link" href="#protected-areas"><span class="header-section-number">3.11.4</span> Protected areas</a></li>
+<a class="nav-link" href="#biodiversity-and-nature-conservation"><span class="header-section-number">3.12</span> Biodiversity and Nature Conservation</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#world-ecosystems-biomes-ecoregions"><span class="header-section-number">3.12.1</span> World ecosystems / biomes / ecoregions</a></li>
+<li><a class="nav-link" href="#potential-natural-vegetation-maps"><span class="header-section-number">3.12.2</span> Potential Natural Vegetation maps</a></li>
+<li><a class="nav-link" href="#species-distribution-and-biodiversity-maps"><span class="header-section-number">3.12.3</span> Species distribution and biodiversity maps</a></li>
+<li><a class="nav-link" href="#protected-areas"><span class="header-section-number">3.12.4</span> Protected areas</a></li>
 </ul>
 </li>
 </ul>

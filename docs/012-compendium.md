@@ -11,7 +11,7 @@ To contribute to this portal, consider submitting new data by editing this Markd
 Please check also the working version of the [OEMC global Land Use Land Cover Taxonomy Tables](https://docs.google.com/spreadsheets/d/1SX51OilNt-cUYpAa7t0LAvZRTzq3Sd4WJLnX6mWKfQk/edit?usp=sharing).
 
 If your work / products are cited here you are for us **a champion of open environmental data** and 
-we are enormeously thanksful for your contirbution (please never stop!).
+we are enormously thankful for your contribution (please never stop!).
 
 Minimum conditions to include your contribution to this compendium:
 
@@ -65,10 +65,12 @@ Sorted alphabetically:
 * [MODIS Land products](https://modis.gsfc.nasa.gov/data/dataprod/) usually at moderate resolutions from 250-m to 1-km (also available for searching via https://lpdaac.usgs.gov/product_search/);
 * [NASA Earth Observation (NEO)](https://earthobservatory.nasa.gov/global-maps) is part of the [EOS Project Science Office](http://eospso.nasa.gov/) located at NASA Goddard Space Flight Center;
 * [Natural Earth Data](http://www.naturalearthdata.com/downloads/) website compiled by Nathaniel Vaughn (KELSO) and volunteers;
+* [Open Geospatial Catalogs](https://github.com/opengeos/geospatial-data-catalogs) a list of open geospatial datasets available on AWS, Earth Engine, Planetary Computer, NASA CMR, and STAC Index;
 * [Oracle Open Data Repository (geospatial)](https://opendata.oraclecloud.com/);
 * [ORNL DAAC](https://daac.ornl.gov/get_data/) The Oak Ridge National Laboratory Distributed Active Archive Center (ORNL DAAC) for Biogeochemical Dynamics is a NASA Earth Observing System Data and Information System ([EOSDIS](https://earthdata.nasa.gov/eosdis/daacs)) data center managed by the Earth Science Data and Information System ([ESDIS](https://earthdata.nasa.gov/esds)) Project;
 * [Overture Maps](https://overturemaps.org/download/) by the Overture Maps Foundation serves some basic admin layers e.g. buildings, road networks, places etc all as open data.
 * [SEDAC](https://sedac.ciesin.columbia.edu/data/sets/browse) — A Data Center in NASA's Earth Observing System Data and Information System (EOSDIS) — Hosted by CIESIN at Columbia University;
+* [STAC index](https://stacindex.org/catalogs) an international telephone book for STAC Catalogs, Collections, APIs, Software and Tools (you can also add your own data and tools to the list);
 * [The awesome-gee-community-catalog](https://gee-community-catalog.org/) by Samapriya Roy et al.;
 * [UNEP/GRID GEO DataPortal](http://geodata.grid.unep.ch/) and [UNEP/GRID-Arendal](http://maps.grida.no/region/global) — a large repository of global grids at various resolutions;
 * [UNEP Data Catalog](https://datacatalog.unep.org/app/);
@@ -77,6 +79,37 @@ Sorted alphabetically:
 <img src="img/lpdaac_usgs_preview.jpg" alt="LP DAAC data catalog at https://lpdaac.usgs.gov/product_search/ is an example of continuosly updated and complete catalog of global environmental data (primarily based on MODIS and similar EO missions) which are available publicly without restrictions." width="100%" />
 <p class="caption">(\#fig:usgs-modis)LP DAAC data catalog at https://lpdaac.usgs.gov/product_search/ is an example of continuosly updated and complete catalog of global environmental data (primarily based on MODIS and similar EO missions) which are available publicly without restrictions.</p>
 </div>
+
+## Make your data more accessible more usable
+
+If you are making open global data aiming at enabling others 
+to do more advanced analysis & eventually help with better management of 
+natural resources, what are the key steps to improve usability of 
+your data? Within the [Open-Earth-Monitor project](https://earthmonitor.org/) we specifically 
+looked at hundreds of cases of data sets that have a high potential 
+but are somewhat under-used or not used at all. This is what we believe is especially 
+important to help boost usability and accessibility of your global geospatial data:
+
+-  Aim at making your data **[4C-ARCO](https://medium.com/mlearning-ai/present-and-future-of-data-cubes-an-european-eo-perspective-735d3f16f7c9)**: complete, consistent, current and correct, then on top of it Analysis-ready and Cloud Optimized;
+-  Use **(open) cloud-native data formats** to distribute data (especially for large data) either [COG's](https://www.cogeo.org/), [GeoZarr](https://radiant.earth/blog/2023/06/exploring-the-potential-of-geozarr-for-storage-and-analysis/), [XArray](https://docs.xarray.dev/en/stable/) and/or [Geoparquet](https://geoparquet.org/) / [Flatgeobuf](https://flatgeobuf.org/) for tabular / vector data;
+-  Use **[SpatioTemporal Asset Catalogs (STAC)](https://stacspec.org/en)** or similar to register data and the access points (usually also requires that you publish your data via a Simple Storage Service (S3)); 
+-  Best technical documentation for the data is (A) a peer-review publication, and (B) a [computational notebook](https://www.datacamp.com/blog/jupyter-and-r-markdown-notebooks-with-r) providing a demo of the method used and key results; a peer-review publication increases confidence for non-experts; computational notebooks help increase quality as people then try to extend your work, then discover and report problems and help you make revisions;
+-  Always register all versions of your data so that anyone can track fixes and improvements; for each version try to obtain DOI, so that it is also kept for ever;
+-  Try to register your data in some higher level aggregator such as [STAC index](https://stacindex.org/) (or this compendium!);
+-  Test if your data can be easily used in most-popular GIS software such as [QGIS](https://www.cogeo.org/qgis-tutorial.html): does it have the right legend? can users quickly find metadata, explanation of units, how was the map produced etc?; 
+
+Of course, not every version or testing of your data / mapping skills 
+needs to be registered with unique DOI. Also, writing metadata & 
+computational notebooks requires time and resource investments, so you 
+need to plan carefully your time. Here are some world-leading providers 
+of tools for making geospatial data more usable and more **[FAIR](https://www.go-fair.org/fair-principles/) (Findable, Accessible, Interoperable, and Reusable)**:
+
+-  https://gdal.org software backbone of any open geospatial data project;
+-  https://radiant.earth/ is organization largely behind COGs and STAC;
+-  https://pangeo.io/ a project developing tools for Big Data geoscience;
+-  https://github.com/opengeospatial the Open Geospatial Consortium repositories hosting many open source solutions for Big Data geoscience;
+-  https://github.com/opengeos/ a collection of open-source software packages for the geospatial community;
+
 
 ## Buildings and Settlements
 
@@ -102,6 +135,8 @@ used to derive the global distance from the sea coast line map and similar.
 The [Overture Maps foundation](https://overturemaps.org/download/) provides up-to-date (current) global vectors on 
 Layers of interest include: admins, base, buildings, places etc. You can simply [download](https://github.com/OvertureMaps/data/) 
 the data for are of interest, then convert to [PMTiles](https://msbarry.github.io/planetiler-overture-demo/) or similar, then add to back-end/front-end as a clickable layer.
+
+The **[World Settlement Footprint (WSF)](https://geoservice.dlr.de/web/maps/eoc:wsf)** is a series of datasets that provide comprehensive, high-resolution mapping of human settlements across the globe. WSF is a 10-m resolution binary mask outlining the extent of human settlements globally derived from 2014–2015 multitemporal Landsat-8 and Sentinel-1 imagery ([WFS2015] (https://geoservice.dlr.de/web/maps/eoc:wsf)) and 2019 multitemporal Sentinel-1 and Sentinel-2 imagery ([WFS 2019] (https://geoservice.dlr.de/web/maps/eoc:wsf2019)). [WSF Evolution](https://geoservice.dlr.de/web/maps/eoc:wsfevolution) is a 30–m resolution dataset outlining the global settlement extent on a yearly basis from 1985 to 2015.
 
 The [Socioeconomic Data and Applications Center (SEDAC)](https://sedac.ciesin.columbia.edu/data/sets/browse) a Data Center in NASA's Earth 
 Observing System Data and Information System (EOSDIS) Hosted by CIESIN at Columbia University 
@@ -197,6 +232,13 @@ USGS, jointly with ESRI, have released in 2014 a **[Global Ecological Land Units
 at 250-m resolution. This also includes a world layer of rock types. This data can 
 be downloaded from the [USGS site](http://rmgsc.cr.usgs.gov/outgoing/ecosystems/Global/) or via [Zenodo](https://zenodo.org/doi/10.5281/zenodo.1447198).
 
+@fan2013global produced global maps of Groundwater Table Depth that has been systematically updated in 2022. 
+The modeled monthly water table depth can be [downloaded for each continent](http://thredds-gfnl.usc.es/thredds/catalog/GLOBALWTDFTP/catalog.html).
+@cuthbert2019global produced water table ratio and groundwater response times maps at 1-km resolution (available from [figshare](https://doi.org/10.6084/m9.figshare.7393304)).
+The International Groundwater Resources Assessment Centre (IGRAC) maintains the 
+[Global Groundwater Information System (GGIS)](https://ggis.un-igrac.org/). IGRAC is 
+aiming at producing [global groundwater datasets](https://sdgs.un.org/partnerships/produce-and-disseminate-open-global-groundwater-datasets).
+
 ### Earthquakes / natural hazards
 
 Natural hazards include:
@@ -252,7 +294,11 @@ including maps of soil nematodes density, bacterial biomass, fungal biomass and 
 
 Some soil properties are often directly estimated from the EO data. For example the soil moisture 
 [GLASS SM data set](http://glass.umd.edu/soil_moisture/) and the [gap-free global daily surface soil moisture at 1-km grid resolution](https://doi.org/10.11888/RemoteSen.tpdc.272760). 
-Bare soil surface fraction and spectral bands can be also derived directly from EO data e.g. @dematte2020bare; data available via [GEE](https://gee-community-catalog.org/projects/bss/).
+Bare soil surface fraction and spectral bands can be also derived directly from EO data e.g. 
+global composites produced @dematte2020bare; data available via [GEE](https://gee-community-catalog.org/projects/bss/).
+
+@lembrechts2022global produced maps of **Global Soil Bioclimatic variables** (including soil temperatures) 
+which are available at [1-km spatial resolution](https://zenodo.org/doi/10.5281/zenodo.4558731) for depth intervals 0–5 and 5–15 cm (training data used to produce these maps is [also available](https://zenodo.org/doi/10.5281/zenodo.4558662)).
 
 An in-depth review of the global soil data sets is available in @Dai2019. 
 Status of the soil information in the world can be also followed via David G. Rossiter's [compendium of On-Line Soil Survey Information](https://www.isric.org/explore/soil-geographic-databases#world).
@@ -565,6 +611,8 @@ Coarser resolution (10-km or coarser) soil moisture global images are also
 available such as the [ESA's CCI soil moisture product](https://climate.esa.int/en/projects/soil-moisture/data/), 
 [SMAP Enhanced L3 Radiometer Global Daily 9 km EASE-Grid Soil Moisture](https://nsidc.org/data/spl3smp_e/versions/3) and 
 the [ASCAT](https://hsaf.meteoam.it/Products/ProductsList?type=soil_moisture) **Soil Wetness Profile Index** and **Root Zone Soil Moisture Profile Index**.  
+
+Global soil temperatures i.e. **Global Soil Bioclimatic variables** are available at [1-km spatial resolution](https://zenodo.org/doi/10.5281/zenodo.4558731) [@lembrechts2022global].
 
 [OpenLandMap.org](https://stac.openlandmap.org/wv_mcd19a2v061.seasconv/collection.json) provides access to number of original climatic data sets produced at OpenGeoHub including:
 
