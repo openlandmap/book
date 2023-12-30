@@ -102,6 +102,8 @@ The [Overture Maps foundation](https://overturemaps.org/download/) provides up-t
 Layers of interest include: admins, base, buildings, places etc. You can simply [download](https://github.com/OvertureMaps/data/) 
 the data for are of interest, then convert to [PMTiles](https://msbarry.github.io/planetiler-overture-demo/) or similar, then add to back-end/front-end as a clickable layer.
 
+The [World Settlement Footprint (WSF)] (https://geoservice.dlr.de/web/maps/eoc:wsf) is a remarkable series of datasets that provide comprehensive, high-resolution mapping of human settlements across the globe. WSF is a 10m resolution binary mask outlining the extent of human settlements globally derived from 2014-2015 multitemporal Landsat-8 and Sentinel-1 imagery ([WFS2015] (https://geoservice.dlr.de/web/maps/eoc:wsf)) and 2019 multitemporal Sentinel-1 and Sentinel-2 imagery ([WFS 2019] (https://geoservice.dlr.de/web/maps/eoc:wsf2019)). [WSF Evolution] (https://geoservice.dlr.de/web/maps/eoc:wsfevolution) is a 30m resolution dataset outlining the global settlement extent on a yearly basis from 1985 to 2015.
+
 The [Socioeconomic Data and Applications Center (SEDAC)](https://sedac.ciesin.columbia.edu/data/sets/browse) a Data Center in NASA's Earth 
 Observing System Data and Information System (EOSDIS) Hosted by CIESIN at Columbia University 
 has produced a number of open global socio-economic data sets including on themes such as: Agriculture, Climate, Conservation, 
