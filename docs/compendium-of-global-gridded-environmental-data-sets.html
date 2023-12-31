@@ -344,6 +344,8 @@ The complete global gridded canopy height / biomass density products include:</p
 <li>
 <a href="https://daac.ornl.gov/cgi-bin/dataset_lister.pl?p=40">GEDI L4B</a> gridded aboveground biomass density (nominal latitude extent of -52 to 52 degrees) at 1-km resolution <span class="citation">(<a href="references.html#ref-Dubayah2023">Dubayah et al., 2023</a>)</span>;</li>
 </ul>
+<p><strong><a href="https://geoservice.dlr.de/web/maps/tdm:dcm30">TanDEM-X 30-m DEM Change Maps (DCM)</a></strong> shows significant changes in elevation (usually canopy height) for the period 2016 to 2022.<br>
+Users must be aware that a given elevation change measured in the DEM change maps corresponds to a topographic change with respect to TanDEM-X 30m EDEM, i.e. this is only an estimate of physical height change.</p>
 </div>
 <div id="hydrological-hydrographic-data" class="section level3" number="3.5.3">
 <h3>
@@ -354,6 +356,9 @@ A <a href="https://zenodo.org/doi/10.5281/zenodo.3355006">rasterized version of 
 <a href="http://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_Hydro">MERIT Hydro</a> also provides Upstream Drainage Area at 100-m global and should be considered a reference at this scale <span class="citation">(<a href="references.html#ref-MERITDEM">Yamazaki et al., 2019</a>)</span>.
 <span class="citation">Amatulli et al. (<a href="references.html#ref-amatulli2022hydrography90m">2022</a>)</span> describes Hydrography90m (global hydrographic dataset) although this is
 not available as open data (NC-license).</p>
+<p><strong>Global reservoirs (GRanD)</strong> (polygons) dataset can be obtained from the <a href="https://www.globaldamwatch.org/directory">Global Dam Watch website</a>.
+Connected to GRanD, <strong>Global reservoir bathymetry estimate (ReGeom)</strong> dataset is available from <a href="https://zenodo.org/doi/10.5281/zenodo.1322883">zenodo</a>.
+<strong>Global streamflow time series dataset</strong> i.e. the GRDC’s (Global Runoff Data Centre) streamflow observations (cca 11,000 stations) can be downloaded from the <a href="https://portal.grdc.bafg.de/">GRDC data portal</a>.</p>
 <p>Several data set exists that quantify global surface water extent and type, wetlands distribution and
 fresh-water resources in general:</p>
 <ul>
@@ -365,6 +370,8 @@ fresh-water resources in general:</p>
 <a href="https://doi.org/10.1594/PANGAEA.892657">Multi-source global wetland map at 500-m resolution</a> <span class="citation">(<a href="references.html#ref-tootchi2019multi">Tootchi, Jost, &amp; Ducharne, 2019</a>)</span>
 </li>
 </ul>
+<p>DLR’s (MODIS-based) <strong><a href="https://geoservice.dlr.de/web/maps/eoc:gwp:yearly">Global WaterPack (GWP) monthly and yearly</a></strong> product (different water coverage categories) at 250-m spatial resolution
+is available for the period 2003 to 2022+.</p>
 </div>
 </div>
 <div id="geology-and-soils" class="section level2" number="3.6">
@@ -510,7 +517,8 @@ HYDE includes irrigated areas, rice, intensive pasture, extensive rangelands and
 the <a href="https://landuse.sites.uu.nl/datasets/">University of Utrecht Copernicus Land Change Lab</a>.</p>
 <p>A detailed Water mask of the world is available also from the <a href="https://global-surface-water.appspot.com/">Global Surface Water Explorer</a> hosted by European Commission JRC
 <span class="citation">(<a href="references.html#ref-Pekel2016">Pekel et al., 2016</a>)</span>. A Landsat-based water
-dynamics assessment (annual maps) at 30-m is also provided by <span class="citation">Pickens et al. (<a href="references.html#ref-pickens2020mapping">2020</a>)</span>.</p>
+dynamics assessment (annual maps) at 30-m is also provided by <span class="citation">Pickens et al. (<a href="references.html#ref-pickens2020mapping">2020</a>)</span>.
+<strong><a href="https://geoservice.dlr.de/web/maps/eoc:gwp:yearly">Global WaterPack (GWP) monthly and yearly</a></strong> product comprises different water coverage categories at 250-m spatial resolution.</p>
 <p>Due to the availability of the Sentinel-2 10-m resolution data, several land cover
 products are now available at very high resolution (but then only covering recent 3–5 years). These include:</p>
 <ul>
@@ -608,11 +616,12 @@ land cover mapping. Some typical legend entries for land use change includes:</p
 <li>Pastureland expansion,</li>
 <li>Land abandonment,</li>
 </ul>
-<p><a href="https://glad.umd.edu/dataset/GLCLUC2020">GLAD Global Land Cover and Land Use Change 2000–2020 (GLCLUC2020)</a> provides estimate of the land cover for the last 20+ years at 30 m + it quantifies changes in forest extent
+<p><a href="https://glad.umd.edu/dataset/GLCLUC2020">GLAD Global Land Cover and Land Use Change 2000–2020 (GLCLUC2020)</a> provides estimate of the land cover for the last 20+ years at 30-m resolution quantifies changes in forest extent
 and height, cropland, built-up lands, surface water, and perennial snow and ice extent <span class="citation">(<a href="references.html#ref-Potapov2022">Potapov et al., 2022</a>)</span>.
 This data set can be downloaded (per tile) via the <a href="https://glad.earthengine.app/view/glcluc-2000-2020">GLAD’s GEE repository</a>.
 <strong><a href="https://www.globalforestwatch.org/map/">WRI’s Global Forest Watch</a></strong> provides high resolution<br>
-forest cover change at 30-m resolution.</p>
+forest cover change at 30-m resolution.
+<strong><a href="https://geoservice.dlr.de/web/maps/tdm:dcm30">TanDEM-X 30-m DEM Change Maps (DCM)</a></strong> shows significant changes in elevation (usually canopy height) for the period 2016 to 2022.</p>
 </div>
 </div>
 <div id="population-distribution" class="section level2" number="3.8">
