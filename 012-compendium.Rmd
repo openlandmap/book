@@ -10,17 +10,25 @@ available, and NOT as an in-depth review article.
 To contribute to this portal, consider submitting new data by editing this Markdown document. 
 Please check also the working version of the [OEMC global Land Use Land Cover Taxonomy Tables](https://docs.google.com/spreadsheets/d/1SX51OilNt-cUYpAa7t0LAvZRTzq3Sd4WJLnX6mWKfQk/edit?usp=sharing).
 
-If your work / products are cited here you are for us **a champion of open environmental data** and 
-we are enormously thankful for your contribution (please never stop!).
+If your work / products are cited here, you are for us **a champion of open environmental data** and 
+we are enormously thankful for your contributions (please never stop!).
 
 Minimum conditions to include your contribution to this compendium:
 
 -  Please submit / register **only global data sets** (at least 80% complete; at least 5 continents);
--  The data sets should be peer-reviewed or at least come with fully documented processing steps / metadata;
--  Refer to computational notebooks or materials that explain how was the data produced: **open science** data sets are especially encouraged; 
+-  The data sets should be peer-reviewed or at least come with fully documented processing steps / metadata and/or an official technical report;
+-  Refer to computational notebooks or materials that explain how was the data produced: follow as much as possible the **[open science](https://en.wikipedia.org/wiki/Open_science)** principles; 
 -  The data set should have one of the compatible **[open data licenses](https://opendefinition.org/licenses/)** or at least allow for the derivative works to be released as open data;
 -  The data set should be current i.e. still in use and the citation / URL should mention the most recent update;
 -  Mention of the data should focus on practical things such as _"where I can read about how was this data set produced?"_, _"where can I download this data?"_, _"what are its technical characteristics such as spatial resolution, temporal coverage, biophysical variables and measurement units?"_;
+
+Here are the top 5 technical aspects of the data that should be clear to reader without confusion:
+
+1. What is the DOI of the data set i.e. what is the permanent URL from which it can be downloaded?
+2. What is the spatial resolution / effective scale of the data set (use round metrics e.g. 100-m)?
+3. Which referent time-period does the data set covers / what is the time-span of the training or input data?
+4. What is the #1 technical documentation for this data set i.e. peer-review publication DOI or similar?
+5. What can this data set be used for i.e. what is its significance?
 
 Examples of contributions that will not be welcomed:
 
@@ -46,36 +54,50 @@ All layers are organized around the following themes
 -  **Climate**: includes long-term climatic images, climatic time-series data, future climate predictions and meteorological images,
 -  **Biodiversity and Nature Conservation**: includes wildlife resources, protected areas, natural vegetation and biomes, ecoregions and biodiversity maps, 
 
+This list is not universal and might need to be updated and improved. For comparison, [NASA's EarthData](https://www.earthdata.nasa.gov/eosdis) 
+portal distinguishes the following global data themes:
+
+-  Atmosphere;
+-  Biosphere;
+-  Cryosphere;
+-  Human Dimensions;
+-  Land Surface;
+-  Ocean;
+-  Solid Earth;
+-  Sun-Earth Interactions;
+-  Terrestrial Hydrosphere;
+
 ## Other repositories of global (open) environmental layers
 
 Sorted alphabetically:
 
 * [Amazon AWS Open EO Data](https://registry.opendata.aws/tag/earth-observation/);
-* [Atlas of the Biosphere portal](http://www.sage.wisc.edu/atlas/maps.php);
 * [Copernicus Global Land Service](https://land.copernicus.eu/global/) — global data sets (bio-geophysical products) produced by the Land Monitoring Core Service (LMCS) of Copernicus, the European flagship programme on Earth Observation;
 * [DLR Geoportal](https://geoservice.dlr.de/web/maps);
-* [Earth Engine Data Catalog](https://developers.google.com/earth-engine/datasets) — Google's repository of global and local data sets;
 * [EarthEnv.org](http://earthenv.org/) — Global, remote-sensing supported environmental layers for assessing status and trends in biodiversity, ecosystems, and climate (hosted by Yale University / NASA and others);
-* [Environmental Information Portal](http://earthtrends.wri.org/) of the World Resources Institute contains a number of global grids derived by the WRI and collaborators;
 * [ESRI ArcGIS Living Atlas of the World](https://livingatlas.arcgis.com/en/home/);
 * [Euro Data Cube Public Collections](https://collections.eurodatacube.com/) — a series of global data sets primarily based on the Copernicus programme / Sentinel satellites;
 * [FAO's GeoNetwork](http://www.fao.org/geonetwork/srv/en/main.home) — serves a diversity of data produced by FAO run or supported projects at a diversity of scales;
 * [Free GIS data compendium](http://freegisdata.rtwilson.com/) by R.T. Wilson;
 * [GeoPortal.org](http://www.geoportal.org/) — The Global Earth Observation System of Systems (GEOSS) portal implemented and operated by the European Space Agency (typically only a catalog of data sets / no or limited data is hosted);
 * [Global Land and Discovery group](https://glad.geog.umd.edu/) — University of Maryland Global Land and Discovery group (GLAD) group global data sets,
+* [Google Earth Engine Data Catalog](https://developers.google.com/earth-engine/datasets) — Google's repository of global and local data sets;
 * [MODIS Land products](https://modis.gsfc.nasa.gov/data/dataprod/) usually at moderate resolutions from 250-m to 1-km (also available for searching via https://lpdaac.usgs.gov/product_search/);
 * [NASA Earth Observation (NEO)](https://earthobservatory.nasa.gov/global-maps) is part of the [EOS Project Science Office](http://eospso.nasa.gov/) located at NASA Goddard Space Flight Center;
+* [NASA's Earth Observing System Data and Information System (EOSDIS)](https://www.earthdata.nasa.gov/eosdis) provides tools to find and access global data sets produced by NASA and aiming at Earth System Science;
 * [Natural Earth Data](http://www.naturalearthdata.com/downloads/) website compiled by Nathaniel Vaughn (KELSO) and volunteers;
 * [Open Geospatial Catalogs](https://github.com/opengeos/geospatial-data-catalogs) a list of open geospatial datasets available on AWS, Earth Engine, Planetary Computer, NASA CMR, and STAC Index;
 * [Oracle Open Data Repository (geospatial)](https://opendata.oraclecloud.com/);
 * [ORNL DAAC](https://daac.ornl.gov/get_data/) The Oak Ridge National Laboratory Distributed Active Archive Center (ORNL DAAC) for Biogeochemical Dynamics is a NASA Earth Observing System Data and Information System ([EOSDIS](https://earthdata.nasa.gov/eosdis/daacs)) data center managed by the Earth Science Data and Information System ([ESDIS](https://earthdata.nasa.gov/esds)) Project;
 * [Overture Maps](https://overturemaps.org/download/) by the Overture Maps Foundation serves some basic admin layers e.g. buildings, road networks, places etc all as open data.
+* [SAGE Atlas of the Biosphere portal](http://www.sage.wisc.edu/atlas/maps.php);
 * [SEDAC](https://sedac.ciesin.columbia.edu/data/sets/browse) — A Data Center in NASA's Earth Observing System Data and Information System (EOSDIS) — Hosted by CIESIN at Columbia University;
 * [STAC index](https://stacindex.org/catalogs) an international telephone book for STAC Catalogs, Collections, APIs, Software and Tools (you can also add your own data and tools to the list);
 * [The awesome-gee-community-catalog](https://gee-community-catalog.org/) by Samapriya Roy et al.;
 * [UNEP/GRID GEO DataPortal](http://geodata.grid.unep.ch/) and [UNEP/GRID-Arendal](http://maps.grida.no/region/global) — a large repository of global grids at various resolutions;
 * [UNEP Data Catalog](https://datacatalog.unep.org/app/);
-* [World Resources Institute Resource Watch](https://resourcewatch.org/data/explore) — features hundreds of data sets all in one place on the state of the planet’s resources and citizens.
+* [World Resources Institute (WRI) Resource Watch](https://resourcewatch.org/data/explore) — features hundreds of data sets all in one place on the state of the planet’s resources and citizens.
+* [World Resources Institute (WRI) Environmental Information Portal](http://earthtrends.wri.org/) serves a number of global grids derived by the WRI and collaborators;
 
 ```{r usgs-modis, echo=FALSE, fig.cap="LP DAAC data catalog at https://lpdaac.usgs.gov/product_search/ is an example of continuosly updated and complete catalog of global environmental data (primarily based on MODIS and similar EO missions) which are available publicly without restrictions.", out.width="100%"}
 knitr::include_graphics("img/lpdaac_usgs_preview.jpg")
@@ -97,7 +119,7 @@ important to help boost usability and accessibility of your global geospatial da
 -  Best technical documentation for the data is (A) a peer-review publication, and (B) a [computational notebook](https://www.datacamp.com/blog/jupyter-and-r-markdown-notebooks-with-r) providing a demo of the method used and key results; a peer-review publication increases confidence for non-experts; computational notebooks help increase quality as people then try to extend your work, then discover and report problems and help you make revisions;
 -  Always register all versions of your data so that anyone can track fixes and improvements; for each version try to obtain DOI, so that it is also kept for ever;
 -  Try to register your data in some higher level aggregator such as [STAC index](https://stacindex.org/) (or this compendium!);
--  Test if your data can be easily used in most-popular GIS software such as [QGIS](https://www.cogeo.org/qgis-tutorial.html): does it have the right legend? can users quickly find metadata, explanation of units, how was the map produced etc?; 
+-  Test if your data can be easily used in most-popular GIS software such as [QGIS](https://www.cogeo.org/qgis-tutorial.html): does it have the right legend? can users quickly find metadata, explanation of units, how was the map produced? 
 
 Of course, not every version or testing of your data / mapping skills 
 needs to be registered with unique DOI. Also, writing metadata & 
@@ -110,7 +132,8 @@ of tools for making geospatial data more usable and more **[FAIR](https://www.go
 -  https://pangeo.io/ a project developing tools for Big Data geoscience;
 -  https://github.com/opengeospatial the Open Geospatial Consortium repositories hosting many open source solutions for Big Data geoscience;
 -  https://github.com/opengeos/ a collection of open-source software packages for the geospatial community;
-
+-  https://r-spatial.org/ and https://rspatial.org/ packages and tutorials for accessing geospatial data using R;
+-  https://juliageo.org/ libraries for Julia language to support processing geospatial data;
 
 ## Buildings and Settlements
 
@@ -197,8 +220,8 @@ The complete global gridded canopy height / biomass density products include:
 - [Global 100-m resolution aboveground biomass carbon density](https://doi.org/10.6084/m9.figshare.c.4561940) [@Spawn2020];
 - [GEDI L4B](https://daac.ornl.gov/cgi-bin/dataset_lister.pl?p=40) gridded aboveground biomass density (nominal latitude extent of -52 to 52 degrees) at 1-km resolution [@Dubayah2023];
 
-**[TanDEM-X 30-m DEM Change Maps (DCM)](https://geoservice.dlr.de/web/maps/tdm:dcm30)** shows significant changes in elevation (usually canopy height) for the period 2016 to 2022.  
-Users must be aware that a given elevation change measured in the DEM change maps corresponds to a topographic change with respect to TanDEM-X 30m EDEM, i.e. this is only an estimate of physical height change.
+**[TanDEM-X 30-m DEM Change Maps (DCM)](https://geoservice.dlr.de/web/maps/tdm:dcm30)** shows significant changes in elevation (usually canopy height) for the period 2016 to 2022. 
+DLR warns that users must be aware that a given elevation change measured in the DEM change maps corresponds to a topographic change with respect to TanDEM-X 30m EDEM, i.e. this is only an estimate of physical height change.
 
 ### Hydrological / hydrographic data
 
@@ -212,6 +235,11 @@ not available as open data (NC-license).
 Connected to GRanD, **Global reservoir bathymetry estimate (ReGeom)** dataset is available from [zenodo](https://zenodo.org/doi/10.5281/zenodo.1322883).
 **Global streamflow time series dataset** i.e. the GRDC's (Global Runoff Data Centre) streamflow observations (cca 11,000 stations) can be downloaded from the [GRDC data portal](https://portal.grdc.bafg.de/).
 
+@lehner2013global provide a global river hydrography and river network routing data set (HydroBASINS and **[HydroSHEDS](https://www.hydrosheds.org/hydrosheds-core-downloads)**) at 500-m spatial resolution. 
+@lane2023mapping produced a global 90-m resolution map of **[Non-Floodplain Wetland (Global NFW)](https://doi.org/10.23719/1528331)**.
+Global NFW is based on multiple input data sources including MERIT Hydro, 
+HydroBASINS and similar. 
+
 Several data set exists that quantify global surface water extent and type, wetlands distribution and 
 fresh-water resources in general: 
 
@@ -221,6 +249,9 @@ fresh-water resources in general:
 
 DLR's (MODIS-based) **[Global WaterPack (GWP) monthly and yearly](https://geoservice.dlr.de/web/maps/eoc:gwp:yearly)** product (different water coverage categories) at 250-m spatial resolution 
 is available for the period 2003 to 2022+.
+
+[NASA's Physical Oceanography Distributed Active Archive Center](https://www.earthdata.nasa.gov/eosdis/daacs/podaac) (PO.DAAC) serves 
+data on ocean winds, sea surface temperature, ocean surface topography, sea surface salinity, surface water and similar.
 
 ## Geology and Soils
 
@@ -249,6 +280,12 @@ The International Groundwater Resources Assessment Centre (IGRAC) maintains the
 [Global Groundwater Information System (GGIS)](https://ggis.un-igrac.org/). IGRAC is 
 aiming at producing [global groundwater datasets](https://sdgs.un.org/partnerships/produce-and-disseminate-open-global-groundwater-datasets).
 
+@tang2023global made a global inventory (polygon map) of mining areas (mine area coverage): 
+The polygons cover about about 66,000 km-square of features like 
+waste rock dumps, pits, water ponds, tailings dams, heap leach 
+pads and processing/milling infrastructure. 
+The data is available from [zenodo](https://doi.org/10.5281/zenodo.6806817).
+
 ### Earthquakes / natural hazards
 
 Natural hazards include:
@@ -274,6 +311,10 @@ which contains a number of global layers including a [map of Global Airports](ht
 
 Copernicus Global Land Service distributes a global assessment of **[Burnt Area](https://land.copernicus.eu/global/products/ba)** 
 at 300-m spatial resolution, but available only from 2019 onwards.
+NASA's [FIRMS (Fire Information for Resource Management System)](https://firms.modaps.eosdis.nasa.gov/map/) provides 
+real-time access to occurrence of fires including access to the [archive data](https://firms.modaps.eosdis.nasa.gov/download/).
+[NASA's Global Hydrometeorology Resource Center Distributed Active Archive Center (GHRC DAAC)](https://www.earthdata.nasa.gov/eosdis/daacs/ghrc) serves global data on 
+lightning, tropical cyclones, and storm-induced hazards through integrated collections of satellite, airborne, and in-situ data sets.
 
 ### Soils
 
@@ -609,8 +650,8 @@ a number of global data sets — frozen ground maps, monthly satellite-derived s
 equivalent (SWE) climatologies and similar. These data can be obtained for northern 
 and southern hemisphere at resolution of 25-km.
 
-@cui20211 have produced 1-km resolution maps of present-time and future Koppen-Geiger climate 
-classification zones and bioclimatic variables, available for download from http://glass.umd.edu/KGClim. 
+@cui20211 have produced 1-km resolution maps of present-time and future **Koppen-Geiger climate 
+classification zones** and bioclimatic variables, available for download from http://glass.umd.edu/KGClim. 
 
 There are multiple daily and monthly global soil moisture products either purely based 
 on EO images or a combination of downscaling and modeling. 
@@ -633,6 +674,7 @@ Global soil temperatures i.e. **Global Soil Bioclimatic variables** are availabl
 
 DLR (German Space Agency) Geoportal hosts the **[Global SnowPack](https://geoservice.dlr.de/web/maps/eoc:gsp:yearly)** monthly 
 and annual products at 500-m spatial resolution covering 2000 to 2023 (current).
+[NASA's National Snow and Ice Data Center (NSIDC) Distributed Active Archive Center (DAAC)](https://www.earthdata.nasa.gov/eosdis/daacs/nsidc) provides data and information for snow and ice processes, interactions among snow, ice, atmosphere, and ocean.
 
 [OpenLandMap.org](https://stac.openlandmap.org/wv_mcd19a2v061.seasconv/collection.json) provides access to number of original climatic data sets produced at OpenGeoHub including:
 
