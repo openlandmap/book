@@ -112,11 +112,11 @@ we are enormously thankful for your contributions (please never stop!).</p>
 </ul>
 <p>Here are the top 5 technical aspects of the data that should be clear to reader without confusion:</p>
 <ol style="list-style-type: decimal">
-<li>What is the DOI of the data set i.e. what is the permanent URL from which it can be downloaded?</li>
-<li>What is the spatial resolution / effective scale of the data set (use round metrics e.g. 100-m)?</li>
+<li>What is the DOI of the data set i.e. what is the permanent URL from which it can be accessed and downloaded?</li>
+<li>What is the spatial resolution / effective scale of the data set? We recommend avoid using abstract metrics such as “3-arcseconds” or similar but use instead round metrics e.g. 90-m spatial resolution?</li>
 <li>Which referent time-period does the data set covers / what is the time-span of the training or input data?</li>
-<li>What is the #1 technical documentation for this data set i.e. peer-review publication DOI or similar?</li>
-<li>What can this data set be used for i.e. what is its significance?</li>
+<li>What is the #1 technical documentation for this data set (ideally a peer-review publication DOI or similar)?</li>
+<li>For which purpose can this data set be used for and what is its significance?</li>
 </ol>
 <p>Examples of contributions that will not be welcomed:</p>
 <ul>
@@ -243,22 +243,26 @@ to do more advanced analysis &amp; eventually help with better management of
 natural resources, what are the key steps to improve usability of
 your data? Within the <a href="https://earthmonitor.org/">Open-Earth-Monitor project</a> we specifically
 looked at hundreds of cases of data sets that have a high potential
-but are somewhat under-used or not used at all. This is what we believe is especially
+but are somewhat under-used or not used at all because of poor documentation,
+being incomplete or requiring specialized knowledge. This is what we believe is especially
 important to help boost usability and accessibility of your global geospatial data:</p>
 <ul>
-<li>Aim at making your data <strong><a href="https://medium.com/mlearning-ai/present-and-future-of-data-cubes-an-european-eo-perspective-735d3f16f7c9">4C-ARCO</a></strong>: complete, consistent, current and correct, then on top of it Analysis-ready and Cloud Optimized;</li>
-<li>Use <strong>(open) cloud-native data formats</strong> to distribute data (especially for large data) either <a href="https://www.cogeo.org/">COG’s</a>, <a href="https://radiant.earth/blog/2023/06/exploring-the-potential-of-geozarr-for-storage-and-analysis/">GeoZarr</a>, <a href="https://docs.xarray.dev/en/stable/">XArray</a> and/or <a href="https://geoparquet.org/">Geoparquet</a> / <a href="https://flatgeobuf.org/">Flatgeobuf</a> for tabular / vector data;</li>
+<li>Aim at making your data <strong><a href="https://medium.com/mlearning-ai/present-and-future-of-data-cubes-an-european-eo-perspective-735d3f16f7c9">4C-ARCO</a></strong>: complete, consistent, current and correct, then on top of it <strong>Analysis-ready and Cloud Optimized (ARCO)</strong>;</li>
+<li>Use <strong>(open) cloud-native data formats</strong> to distribute data (especially for large data) either <a href="https://www.cogeo.org/">COG’s</a>, <a href="https://radiant.earth/blog/2023/06/exploring-the-potential-of-geozarr-for-storage-and-analysis/">GeoZarr</a>, <a href="https://docs.xarray.dev/en/stable/">XArray</a> and/or <a href="https://geoparquet.org/">Geoparquet</a> / <a href="https://flatgeobuf.org/">Flatgeobuf</a> and similar for tabular / vector data;</li>
+<li>Optimize compression of the data so that data download is as fast as possible; for example, compression is by default already included in the <a href="https://www.cogeo.org/">Cloud-Optimized GeoTIFF data format</a>;</li>
 <li>Use <strong><a href="https://stacspec.org/en">SpatioTemporal Asset Catalogs (STAC)</a></strong> or similar to register data and the access points (usually also requires that you publish your data via a Simple Storage Service (S3));</li>
 <li>Best technical documentation for the data is (A) a peer-review publication, and (B) a <a href="https://www.datacamp.com/blog/jupyter-and-r-markdown-notebooks-with-r">computational notebook</a> providing a demo of the method used and key results; a peer-review publication increases confidence for non-experts; computational notebooks help increase quality as people then try to extend your work, then discover and report problems and help you make revisions;</li>
 <li>Always register all versions of your data so that anyone can track fixes and improvements; for each version try to obtain DOI, so that it is also kept for ever;</li>
 <li>Try to register your data in some higher level aggregator such as <a href="https://stacindex.org/">STAC index</a> (or this compendium!);</li>
 <li>Test if your data can be easily used in most-popular GIS software such as <a href="https://www.cogeo.org/qgis-tutorial.html">QGIS</a>: does it have the right legend? can users quickly find metadata, explanation of units, how was the map produced?</li>
+<li>Provide support and regularly update your data; like with software no data is bug-free, by updating and improving your data your user community learns to appreciate your efforts and builds higher trust;</li>
 </ul>
 <p>Of course, not every version or testing of your data / mapping skills
 needs to be registered with unique DOI. Also, writing metadata &amp;
 computational notebooks requires time and resource investments, so you
-need to plan carefully your time. Here are some world-leading providers
-of tools for making geospatial data more usable and more <strong><a href="https://www.go-fair.org/fair-principles/">FAIR</a> (Findable, Accessible, Interoperable, and Reusable)</strong>:</p>
+need to plan carefully your time.</p>
+<p>Here are also some world-leading providers of tools for making geospatial
+data more usable and more <strong><a href="https://www.go-fair.org/fair-principles/">FAIR</a> (Findable, Accessible, Interoperable, and Reusable)</strong> (unsorted):</p>
 <ul>
 <li>
 <a href="https://gdal.org" class="uri">https://gdal.org</a> software backbone of any open geospatial data project;</li>
@@ -271,7 +275,7 @@ of tools for making geospatial data more usable and more <strong><a href="https:
 <li>
 <a href="https://github.com/opengeos/" class="uri">https://github.com/opengeos/</a> a collection of open-source software packages for the geospatial community;</li>
 <li>
-<a href="https://r-spatial.org/" class="uri">https://r-spatial.org/</a> and <a href="https://rspatial.org/" class="uri">https://rspatial.org/</a> packages and tutorials for accessing geospatial data using R;</li>
+<a href="https://r-spatial.org/" class="uri">https://r-spatial.org/</a> and <a href="https://rspatial.org/" class="uri">https://rspatial.org/</a> packages and tutorials for accessing and processing geospatial data using R;</li>
 <li>
 <a href="https://juliageo.org/" class="uri">https://juliageo.org/</a> libraries for Julia language to support processing geospatial data;</li>
 </ul>
@@ -296,7 +300,7 @@ also track changes in political units (the <a href="https://github.com/openlandm
 contains an example of cca 3500 administrative units with codes). The <a href="http://www.geoboundaries.org/">geoBoundaries</a>
 is a global Database of Political Administrative Boundaries and contains a snapshot
 of political and administrative boundaries since 2017.</p>
-<p>An important global vector dataset is the <a href="https://shoreline.noaa.gov/data/datasheets/wvs.html">World Vector Shoreline</a>
+<p>An important global vector dataset is the <strong><a href="https://shoreline.noaa.gov/data/datasheets/wvs.html">World Vector Shoreline</a></strong>
 data set at scale 1:250,000 <span class="citation">(<a href="references.html#ref-carlotto2017enhancing">Carlotto, Nebrich, &amp; DeMichele, 2017</a>)</span>. This can be, for example,
 used to derive the global distance from the sea coast line map and similar.</p>
 <p>The <strong><a href="https://overturemaps.org/download/">Overture Maps foundation</a></strong> provides up-to-date (current) global vectors on
@@ -324,23 +328,23 @@ available with a resolution of approximately 30-m (1 arcsec). The most recent
 version of the SRTM DEM is the <a href="https://lpdaac.usgs.gov/products/nasadem_hgtv001/">NASADEM</a>.
 In 2018 two new global elevation models were produced:</p>
 <ul>
-<li>ESA’s <a href="https://doi.org/10.5270/ESA-c5d3d65">Copernicus DEM GLO-30</a> at 30-m resolution;</li>
-<li>JAXA’s <a href="https://www.eorc.jaxa.jp/ALOS/en/dataset/aw3d30/aw3d30_e.htm">ALOS AW3D30</a> at 30-m resolution;</li>
+<li>ESA’s <strong><a href="https://doi.org/10.5270/ESA-c5d3d65">Copernicus DEM GLO-30</a></strong> at 30-m resolution;</li>
+<li>JAXA’s <strong><a href="https://www.eorc.jaxa.jp/ALOS/en/dataset/aw3d30/aw3d30_e.htm">ALOS AW3D30</a></strong> at 30-m resolution;</li>
 </ul>
-<p>Both ALOS AW3D and GLO-30 are the new generation surface models, but both need removal
+<p>Both ALOS AW3D and GLO-30 are the new generation surface models. Both need removal
 of canopy and buildings before they can be used as terrain models i.e. for surface water runoff and similar.
-<span class="citation">Yamazaki et al. (<a href="references.html#ref-MERITDEM">2019</a>)</span> has produced MERIT DEM and MERIT Hydro, actual DTM post-filtered and hydrologically
-correct DTM. Both are available for <a href="https://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_Hydro/">download</a> under open data license but only at 90/100-m resolution. Using the MERIT DEM, <span class="citation">Amatulli, McInerney, Sethi, Strobl, &amp; Domisch (<a href="references.html#ref-amatulli2020geomorpho90m">2020</a>)</span> have produced <a href="https://doi.org/10.5069/G91R6NPX">Geomorpho90m</a> and
+<span class="citation">Yamazaki et al. (<a href="references.html#ref-MERITDEM">2019</a>)</span> has produced <strong>MERIT DEM</strong> and <strong>MERIT Hydro</strong>, actual DTM post-filtered and hydrologically
+correct DTM. Both are available for <a href="https://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_Hydro/">download</a> under open data license but only at 90/100-m resolution. Using the MERIT DEM, <span class="citation">Amatulli, McInerney, Sethi, Strobl, &amp; Domisch (<a href="references.html#ref-amatulli2020geomorpho90m">2020</a>)</span> have produced <strong><a href="https://doi.org/10.5069/G91R6NPX">Geomorpho90m</a></strong> and
 <a href="https://doi.org/10.18728/igb-fred-762.1">Hydrography90m</a> <span class="citation">(<a href="references.html#ref-amatulli2022hydrography90m">Amatulli et al., 2022</a>)</span> data sets.</p>
 <p>A complete land surface model ETOPO1 Global Relief Model (includes bathymetry data)
 is available at resolution of 1-km and can be obtained from the <a href="http://ngdc.noaa.gov/">NOAA’s National Geophysical Data Center</a> <span class="citation">(<a href="references.html#ref-amante2009etopo1">Amante &amp; Eakins, 2009</a>)</span>.
-An updated version of the ETOPO is the Global Land One-km Base Elevation Project (<a href="http://www.ngdc.noaa.gov/mgg/topo/globe.html">GLOBE</a>) DEM. Global bathymetry data (<a href="http://www.gebco.net/data_and_products/gridded_bathymetry_data/">GEBCO data set</a>) can also obtained from the British Oceanographic Data Centre.</p>
+An updated version of the ETOPO is the Global Land One-km Base Elevation Project (<a href="http://www.ngdc.noaa.gov/mgg/topo/globe.html">GLOBE</a>) DEM. Global bathymetry data (<strong><a href="http://www.gebco.net/data_and_products/gridded_bathymetry_data/">GEBCO data set</a></strong>) can also obtained from the British Oceanographic Data Centre.</p>
 <p><a href="https://portal.opentopography.org/dataCatalog?group=global">OpenTopography.org</a> maintains a catalog of
 global elevation data sets including national data sets. A combination (Ensemble-DTM) of
 GLO-30, AW3D30, MERIT DEM and number of continental / national DTM’s is available via <a href="https://stac.openlandmap.org/dtm.bareearth_ensemble/collection.json">OpenLandMap.org</a>.</p>
 <p><span class="citation">Iwahashi &amp; Pike (<a href="references.html#ref-iwahashi2007automated">2007</a>)</span> produced a global landform type map of the world at 250-m.
-Geomorphological forms (Geomorphon classification system) at 100-m are also available for download
-via the <a href="https://doi.org/10.5069/G91R6NPX">OpenTopography.org</a> repository.
+<strong>Geomorphological forms</strong> (Geomorphon classification system) at 100-m are also available for download
+via the <a href="https://doi.org/10.5069/G91R6NPX">OpenTopography.org</a> repository and/or <a href="https://zenodo.org/doi/10.5281/zenodo.1447198">Zenodo</a>.
 <span class="citation">Charlie Frye &amp; Richards (<a href="references.html#ref-Frye2023">2023</a>)</span> produced <strong><a href="https://www.esri.com/arcgis-blog/products/arcgis-living-atlas/announcements/introducing_nlwv2/">Named Landforms of the World (NLW2)</a></strong> with most of data at 250-m resolution.</p>
 </div>
 <div id="canopy-height-data" class="section level3" number="3.5.2">
@@ -363,13 +367,13 @@ density (above ground), canopy height, terrain height, LAI, canopy structure etc
 The complete global gridded canopy height / biomass density products include:</p>
 <ul>
 <li>
-<a href="https://glad.umd.edu/dataset/gedi/">Global forest canopy height maps at 30-m</a> produced by GLAD <span class="citation">(<a href="references.html#ref-POTAPOV2021112165">Potapov et al., 2021</a>)</span>;</li>
+<strong><a href="https://glad.umd.edu/dataset/gedi/">Global forest canopy height maps at 30-m</a></strong> produced by GLAD <span class="citation">(<a href="references.html#ref-POTAPOV2021112165">Potapov et al., 2021</a>)</span>;</li>
 <li>
-<a href="https://langnico.github.io/globalcanopyheight/">Global 10-m resolution canopy height map</a> <span class="citation">(<a href="references.html#ref-lang2023high">Lang, Jetz, Schindler, &amp; Wegner, 2023</a>)</span>;</li>
+<strong><a href="https://langnico.github.io/globalcanopyheight/">Global 10-m resolution canopy height map</a></strong> <span class="citation">(<a href="references.html#ref-lang2023high">Lang, Jetz, Schindler, &amp; Wegner, 2023</a>)</span>;</li>
 <li>
-<a href="https://doi.org/10.6084/m9.figshare.c.4561940">Global 100-m resolution aboveground biomass carbon density</a> <span class="citation">(<a href="references.html#ref-Spawn2020">Spawn, Sullivan, Lark, &amp; Gibbs, 2020</a>)</span>;</li>
+<strong><a href="https://doi.org/10.6084/m9.figshare.c.4561940">Global 100-m resolution aboveground biomass carbon density</a></strong> <span class="citation">(<a href="references.html#ref-Spawn2020">Spawn, Sullivan, Lark, &amp; Gibbs, 2020</a>)</span>;</li>
 <li>
-<a href="https://daac.ornl.gov/cgi-bin/dataset_lister.pl?p=40">GEDI L4B</a> gridded aboveground biomass density (nominal latitude extent of -52 to 52 degrees) at 1-km resolution <span class="citation">(<a href="references.html#ref-Dubayah2023">Dubayah et al., 2023</a>)</span>;</li>
+<strong><a href="https://daac.ornl.gov/cgi-bin/dataset_lister.pl?p=40">GEDI L4B</a></strong> gridded aboveground biomass density (nominal latitude extent of -52 to 52 degrees) at 1-km resolution <span class="citation">(<a href="references.html#ref-Dubayah2023">Dubayah et al., 2023</a>)</span>;</li>
 </ul>
 <p><strong><a href="https://geoservice.dlr.de/web/maps/tdm:dcm30">TanDEM-X 30-m DEM Change Maps (DCM)</a></strong> shows significant changes in elevation (usually canopy height) for the period 2016 to 2022.
 DLR warns that users must be aware that a given elevation change measured in the DEM change maps corresponds to a topographic change with respect to TanDEM-X 30m EDEM, i.e. this is only an estimate of physical height change.</p>
@@ -378,11 +382,11 @@ DLR warns that users must be aware that a given elevation change measured in the
 <h3>
 <span class="header-section-number">3.5.3</span> Hydrological / hydrographic data<a class="anchor" aria-label="anchor" href="#hydrological-hydrographic-data"><i class="fas fa-link"></i></a>
 </h3>
-<p>World river and stream networks (vector files) are available from the <a href="https://www.hydrosheds.org/page/gloric">Global River Classification (GLORIC) DB</a>.
+<p>World river and stream networks (vector files) are available from the <strong><a href="https://www.hydrosheds.org/page/gloric">Global River Classification (GLORIC) DB</a></strong>.
 A <a href="https://zenodo.org/doi/10.5281/zenodo.3355006">rasterized version of this data set</a> is available at resolution of 250-m.
-<a href="http://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_Hydro">MERIT Hydro</a> also provides Upstream Drainage Area at 100-m global and should be considered a reference at this scale <span class="citation">(<a href="references.html#ref-MERITDEM">Yamazaki et al., 2019</a>)</span>.
+<strong><a href="http://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_Hydro">MERIT Hydro</a></strong> also provides Upstream Drainage Area at 100-m global and should be considered a reference at this scale <span class="citation">(<a href="references.html#ref-MERITDEM">Yamazaki et al., 2019</a>)</span>.
 <span class="citation">Amatulli et al. (<a href="references.html#ref-amatulli2022hydrography90m">2022</a>)</span> describes Hydrography90m (global hydrographic dataset) although this is
-not available as open data (NC-license).</p>
+not available as open data (authors used the NC-license).</p>
 <p><strong>Global reservoirs (GRanD)</strong> (polygons) dataset can be obtained from the <a href="https://www.globaldamwatch.org/directory">Global Dam Watch website</a>.
 Connected to GRanD, <strong>Global reservoir bathymetry estimate (ReGeom)</strong> dataset is available from <a href="https://zenodo.org/doi/10.5281/zenodo.1322883">zenodo</a>.
 <strong>Global streamflow time series dataset</strong> i.e. the GRDC’s (Global Runoff Data Centre) streamflow observations (cca 11,000 stations) can be downloaded from the <a href="https://portal.grdc.bafg.de/">GRDC data portal</a>.</p>
@@ -394,11 +398,11 @@ HydroBASINS and similar.</p>
 fresh-water resources in general:</p>
 <ul>
 <li>
-<a href="https://global-surface-water.appspot.com/">JRC’s global surface water dynamics images at 30-m</a>: this includes occurrence probability of surface water, surface water extent and change 1984–2021 <span class="citation">(<a href="references.html#ref-Pekel2016">Pekel, Cottam, Gorelick, &amp; Belward, 2016</a>)</span>;</li>
+<strong><a href="https://global-surface-water.appspot.com/">JRC’s global surface water dynamics data set at 30-m</a></strong>: this includes occurrence probability of surface water, surface water extent and change 1984–2021 <span class="citation">(<a href="references.html#ref-Pekel2016">Pekel, Cottam, Gorelick, &amp; Belward, 2016</a>)</span>;</li>
 <li>
-<a href="https://glad.umd.edu/dataset/global-surface-water-dynamics">GLAD’s global surface water dynamics 1999–2021</a> at 30-m resolution providing also map of 7 types of surface water stable and change dynamics <span class="citation">(<a href="references.html#ref-pickens2020mapping">Pickens et al., 2020</a>)</span>;</li>
+<strong><a href="https://glad.umd.edu/dataset/global-surface-water-dynamics">GLAD’s global surface water dynamics 1999–2021</a></strong> at 30-m resolution providing also map of 7 types of surface water stable and change dynamics <span class="citation">(<a href="references.html#ref-pickens2020mapping">Pickens et al., 2020</a>)</span>;</li>
 <li>
-<a href="https://doi.org/10.1594/PANGAEA.892657">Multi-source global wetland map at 500-m resolution</a> <span class="citation">(<a href="references.html#ref-tootchi2019multi">Tootchi, Jost, &amp; Ducharne, 2019</a>)</span>
+<strong><a href="https://doi.org/10.1594/PANGAEA.892657">Multi-source global wetland map at 500-m resolution</a></strong> <span class="citation">(<a href="references.html#ref-tootchi2019multi">Tootchi, Jost, &amp; Ducharne, 2019</a>)</span>
 </li>
 </ul>
 <p>DLR’s (MODIS-based) <strong><a href="https://geoservice.dlr.de/web/maps/eoc:gwp:yearly">Global WaterPack (GWP) monthly and yearly</a></strong> product (different water coverage categories) at 250-m spatial resolution
@@ -419,8 +423,8 @@ data on ocean winds, sea surface temperature, ocean surface topography, sea surf
 the World is the <a href="https://ccgm.org/en/">1:25M Geological Map of the World</a> (maps not available publicly).
 The world geological maps are now being integrated via the <a href="http://www.onegeology.org/">OneGeology</a>
 project which aims at producing a consistent Geological map of the world in approximate scale 1:1M <span class="citation">(<a href="references.html#ref-jackson2010onegeology">Jackson, 2010</a>)</span>;
-progress can be followed via the interactive <a href="http://portal.onegeology.org/">portal</a>.</p>
-<p>USGS has several data <a href="http://energy.usgs.gov/">portals</a>, e.g. that allow browsing
+progress can be followed via the interactive <a href="http://portal.onegeology.org/">OneGeology portal</a>.</p>
+<p>USGS has several <a href="http://energy.usgs.gov/">data portals</a>, e.g. that allow browsing
 of the <a href="https://certmapper.cr.usgs.gov/data/apps/world-maps/">International Surface Geology</a>
 (split into South Asia, South America, Iran, Gulf of Mexico, Former Soviet Union, Europe, Carribean, Bangladesh, Asia Pacific, Artic, Arabian Peninsula, Africa and Afganistan).
 <span class="citation">Hartmann &amp; Moosdorf (<a href="references.html#ref-hartmann2012new">2012</a>)</span> have assembled a global, purely lithological database called <strong>GLiM</strong> (<a href="https://www.geo.uni-hamburg.de/geologie/forschung/aquatische-geochemie/glim.html">Global Lithological Map</a>).
@@ -434,7 +438,7 @@ The modeled monthly water table depth can be <a href="http://thredds-gfnl.usc.es
 The International Groundwater Resources Assessment Centre (IGRAC) maintains the
 <a href="https://ggis.un-igrac.org/">Global Groundwater Information System (GGIS)</a>. IGRAC is
 aiming at producing <a href="https://sdgs.un.org/partnerships/produce-and-disseminate-open-global-groundwater-datasets">global groundwater datasets</a>.</p>
-<p><span class="citation">Tang &amp; Werner (<a href="references.html#ref-tang2023global">2023</a>)</span> made a global inventory (polygon map) of mining areas (mine area coverage):
+<p><span class="citation">Tang &amp; Werner (<a href="references.html#ref-tang2023global">2023</a>)</span> made a global inventory (polygon map) of mining areas (<strong>global mine area coverage</strong>):
 The polygons cover about about 66,000 km-square of features like
 waste rock dumps, pits, water ponds, tailings dams, heap leach
 pads and processing/milling infrastructure.
@@ -469,6 +473,8 @@ NASA’s <a href="https://firms.modaps.eosdis.nasa.gov/map/">FIRMS (Fire Informa
 real-time access to occurrence of fires including access to the <a href="https://firms.modaps.eosdis.nasa.gov/download/">archive data</a>.
 <a href="https://www.earthdata.nasa.gov/eosdis/daacs/ghrc">NASA’s Global Hydrometeorology Resource Center Distributed Active Archive Center (GHRC DAAC)</a> serves global data on
 lightning, tropical cyclones, and storm-induced hazards through integrated collections of satellite, airborne, and in-situ data sets.</p>
+<p>NOAA’s <a href="https://www.drought.gov/international">Global Drought Information System (GDIS)</a> serves global estimates of drought conditions.
+Maps are usually only available at coarse resolution of 25, 10 or 5-km or similar.</p>
 </div>
 <div id="soils" class="section level3" number="3.6.3">
 <h3>
@@ -486,25 +492,25 @@ map at resolution of 60 arcsec, and which is based on the FAO-UNESCO soil map.</
 soil-carbon density, total nitrogen density, field capacity, wilting point, profile
 available water capacity, thermal capacity, and bulk density — is available via the <a href="https://daac.ornl.gov/SOILS/guides/IGBP-DIS.html">International Geosphere-Biosphere Program Data and Information System (IGBP-DIS) data set</a>. Some additional soil property maps such as <a href="https://sage.nelson.wisc.edu/data-and-models/atlas-of-the-biosphere/mapping-the-biosphere/ecosystems/">pH</a> and <a href="https://sage.nelson.wisc.edu/data-and-models/atlas-of-the-biosphere/mapping-the-biosphere/ecosystems/">soil moisture</a>, can
 be also obtained from the <a href="https://sage.nelson.wisc.edu/data-and-models/atlas-of-the-biosphere/">Atlas of Biosphere project</a>.
-<a href="http://globalchange.bnu.edu.cn/research/soilw">Global Soil Dataset for Earth System Model (GSDE)</a> contains the largest
+<strong><a href="http://globalchange.bnu.edu.cn/research/soilw">Global Soil Dataset for Earth System Model (GSDE)</a></strong> contains the largest
 number of soil properties (gridded) at 1-km spatial resolution <span class="citation">(<a href="references.html#ref-Shangguan2014">Shangguan, Dai, Duan, Liu, &amp; Yuan, 2014</a>)</span>.</p>
-<p>FAO’s Global Soil Partnership has produced a <a href="https://doi.org/10.4060/ca7597en">Global Soil Organic Carbon Map (GSOCmap)</a> at 1-km resolution.
+<p>FAO’s Global Soil Partnership has produced a <strong><a href="https://doi.org/10.4060/ca7597en">Global Soil Organic Carbon Map (GSOCmap)</a></strong> at 1-km resolution.
 ISRIC — World Soil Information maintains <a href="http://www.isric.org/wosis">a global soil profile database (WoSIS)</a>
 with over 100,000 profiles and over 50 analytical and descriptive parameters <span class="citation">(<a href="references.html#ref-batjes2020standardised">Batjes, Ribeiro, &amp; Van Oostrum, 2020</a>)</span>. Predictions of soil properties (GeoTIFFs) at spatial resolution of
 250-m or better are available from multiple sources including:</p>
 <ul>
 <li>
-<a href="https://www.isric.org/explore/soilgrids">SoilGrids</a> <span class="citation">(<a href="references.html#ref-poggio2021soilgrids">Poggio et al., 2021</a>)</span>;</li>
+<strong><a href="https://www.isric.org/explore/soilgrids">SoilGrids</a></strong> <span class="citation">(<a href="references.html#ref-poggio2021soilgrids">Poggio et al., 2021</a>)</span>;</li>
 <li>
-<a href="https://developers.google.com/earth-engine/datasets/tags/openlandmap">OpenLandMap.org soil properties and classes</a>;</li>
+<strong><a href="https://developers.google.com/earth-engine/datasets/tags/openlandmap">OpenLandMap.org soil properties and classes</a></strong>;</li>
 <li>
-<a href="https://www.futurewater.eu/projects/hihydrosoil/">HiHydroSoil: Global Maps of Soil Hydraulic Properties</a> (available upon request or directly <a href="https://code.earthengine.google.com/?scriptPath=users/sat-io/awesome-gee-catalog-examples:soil-properties/HiHYDRO-SOIL-LAYERS">via GEE</a>);</li>
+<strong><a href="https://www.futurewater.eu/projects/hihydrosoil/">HiHydroSoil: Global Maps of Soil Hydraulic Properties</a></strong> (available upon request or directly <a href="https://code.earthengine.google.com/?scriptPath=users/sat-io/awesome-gee-catalog-examples:soil-properties/HiHYDRO-SOIL-LAYERS">via GEE</a>);</li>
 </ul>
 <p><a href="https://crowtherlab.com/maps/#/">Crowther’s lab</a> distributes a number of soil-biology global data sets (1-km)
 including maps of soil nematodes density, bacterial biomass, fungal biomass and similar.</p>
 <p>Some soil properties are often directly estimated from the EO data. For example the soil moisture
-<a href="http://glass.umd.edu/soil_moisture/">GLASS SM data set</a> and the <a href="https://doi.org/10.11888/RemoteSen.tpdc.272760">gap-free global daily surface soil moisture at 1-km grid resolution</a>.
-Bare soil surface fraction and spectral bands can be also derived directly from EO data e.g. 
+<strong><a href="http://glass.umd.edu/soil_moisture/">GLASS SM data set</a></strong> and the <a href="https://doi.org/10.11888/RemoteSen.tpdc.272760">gap-free global daily surface soil moisture at 1-km grid resolution</a>.
+Bare soil surface fraction and <strong>bare soil spectral bands</strong> can be also derived directly from EO data e.g. 
 global composites produced <span class="citation">Demattê et al. (<a href="references.html#ref-dematte2020bare">2020</a>)</span>; data available via <a href="https://gee-community-catalog.org/projects/bss/">GEE</a>.</p>
 <p><span class="citation">Lembrechts et al. (<a href="references.html#ref-lembrechts2022global">2022</a>)</span> produced maps of <strong>Global Soil Bioclimatic variables</strong> (including soil temperatures)
 which are available at <a href="https://zenodo.org/doi/10.5281/zenodo.4558731">1-km spatial resolution</a> for depth intervals 0–5 and 5–15 cm (training data used to produce these maps is <a href="https://zenodo.org/doi/10.5281/zenodo.4558662">also available</a>).</p>
@@ -532,10 +538,9 @@ date (cca <a href="https://doi.org/10.34911/rdnt.x4xfh3">2M training points</a> 
 which includes <a href="https://doi.org/10.5281/zenodo.8429200">cca 230,000 annotated images</a> with a size of 512 × 512 and a spatial resolution of 1-m.</p>
 <p>Land cover maps are commonly derived using semi-automated methods and remote sensing
 images as the main inputs. Global land cover / land cover change maps are today primarily derived from the Sentinel-2
-and Landsat imagery. For example, the <a href="http://globalforestwatch.org/">GlobalForestWatch.org</a>
+and Landsat imagery. For example, the <strong><a href="http://globalforestwatch.org/">GlobalForestWatch.org</a></strong>
 imagery showing deforestation/reforestation were derived from the 30 m resolution Landsat
-images <span class="citation">(<a href="references.html#ref-hansen2013high">Hansen et al., 2013</a>)</span>. The global
-Analysis-Ready Landsat mosaics (<a href="https://glad.geog.umd.edu/ard/glad-landsat-ard">Landsat-ARD</a>)
+images <span class="citation">(<a href="references.html#ref-hansen2013high">Hansen et al., 2013</a>)</span>. The global Analysis-Ready Landsat mosaics (<a href="https://glad.geog.umd.edu/ard/glad-landsat-ard">Landsat-ARD</a>)
 are available for download as harmonized scenes from the University of Maryland GLAD (<a href="https://glad.geog.umd.edu/">Global Land and Discovery group</a>) <span class="citation">(<a href="references.html#ref-rs12030426">Potapov et al., 2020</a>)</span>,
 but these datasets are significant in size and hence require significant processing facilities.</p>
 <p>Current publicly available global land cover and/or land use maps include <span class="citation">(<a href="references.html#ref-Liu2021">L. Liu et al., 2021</a>)</span>:</p>
@@ -553,11 +558,11 @@ but these datasets are significant in size and hence require significant process
 <li>
 <strong><a href="https://zenodo.org/doi/10.5281/zenodo.8239304">GLC FCS30D</a></strong> is a global 30-m annual land-cover time-series data set with 17-class system for the period 1982–2021 <span class="citation">(<a href="references.html#ref-Zhang2021">X. Zhang et al., 2021</a>)</span>.</li>
 </ul>
-<p><strong>HYDE (History database of the Global Environment)</strong> contains historic (estimated) maps (10-km resolution) of main land use
+<p><strong><a href="https://landuse.sites.uu.nl/datasets/">HYDE (History database of the Global Environment)</a></strong> contains historic (estimated) maps (10-km resolution) of main land use
 categories up to pre-historic times 10,000 BCE to CE 2020 <span class="citation">(<a href="references.html#ref-klein2017anthropogenic">Klein Goldewijk, Beusen, Doelman, &amp; Stehfest, 2017</a>)</span>.
 HYDE includes irrigated areas, rice, intensive pasture, extensive rangelands and similar. Data can be downloaded from
 the <a href="https://landuse.sites.uu.nl/datasets/">University of Utrecht Copernicus Land Change Lab</a>.</p>
-<p>A detailed Water mask of the world is available also from the <a href="https://global-surface-water.appspot.com/">Global Surface Water Explorer</a> hosted by European Commission JRC
+<p>A detailed Water mask of the world is available also from the <strong><a href="https://global-surface-water.appspot.com/">Global Surface Water Explorer</a></strong> hosted by European Commission JRC
 <span class="citation">(<a href="references.html#ref-Pekel2016">Pekel et al., 2016</a>)</span>. A Landsat-based water
 dynamics assessment (annual maps) at 30-m is also provided by <span class="citation">Pickens et al. (<a href="references.html#ref-pickens2020mapping">2020</a>)</span>.
 <strong><a href="https://geoservice.dlr.de/web/maps/eoc:gwp:yearly">Global WaterPack (GWP) monthly and yearly</a></strong> product comprises different water coverage categories at 250-m spatial resolution.</p>
@@ -604,18 +609,19 @@ This includes (note: formulas for biophysical indices for MODIS, Landsat etc mig
 <li>
 <a href="https://edo.jrc.ec.europa.eu/documents/factsheets/factsheet_ndwi.pdf">Normalized Difference Water Index</a> (NDWI),</li>
 </ul>
-<p>8-day and monthly biophysical indiced from MODIS (250-m) are available from the <a href="https://lpdaac.usgs.gov/products/mod13q1v061/">MOD13Q1</a>.
+<p>8-day, monthly and annual biophysical indiced such as EVI and Gross and Net Primary Production (GPP and NPP) from MODIS (250-m) are available via the <strong><a href="https://lpdaac.usgs.gov/products/mod13q1v061/">MOD13Q1</a></strong> and <strong><a href="https://doi.org/10.5067/MODIS/MOD17A2H.061">MOD17A2H</a></strong> products.
 These, however, often come with many missing pixels due to clouds and artifacts
-and require significant post-processing to reach a <a href="https://medium.com/mlearning-ai/present-and-future-of-data-cubes-an-european-eo-perspective-735d3f16f7c9">complete consistent structured product</a>.</p>
-<p><span class="citation">Ma et al. (<a href="references.html#ref-ma2022global">2022</a>)</span> produced global consistent 8-day Fraction of Absorbed Photosynthetically Active Radiation (FAPAR)
+and require significant post-processing to reach a <a href="https://medium.com/mlearning-ai/present-and-future-of-data-cubes-an-european-eo-perspective-735d3f16f7c9">complete consistent structured product</a>.
+<strong><a href="https://land.copernicus.eu/en/products/vegetation/gross-primary-production-v1-0-300m">Global GPP at 300-m</a></strong> spatial resolution is also available based on the Sentinel-3/OLCI, but covering only recent years (&gt;2023).</p>
+<p><span class="citation">Ma et al. (<a href="references.html#ref-ma2022global">2022</a>)</span> produced global consistent <strong>8-day Fraction of Absorbed Photosynthetically Active Radiation (FAPAR)</strong>
 product at 250-m spatial resolution (available for download from <a href="https://zenodo.org/doi/10.5281/zenodo.6405563">Zenodo</a>).
 <span class="citation">Xiong et al. (<a href="references.html#ref-xiong2023improved">2023</a>)</span> produced an improved global consistent and complete 8-day 250-m NDVI and EVI products
 covering 2000 to 2021 (data is available for download from <a href="https://doi.org/10.6084/m9.figshare.22220050">Figshare</a>).
 <a href="http://www.glass.umd.edu/Download.html">Global LAnd Surface Satellite (GLASS)</a> serves a number of post-processed products
 including FAPAR and Leaf Area Index (LAI) at 250-m and also covering period 2000 to 2021.
 Based on the <span class="citation">Ma et al. (<a href="references.html#ref-ma2022global">2022</a>)</span>, <span class="citation">Hackländer et al. (<a href="references.html#ref-Hacklaender2024PeerJ">2024</a>)</span> produced an aggregated
-complete &amp; consistent <a href="https://zenodo.org/doi/10.5281/zenodo.8418441">monthly FAPAR product</a> with P25, P50 and P75 quantiles.</p>
-<p>Global cloud-free Landsat composites (Red, NIR, SWIR1, SWIR2) for the world for multiple periods (2000, 2014, 2018, 2022) can be obtained from <a href="https://glad.earthengine.app/view/global-forest-change">GLAD Global Forest Change</a>.</p>
+complete &amp; consistent <strong><a href="https://zenodo.org/doi/10.5281/zenodo.8418441">monthly FAPAR product</a></strong> which also includes P25, P50 and P75 quantiles.</p>
+<p>Global cloud-free Landsat composites (Red, NIR, SWIR1, SWIR2) for the world for multiple periods (2000, 2014, 2018, 2022) can be obtained from <strong><a href="https://glad.earthengine.app/view/global-forest-change">GLAD Global Forest Change</a></strong>.</p>
 </div>
 <div id="forest-resources" class="section level3" number="3.7.3">
 <h3>
@@ -629,7 +635,9 @@ and <a href="https://fra-data.fao.org/">tabular data</a>; gridded global FRA map
 <p>The Land Processes Distributed Active Archive Center (LP DAAC) archives and distributes
 <strong><a href="https://lpdaac.usgs.gov/products/gfcc30fccv001/">Global Forest Cover Change (GFCC) data product</a></strong> at 30-m resolution.
 Japan Aerospace Exploration Agency (JAXA) has also released in 2014 a global
-<a href="https://www.eorc.jaxa.jp/ALOS/en/dataset/fnf_e.htm">25-m resolution PALSAR mosaic and forest/non-forest map (2007–2010 and 2015–2021)</a>. This data is freely available for download via the <a href="https://www.eorc.jaxa.jp/ALOS/en/palsar_fnf/data/">JAXA pages</a>.</p>
+<strong><a href="https://www.eorc.jaxa.jp/ALOS/en/dataset/fnf_e.htm">25-m resolution PALSAR mosaic and forest/non-forest map (2007–2010 and 2015–2021)</a></strong>. This data is freely available for download via the <a href="https://www.eorc.jaxa.jp/ALOS/en/palsar_fnf/data/">JAXA pages</a>.</p>
+<p>Detail maps of <strong>mangrove forests cover, habitat type and properties</strong> <span class="citation">(<a href="references.html#ref-Bunting2022">Bunting et al., 2022</a>)</span>,
+the key products of the <a href="https://www.globalmangrovewatch.org/" class="uri">https://www.globalmangrovewatch.org/</a> project can be obtained from <a href="https://doi.org/10.5281/zenodo.6894273">zenodo</a>.</p>
 <p>Forest resources and canopy height have been mapped by the GLAD group from the Maryland university <span class="citation">(<a href="references.html#ref-POTAPOV2021112165">Potapov et al., 2021</a>)</span>
 The data is publicly available under open data license from: <a href="https://glad.umd.edu/dataset" class="uri">https://glad.umd.edu/dataset</a>.
 The <strong><a href="https://www.globalforestwatch.org/map/">WRI’s Global Forest Watch</a></strong> service can be used to access annual tree cover maps for 2000–2022+,
@@ -658,7 +666,7 @@ land cover mapping. Some typical legend entries for land use change includes:</p
 <li>Pastureland expansion,</li>
 <li>Land abandonment,</li>
 </ul>
-<p><a href="https://glad.umd.edu/dataset/GLCLUC2020">GLAD Global Land Cover and Land Use Change 2000–2020 (GLCLUC2020)</a> provides estimate of the land cover for the last 20+ years at 30-m resolution quantifies changes in forest extent
+<p><strong><a href="https://glad.umd.edu/dataset/GLCLUC2020">GLAD Global Land Cover and Land Use Change 2000–2020 (GLCLUC2020)</a></strong> provides estimate of the land cover for the last 20+ years at 30-m resolution quantifies changes in forest extent
 and height, cropland, built-up lands, surface water, and perennial snow and ice extent <span class="citation">(<a href="references.html#ref-Potapov2022">Potapov et al., 2022</a>)</span>.
 This data set can be downloaded (per tile) via the <a href="https://glad.earthengine.app/view/glcluc-2000-2020">GLAD’s GEE repository</a>.
 <strong><a href="https://www.globalforestwatch.org/map/">WRI’s Global Forest Watch</a></strong> provides high resolution<br>
@@ -675,11 +683,11 @@ forest cover change at 30-m resolution.
 <span class="header-section-number">3.8.1</span> Population density maps<a class="anchor" aria-label="anchor" href="#population-density-maps"><i class="fas fa-link"></i></a>
 </h3>
 <p>For global modeling one of the most important global socio-economic data layers are the population density
-maps and attached socio-economic variables. The <a href="https://sedac.ciesin.columbia.edu/">Socioeconomic Data and Applications Center</a> (SEDAC) distributes The <a href="https://doi.org/10.7927/H47M05W2">Global Population Density Grid Time Series Estimates</a> (1970–2000),
-Global Rural-Urban Mapping Project, Version 1 (<a href="https://doi.org/10.7927/np6p-qe61">GRUMPv1</a>) and <strong>Gridded Population
-of the World, Version 4</strong> (<a href="https://doi.org/10.7927/H49C6VHW">GPWv4</a>) all at resolution of up to 1-km. These are the currently most
+maps and attached socio-economic variables. The <a href="https://sedac.ciesin.columbia.edu/">Socioeconomic Data and Applications Center</a> (SEDAC) distributes the <strong><a href="https://doi.org/10.7927/H47M05W2">Global Population Density Grid Time Series Estimates</a></strong> (1970–2000),
+<strong>Global Rural-Urban Mapping Project</strong> data set, Version 1 (<a href="https://doi.org/10.7927/np6p-qe61">GRUMPv1</a>)
+and <strong><a href="https://doi.org/10.7927/H49C6VHW">Gridded Population of the World, Version 4 (GPWv4)</a></strong> all at resolution of up to 1-km. These are the currently most
 detailed gridded time-series dataset with consistent population density and structure; for modeling future,
-a <a href="https://doi.org/10.7927/q7z9-9r69">Global 1-km Downscaled Population Base Year and Projection Grids Based on the SSPs</a> (1990–2100) <span class="citation">(<a href="references.html#ref-gao2020global">J. Gao, 2020</a>)</span> is also available. It consists of global urban, rural, and total population
+a <strong><a href="https://doi.org/10.7927/q7z9-9r69">Global 1-km Downscaled Population Base Year and Projection Grids Based on the SSPs</a></strong> (1990–2100) <span class="citation">(<a href="references.html#ref-gao2020global">J. Gao, 2020</a>)</span> is also available. It consists of global urban, rural, and total population
 for the base year 2000, population projections at ten-year intervals for 2010–2100
 at a resolution of 1-km, and was developed for the purpose of the IPCC climate modeling framework.</p>
 <p>Joint Research Centre (JRC) of the European Commission has produced a global 100-m
@@ -687,8 +695,8 @@ spatial resolution product called <strong><a href="https://doi.org/10.2905/2FF68
 <span class="citation">(<a href="references.html#ref-schiavina2022ghsl">Schiavina et al., 2022</a>)</span>. This can be considered the most detailed global population density product to date
 and is also <a href="https://stac.openlandmap.org/pop.count_ghs.jrc/collection.json">available via OpenLandMap.org</a>.</p>
 <p>Facebook (Meta) through its not-for-profit project <a href="https://dataforgood.facebook.com/dfg/tools">“Data for Good”</a> is
-building a series of cutting-edge population data sets including the population density maps
-at 30-m (even separating age structure and gender). These are usually based on a combination
+building a series of cutting-edge population data sets including the <strong>population density maps at 30-m</strong>
+(also includes age structure and gender). These are usually based on a combination
 of legacy population data from censuses and EO products / inventory of buildings etc
 that are then used to downscale the values to high spatial resolution <span class="citation">(<a href="references.html#ref-tiecke2017mapping">Tiecke et al., 2017</a>)</span>.
 The 30-m resolution population density maps for 160+ countries and territories around the world
@@ -700,11 +708,11 @@ are available for download from <a href="https://portal.mwater.co/" class="uri">
 </h3>
 <p>The lights at night map contains the lights from cities, towns, and other sites
 with persistent lighting, including gas flares. Images of lights at night have shown
-to be highly correlated with industrial activity and Gross Domestic Product (GPP) <span class="citation">(<a href="references.html#ref-doll2006mapping">Doll, Muller, &amp; Morley, 2006</a>)</span>.
+to be highly correlated with industrial activity and Gross Domestic Product <span class="citation">(<a href="references.html#ref-doll2006mapping">Doll, Muller, &amp; Morley, 2006</a>)</span>.
 A time-series of (1-km resolution) annual global night light images (1992–2013) is available via the NOAA’s
-National Geophysical Data Center <a href="https://ngdc.noaa.gov/eog/dmsp/downloadV4composites.html">the Version 4 DMSP-OLS Nighttime Lights Time Series</a>.
-The <a href="https://doi.org/10.6084/m9.figshare.16602224.v1">harmonized nighttime light (NTL) time-series composites for 1992–2020</a> are
-available at 1-km resolution <span class="citation">(<a href="references.html#ref-zhao2022global">Zhao et al., 2022</a>)</span>.</p>
+National Geophysical Data Center <strong><a href="https://ngdc.noaa.gov/eog/dmsp/downloadV4composites.html">the Version 4 DMSP-OLS Nighttime Lights Time Series</a></strong>.
+The <strong><a href="https://doi.org/10.6084/m9.figshare.16602224.v1">harmonized nighttime light (NTL) time-series composites for 1992–2020</a></strong>
+produced by <span class="citation">Zhao et al. (<a href="references.html#ref-zhao2022global">2022</a>)</span> are available at 1-km resolution.</p>
 <p>Currently the most detailed global Lights at night images are
 the global <strong>VIIRS nighttime lights</strong> (<strong><a href="https://eogdata.mines.edu/products/vnl/#annual_v2">Annual VNL V2</a></strong>)
 covering 2012–2020 at 500-m spatial resolution <span class="citation">(<a href="references.html#ref-elvidge2021annual">Elvidge, Zhizhin, Ghosh, Hsu, &amp; Taneja, 2021</a>)</span>.
@@ -724,14 +732,14 @@ and are hence compatible with other global land products.</p>
 <p>Global surface water dynamics can be followed from three global data sets:</p>
 <ul>
 <li>
-<a href="https://global-surface-water.appspot.com/">Global Surface Water Explorer</a> 1985 to 2018 hosted by European Commission JRC
+<strong><a href="https://global-surface-water.appspot.com/">Global Surface Water Explorer</a></strong> 1985 to 2018 hosted by European Commission JRC
 <span class="citation">(<a href="references.html#ref-Pekel2016">Pekel et al., 2016</a>)</span>;</li>
 <li>
-<a href="https://glad.umd.edu/dataset/global-surface-water-dynamics">Landsat-based water dynamics</a> at 30-m for 1999 to 2018 period by <span class="citation">Pickens et al. (<a href="references.html#ref-pickens2020mapping">2020</a>)</span>.</li>
+<strong><a href="https://glad.umd.edu/dataset/global-surface-water-dynamics">Landsat-based water dynamics</a></strong> at 30-m for 1999 to 2018 period by <span class="citation">Pickens et al. (<a href="references.html#ref-pickens2020mapping">2020</a>)</span>.</li>
 <li>
-<a href="https://zenodo.org/doi/10.5281/zenodo.8239304">GLC FCS30D</a> a global 30-m annual land-cover time-series data set with 17-class system (also includes oceans, sees and fresh-water resources) for the period 1982–2021 <span class="citation">(<a href="references.html#ref-Zhang2021">X. Zhang et al., 2021</a>)</span>.</li>
+<strong><a href="https://zenodo.org/doi/10.5281/zenodo.8239304">GLC FCS30D</a></strong> a global 30-m annual land-cover time-series data set with 17-class system (also includes oceans, sees and fresh-water resources) for the period 1982–2021 <span class="citation">(<a href="references.html#ref-Zhang2021">X. Zhang et al., 2021</a>)</span>.</li>
 </ul>
-<p>A <a href="https://lpdaac.usgs.gov/products/mod44wv006/">MODIS-based water mask</a> product at somewhat
+<p>A <strong><a href="https://lpdaac.usgs.gov/products/mod44wv006/">MODIS-based water mask (MOD44WV)</a></strong> product at somewhat
 coarser resolution (250-m) can be also used to represent water dynamics for the last 25 years.
 MODIS distributes a number of global products for global oceans including <strong><a href="https://doi.org/10.5067/MODAM-8D9N9">sea surface temperature (SST)</a></strong>
 at 4-km resolution (daily, 8-day, monthly or annual) and similar (SST images are available for download from <a href="https://opendata.oraclecloud.com/" class="uri">https://opendata.oraclecloud.com/</a>).</p>
@@ -752,25 +760,25 @@ images and/or data on buildings. Partners in the <a href="https://www.globio.inf
 of <strong>Human Impacts on the Biosphere</strong> for various time periods. This is basically
 a map showing a current status of the roads, railways and settlement density.
 Human impact maps can be also browsed via the <a href="http://grida.no/">UNEP Grid Arendal</a>.
-<span class="citation">Daniel J. Weiss et al. (<a href="references.html#ref-weiss2018global">2018</a>)</span> and <span class="citation">D. J. Weiss et al. (<a href="references.html#ref-weiss_global_2020">2020</a>)</span> have produced <a href="https://data.malariaatlas.org/maps">a global map of accessibility and optimal travel time to healthcare</a>.</p>
+<span class="citation">Daniel J. Weiss et al. (<a href="references.html#ref-weiss2018global">2018</a>)</span> and <span class="citation">D. J. Weiss et al. (<a href="references.html#ref-weiss_global_2020">2020</a>)</span> have produced <strong><a href="https://data.malariaatlas.org/maps">a global map of accessibility and optimal travel time to healthcare</a></strong>.</p>
 <p>The International Biosphere-Geosphere Programme, the Stockholm Environment Institute,
 the Stockholm Resilience Center, the CSIRO in Australia and the International Human
 Dimensions Programme on Global Environmental Change are producing an outreach project
 on the Anthropocene and planetary boundaries named <a href="https://globaia.org/">“Globaia”</a>.</p>
-<p><span class="citation">Theobald et al. (<a href="references.html#ref-Theobald2020">2020</a>)</span> provides a <a href="https://zenodo.org/doi/10.5281/zenodo.3963012">global time-series data set</a> on “Global human modification” for 1990, 2000, 2010, 2015, and 2017 and at 300 m spatial resolution.
+<p><span class="citation">Theobald et al. (<a href="references.html#ref-Theobald2020">2020</a>)</span> provides a <a href="https://zenodo.org/doi/10.5281/zenodo.3963012">global time-series data set</a> representing <strong>Global human modification</strong> for 1990, 2000, 2010, 2015, and 2017 and at 300-m spatial resolution.
 The Wildlife Conservation Society is hosting <strong>Human Impact Index</strong> (HII) and <strong>Human Footprint</strong> maps that can be directly <a href="https://wcshumanfootprint.org/data-access">downloaded</a> <span class="citation">(<a href="references.html#ref-sanderson2022march">Sanderson et al., 2022</a>)</span>.</p>
-<p>The Copernicus Sentinel-5P has produced number of <a href="https://maps.s5p-pal.com/cases/">monthly products</a> at 2-km that can be
+<p>The Copernicus Sentinel-5P has produced number of <strong><a href="https://maps.s5p-pal.com/cases/">monthly emission products</a></strong> at 2-km that can be
 used to quantify and monitor (industrial, traffic) emissions of NOx, CO/methane and SO2.
 The gap-filled monthly values of <a href="https://doi.org/10.5281/zenodo.7464099">NOx</a> and <a href="https://zenodo.org/doi/10.5281/zenodo.10265072">methane</a> emissions are available in OpenLandMap.org.</p>
 <p>A comprehensive global assessment of the human impacts to marine ecosystems can
 be followed via the work of the <a href="http://www.nceas.ucsb.edu/">National Center for Ecological Analysis and Synthesis</a> in Santa Barbara.
-This group have produced <a href="http://www.nceas.ucsb.edu/globalmarine">a Global Map of Human Impacts to Marine Ecosystems</a> by
+This group have produced <strong><a href="http://www.nceas.ucsb.edu/globalmarine">a Global Map of Human Impacts to Marine Ecosystems</a></strong> by
 using a number of connected input GIS layers <span class="citation">(<a href="references.html#ref-Halpern2008">Halpern et al., 2008</a>)</span>, which are available
 for <a href="https://doi.org/10.5063/F1S180FS">download</a>. Distribution of global airports
 and flight routes can be freely accessed from the <a href="https://github.com/jpatokal/openflights">openflights.org</a>.
 Chris Harrison produced the <a href="http://www.chrisharrison.net/projects/InternetMap/">world map</a> of
 internet connectivity and traffic.</p>
-<p><a href="https://climatetrace.org/data">Climate TRACE</a> provides an inventory of major source of greenhouse gas (GHG) emissions
+<p><strong><a href="https://climatetrace.org/data">Climate TRACE</a></strong> provides an inventory of major source of greenhouse gas (GHG) emissions
 around the world and provides independently produced estimates of how much each emits.
 These data is available publicly, but requires pre-processing as it is a combination of
 point and polygon sources.</p>
@@ -779,13 +787,13 @@ point and polygon sources.</p>
 <h3>
 <span class="header-section-number">3.10.2</span> Intact forest landscapes<a class="anchor" aria-label="anchor" href="#intact-forest-landscapes"><i class="fas fa-link"></i></a>
 </h3>
-<p>An important global forest landscape coverage / wildlife datasets is <a href="http://www.intactforests.org/">the world map of intact forest landscapes (IFL)</a> (areas hardly touched by mankind)
+<p>An important global forest landscape coverage / wildlife datasets is <strong><a href="http://www.intactforests.org/">the world map of intact forest landscapes (IFL)</a></strong> (areas hardly touched by mankind)
 at scale 1:1,000,000 (includes four classes of intact forests: 1. intact closed forests;
 2. intact open forests, 3. woodlands and savannas, closed forests; and 4. open forests, woodlands and savannas).
 IFL is maintained by the Greenpeace organization <span class="citation">(<a href="references.html#ref-potapov2008mapping">Potapov et al., 2008</a>)</span> and is available for years 2000, 2013, 2016, and 2020.
-Another similar data set is the <a href="http://geodata.grid.unep.ch/">World Wilderness Areas</a>
+Another similar data set is the <strong><a href="http://geodata.grid.unep.ch/">World Wilderness Areas</a></strong>
 and which is distributed via the UNEP GEO Data Portal <span class="citation">(<a href="references.html#ref-mccloskey1989reconnaissance">McCloskey &amp; Spalding, 1989</a>)</span>.</p>
-<p>The Global Generalized <a href="https://resources.unep-wcmc.org/products/e56277812f854e7ca8fa9282ee323c5e">Original and Current Forest Cover dataset</a> (V 3.0; polygon map) produced by UNEP-WCMC
+<p>The Global Generalized <strong><a href="https://resources.unep-wcmc.org/products/e56277812f854e7ca8fa9282ee323c5e">Original and Current Forest Cover dataset</a></strong> (V 3.0; polygon map) produced by UNEP-WCMC
 shows where were forest in past (assumed) and can be used to quantify deforestation at
 global scale.</p>
 </div>
@@ -834,34 +842,38 @@ global scale.</p>
 <p>In addition to basic climatic variables, WorldClim and CHELSA Climate also provide <strong>BioClimatic
 variables</strong> at 1-km spatial resolution e.g. frost change frequency (fcf), snow cover days (scd), potential net primary productivity (npp), growing degree days (gdd), growing season characteristics and similar <span class="citation">(<a href="references.html#ref-brun2022global">Brun, Zimmermann, Hari, Pellissier, &amp; Karger, 2022</a>)</span>.
 From the sources listed above, <strong>CHELSA Climate</strong> is possibly the most comprehensive most
-up-to-date repository with global 1-km data and even includes daily global 1km products (<a href="https://doi.org/10.48364/ISIMIP.836809.1">CHELSA-W5E5</a>),
-e.g. <a href="http://www.earthenv.org/precipitation">daily precipitation images</a> <span class="citation">(<a href="references.html#ref-karger2021global">Karger, Wilson, Mahony, Zimmermann, &amp; Jetz, 2021</a>)</span>.</p>
-<p>More detailed climatic images can be obtained via the <a href="http://www.gewex.org/datasets.html">Global Energy and Water Cycle Experiment project</a> and the <a href="http://badc.nerc.ac.uk/browse/badc/">British Atmospheric Data Centre</a> (BADC). The National Center for Atmospheric Research maintains a <a href="https://climatedataguide.ucar.edu/">ClimateDataGuide</a> portal.
-The National Geophysical Data Centre (NGDC) provides <a href="https://www.ncei.noaa.gov/products">free access</a>
+up-to-date repository with global 1-km data and even includes daily global 1km products (<strong><a href="https://doi.org/10.48364/ISIMIP.836809.1">CHELSA-W5E5</a></strong>),
+e.g. <strong><a href="http://www.earthenv.org/precipitation">daily precipitation images</a></strong> <span class="citation">(<a href="references.html#ref-karger2021global">Karger, Wilson, Mahony, Zimmermann, &amp; Jetz, 2021</a>)</span>.</p>
+<p>More detailed climatic images can be obtained via the <a href="http://www.gewex.org/datasets.html">Global Energy and Water Cycle Experiment project</a> and the <a href="http://badc.nerc.ac.uk/browse/badc/">British Atmospheric Data Centre</a> (BADC). The National Center for Atmospheric Research maintains a <a href="https://climatedataguide.ucar.edu/">ClimateDataGuide</a> portal.</p>
+<p>The National Geophysical Data Centre (NGDC) provides <a href="https://www.ncei.noaa.gov/products">free access</a>
 to numerous remote sensing based global maps — from solar parameters to cloud imagery,
 energetic particle measurements and similar (collectively called “Climate monitoring” products).
 <a href="http://nsidc.org/data/easytouse.html">The National Snow and Ice Data Center</a> maintains
 a number of global data sets — frozen ground maps, monthly satellite-derived snow water
 equivalent (SWE) climatologies and similar. These data can be obtained for northern
-and southern hemisphere at resolution of 25-km.</p>
+and southern hemisphere at resolution of 25-km.
+<span class="citation">Gruber (<a href="references.html#ref-gruber2012derivation">2012</a>)</span> produced a <strong><a href="https://www.geo.uzh.ch/microsite/cryodata/pf_global/">Global Permafrost Zonation Index Map</a></strong> (excluding Antartica)
+which is available at resolution of 1-km.
+<a href="https://viirsland.gsfc.nasa.gov/Products/NASA/SnowESDR.html">NASA’s VIIRS (Visible Infrared Imaging Radiometer Suite) Land products</a> include also
+<strong>VIIRS-land snow cover daily</strong> (gap-filled) at 375-m resolution. These can be downloaded from the <a href="https://nsidc.org/data/vnp10a1f/versions/1">NSIDC</a>.</p>
 <p><span class="citation">Cui, Liang, Wang, &amp; Liu (<a href="references.html#ref-cui20211">2021</a>)</span> have produced 1-km resolution maps of present-time and future <strong>Koppen-Geiger climate
 classification zones</strong> and bioclimatic variables, available for download from <a href="http://glass.umd.edu/KGClim" class="uri">http://glass.umd.edu/KGClim</a>.</p>
 <p>There are multiple daily and monthly global soil moisture products either purely based
 on EO images or a combination of downscaling and modeling.
 <span class="citation">Fang et al. (<a href="references.html#ref-Fang2022">2022</a>)</span> produced 1-km soil moisture data set covering years 2015 to 2020 by downscaling the SMAP product.
-National Snow and Ice Data Center has also produced SMAP-Derived 1-km Downscaled Surface Soil Moisture Product.
-This data set is available for download from <a href="https://nsidc.org/data/nsidc-0779/versions/1" class="uri">https://nsidc.org/data/nsidc-0779/versions/1</a>.
+National Snow and Ice Data Center has also produced SMAP-Derived 1-km Downscaled <strong>Surface Soil Moisture Product</strong>.
+This data set is available for download from <a href="https://nsidc.org/data/nsidc-0779/versions/1">NSIDC</a>.
 <span class="citation">Han et al. (<a href="references.html#ref-han2023global">2023</a>)</span> produced a global daily soil moisture data set at 1-km
 resolution called <strong>GSSM1-km</strong> covering period 2000–2020.
 The GSSM1-km dataset can be downloaded from <a href="https://doi.org/10.6084/m9.figshare.21806457.v1">Figshare</a>.
 <span class="citation">Y. Zhang et al. (<a href="references.html#ref-Zhang2023">2023</a>)</span> used ensemble learning to produce a daily 1-km spatiotemporally continuous soil moisture product for 2000–2020 called <strong>GLASS SM</strong>.
 The GLASS SM is freely available at <a href="http://glass.umd.edu/soil_moisture/" class="uri">http://glass.umd.edu/soil_moisture/</a>; the annual average global soil moisture dataset at 1-km resolution was also generated, which can be downloaded from <a href="https://doi.org/10.5281/zenodo.7172664">zenodo</a>.
-<span class="citation">Zheng, Jia, &amp; Zhao (<a href="references.html#ref-zheng202321">2023</a>)</span> produced a gap-free global daily surface soil moisture at 1-km grid resolution
+<span class="citation">Zheng, Jia, &amp; Zhao (<a href="references.html#ref-zheng202321">2023</a>)</span> produced a <strong>gap-free global daily surface soil moisture at 1-km grid resolution</strong>
 for 2000–2020, which is available for download from the <a href="https://doi.org/10.11888/RemoteSen.tpdc.272760">National Tibetan Plateau/Third Pole Environment Data Center</a> (almost 1TB of data).<br>
 Coarser resolution (10-km or coarser) soil moisture global images are also
-available such as the <a href="https://climate.esa.int/en/projects/soil-moisture/data/">ESA’s CCI soil moisture product</a>,
-<a href="https://nsidc.org/data/spl3smp_e/versions/3">SMAP Enhanced L3 Radiometer Global Daily 9 km EASE-Grid Soil Moisture</a> and
-the <a href="https://hsaf.meteoam.it/Products/ProductsList?type=soil_moisture">ASCAT</a> <strong>Soil Wetness Profile Index</strong> and <strong>Root Zone Soil Moisture Profile Index</strong>.</p>
+available such as the <strong><a href="https://climate.esa.int/en/projects/soil-moisture/data/">ESA’s CCI soil moisture product</a></strong>,
+<strong><a href="https://nsidc.org/data/spl3smp_e/versions/3">SMAP Enhanced L3 Radiometer Global Daily 9 km EASE-Grid Soil Moisture</a></strong> and
+the <strong><a href="https://hsaf.meteoam.it/Products/ProductsList?type=soil_moisture">ASCAT</a></strong> <strong>Soil Wetness Profile Index</strong> and <strong>Root Zone Soil Moisture Profile Index</strong>.</p>
 <p>Global soil temperatures i.e. <strong>Global Soil Bioclimatic variables</strong> are available at <a href="https://zenodo.org/doi/10.5281/zenodo.4558731">1-km spatial resolution</a> thanks to <span class="citation">Lembrechts et al. (<a href="references.html#ref-lembrechts2022global">2022</a>)</span>.</p>
 <p>DLR (German Space Agency) Geoportal hosts the <strong><a href="https://geoservice.dlr.de/web/maps/eoc:gsp:yearly">Global SnowPack</a></strong> monthly
 and annual products at 500-m spatial resolution covering 2000 to 2023 (current).
@@ -869,13 +881,13 @@ and annual products at 500-m spatial resolution covering 2000 to 2023 (current).
 <p><a href="https://stac.openlandmap.org/wv_mcd19a2v061.seasconv/collection.json">OpenLandMap.org</a> provides access to number of original climatic data sets produced at OpenGeoHub including:</p>
 <ul>
 <li>
-<a href="https://zenodo.org/doi/10.5281/zenodo.1420114">Long-term MODIS Land Surface Temperature (LST) monthly daytime and nightime</a> images at 1-km resolution for 2000–2022;</li>
+<strong><a href="https://zenodo.org/doi/10.5281/zenodo.1420114">Long-term MODIS Land Surface Temperature (LST) monthly daytime and nightime</a></strong> images at 1-km resolution for 2000–2022;</li>
 <li>
-<a href="https://zenodo.org/doi/10.5281/zenodo.8193740">Global monthly water vapor at 1-km resolution</a> for 2000–2022 based on <a href="https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/MCD19A2">MCD19A2</a>;</li>
+<strong><a href="https://zenodo.org/doi/10.5281/zenodo.8193740">Global monthly water vapor at 1-km resolution</a></strong> for 2000–2022 based on <a href="https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/MCD19A2">MCD19A2</a>;</li>
 <li>
-<a href="https://zenodo.org/doi/10.5281/zenodo.5774953">Global MODIS-based snow cover monthly long-term at 500-km resolution</a> for 2000–2012;</li>
+<strong><a href="https://zenodo.org/doi/10.5281/zenodo.5774953">Global MODIS-based snow cover monthly long-term at 500-km resolution</a></strong> for 2000–2012;</li>
 <li>
-<a href="https://zenodo.org/doi/10.5281/zenodo.2615278">SM2RAIN global precipitation daily and monthly</a> at 10-km resolution;</li>
+<strong><a href="https://zenodo.org/doi/10.5281/zenodo.2615278">SM2RAIN global precipitation daily and monthly</a></strong> at 10-km resolution;</li>
 </ul>
 </div>
 <div id="meteorological-images" class="section level3" number="3.11.2">
@@ -921,17 +933,17 @@ combinations of soil and landform that characterize that region.
 Leading providers of the global maps on biodiversity and nature conservation include:</p>
 <ul>
 <li>
-<a href="https://databasin.org/galleries/2d2d35ae3bc34399976b598ed7893254/">TNC’s Atlas of global conservation</a>;</li>
+<strong><a href="https://databasin.org/galleries/2d2d35ae3bc34399976b598ed7893254/">TNC’s Atlas of global conservation</a></strong>;</li>
 <li>
-<a href="https://resources.unep-wcmc.org/products/WCMC_RT103">UNEP’s World Atlas of Biodiversity (book)</a>;</li>
+<strong><a href="https://resources.unep-wcmc.org/products/WCMC_RT103">UNEP’s World Atlas of Biodiversity (book)</a></strong>;</li>
 <li>
-<a href="https://explorer.naturemap.earth/">Nature Map Earth project</a>;</li>
+<strong><a href="https://explorer.naturemap.earth/">Nature Map Earth project</a></strong>;</li>
 </ul>
 <p>The World Wildlife Fund has produced the global (polygon) map of <strong><a href="https://databasin.org/datasets/">Terrestrial ecoregions</a></strong>,
 which shows some 867 distinct eco-units, including the relative richness of terrestrial
 species by ecoregion <span class="citation">(<a href="references.html#ref-olson2001terrestrial">Olson et al., 2001</a>)</span>. Another similar data set is the
 <strong><a href="https://databasin.org/datasets/">Freshwater Ecoregions of the World</a></strong> <span class="citation">(<a href="references.html#ref-abell2008freshwater">Abell et al., 2008</a>)</span>.</p>
-<p>USGS distributes a <a href="https://doi.org/10.5066/P9WRNPTN">“World Ecological Land Units”</a> with 3,923 terrestrial ecological land units (ELUs)
+<p>USGS distributes a <strong><a href="https://doi.org/10.5066/P9WRNPTN">“World Ecological Land Units”</a></strong> with 3,923 terrestrial ecological land units (ELUs)
 at a base resolution of 250 meters and available for <a href="https://rmgsc.cr.usgs.gov/outgoing/ecosystems/Global/">download from the USGS Global Ecosystems Data</a> repository.
 <span class="citation">Sayre et al. (<a href="references.html#ref-sayre2019new">2019</a>)</span> also produced a 30 meter resolution <strong>global shoreline vector and associated global islands database</strong>
 for the development of standardized ecological coastal units.</p>
@@ -963,9 +975,9 @@ and <em>actual</em> managed vegetation <span class="citation">(<a href="referenc
 Figure 3.2: Schematic explanation of differences between (A) potential and actual natural/managed vegetation, and (B) current and historic vegetation in the context of global land area. Image source: <a href="https://doi.org/10.7717/peerj.5457" class="uri">https://doi.org/10.7717/peerj.5457</a>.
 </p>
 </div>
-<p><span class="citation">Griscom et al. (<a href="references.html#ref-griscom2017natural">2017</a>)</span> produced the <a href="https://zenodo.org/record/883444">Global Reforestation Potential Map</a> at 1-km resolution.
+<p><span class="citation">Griscom et al. (<a href="references.html#ref-griscom2017natural">2017</a>)</span> produced the <strong><a href="https://zenodo.org/doi/10.5281/zenodo.883443">Global Reforestation Potential Map</a></strong> at 1-km resolution.
 <span class="citation">Bastin et al. (<a href="references.html#ref-bastin2019global">2019</a>)</span> produced <a href="https://crowtherlab.com/maps/">Potential forest cover map</a> at 1-km resolution assuming no humans present.
-<a href="https://zenodo.org/doi/10.5281/zenodo.3631253">Potential distribution of land cover classes</a> at 250-m spatial resolution based
+<strong><a href="https://zenodo.org/doi/10.5281/zenodo.3631253">Potential distribution of LCCS land cover classes</a></strong> at 250-m spatial resolution based
 on the UN FAO Land Cover Classification System (LCCS) is part of the
 <a href="https://naturemap.earth/">NatureMap project</a>. <span class="citation">Bonannella, Hengl, Parente, &amp; Bruin (<a href="references.html#ref-bonannella2023biomes">2023</a>)</span> provides an updated
 predictions of the potential distribution of <strong><a href="https://zenodo.org/doi/10.5281/zenodo.7520813">global biomes</a></strong> at 1-km including for the future climate scenarios (2040, 2060 and beyond).</p>
@@ -980,17 +992,17 @@ all flora and fauna species. The density maps are available only at resolution o
 of taxa (e.g. vascular plants, birds and mammals) can be browsed using the <a href="https://earthobservations.org/solutions/incubators/global-ecosystems-atlas">Global Ecosystem Atlas</a>.
 Similar type of maps can be browsed via the <a href="http://www.unep-wcmc.org/">UNEP’s World Conservation Monitoring Centre</a>.</p>
 <p>A shape file showing location of hotspot regions is distributed by the <a href="http://www.biodiversityhotspots.org/">Conservation International</a>.
-<span class="citation">Kreft &amp; Jetz (<a href="references.html#ref-Kreft2007">2007</a>)</span> produced a global map of plant species diversity (number of plant species) by using
+<span class="citation">Kreft &amp; Jetz (<a href="references.html#ref-Kreft2007">2007</a>)</span> produced a <strong>global map of plant species diversity</strong> (number of plant species) by using
 field records from 1,032 locations (maps are available only in coarse resolution of 120-km).
 <a href="https://datazone.birdlife.org/home">BirdLife International</a> publishes a number of global maps
-indicating “<a href="https://datazone.birdlife.org/site/requestgis">Endemic and Important Bird Areas</a>” (IBAs and EBAs).</p>
-<p><span class="citation">Pimm et al. (<a href="references.html#ref-pimm2014biodiversity">2014</a>)</span> produced maps of <a href="https://biodiversitymapping.org/">species richness</a> and for
+indicating <strong><a href="https://datazone.birdlife.org/site/requestgis">Endemic and Important Bird Areas</a></strong> (EBAs and IBAs).</p>
+<p><span class="citation">Pimm et al. (<a href="references.html#ref-pimm2014biodiversity">2014</a>)</span> produced <strong><a href="https://biodiversitymapping.org/">maps of species richness</a></strong> for
 mammals, birds, amphibians and other taxa at 10-km spatial resolution.
 <a href="https://explorer.naturemap.earth/">EarthMap project</a> produced a species richness (number of species per grid cell) maps
 for amphibians, birds, mammals, reptiles and a representative set of plant taxa whose
 distribution overlaps in each 10-km cell, and a global map of Areas of global significance for conservation <span class="citation">(<a href="references.html#ref-brooks2019measuring">Brooks et al., 2019</a>)</span>.</p>
 <p><span class="citation">Sabatini et al. (<a href="references.html#ref-sabatini2022global">2022</a>)</span> produced a number of <a href="https://doi.org/10.25829/idiv.3506-p4c0mo">global biodiversity maps</a>
-including the map of plant species richness at 1-km spatial resolutions. These maps are based using <a href="http://www.idiv.de/splot">sPlot database</a>
+including the <strong>map of plant species richness</strong> at 1-km spatial resolutions. These maps are based using <a href="http://www.idiv.de/splot">sPlot database</a>
 (whichs is available upon request by submitting a project proposal to sPlot’s Steering Committee).</p>
 </div>
 <div id="protected-areas" class="section level3" number="3.12.4">
