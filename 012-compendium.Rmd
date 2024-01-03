@@ -25,10 +25,10 @@ Minimum conditions to include your contribution to this compendium:
 Here are the top 5 technical aspects of the data that should be clear to reader without confusion:
 
 1. What is the DOI of the data set i.e. what is the permanent URL from which it can be accessed and downloaded?
-2. What is the spatial resolution / effective scale of the data set? We recommend avoid using abstract metrics such as "3-arcseconds" or similar but use instead round metrics e.g. 90-m spatial resolution?
+2. What is the spatial resolution / effective scale of the data set? We recommend to avoid using abstract metrics such as "3-arcseconds" or similar but use instead round metrics e.g. "90-m spatial resolution".
 3. Which referent time-period does the data set covers / what is the time-span of the training or input data?
 4. What is the #1 technical documentation for this data set (ideally a peer-review publication DOI or similar)?
-5. For which purpose can this data set be used for and what is its significance?
+5. For which purpose can/should this data set be used and what is its significance?
 
 Examples of contributions that will not be welcomed:
 
@@ -658,16 +658,26 @@ The National Geophysical Data Centre (NGDC) provides [free access](https://www.n
 to numerous remote sensing based global maps — from solar parameters to cloud imagery, 
 energetic particle measurements and similar (collectively called “Climate monitoring” products).
 [The National Snow and Ice Data Center](http://nsidc.org/data/easytouse.html) maintains 
-a number of global data sets — frozen ground maps, monthly satellite-derived snow water 
+a number of global data sets important for monitoring global snow and ice — frozen ground maps, monthly satellite-derived snow water 
 equivalent (SWE) climatologies and similar. These data can be obtained for northern 
 and southern hemisphere at resolution of 25-km.
 @gruber2012derivation produced a **[Global Permafrost Zonation Index Map](https://www.geo.uzh.ch/microsite/cryodata/pf_global/)** (excluding Antartica) 
 which is available at resolution of 1-km.
 [NASA's VIIRS (Visible Infrared Imaging Radiometer Suite) Land products](https://viirsland.gsfc.nasa.gov/Products/NASA/SnowESDR.html) include also 
-**VIIRS-land snow cover daily** (gap-filled) at 375-m resolution. These can be downloaded from the [NSIDC](https://nsidc.org/data/vnp10a1f/versions/1).
+**VIIRS-land snow cover daily** (gap-filled) at 375-m resolution. These can be downloaded from the [NSIDC](https://nsidc.org/data/vnp10a1f/versions/1) data portal. 
+[ESA CCI (Climate Change Initiative)](https://climate.esa.int/en/projects/snow/Snow_data/) also maintains and distributes 
+**[Daily Snow Cover Fraction Viewable (SCFV)](https://dx.doi.org/10.5285/ebe625b6f77945a68bda0ab7c78dd76b)**, **[Daily Snow Cover Fraction on Ground (SCFG)](https://dx.doi.org/10.5285/8847a05eeda646a29da58b42bdf2a87c)** i.e. a canopy corrected snow fraction 
+to adjust for snow on ground also in forested areas (both at 1-km resolution and covering 2000–2020), and **[Snow Water Equivalent (SWE)](https://dx.doi.org/10.5285/4647cc9ad3c044439d6c643208d3c494)** at 10-km resolution covering 1979–2020.
+
+DLR (German Space Agency) Geoportal distributes the **[Global SnowPack](https://geoservice.dlr.de/web/maps/eoc:gsp:yearly)** monthly 
+and annual products at 500-m spatial resolution covering 2000 to 2023 (current) [@dietz2015global].
+[NASA's National Snow and Ice Data Center (NSIDC) Distributed Active Archive Center (DAAC)](https://www.earthdata.nasa.gov/eosdis/daacs/nsidc) provides data and information for snow and ice processes, interactions among snow, ice, atmosphere, and ocean.
 
 @cui20211 have produced 1-km resolution maps of present-time and future **Koppen-Geiger climate 
 classification zones** and bioclimatic variables, available for download from http://glass.umd.edu/KGClim. 
+The [Koppen-Geiger climate classification](https://en.wikipedia.org/wiki/K%C3%B6ppen_climate_classification) is 
+is one of the most widely used climate classification systems with five main classes: A (tropical), B (arid), 
+C (temperate), D (continental), and E (polar).
 
 There are multiple daily and monthly global soil moisture products either purely based 
 on EO images or a combination of downscaling and modeling. 
@@ -687,10 +697,6 @@ available such as the **[ESA's CCI soil moisture product](https://climate.esa.in
 the **[ASCAT](https://hsaf.meteoam.it/Products/ProductsList?type=soil_moisture)** **Soil Wetness Profile Index** and **Root Zone Soil Moisture Profile Index**.  
 
 Global soil temperatures i.e. **Global Soil Bioclimatic variables** are available at [1-km spatial resolution](https://zenodo.org/doi/10.5281/zenodo.4558731) thanks to @lembrechts2022global.
-
-DLR (German Space Agency) Geoportal hosts the **[Global SnowPack](https://geoservice.dlr.de/web/maps/eoc:gsp:yearly)** monthly 
-and annual products at 500-m spatial resolution covering 2000 to 2023 (current).
-[NASA's National Snow and Ice Data Center (NSIDC) Distributed Active Archive Center (DAAC)](https://www.earthdata.nasa.gov/eosdis/daacs/nsidc) provides data and information for snow and ice processes, interactions among snow, ice, atmosphere, and ocean.
 
 [OpenLandMap.org](https://stac.openlandmap.org/wv_mcd19a2v061.seasconv/collection.json) provides access to number of original climatic data sets produced at OpenGeoHub including:
 
@@ -744,7 +750,7 @@ species by ecoregion [@olson2001terrestrial]. Another similar data set is the
 
 USGS distributes a **["World Ecological Land Units"](https://doi.org/10.5066/P9WRNPTN)** with 3,923 terrestrial ecological land units (ELUs) 
 at a base resolution of 250 meters and available for [download from the USGS Global Ecosystems Data](https://rmgsc.cr.usgs.gov/outgoing/ecosystems/Global/) repository.
-@sayre2019new also produced a 30 meter resolution **global shoreline vector and associated global islands database** 
+@sayre2019new also produced a 30-m resolution **global shoreline vector and associated global islands database** 
 for the development of standardized ecological coastal units.
 
 FAO and IIASA maintain also a global map of **[Global Agro-Ecological Zones (GAEZ)](https://gaez.fao.org/)**. 
@@ -785,7 +791,7 @@ predictions of the potential distribution of **[global biomes](https://zenodo.or
 
 **[Global Biodiversity Information Facility (GBIF)](http://data.gbif.org/)** provides access to global data showing the distribution of 
 all flora and fauna species. The density maps are available only at resolution of 
-1 arcdegree (about 100-km). Global maps of biodiversity measures for various groups 
+1 arcdegree (about 100-km) and often without any bias-correction. Global maps of biodiversity measures for various groups 
 of taxa (e.g. vascular plants, birds and mammals) can be browsed using the [Global Ecosystem Atlas](https://earthobservations.org/solutions/incubators/global-ecosystems-atlas). 
 Similar type of maps can be browsed via the [UNEP's World Conservation Monitoring Centre](http://www.unep-wcmc.org/). 
 
