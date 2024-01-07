@@ -100,8 +100,8 @@ Sorted alphabetically:
 * [World Resources Institute (WRI) Environmental Information Portal](http://earthtrends.wri.org/) serves a number of global grids derived by the WRI and collaborators;
 
 <div class="figure" style="text-align: center">
-<img src="img/lpdaac_usgs_preview.jpg" alt="LP DAAC data catalog at https://lpdaac.usgs.gov/product_search/ is an example of continuosly updated and complete catalog of global environmental data (primarily based on MODIS and similar EO missions) which are available publicly without restrictions." width="100%" />
-<p class="caption">(\#fig:usgs-modis)LP DAAC data catalog at https://lpdaac.usgs.gov/product_search/ is an example of continuosly updated and complete catalog of global environmental data (primarily based on MODIS and similar EO missions) which are available publicly without restrictions.</p>
+<img src="img/lpdaac_usgs_preview.jpg" alt="LP DAAC data catalog is an example of continuosly updated and complete catalog of global environmental data (primarily based on MODIS and similar EO missions) which are available publicly without restrictions." width="100%" />
+<p class="caption">(\#fig:usgs-modis)LP DAAC data catalog is an example of continuosly updated and complete catalog of global environmental data (primarily based on MODIS and similar EO missions) which are available publicly without restrictions.</p>
 </div>
 
 ## Make your data more accessible more usable
@@ -291,6 +291,9 @@ The polygons cover about about 66,000 km-square of features like
 waste rock dumps, pits, water ponds, tailings dams, heap leach 
 pads and processing/milling infrastructure. 
 The data is available from [zenodo](https://doi.org/10.5281/zenodo.6806817).
+An update of the global mining areas (three layers: mining polygons, mining centroids, 
+mining area per grid cell) is provided by @maus2022update; the data set is available via 
+[PANGAEA](https://doi.org/10.1594/PANGAEA.942325); also available via https://fineprint.global/viewer.
 
 ### Earthquakes / natural hazards
 
@@ -465,6 +468,8 @@ The Land Processes Distributed Active Archive Center (LP DAAC) archives and dist
 **[Global Forest Cover Change (GFCC) data product](https://lpdaac.usgs.gov/products/gfcc30fccv001/)** at 30-m resolution. 
 Japan Aerospace Exploration Agency (JAXA) has also released in 2014 a global 
 **[25-m resolution PALSAR mosaic and forest/non-forest map (2007–2010 and 2015–2021)](https://www.eorc.jaxa.jp/ALOS/en/dataset/fnf_e.htm)**. This data is freely available for download via the [JAXA pages](https://www.eorc.jaxa.jp/ALOS/en/palsar_fnf/data/).
+Copernicus Global Land Cover and Tropical Forest Mapping and Monitoring service (LCFM) 
+serves 10-m resolution sub-annual maps of tropical forest status.
 
 Detail maps of **mangrove forests cover, habitat type and properties** [@Bunting2022], 
 the key products of the https://www.globalmangrovewatch.org/ project can be obtained from [zenodo](https://doi.org/10.5281/zenodo.6894273). 

@@ -24,14 +24,14 @@ site: bookdown::bookdown_site
 
 [![Access source code](cover.jpg){.cover width="250"}](https://openlandmap.org/)
 
-[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.1476464.svg)](https://doi.org/10.5281/zenodo.1476464)
+[![DOI](zenodo.10466903_svg-tex.pdf)](https://doi.org/10.5281/zenodo.10466903)
 
 ## OpenLandMap project 
 
 
 
 [OpenLandMap](https://openlandmap.org) are Open Land Data services providing access to spatial layers 
-covering global land mass (at spatial resolutions of 1 km, 250 m, 100 m, 30 m or finer) hosted by the OpenGeoHub foundation, GILAB.rs and collaborators. 
+covering global land mass (at spatial resolutions of 1-km, 250-m, 100-m, 30-m or finer) hosted by the OpenGeoHub foundation, GILAB.rs and collaborators. 
 It aims at becoming an [OpenStreetMap-type system for land data](https://towardsdatascience.com/everybody-has-a-right-to-know-whats-happening-with-the-planet-towards-a-global-commons-5a1ad4ba0bdd). Access to spatial layers is 
 possible via interactive visualizations and/or Open Source software solutions. 
 Read more about this project [here](https://opengeohub.org/about-openlandmap/).
@@ -45,8 +45,8 @@ or build upon, the OpenLandMap data without restrictions.
 See the [Copyright and License](https://opengeohub.org/about-openlandmap/) page for more details.
 
 <div class="figure" style="text-align: center">
-<img src="img/openlandmap_soil_pH_Istria.gif" alt="Example of 3D soil information: soil pH visualized at different depths." width="100%" />
-<p class="caption">(\#fig:olm-istria)Example of 3D soil information: soil pH visualized at different depths.</p>
+<img src="img/openlandmap_gui_preview.jpg" alt="Comparison tool in the OpenLandMap and time-sliders." width="100%" />
+<p class="caption">(\#fig:olm-istria)Comparison tool in the OpenLandMap and time-sliders.</p>
 </div>
 
 Users can access OpenLandMap data via the five main channels:
@@ -515,22 +515,21 @@ To cite this document please use:
 
 ```
 @dataset{openlandmap_2023,
-  author       = {Hengl, T., Parente, L., Ho, Y.-F. and contributors},
+  author       = {Hengl, T., Parente, L., Ho, Y.-F., Simoes, R. and contributors},
   title        = {{OpenLandMap Open Land Data services}},
   year         = {2023},
   publisher    = {OpenGeoHub foundation},
   address      = {Wageningen},
-  version      = {v2},
-  doi          = {10.5281/zenodo.1476464},
-  url          = {https://doi.org/10.5281/zenodo.1476464}
+  version      = {v1},
+  doi          = {10.5281/zenodo.10466903},
+  url          = {https://doi.org/10.5281/zenodo.10466903}
 }
 ```
 
 ## Licence {.unnumbered}
 
 This website/book and attached software is free to use, and is licensed under [the MIT License](https://en.wikipedia.org/wiki/MIT_License). The OpenLandMap data, 
-if not otherwise indicated, is available either under the [Creative Commons Attribution 4.0 International CC-BY](https://creativecommons.org/licenses/by/4.0/legalcode) 
-and/or [CC-BY-SA](https://creativecommons.org/licenses/by-sa/4.0/legalcode) license / [Open Data Commons Open Database License (ODbL) v1.0](https://opendatacommons.org/licenses/odbl/1-0/).
+if not otherwise indicated, is available under the [CC-BY-SA](https://creativecommons.org/licenses/by-sa/4.0/legalcode) license and/or [Open Data Commons Open Database License (ODbL) v1.0](https://opendatacommons.org/licenses/odbl/1-0/).
 
 ## Acknowledgments {.unnumbered}
 

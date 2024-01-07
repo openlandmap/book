@@ -108,4 +108,3 @@ values$date <- as.Date(items_datetime(glc_items))
 values
 ```
 
-

@@ -13,6 +13,8 @@ bookdown::gitbook:
       collapse: section
       before: |
         <li><strong><a href="./">OpenLandMap</a></strong></li>
+      after: |
+        <li><a href="https://opengeohub.org/about-openlandmap/">OpenLandMap development team</a></li>
     edit:
       link: https://github.com/OpenLandMap/book/edit/master/%s
       text: "Edit"
