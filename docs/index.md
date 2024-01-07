@@ -24,7 +24,7 @@ site: bookdown::bookdown_site
 
 [![Access source code](cover.jpg){.cover width="250"}](https://openlandmap.org/)
 
-[![DOI](zenodo.10466903_svg-tex.pdf)](https://doi.org/10.5281/zenodo.10466903)
+[![DOI](zenodo.10466903.svg)](https://doi.org/10.5281/zenodo.10466903)
 
 ## OpenLandMap project 
 
@@ -514,7 +514,7 @@ contact us via: <https://opengeohub.org/contact-us/>.
 To cite this document please use:
 
 ```
-@dataset{openlandmap_2023,
+@book{openlandmap_2023,
   author       = {Hengl, T., Parente, L., Ho, Y.-F., Simoes, R. and contributors},
   title        = {{OpenLandMap Open Land Data services}},
   year         = {2023},
