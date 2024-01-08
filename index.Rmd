@@ -519,9 +519,9 @@ To cite this document please use:
   year         = {2023},
   publisher    = {OpenGeoHub foundation},
   address      = {Wageningen},
-  version      = {v1},
+  version      = {v0.2},
   doi          = {10.5281/zenodo.10466903},
-  url          = {https://doi.org/10.5281/zenodo.10466903}
+  url          = {https://openlandmap.github.io/book/}
 }
 ```
 

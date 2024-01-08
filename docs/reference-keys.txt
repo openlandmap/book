@@ -40,6 +40,7 @@ population-density-maps
 lights-at-night-images
 water-resources
 global-surface-water-dynamics
+world-oceans
 physical-infrastructure
 urbanization-human-induced-changes
 intact-forest-landscapes

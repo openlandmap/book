@@ -472,6 +472,9 @@ serves 10-m resolution sub-annual maps of tropical forest status.
 
 Detail maps of **mangrove forests cover, habitat type and properties** [@Bunting2022], 
 the key products of the https://www.globalmangrovewatch.org/ project can be obtained from [zenodo](https://doi.org/10.5281/zenodo.6894273). 
+@vancutsem2021long produced long-term (1990–2019) maps of forest cover changes in 
+the humid tropics (**Tropical moist forests TMF**) at 30-m spatial resolution. The 
+data is available for download via the project [homepage](https://forobs.jrc.ec.europa.eu/TMF).
 
 Forest resources and canopy height have been mapped by the GLAD group from the Maryland university [@POTAPOV2021112165]
 The data is publicly available under open data license from: https://glad.umd.edu/dataset. 
@@ -563,11 +566,26 @@ Global surface water dynamics can be followed from three global data sets:
 
 A **[MODIS-based water mask (MOD44WV)](https://lpdaac.usgs.gov/products/mod44wv006/)** product at somewhat 
 coarser resolution (250-m) can be also used to represent water dynamics for the last 25 years.
-MODIS distributes a number of global products for global oceans including **[sea surface temperature (SST)](https://doi.org/10.5067/MODAM-8D9N9)** 
-at 4-km resolution (daily, 8-day, monthly or annual) and similar (SST images are available for download from https://opendata.oraclecloud.com/).
+
+### World oceans
 
 **[World Ocean Database](https://www.ncei.noaa.gov/products/world-ocean-database)** (world's largest collection of uniformly formatted, quality controlled, publicly available ocean profile data) is distributed by NOAA. 
 The data set covers 1990 to 2021 period.
+MODIS distributes a number of global products for global oceans including **[sea surface temperature (SST)](https://doi.org/10.5067/MODAM-8D9N9)** 
+at 4-km resolution (daily, 8-day, monthly or annual) and similar (SST images are available for download from https://opendata.oraclecloud.com/).
+
+The Global Fishing Watch (founded by Oceana, SkyTruth and Google) hosts a **[Global 
+data set of industrial activities at sea](https://dx.doi.org/10.6084/m9.figshare.24309475.v1)**. 
+This includes 53 billion vessel GPS positions and results of classification of 
+over 67 million image tiles (SAR, Sentinel-1, Sentinel-2) [@paolo2024satellite]. The GFW is currently 
+maintaining the **Open Ocean Project** that aims at providing a total inventory of 
+Industrial fishing vessels, non-fishing vessels, fixed infrastructure and small-scale fishing boats 
+all as open data.
+
+@haigh2023gesla describes the **[GESLA (Global Extreme Sea Level Analysis)](https://www.gesla.org/)** that contains 
+high-frequency sea-level information from tide gauge stations distributed worldwide. 
+Global maps of the sea level change are also available for download 
+from the [University of Hawaii Sea level center](https://uhslc.soest.hawaii.edu/).
 
 ## Physical Infrastructure
 
