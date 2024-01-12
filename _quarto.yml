@@ -1,0 +1,30 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "OpenLandMap Open Land Data services"
+  cover-image: "cover.jpg"
+  author: "OpenGeoHub foundation, GILAB.rs and contributors"
+  date: today
+  chapters:
+    - index.qmd
+    - part: "Part I: OpenLandMap layers"
+      chapters:
+        - 010-start_here.qmd
+        - 012-compendium.qmd
+        - 016-project.qmd
+    - part: "Part II: Tutorials"
+      chapters:
+        - 020-stac.qmd
+    - references.qmd
+
+bibliography: ./tex/refs.bib
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: solar
+    mermaid:
+      theme: dark
