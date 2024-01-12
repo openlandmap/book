@@ -321,6 +321,9 @@ Copernicus Global Land Service distributes a global assessment of **[Burnt Area]
 at 300-m spatial resolution, but available only from 2019 onwards.
 NASA's [FIRMS (Fire Information for Resource Management System)](https://firms.modaps.eosdis.nasa.gov/map/) provides 
 real-time access to occurrence of fires including access to the [archive data](https://firms.modaps.eosdis.nasa.gov/download/).
+The **[Global Fire Emissions Database](https://www.globalfiredata.org/)** provides [maps of 
+individual fire](https://doi.org/10.3334/ORNLDAAC/1642) size, duration, speed, and direction at 
+relatively coarse spatial resolutions of (10–25 km), but ranging from 1979 to present times [@andela2019global].
 [NASA's Global Hydrometeorology Resource Center Distributed Active Archive Center (GHRC DAAC)](https://www.earthdata.nasa.gov/eosdis/daacs/ghrc) serves global data on 
 lightning, tropical cyclones, and storm-induced hazards through integrated collections of satellite, airborne, and in-situ data sets.
 
@@ -364,6 +367,7 @@ global composites produced @dematte2020bare; data available via [GEE](https://ge
 
 @lembrechts2022global produced maps of **Global Soil Bioclimatic variables** (including soil temperatures) 
 which are available at [1-km spatial resolution](https://zenodo.org/doi/10.5281/zenodo.4558731) for depth intervals 0–5 and 5–15 cm (training data used to produce these maps is [also available](https://zenodo.org/doi/10.5281/zenodo.4558662)).
+@Pelletier2016 produced a [Gridded Thickness of Soil, Regolith, and Sedimentary Deposit Layers](https://daac.ornl.gov/SOILS/guides/Global_Soil_Regolith_Sediment.html). 
 
 An in-depth review of the global soil data sets is available in @Dai2019. 
 Status of the soil information in the world can be also followed via David G. Rossiter's [compendium of On-Line Soil Survey Information](https://www.isric.org/explore/soil-geographic-databases#world).
@@ -381,7 +385,7 @@ the most comprehensive recent global training data sets for land cover mapping t
 date (cca [2M training points](https://doi.org/10.34911/rdnt.x4xfh3) covering from years 1984 to 2020) is provided by the 
 [Global Land Cover Estimation (**GLanCE**) project](https://sites.bu.edu/measures/) project [@Stanimirova2023]. 
 @Shi2023 have produced **Globe230k**: a benchmark dataset for Global Land Cover Mapping 
-which includes [cca 230,000 annotated images](https://doi.org/10.5281/zenodo.8429200) with a size of 512 × 512 and a spatial resolution of 1-m. 
+which includes [cca 230,000 annotated images](https://zenodo.org/doi/10.5281/zenodo.8429199) with a size of 512 × 512 and a spatial resolution of 1-m. 
 
 Land cover maps are commonly derived using semi-automated methods and remote sensing 
 images as the main inputs. Global land cover / land cover change maps are today primarily derived from the Sentinel-2 
@@ -832,7 +836,11 @@ distribution overlaps in each 10-km cell, and a global map of Areas of global si
 
 @sabatini2022global produced a number of [global biodiversity maps](https://doi.org/10.25829/idiv.3506-p4c0mo) 
 including the **map of plant species richness** at 1-km spatial resolutions. These maps are based using [sPlot database](http://www.idiv.de/splot) 
-(whichs is available upon request by submitting a project proposal to sPlot’s Steering Committee).
+(whichs is available upon request by submitting a project proposal to sPlot's Steering Committee).
+[Auamaps](https://www.aquamaps.org/) serves standardized distribution maps (at a coarse spatial resolution) for over 
+33,500 species of fishes, marine mammals and invertebrates, based on the FishBase and 
+SeaLifeBase data [@hodapp2023climate]. Species distribution maps can be also accessed from the 
+[Ocean Biodiversity Information System](https://mapper.obis.org/) [@moudry2020quality].
 
 ### Protected areas
 
@@ -841,3 +849,6 @@ National and international protected sites and attributes can be downloaded
 International Union for Conservation of Nature and Natural Resources (IUCN) has 
 released a Red List of Threatened Species that contains assessments for +130,000 species. 
 Distribution maps (presence) for these species (with limited coverage) can be downloaded from the [IUCN website](https://www.iucnredlist.org/resources/spatial-data-download).
+
+@neugarten2023mapping produced [maps of planet's critical areas for biodiversity and people at 2-km resolution](https://zenodo.org/doi/10.5281/zenodo.7109026).
+This finding supports recent commitments by national governments under the Global Biodiversity Framework to conserve at least 30% of global lands and waters, and proposals to conserve “half Earth”.
