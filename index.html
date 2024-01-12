@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.538">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="OpenGeoHub foundation, GILAB.rs and contributors">
+<meta name="dcterms.date" content="2024-01-12">
+
+<title>OpenLandMap Open Land Data services</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./010-start_here.html" rel="next">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">About</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">OpenLandMap Open Land Data services</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Part I: OpenLandMap layers</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./010-start_here.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">New to markdown</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./012-compendium.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Compendium of Global Gridded Environmental Data Sets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./016-project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">OpenLandMap layers</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Part II: Tutorials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./020-stac.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">OpenLandMap STAC</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a>
+  <ul class="collapse">
+  <li><a href="#layers-and-themes-of-interest" id="toc-layers-and-themes-of-interest" class="nav-link" data-scroll-target="#layers-and-themes-of-interest">Layers and themes of interest</a></li>
+  <li><a href="#accessing-data" id="toc-accessing-data" class="nav-link" data-scroll-target="#accessing-data">Accessing data</a>
+  <ul class="collapse">
+  <li><a href="#accessing-data-from-zenodo" id="toc-accessing-data-from-zenodo" class="nav-link" data-scroll-target="#accessing-data-from-zenodo">Accessing data from Zenodo</a></li>
+  <li><a href="#accessing-data-from-google-earth-engine" id="toc-accessing-data-from-google-earth-engine" class="nav-link" data-scroll-target="#accessing-data-from-google-earth-engine">Accessing data from Google Earth Engine</a></li>
+  </ul></li>
+  <li><a href="#the-file-naming-convention" id="toc-the-file-naming-convention" class="nav-link" data-scroll-target="#the-file-naming-convention">The file naming convention</a></li>
+  <li><a href="#the-land-mask" id="toc-the-land-mask" class="nav-link" data-scroll-target="#the-land-mask">The land mask</a></li>
+  <li><a href="#cloud-optimized-geotiff" id="toc-cloud-optimized-geotiff" class="nav-link" data-scroll-target="#cloud-optimized-geotiff">Cloud-optimized GeoTIFF</a></li>
+  <li><a href="#contributing-data" id="toc-contributing-data" class="nav-link" data-scroll-target="#contributing-data">Contributing data</a></li>
+  <li><a href="#contributing-documentation" id="toc-contributing-documentation" class="nav-link" data-scroll-target="#contributing-documentation">Contributing documentation</a></li>
+  <li><a href="#contributors" id="toc-contributors" class="nav-link" data-scroll-target="#contributors">Contributors</a></li>
+  <li><a href="#disclaimer" id="toc-disclaimer" class="nav-link" data-scroll-target="#disclaimer">Disclaimer</a></li>
+  <li><a href="#how-to-cite" id="toc-how-to-cite" class="nav-link" data-scroll-target="#how-to-cite">How to cite</a></li>
+  <li><a href="#licence" id="toc-licence" class="nav-link" data-scroll-target="#licence">Licence</a></li>
+  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">OpenLandMap Open Land Data services</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>OpenGeoHub foundation, GILAB.rs and contributors </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 12, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+
+<section id="about" class="level1 unnumbered">
+<h1 class="unnumbered">About</h1><p><img src="cover.jpg" title="OpenLandMap Open Land Data services" class="quarto-cover-image img-fluid"></p>
+<p><a href="https://openlandmap.org">OpenLandMap</a> are Open Land Data services providing access to spatial layers covering global land mass (at spatial resolutions of 1-km, 250-m, 100-m, 30-m or finer) hosted by the OpenGeoHub foundation, GILAB.rs and collaborators. It aims at becoming an <a href="https://towardsdatascience.com/everybody-has-a-right-to-know-whats-happening-with-the-planet-towards-a-global-commons-5a1ad4ba0bdd">OpenStreetMap-type system for land data</a>. Access to spatial layers is possible via interactive visualizations and/or Open Source software solutions. Read more about this project <a href="https://opengeohub.org/about-openlandmap/">here</a>.</p>
+<p><img src="img/openlandmap_v2_logo.png" alt="OpenLandMap logo" width="350"></p>
+<p>The OpenLandMap layers, if not specified otherwise, are licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">Creative Commons Attribution-ShareAlike 4.0 International license</a> (CC BY-SA) and/or the <a href="https://opendatacommons.org/licenses/odbl/">Open Data Commons Open Database License</a> (ODbL). This implies that anyone can use, or build upon, the OpenLandMap data without restrictions. See the <a href="https://opengeohub.org/about-openlandmap/">Copyright and License</a> page for more details.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/openlandmap_gui_preview.jpg" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Comparison tool in the OpenLandMap and time-sliders.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Users can access OpenLandMap data via the five main channels:</p>
+<ul>
+<li><strong>OpenLandMap App</strong> at https://openlandmap.org,</li>
+<li><strong>OpenLandMap training points</strong> at https://github.com/openlandmap/compiled-ess-point-data-sets,</li>
+<li><strong>OpenGeoHub STAC</strong> installation at https://stac.opengeohub.org,</li>
+<li><a href="https://zenodo.org/search?page=1&amp;size=20&amp;q=OpenLandMap">Zenodo.org</a> to access a (version-controlled) back-up copy of data via a DOI,</li>
+</ul>
+<p>Data portal https://openlandmap.org is the landing page (running on Geoserver + OpenLayers) where users can browse maps, query values by location, and find out about most recent news and activities. STAC at https://stac.opengeohub.org is a generic layer repository for accessing layers installed and maintained by OpenGeoHub. It allow users i.e.&nbsp;producers of layers to edit and update metadata and descriptions, create map views, learn how to use WCS, WMS or similar. A copy of the raw data can be obtained via zenodo.org or similar public data repositories.</p>
+<p>The <a href="https://github.com/openlandmap/compiled-ess-point-data-sets">training data repository</a> contains import and processing steps run to clean up and standardize global compilations of training points, most importantly the land cover, vegetation, meteo, soil and similar observations.</p>
+<section id="layers-and-themes-of-interest" class="level2">
+<h2 class="anchored" data-anchor-id="layers-and-themes-of-interest">Layers and themes of interest</h2>
+<p>OpenLandMap.org provides access to global environmental layers focused on land surface. We are aiming at serving Analysis-Ready, Cloud-Optimized (ARCO) data which passes <a href="https://medium.com/mlearning-ai/present-and-future-of-data-cubes-an-european-eo-perspective-735d3f16f7c9">four simple C checks</a> (4C): (1) completeness (meaning: data is available for all or at least 99% of pixels of interest), (2) consistency (meaning: consistent file names, variable names and relationships, and everything is documented via metadata), (3) currency (in this context: the user is using the most up-to-date version of the data), (4) correctness (in this context: making sure that the served data is the most correct / highest possible quality version). In other words, ARCO version of the data should be something that is highest quality, fully documented and optimized for web-services / advanced analysis.</p>
+<p>Thus, the following five primary requirements need to be satisfied before a layer can be considered for inclusion:</p>
+<ul>
+<li>Global coverage with at least 98% of the land mask represented in the layer (as not-NA values).</li>
+<li>An <a href="https://opendefinition.org/licenses/">Open Data license</a>.</li>
+<li>Metadata is supplied following the format specified below (all columns are filled-in and up-to-date).</li>
+<li>Sufficient technical documentation is supplied — usually as a scientific paper or a report.</li>
+<li>A GDAL/proj4-compatible data format and projection system is used that allows for inclusion into Geoserver or similar.</li>
+</ul>
+<p>All layers are organized around the following themes (based on the <a href="https://ggim.un.org/meetings/GGIM-committee/9th-Session/documents/Fundamental_Data_Publication.pdf">UN-GGIM The Global Fundamental Geospatial Data Themes</a>):</p>
+<ul>
+<li>Buildings and Settlements,</li>
+<li>Elevation and Depth,</li>
+<li>Geology and Soils,</li>
+<li>Land Cover and Land Use,</li>
+<li>Population Distribution,</li>
+<li>Water,</li>
+<li>Physical Infrastructure,</li>
+<li>Climate (<em>added entry</em>),</li>
+<li>Biodiversity and Nature Conservation (<em>added entry</em>),</li>
+</ul>
+<p>Note some layers maybe match two or more themes and are difficult to classify using a simple definition, hence we might mention them at multiple places / within multiple themes.</p>
+<p><span class="citation" data-cites="RADELOFF2024113918">Radeloff et al. (<a href="references.html#ref-RADELOFF2024113918" role="doc-biblioref">2024</a>)</span> (the Landsat science team) have proposed 13 essential and many more desirable/ aspirational products using medium resolution imagery referred to as “Medium-resolution satellite image-based products that meet the identified information needs for sustainable management, societal benefits, and global change challenges”. The desirable products include: maps of crop types, irrigated fields, land abandonment, forest loss agents, LAI/FAPAR, green vegetation cover fraction, emissivity, ice sheet velocity, surface water quality and evaporative stress. The aspirational land monitoring products include: forest types, and tree species, urban structure, forest recovery, crop yields, forest biomass, habitat heterogeneity and winter habitat indices, net radiation, snow and ice sheet surface melt, ice sheet and glacier melt ponds, sea ice motion and evaporation and transpiration. This list is largely a basis for OpenLandMap activities for the years to come.</p>
+</section>
+<section id="accessing-data" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="accessing-data">Accessing data</h2>
+<p>OpenLandMap data can be best accessed using the OpenLandMap <a href="https://en.wikipedia.org/wiki/Amazon_S3">S3</a> file service. This service is based on <a href="https://www.cogeo.org/">Cloud-Optimized GeoTIFFs</a> and is probably also the best solution for doing spatial queries and spatial analysis.</p>
+<p>To connect and use data seamlessly in your code, we recommend using STAC tools e.g.&nbsp; <a href="https://cran.r-project.org/web/packages/rstac/">RStac</a> to access the OpenLanMap catalog then program analysis by using the most up-to-date version of the data. You can use the https://s3.eu-central-1.wasabisys.com/stac/openlandmap/catalog.json and the <code>collection_id</code> (example: <code>fapar_essd.lstm</code>) to access description of data and URLs of filenames on S3.</p>
+<section id="accessing-data-from-zenodo" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="accessing-data-from-zenodo">Accessing data from Zenodo</h3>
+<p>To download whole layers from zenodo you can use the R packages jsonlite and RCurl:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RCurl)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgdal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You first need to authenticate yourself by using a Zenodo API TOKEN (see: <a href="http://developers.zenodo.org/#quickstart-upload">how to obtain API TOKEN</a>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>TOKEN <span class="ot">=</span> <span class="fu">scan</span>(<span class="st">"~/TOKEN_ACCESS"</span>, <span class="at">what=</span><span class="st">"character"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To download the <a href="https://doi.org/10.5281/zenodo.1420114">MODIS LST images at 1 km</a> you can use the bucket ID <code>dep.id = "1435938"</code> which gives:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dep.id <span class="ot">=</span> <span class="st">"1435938"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">fromJSON</span>(<span class="fu">system</span>(<span class="fu">paste0</span>(<span class="st">'curl -H </span><span class="sc">\"</span><span class="st">Accept: application/json</span><span class="sc">\"</span><span class="st"> -H </span><span class="sc">\"</span><span class="st">Authorization: Bearer '</span>, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        TOKEN, <span class="st">'</span><span class="sc">\"</span><span class="st"> </span><span class="sc">\"</span><span class="st">https://zenodo.org/api/deposit/depositions/'</span>, dep.id, <span class="st">'</span><span class="sc">\"</span><span class="st">'</span>), <span class="at">intern=</span><span class="cn">TRUE</span>))</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">% Total    %</span> Received % Xferd  Average Speed   Time    Time     Time  Current</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                                 Dload  Upload   Total   Spent    Left  Speed</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="dv">100</span> <span class="dv">58704</span>  <span class="dv">100</span> <span class="dv">58704</span>    <span class="dv">0</span>     <span class="dv">0</span>  <span class="dv">80219</span>      <span class="dv">0</span> <span class="sc">--</span><span class="er">:</span><span class="sc">--</span><span class="er">:</span><span class="sc">--</span> <span class="sc">--</span><span class="er">:</span><span class="sc">--</span><span class="er">:</span><span class="sc">--</span> <span class="sc">--</span><span class="er">:</span><span class="sc">--</span><span class="er">:</span><span class="sc">--</span> <span class="dv">80196</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 58704  100 58704    0     0  80219      0 --:--:-- --:--:-- --:--:-- 80196
+&gt; str(x, max.level = 1)
+List of 15
+ $ created     : chr "2018-09-26T18:37:50.432468+00:00"
+ $ modified    : chr "2022-04-14T07:11:06.399928+00:00"
+ $ id          : int 1435938
+ $ conceptrecid: chr "1420114"
+ $ doi         : chr "10.5281/zenodo.1435938"
+ $ conceptdoi  : chr "10.5281/zenodo.1420114"
+ $ doi_url     : chr "https://doi.org/10.5281/zenodo.1435938"
+ $ metadata    :List of 15
+ $ title       : chr "Long-term MODIS LST day-time and night-time temperatures, sd and differences at 1 km based on the 2000–2017 time series"
+ $ links       :List of 21
+ $ record_id   : int 1435938
+ $ owner       : int 43652
+ $ files       :'data.frame':   102 obs. of  5 variables:
+ $ state       : chr "done"
+ $ submitted   : logi TRUE</code></pre>
+<p>This shows that there are total of 102 files in this folder. To download all temperatures for August, we would hence use:</p>
+<pre><code>&gt; sel.tif = x$files$links$download[grep("aug", x$files$links$download)]</code></pre>
+<p>which gives a total of 9 files:</p>
+<pre><code>&gt; sel.tif
+[1] "https://zenodo.org/api/records/1435938/draft/files/clm_lst_mod11a2.aug.day_u.975_1km_s0..0cm_2000..2017_v1.0.tif/content"  
+[2] "https://zenodo.org/api/records/1435938/draft/files/clm_lst_mod11a2.aug.day_l.025_1km_s0..0cm_2000..2017_v1.0.tif/content"  
+[3] "https://zenodo.org/api/records/1435938/draft/files/clm_lst_mod11a2.aug.day_m_1km_s0..0cm_2000..2017_v1.0.tif/content"      
+[4] "https://zenodo.org/api/records/1435938/draft/files/clm_lst_mod11a2.aug.daynight_m_1km_s0..0cm_2000..2017_v1.0.tif/content" 
+[5] "https://zenodo.org/api/records/1435938/draft/files/clm_lst_mod11a2.aug.day_sd_1km.png/content"                             
+[6] "https://zenodo.org/api/records/1435938/draft/files/clm_lst_mod11a2.aug.day_sd_1km_s0..0cm_2000..2017_v1.0.tif/content"     
+[7] "https://zenodo.org/api/records/1435938/draft/files/clm_lst_mod11a2.aug.night_l.025_1km_s0..0cm_2000..2017_v1.0.tif/content"
+[8] "https://zenodo.org/api/records/1435938/draft/files/clm_lst_mod11a2.aug.night_u.975_1km_s0..0cm_2000..2017_v1.0.tif/content"
+[9] "https://zenodo.org/api/records/1435938/draft/files/clm_lst_mod11a2.aug.night_m_1km_s0..0cm_2000..2017_v1.0.tif/content" </code></pre>
+<p>We can test accessing the file by using:</p>
+<pre><code>tif = stringi::stri_replace_all_fixed(sel.tif[1], c("api/", "draft/", "/content"), "", vectorize_all=FALSE)
+&gt; system(paste0("gdalinfo /vsicurl/", tif))
+Driver: GTiff/GeoTIFF
+Files: /vsicurl/https://zenodo.org/records/1435938/files/clm_lst_mod11a2.aug.day_u.975_1km_s0..0cm_2000..2017_v1.0.tif
+Size is 43200, 17924
+Coordinate System is:
+GEOGCRS["WGS 84",
+    DATUM["World Geodetic System 1984",
+        ELLIPSOID["WGS 84",6378137,298.257223563,
+            LENGTHUNIT["metre",1]]],
+    PRIMEM["Greenwich",0,
+        ANGLEUNIT["degree",0.0174532925199433]],
+    CS[ellipsoidal,2],
+        AXIS["geodetic latitude (Lat)",north,
+            ORDER[1],
+            ANGLEUNIT["degree",0.0174532925199433]],
+        AXIS["geodetic longitude (Lon)",east,
+            ORDER[2],
+            ANGLEUNIT["degree",0.0174532925199433]],
+    ID["EPSG",4326]]
+Data axis to CRS axis mapping: 2,1
+Origin = (-180.000000000000000,87.370000000000005)
+Pixel Size = (0.008333333333333,-0.008333333333333)
+Metadata:
+  AREA_OR_POINT=Area
+Image Structure Metadata:
+  COMPRESSION=DEFLATE
+  INTERLEAVE=BAND
+Corner Coordinates:
+Upper Left  (-180.0000000,  87.3700000) (180d 0' 0.00"W, 87d22'12.00"N)
+Lower Left  (-180.0000000, -61.9966667) (180d 0' 0.00"W, 61d59'48.00"S)
+Upper Right ( 180.0000000,  87.3700000) (180d 0' 0.00"E, 87d22'12.00"N)
+Lower Right ( 180.0000000, -61.9966667) (180d 0' 0.00"E, 61d59'48.00"S)
+Center      (  -0.0000000,  12.6866667) (  0d 0' 0.00"W, 12d41'12.00"N)
+Band 1 Block=43200x1 Type=Int16, ColorInterp=Gray
+  NoData Value=-32767
+  Overviews: 21600x8962, 10800x4481, 5400x2241, 2700x1121, 1350x561, 675x281, 338x141</code></pre>
+<p>These files can be further downloaded using <code>download.file(tif, basename(tif))</code> function or similar. There is also an R package for Zenodo <strong><a href="https://github.com/eblondel/zen4R">zen4R</a></strong> that makes downloading files even easier. In python you can also the library <strong><a href="https://github.com/Open-Earth-Monitor/zen">zen</a></strong> that is especially useful for uploading very large data sets to Zenodo.</p>
+</section>
+<section id="accessing-data-from-google-earth-engine" class="level3">
+<h3 class="anchored" data-anchor-id="accessing-data-from-google-earth-engine">Accessing data from Google Earth Engine</h3>
+<p><a href="https://code.earthengine.google.com/?asset=users/opengeohub/openlandmap">Google Earth Engine users</a> can access a snapshot of OpenLandMap.org layers using the following address:</p>
+<ul>
+<li>https://code.earthengine.google.com/?asset=users/opengeohub/openlandmap</li>
+</ul>
+<p>Description of layer names and units used can be find <a href="GEE/OpenLandMap_layers_for_GEE.pdf">here</a>. Note that sync between the layers on the OpenLandMap.org and Google Earth Engine is done only once a year, hence, if you wish to use the most up-to-date layers at any moment, downloading maps from either Zenodo or via the Wasabi service is recommended.</p>
+<p>To access OpenLandMap layers you can also refer to the public data sets at:</p>
+<ul>
+<li>https://developers.google.com/earth-engine/datasets/tags/openlandmap</li>
+</ul>
+</section>
+</section>
+<section id="the-file-naming-convention" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="the-file-naming-convention">The file naming convention</h2>
+<p>The OpenLandMap file-naming convention works with 10 fields that basically define the most important properties of the data (this way users can search files, prepare data analysis etc, without even needing to access or open files. The 10 fields include:</p>
+<ol type="1">
+<li>Generic variable name (needs to be unique): <code>lclu</code></li>
+<li>Variable procedure combination i.e.&nbsp;method standard (standard abbreviation): <code>esa.cci</code></li>
+<li>Position in the probability distribution / variable type: <code>c</code></li>
+<li>Spatial support (usually horizontal block) in m or km: <code>250m</code></li>
+<li>Depth reference or depth interval e.g.&nbsp;below (“b”), above (“a”) ground or at surface (“s”) b{depth}{metric length} for certain depth. e.g.&nbsp;b30cm. For the interval we would like to go for b{depth}t{depth}{metric length}: <code>b30t60cm</code></li>
+<li>Time reference begin time (YYYYMMDD): <code>20210101</code></li>
+<li>Time reference end time: <code>20211231</code></li>
+<li>Bounding box (2 letters max): <code>go</code></li>
+<li>EPSG code: <code>epsg.4326</code></li>
+<li>Version code i.e.&nbsp;creation date: <code>v20221015</code></li>
+</ol>
+<p>An example of a file-name based on the description above:</p>
+<pre><code>lclu_esacci.lc.l4_c_250m_s_20210101_20211231_go_epsg.4326_v20221015.tif</code></pre>
+<p>The following variable types are currently supported:</p>
+<ul>
+<li><code>m</code>= mean value;</li>
+<li><code>q.10</code> = 10% probability quantile (one side probability);</li>
+<li><code>d</code>= median value; equivalent to <code>q.50</code>;</li>
+<li><code>c</code>= class or factor / requires a domain with codes / levels;</li>
+<li><code>cd</code> = change class (special cross-domain 2D matrix);</li>
+<li><code>p</code>= probability 0–100%;</li>
+<li><code>sse</code> = Shannon Scaled Entropy index;</li>
+<li><code>l.159</code>= lower 68% probability threshold (quantile);</li>
+<li><code>u.841</code>= upper 68% probability threshold (quantile), for one-sided probability use “<code>q</code>”,</li>
+<li><code>pc</code>= percent cover of the pixel 0–100%;</li>
+<li><code>sd</code>= standard deviation or prediction error; for multiple standard deviation use e.g.&nbsp;“<code>sd.2</code>”</li>
+<li><code>md</code> = model deviation (in the case of ensemble predictions);</li>
+<li><code>si</code>= confidence interval range for the prediction of the mean value;</li>
+<li><code>td</code> = cumulative difference (usually based on time-series of values);</li>
+</ul>
+<p>Note that this file naming convention has the following properties:</p>
+<ul>
+<li>Large quantities of files can be easily sorted and searched (one line queries in Bash).</li>
+<li>File-naming patterns can be used to seamlessly build virtual mosaics and composites.<br>
+</li>
+<li>Key spatiotemporal properties of the data are available in the file name e.g.&nbsp;variable type, O&amp;M method, spatial resolution, bounding box, projection system, temporal references. Users can program analysis without opening or testing files.</li>
+<li>Versioning system is ubiquitous.</li>
+<li>All file-names are unique.</li>
+</ul>
+<p>Geonetwork and STAC will be further used to link the unique file names to: (1) WPs, deliverables, themes / keywords, (2) DOI’s, (3) project homepages, (4) contact pages for support and feedback. For keywords we recommend using the <a href="https://inspire.ec.europa.eu/glossary">INSPIRE keywords</a>. To confirm that metadata is complete and consistent, we recommend using the <a href="https://inspire.ec.europa.eu/validator/home/index.html">INSPIRE metadata validator</a> and/or <a href="https://data.europa.eu/en">https://data.europa.eu/en</a> validator.</p>
+<p>Some simple additional rules for generating the file name include:</p>
+<ol type="1">
+<li>Codes and abbreviations should be human-readable as much as possible (hence short, but not too short!);</li>
+<li>Use only English-US (en-us) language e.g.&nbsp;for months use “jan”, “feb” etc;</li>
+<li>Consistently use <a href="https://unicode.org/standard/standard.html">UNICODE standard</a>: no non-ASCII characters;</li>
+<li>Limit the total file name size in characters to: 256;</li>
+<li>For time reference do not extend beyond hour minute and timezone;</li>
+<li>For non-standard non-EPSG projections please register your projection first and obtain the code from <a href="https://spatialreference.org/ref/epsg/">Spatial Reference List</a>;</li>
+<li>For bounding boxes use as much as possible the 2–letter unique country code; for continents use the Equi7 Grid codes and for global products use “go” for global land without Antarctica, “ga” full global coverage,</li>
+<li>For method codes use as much as possible unique IDs from <a href="https://www.iso.org/standards-catalogue/browse-by-ics.html">ISO - ICS</a>;</li>
+<li>For MODIS products use consistently the MODIS products codes e.g.&nbsp;<a href="https://lpdaac.usgs.gov/products/mod11a2v061/">MOD11A2 v061</a>;</li>
+</ol>
+<p>For long-term aggregates of seasonal, monthly, weekly values use the period name at the end of the method names (#3) for example the long-term estimate of MODIS LST daytime temperature for month August:</p>
+<pre><code>lst.d_mod11a2v061.aug_m_1km_s_20200101_20211231_go_epsg.4326_v20221015.tif</code></pre>
+<p>A list of vocabularies to be used as abbreviated names of variables will be provided by OpenGeoHub. The same file-name convention described above can be also used for vector data (this would only have a different file extension) also.</p>
+</section>
+<section id="the-land-mask" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="the-land-mask">The land mask</h2>
+<p>The bounding box of interest for OpenLandMap data is:</p>
+<pre><code>Xmin = -180.00000
+Ymin = -62.00081
+Xmax = 179.99994
+Ymax = 87.37000</code></pre>
+<p>The image sizes at various standard resolutions are:</p>
+<ul>
+<li>250m = 172800P x 71698L,</li>
+<li>500m = 86400P x 35849L,</li>
+<li>1km = 43200P x 17924L,</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/landgis_world_mask.jpg" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>OpenLandMap world land mask: derived using the ESA land cover time series of maps 2000–2015. Red areas indicate barren lands, light green indicates permanent ice areas.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The standard spatial resolutions are derived using simple rule of thumb:</p>
+<ul>
+<li>250 m = 1/480 d.d. = 0.002083333</li>
+<li>500 m = 1/240 d.d. = 0.004166667</li>
+<li>1 km = 1/120 d.d. = 0.008333333</li>
+</ul>
+<p>OpenLandMap works with a standard land mask derived using the <a href="https://www.esa-landcover-cci.org/?q=node/175">ESA time series of land cover maps 2000–2015</a>:</p>
+<pre><code>lcv_landmask_esacci.lc.l4_c_250m_s0..0cm_2000..2015_v1.0.tif</code></pre>
+<p>📂 <a href="https://doi.org/10.5281/zenodo.1476464">Download layer</a></p>
+<p>It contains the following values:</p>
+<ul>
+<li><p>1 = land (all remaining pixels not permanent water, desert or ice)</p></li>
+<li><p>2 = permanent water bodies (consistently water body 2000–2015)</p></li>
+<li><p>3 = permanent bare areas (consistently bare areas / deserts 2000–2015)</p></li>
+<li><p>4 = permanent ice (consistently ice 2000–2015)</p></li>
+</ul>
+<p>If you need a global equal area projection (e.g.&nbsp;to be able to derive total stocks / density of features in N/km-squared) we advise using the <a href="https://doi.org/10.5281/zenodo.3355006">Goode Homolosine projection</a>:</p>
+<pre><code>+proj=igh +ellps=WGS84 +units=m +no_defs</code></pre>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/001_preview_GH_100km_grid.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>OpenLandMap world mask in Goode Homolosine projection: 100 by 100 km blocks and land mask in the Goode Homolosine projection.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>📂 <a href="https://doi.org/10.5281/zenodo.3355006">Download layer</a></p>
+<p>The bounding box would in this case be:</p>
+<pre><code>Xmin = -20037508
+Ymin = -6728980
+Xmax = 20037508
+Ymax = 8421750</code></pre>
+<p>and the corresponding image sizes is:</p>
+<ul>
+<li>250m = 172800P x 71698L,</li>
+</ul>
+</section>
+<section id="cloud-optimized-geotiff" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="cloud-optimized-geotiff">Cloud-optimized GeoTIFF</h2>
+<p>All layers included in the OpenLandMap system have been pre-processed following the GDAL’s cloud-optimized GeoTIFF instructions. To process large (global land mask at 250 m resolution or finer) GeoTIFFs please use the following settings:</p>
+<pre><code>gdalwarp layer.vrt layer.tif 
+   -ot COG
+   -tr 0.002083333 0.002083333 
+   -te -180.00000 -62.00081 179.99994 87.37000
+   -wm 2000 -co \"BIGTIFF=YES\"</code></pre>
+<p>To prepare a <a href="https://trac.osgeo.org/gdal/wiki/CloudOptimizedGeoTIFF">cloud-optimized GeoTIFF</a> use:</p>
+<pre><code>gdaladdo layer.tif -r near 2 4 8 16 32 64 128
+gdal_translate layer.tif layer-co.tif -mo \"CO=YES\" -co \"TILED=YES\" -co \"BLOCKXSIZE=512\" 
+        -co \"BLOCKYSIZE=512\" -co \"COMPRESS=LZW\" -co \"COPY_SRC_OVERVIEWS=YES\" 
+        --config GDAL_TIFF_OVR_BLOCKSIZE 512</code></pre>
+<p>This will add tiles and optimize compression. <code>CO=YES</code> indicates that the GeoTIFF has been cloud-optimized.</p>
+<p>The OpenLandMap.org COG’s are all available publicly without restrictions via the <a href="https://gitlab.com/openlandmap/global-layers/-/blob/master/tutorial/OpenLandMap_COG_tutorial.md">Wasabi file service</a>.</p>
+</section>
+<section id="contributing-data" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="contributing-data">Contributing data</h2>
+<p>We encourage public and private entities to help this project and share SSL data. The following four modes of data sharing are especially encouraged:</p>
+<ol type="1">
+<li>Open your data by releasing it under Creative Commons (<a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>)<br>
+or Open Data Commons Open Database License (<a href="https://opendatacommons.org/licenses/odbl/">ODbL</a>). This data can then directly imported into the OSSL.<br>
+</li>
+<li>Donate a small part (e.g.&nbsp;5%) of your data (release under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a> and/or <a href="https://opendatacommons.org/licenses/odbl/">ODbL</a>). This data can then directly imported into the OSSL.<br>
+</li>
+<li>Allow openlandmap.org project direct access to your data so that we can run data mining and then release ONLY results of data mining under some Open Data license.<br>
+</li>
+<li>Use OpenLandMap data to produce new derivative products, then share them through own infrastructures OR contact us for providing hosting support.</li>
+</ol>
+<p>We can sign professional <strong>Data Sharing Agreements</strong> with data producers that specify in detail how will the data be used. Our primary interest is in enabling research, sharing and use of models (calibration and prediction) and collaboration of groups across borders.</p>
+<p>We take especial care that your data is secured, encrypted where necessary, and kept safely, closely following our <a href="https://opengeohub.org/privacy-policy/">privacy policy and terms of use</a>.</p>
+</section>
+<section id="contributing-documentation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="contributing-documentation">Contributing documentation</h2>
+<p>Please feel free to contribute technical documentation. See <a href="https://github.com/openlandmap/book">GitHub repository</a> for more detailed instructions.</p>
+<p>Information outdated or missing? Please <a href="https://github.com/openlandmap/book/issues">open an issue</a> or best do a correction in the text and then make a <a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request">pull request</a>.</p>
+</section>
+<section id="contributors" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="contributors">Contributors</h2>
+<p>If you’ve contribute, add also your name and Twitter, ORCID or blog link below:</p>
+<p><a href="https://github.com/thengl">Tomislav Hengl</a>, <a href="https://www.linkedin.com/in/leal-parente/">Leandro L. Parente</a>, <a href="">Rolf Simoes</a>,</p>
+</section>
+<section id="disclaimer" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="disclaimer">Disclaimer</h2>
+<p>Whilst utmost care has been taken by the Soil Spectroscopy project and data authors while collecting and compiling the data, the data is provided <em>“as is”</em>. <a href="https://opengeohub.org/about">OpenGeoHub foundation</a> and its suppliers and licensors hereby disclaim all warranties of any kind, express or implied, including, without limitation, the warranties of merchantability, fitness for a particular purpose and non-infringement. Neither <a href="https://opengeohub.org/about">OpenGeoHub foundation</a> nor its suppliers and licensors, makes any warranty that the Website will be error free or that access thereto will be continuous or uninterrupted. You understand that you download from, or otherwise obtain content or services through, the Website at your own discretion and risk.</p>
+<p>In no event shall the data authors, the OpenLandMap project, or relevant funding agencies be liable for any actual, incidental or consequential damages arising from use of the data. By using the OpenLandMap project data, the user expressly acknowledges that the Data may contain some nonconformities, defects, or errors. No warranty is given that the data will meet the user’s needs or expectations or that all nonconformities, defects, or errors can or will be corrected. The user should always verify actual data; therefore the user bears all responsibility in determining whether the data is fit for the user’s intended use.</p>
+<p>This document is <strong>under construction</strong>. If you notice an error or outdated information, please submit a correction / pull request or <strong><a href="https://github.com/openlandmap/book/issues">open an issue</a></strong>.</p>
+<p>This is a community project. No profits are being made from building and serving OpenLandMap. If you would like to become a sponsor of the project, please contact us via: <a href="https://opengeohub.org/contact-us/" class="uri">https://opengeohub.org/contact-us/</a>.</p>
+</section>
+<section id="how-to-cite" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="how-to-cite">How to cite</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://doi.org/10.5281/zenodo.10466903"><img src="zenodo.10466903.svg" class="img-fluid figure-img" alt="DOI"></a></p>
+<figcaption>DOI</figcaption>
+</figure>
+</div>
+<p>To cite this document please use:</p>
+<pre><code>@book{openlandmap_2023,
+  author       = {Hengl, T., Parente, L., Ho, Y.-F., Simoes, R. and contributors},
+  title        = {{OpenLandMap Open Land Data services}},
+  year         = {2023},
+  publisher    = {OpenGeoHub foundation},
+  address      = {Wageningen},
+  version      = {v0.2},
+  doi          = {10.5281/zenodo.10466903},
+  url          = {https://openlandmap.github.io/book/}
+}</code></pre>
+</section>
+<section id="licence" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="licence">Licence</h2>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-Share Alike 4.0 International License</a> and/or <a href="https://opendatacommons.org/licenses/odbl/1-0/">Open Data Commons Open Database License (ODbL) v1.0</a>.</p>
+<p>Th attached software is free to use, and is licensed under <a href="https://en.wikipedia.org/wiki/MIT_License">the MIT License</a>.</p>
+</section>
+<section id="acknowledgments" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="acknowledgments">Acknowledgments</h2>
+<p><strong><a href="https://EarthMonitor.org/">EarthMonitor.org</a></strong> project has received funding from the European Union’s Horizon Europe research an innovation programme under grant agreement <strong><a href="https://cordis.europa.eu/project/id/101059548">No.&nbsp;101059548</a></strong>.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-RADELOFF2024113918" class="csl-entry" role="listitem">
+Radeloff, Volker C., David P. Roy, Michael A. Wulder, Martha Anderson, Bruce Cook, Christopher J. Crawford, Mark Friedl, et al. 2024. <span>“Need and Vision for Global Medium-Resolution Landsat and Sentinel-2 Data Products.”</span> <em>Remote Sensing of Environment</em> 300: 113918. <a href="https://doi.org/10.1016/j.rse.2023.113918">https://doi.org/10.1016/j.rse.2023.113918</a>.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./010-start_here.html" class="pagination-link" aria-label="<span class='chapter-number'>1</span>&nbsp; <span class='chapter-title'>New to markdown</span>">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">New to markdown</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
