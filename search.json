@@ -104,7 +104,7 @@
     "href": "index.html#how-to-cite",
     "title": "OpenLandMap Open Land Data services",
     "section": "How to cite",
-    "text": "How to cite\n\n\n\nDOI\n\n\nTo cite this document please use:\n@book{openlandmap_2023,\n  author       = {Hengl, T., Parente, L., Ho, Y.-F., Simoes, R. and contributors},\n  title        = {{OpenLandMap Open Land Data services}},\n  year         = {2023},\n  publisher    = {OpenGeoHub foundation},\n  address      = {Wageningen},\n  version      = {v0.2},\n  doi          = {10.5281/zenodo.10466903},\n  url          = {https://openlandmap.github.io/book/}\n}",
+    "text": "How to cite\n\nTo cite this document please use:\n@book{openlandmap_2023,\n  author       = {Hengl, T., Parente, L., Ho, Y.-F., Simoes, R. and contributors},\n  title        = {{OpenLandMap Open Land Data services}},\n  year         = {2023},\n  publisher    = {OpenGeoHub foundation},\n  address      = {Wageningen},\n  version      = {v0.2},\n  doi          = {10.5281/zenodo.10466903},\n  url          = {https://openlandmap.github.io/book/}\n}",
     "crumbs": [
       "About"
     ]
