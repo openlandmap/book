@@ -1,3 +1,9 @@
+
+---
+aliases:
+  - compendium-of-global-gridded-environmental-data-sets.html
+---
+
 # Compendium of Global Gridded Environmental Data Sets
 
 This is an open compendium of global (gridded) environmental datasets (bio-geophysical variables). Here you can 

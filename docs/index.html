@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="OpenGeoHub foundation, GILAB.rs and contributors">
-<meta name="dcterms.date" content="2024-01-12">
 
-<title>OpenLandMap Open Land Data services</title>
+<title>Open Land Data services</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -86,7 +84,6 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./010-start_here.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -99,11 +96,11 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -127,55 +124,99 @@ div.csl-indent {
 }</script>
 
 
+<meta property="og:title" content="Open Land Data services">
+<meta property="og:description" content="OpenLandMap.org are Open Land Data services providing access to spatial layers covering global land mass (at spatial resolutions of 1-km, 250-m, 100-m, 30-m or finer) hosted by the OpenGeoHub foundation, GILAB.rs and collaborators. We host and serve only data that matches some of the compatible open data licenses and has close to global coverage.">
+<meta property="og:image" content="https://openlandmap.github.io/book/cover.jpg">
+<meta property="og:site_name" content="Open Land Data services">
+<meta name="twitter:title" content="Open Land Data services">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://openlandmap.github.io/book/img/openlandmap_gui_preview.jpg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="././img/openlandmap_v2_logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Open Land Data services</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://OpenLandMap.org"> 
+<span class="menu-text">OpenLandMap App</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://EarthMonitor.org"> 
+<span class="menu-text">Open-Earth-Monitor</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools tools-wide">
+    <a href="https://fosstodon.org/@opengeohub" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-mastodon"></i></a>
+    <a href="https://opengeohub.medium.com/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-medium"></i></a>
+    <a href="https://twitter.com/opengeohub" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/openlandmap/book">
+            Source Code
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/openlandmap/book/issues">
+            Report a Bug
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">About</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Data layers</a></li><li class="breadcrumb-item"><a href="./index.html">About</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">OpenLandMap Open Land Data services</a> 
-        <div class="sidebar-tools-main">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-</div>
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">About</span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Part I: OpenLandMap layers</span></a>
+ <span class="menu-text">Data layers</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -183,20 +224,26 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./010-start_here.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">New to markdown</span></span></a>
+ <span class="menu-text">New to markdown</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./012-compendium.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Compendium of Global Gridded Environmental Data Sets</span></span></a>
+ <span class="menu-text">Compendium of Global Gridded Environmental Data Sets</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./016-project.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">OpenLandMap layers</span></span></a>
+ <span class="menu-text">OpenLandMap layers</span></a>
   </div>
 </li>
       </ul>
@@ -204,7 +251,7 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Part II: Tutorials</span></a>
+ <span class="menu-text">Tutorials</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -213,17 +260,11 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./020-stac.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">OpenLandMap STAC</span></span></a>
+ <span class="menu-text">OpenLandMap STAC</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -231,7 +272,7 @@ div.csl-indent {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
   <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a>
@@ -254,47 +295,18 @@ div.csl-indent {
   <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/openlandmap/book/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/openlandmap/book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">OpenLandMap Open Land Data services</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>OpenGeoHub foundation, GILAB.rs and contributors </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 12, 2024</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 
 <section id="about" class="level1 unnumbered">
-<h1 class="unnumbered">About</h1><p><img src="cover.jpg" title="OpenLandMap Open Land Data services" class="quarto-cover-image img-fluid"></p>
+<h1 class="unnumbered">About</h1>
 <p><a href="https://openlandmap.org">OpenLandMap</a> are Open Land Data services providing access to spatial layers covering global land mass (at spatial resolutions of 1-km, 250-m, 100-m, 30-m or finer) hosted by the OpenGeoHub foundation, GILAB.rs and collaborators. It aims at becoming an <a href="https://towardsdatascience.com/everybody-has-a-right-to-know-whats-happening-with-the-planet-towards-a-global-commons-5a1ad4ba0bdd">OpenStreetMap-type system for land data</a>. Access to spatial layers is possible via interactive visualizations and/or Open Source software solutions. Read more about this project <a href="https://opengeohub.org/about-openlandmap/">here</a>.</p>
-<p><img src="img/openlandmap_v2_logo.png" alt="OpenLandMap logo" width="350"></p>
+<p><a href="https://opengeohub.medium.com/"><img src="cover.jpg" alt="OpenLandMap banner" width="300"></a></p>
 <p>The OpenLandMap layers, if not specified otherwise, are licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">Creative Commons Attribution-ShareAlike 4.0 International license</a> (CC BY-SA) and/or the <a href="https://opendatacommons.org/licenses/odbl/">Open Data Commons Open Database License</a> (ODbL). This implies that anyone can use, or build upon, the OpenLandMap data without restrictions. See the <a href="https://opengeohub.org/about-openlandmap/">Copyright and License</a> page for more details.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -308,12 +320,12 @@ div.csl-indent {
 </div>
 <p>Users can access OpenLandMap data via the five main channels:</p>
 <ul>
-<li><strong>OpenLandMap App</strong> at https://openlandmap.org,</li>
-<li><strong>OpenLandMap training points</strong> at https://github.com/openlandmap/compiled-ess-point-data-sets,</li>
-<li><strong>OpenGeoHub STAC</strong> installation at https://stac.opengeohub.org,</li>
+<li><strong>OpenLandMap App</strong> at <a href="https://openlandmap.org" class="uri">https://openlandmap.org</a>,</li>
+<li><strong>OpenLandMap training points</strong> at <a href="https://github.com/openlandmap/compiled-ess-point-data-sets" class="uri">https://github.com/openlandmap/compiled-ess-point-data-sets</a>,</li>
+<li><strong>OpenGeoHub STAC</strong> installation at <a href="https://stac.opengeohub.org" class="uri">https://stac.opengeohub.org</a>,</li>
 <li><a href="https://zenodo.org/search?page=1&amp;size=20&amp;q=OpenLandMap">Zenodo.org</a> to access a (version-controlled) back-up copy of data via a DOI,</li>
 </ul>
-<p>Data portal https://openlandmap.org is the landing page (running on Geoserver + OpenLayers) where users can browse maps, query values by location, and find out about most recent news and activities. STAC at https://stac.opengeohub.org is a generic layer repository for accessing layers installed and maintained by OpenGeoHub. It allow users i.e.&nbsp;producers of layers to edit and update metadata and descriptions, create map views, learn how to use WCS, WMS or similar. A copy of the raw data can be obtained via zenodo.org or similar public data repositories.</p>
+<p>Data portal <a href="https://openlandmap.org" class="uri">https://openlandmap.org</a> is the landing page (running on Geoserver + OpenLayers) where users can browse maps, query values by location, and find out about most recent news and activities. SpatioTemporal Asset Catalogs (STAC) at <a href="https://stac.opengeohub.org" class="uri">https://stac.opengeohub.org</a> is a generic layer repository for accessing layers installed and maintained by OpenGeoHub. It allow users i.e.&nbsp;producers of layers to edit and update metadata and descriptions, create map views, learn how to use WCS, WMS or similar. A copy of the raw data can be obtained via zenodo.org or similar public data repositories.</p>
 <p>The <a href="https://github.com/openlandmap/compiled-ess-point-data-sets">training data repository</a> contains import and processing steps run to clean up and standardize global compilations of training points, most importantly the land cover, vegetation, meteo, soil and similar observations.</p>
 <section id="layers-and-themes-of-interest" class="level2">
 <h2 class="anchored" data-anchor-id="layers-and-themes-of-interest">Layers and themes of interest</h2>
@@ -339,7 +351,7 @@ div.csl-indent {
 <li>Biodiversity and Nature Conservation (<em>added entry</em>),</li>
 </ul>
 <p>Note some layers maybe match two or more themes and are difficult to classify using a simple definition, hence we might mention them at multiple places / within multiple themes.</p>
-<p><span class="citation" data-cites="RADELOFF2024113918">Radeloff et al. (<a href="references.html#ref-RADELOFF2024113918" role="doc-biblioref">2024</a>)</span> (the Landsat science team) have proposed 13 essential and many more desirable/ aspirational products using medium resolution imagery referred to as “Medium-resolution satellite image-based products that meet the identified information needs for sustainable management, societal benefits, and global change challenges”. The desirable products include: maps of crop types, irrigated fields, land abandonment, forest loss agents, LAI/FAPAR, green vegetation cover fraction, emissivity, ice sheet velocity, surface water quality and evaporative stress. The aspirational land monitoring products include: forest types, and tree species, urban structure, forest recovery, crop yields, forest biomass, habitat heterogeneity and winter habitat indices, net radiation, snow and ice sheet surface melt, ice sheet and glacier melt ponds, sea ice motion and evaporation and transpiration. This list is largely a basis for OpenLandMap activities for the years to come.</p>
+<p><span class="citation" data-cites="RADELOFF2024113918">Radeloff et al. (<a href="#ref-RADELOFF2024113918" role="doc-biblioref">2024</a>)</span> (the Landsat science team) have proposed 13 essential and many more desirable/ aspirational products using medium resolution imagery referred to as “Medium-resolution satellite image-based products that meet the identified information needs for sustainable management, societal benefits, and global change challenges”. The desirable products include: maps of crop types, irrigated fields, land abandonment, forest loss agents, LAI/FAPAR, green vegetation cover fraction, emissivity, ice sheet velocity, surface water quality and evaporative stress. The aspirational land monitoring products include: forest types, and tree species, urban structure, forest recovery, crop yields, forest biomass, habitat heterogeneity and winter habitat indices, net radiation, snow and ice sheet surface melt, ice sheet and glacier melt ponds, sea ice motion and evaporation and transpiration. This list is largely a basis for OpenLandMap activities for the years to come.</p>
 </section>
 <section id="accessing-data" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="accessing-data">Accessing data</h2>
@@ -618,19 +630,15 @@ or Open Data Commons Open Database License (<a href="https://opendatacommons.org
 </section>
 <section id="disclaimer" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="disclaimer">Disclaimer</h2>
-<p>Whilst utmost care has been taken by the Soil Spectroscopy project and data authors while collecting and compiling the data, the data is provided <em>“as is”</em>. <a href="https://opengeohub.org/about">OpenGeoHub foundation</a> and its suppliers and licensors hereby disclaim all warranties of any kind, express or implied, including, without limitation, the warranties of merchantability, fitness for a particular purpose and non-infringement. Neither <a href="https://opengeohub.org/about">OpenGeoHub foundation</a> nor its suppliers and licensors, makes any warranty that the Website will be error free or that access thereto will be continuous or uninterrupted. You understand that you download from, or otherwise obtain content or services through, the Website at your own discretion and risk.</p>
+<p>Whilst utmost care has been taken by the Open-Earth-Monitor project and data authors while collecting and compiling the data, the data is provided <em>“as is”</em>. <a href="https://opengeohub.org/about">OpenGeoHub foundation</a> and its suppliers and licensors hereby disclaim all warranties of any kind, express or implied, including, without limitation, the warranties of merchantability, fitness for a particular purpose and non-infringement. Neither <a href="https://opengeohub.org/about">OpenGeoHub foundation</a> nor its suppliers and licensors, makes any warranty that the Website will be error free or that access thereto will be continuous or uninterrupted. You understand that you download from, or otherwise obtain content or services through, the Website at your own discretion and risk.</p>
 <p>In no event shall the data authors, the OpenLandMap project, or relevant funding agencies be liable for any actual, incidental or consequential damages arising from use of the data. By using the OpenLandMap project data, the user expressly acknowledges that the Data may contain some nonconformities, defects, or errors. No warranty is given that the data will meet the user’s needs or expectations or that all nonconformities, defects, or errors can or will be corrected. The user should always verify actual data; therefore the user bears all responsibility in determining whether the data is fit for the user’s intended use.</p>
 <p>This document is <strong>under construction</strong>. If you notice an error or outdated information, please submit a correction / pull request or <strong><a href="https://github.com/openlandmap/book/issues">open an issue</a></strong>.</p>
 <p>This is a community project. No profits are being made from building and serving OpenLandMap. If you would like to become a sponsor of the project, please contact us via: <a href="https://opengeohub.org/contact-us/" class="uri">https://opengeohub.org/contact-us/</a>.</p>
 </section>
 <section id="how-to-cite" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="how-to-cite">How to cite</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="https://doi.org/10.5281/zenodo.10466903"><img src="zenodo.10466903.svg" class="img-fluid figure-img" alt="DOI"></a></p>
-<figcaption>DOI</figcaption>
-</figure>
-</div>
+<p><img src="img/openlandmap_v2_logo.png" alt="OpenLandMap logo" width="350"></p>
+<p><a rel="license" href="https://doi.org/10.5281/zenodo.10466903"><img alt="DOI" style="border-width:0" src="zenodo.10466903.svg"></a><br></p>
 <p>To cite this document please use:</p>
 <pre><code>@book{openlandmap_2023,
   author       = {Hengl, T., Parente, L., Ho, Y.-F., Simoes, R. and contributors},
@@ -646,22 +654,22 @@ or Open Data Commons Open Database License (<a href="https://opendatacommons.org
 <section id="licence" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="licence">Licence</h2>
 <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-Share Alike 4.0 International License</a> and/or <a href="https://opendatacommons.org/licenses/odbl/1-0/">Open Data Commons Open Database License (ODbL) v1.0</a>.</p>
-<p>Th attached software is free to use, and is licensed under <a href="https://en.wikipedia.org/wiki/MIT_License">the MIT License</a>.</p>
+<p>Th attached software/code is free to use, and is licensed under <a href="https://en.wikipedia.org/wiki/MIT_License">the MIT License</a>.</p>
 </section>
 <section id="acknowledgments" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="acknowledgments">Acknowledgments</h2>
 <p><strong><a href="https://EarthMonitor.org/">EarthMonitor.org</a></strong> project has received funding from the European Union’s Horizon Europe research an innovation programme under grant agreement <strong><a href="https://cordis.europa.eu/project/id/101059548">No.&nbsp;101059548</a></strong>.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-RADELOFF2024113918" class="csl-entry" role="listitem">
-Radeloff, Volker C., David P. Roy, Michael A. Wulder, Martha Anderson, Bruce Cook, Christopher J. Crawford, Mark Friedl, et al. 2024. <span>“Need and Vision for Global Medium-Resolution Landsat and Sentinel-2 Data Products.”</span> <em>Remote Sensing of Environment</em> 300: 113918. <a href="https://doi.org/10.1016/j.rse.2023.113918">https://doi.org/10.1016/j.rse.2023.113918</a>.
-</div>
-</div>
+
 </section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-RADELOFF2024113918" class="csl-entry" role="listitem">
+Radeloff, Volker C., David P. Roy, Michael A. Wulder, Martha Anderson, Bruce Cook, Christopher J. Crawford, Mark Friedl, et al. 2024. <span>“Need and Vision for Global Medium-Resolution Landsat and Sentinel-2 Data Products.”</span> <em>Remote Sensing of Environment</em> 300: 113918. <a href="https://doi.org/10.1016/j.rse.2023.113918">https://doi.org/10.1016/j.rse.2023.113918</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1188,16 +1196,51 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./010-start_here.html" class="pagination-link" aria-label="<span class='chapter-number'>1</span>&nbsp; <span class='chapter-title'>New to markdown</span>">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">New to markdown</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2024, OpenGeoHub foundation</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/openlandmap/book/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/openlandmap/book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/openlandmap/book">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://fosstodon.org/@opengeohub">
+      <i class="bi bi-mastodon" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/opengeohub">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/company/opengeohub-foundation/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/OpenGeoHubFoundation">
+      <i class="bi bi-youtube" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

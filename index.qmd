@@ -13,7 +13,7 @@ It aims at becoming an [OpenStreetMap-type system for land data](https://towards
 possible via interactive visualizations and/or Open Source software solutions. 
 Read more about this project [here](https://opengeohub.org/about-openlandmap/).
 
-<img src="img/openlandmap_v2_logo.png" alt="OpenLandMap logo" width="350">
+<a href="https://opengeohub.medium.com/"><img src="cover.jpg" alt="OpenLandMap banner" width="300"></a>
 
 The OpenLandMap layers, if not specified otherwise, are licensed under the 
 [Creative Commons Attribution-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/legalcode) (CC BY-SA) and/or
@@ -27,13 +27,14 @@ knitr::include_graphics("img/openlandmap_gui_preview.jpg")
 
 Users can access OpenLandMap data via the five main channels:
 
-- **OpenLandMap App** at https://openlandmap.org,
-- **OpenLandMap training points** at https://github.com/openlandmap/compiled-ess-point-data-sets,
-- **OpenGeoHub STAC** installation at https://stac.opengeohub.org,
+- **OpenLandMap App** at <https://openlandmap.org>,
+- **OpenLandMap training points** at <https://github.com/openlandmap/compiled-ess-point-data-sets>,
+- **OpenGeoHub STAC** installation at <https://stac.opengeohub.org>,
 - [Zenodo.org](https://zenodo.org/search?page=1&size=20&q=OpenLandMap) to access a (version-controlled) back-up copy of data via a DOI,
 
-Data portal https://openlandmap.org is the landing page (running on Geoserver + OpenLayers) where users can browse maps, query values by
-location, and find out about most recent news and activities. STAC at https://stac.opengeohub.org 
+Data portal <https://openlandmap.org> is the landing page (running on Geoserver + OpenLayers) 
+where users can browse maps, query values by location, and find out about most recent 
+news and activities. SpatioTemporal Asset Catalogs (STAC) at <https://stac.opengeohub.org> 
 is a generic layer repository for accessing layers installed and maintained by OpenGeoHub. 
 It allow users i.e. producers of layers to edit and update metadata and descriptions, 
 create map views, learn how to use WCS, WMS or similar. A copy of the raw data can be obtained 
@@ -456,7 +457,7 @@ below:
 
 ## Disclaimer {.unnumbered}
 
-Whilst utmost care has been taken by the Soil Spectroscopy project and data authors while
+Whilst utmost care has been taken by the Open-Earth-Monitor project and data authors while
 collecting and compiling the data, the data is provided _"as is"_. [OpenGeoHub foundation](https://opengeohub.org/about) and its 
 suppliers and licensors hereby disclaim all warranties of any kind, express or implied, 
 including, without limitation, the warranties of merchantability, fitness for a particular 
@@ -482,7 +483,9 @@ contact us via: <https://opengeohub.org/contact-us/>.
 
 ## How to cite {.unnumbered}
 
-[![DOI](zenodo.10466903.svg)](https://doi.org/10.5281/zenodo.10466903)
+<img src="img/openlandmap_v2_logo.png" alt="OpenLandMap logo" width="350">
+
+<a rel="license" href="https://doi.org/10.5281/zenodo.10466903"><img alt="DOI" style="border-width:0" src="zenodo.10466903.svg" /></a><br />
 
 To cite this document please use:
 
@@ -504,7 +507,7 @@ To cite this document please use:
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-Share Alike 4.0 International License</a> 
 and/or [Open Data Commons Open Database License (ODbL) v1.0](https://opendatacommons.org/licenses/odbl/1-0/).
 
-Th attached software is free to use, and is licensed under [the MIT License](https://en.wikipedia.org/wiki/MIT_License).
+Th attached software/code is free to use, and is licensed under [the MIT License](https://en.wikipedia.org/wiki/MIT_License).
 
 ## Acknowledgments {.unnumbered}
 

@@ -1,28 +1,79 @@
 project:
-  type: book
+  type: website
   output-dir: docs
-
-book:
-  title: "OpenLandMap Open Land Data services"
-  cover-image: "cover.jpg"
-  author: "OpenGeoHub foundation, GILAB.rs and contributors"
-  date: today
-  chapters:
+  render:
     - index.qmd
-    - part: "Part I: OpenLandMap layers"
-      chapters:
-        - 010-start_here.qmd
-        - 012-compendium.qmd
-        - 016-project.qmd
-    - part: "Part II: Tutorials"
-      chapters:
-        - 020-stac.qmd
-    - references.qmd
+    - 010-start_here.qmd
+    - 012-compendium.qmd
+    - 016-project.qmd
+    - 020-stac.qmd
+
+website:
+  navbar:
+    tools:
+    - icon: mastodon
+      href: https://fosstodon.org/@opengeohub
+    - icon: medium
+      href: https://opengeohub.medium.com/
+    - icon: twitter
+      href: https://twitter.com/opengeohub
+    - icon: github
+      menu:
+      - text: Source Code
+        url:  https://github.com/openlandmap/book
+      - text: Report a Bug
+        url:  https://github.com/openlandmap/book/issues
+    background: light
+    search: true
+    logo: ./img/openlandmap_v2_logo.png
+    left:
+      - text: "Home"
+        file: index.qmd
+      - text: "OpenLandMap App"
+        file: https://OpenLandMap.org
+      - text: "Open-Earth-Monitor"
+        file: https://EarthMonitor.org
+  reader-mode: true
+  repo-url: https://github.com/openlandmap/book
+  repo-actions: [edit, issue]
+  sidebar:
+    style: "docked"
+    contents:
+      - section: "Data layers"
+        contents:
+          - index.qmd
+          - 010-start_here.qmd
+          - 012-compendium.qmd
+          - 016-project.qmd
+      - section: "Tutorials"
+        contents:
+          - 020-stac.qmd
+  page-footer:
+    background: light
+    left: "© 2024, OpenGeoHub foundation"
+    right:
+      - icon: github
+        href: https://github.com/openlandmap/book
+      - icon: mastodon
+        href: https://fosstodon.org/@opengeohub
+      - icon: twitter
+        href: https://twitter.com/opengeohub
+      - icon: linkedin
+        href: https://www.linkedin.com/company/opengeohub-foundation/
+      - icon: youtube
+        href: https://www.youtube.com/c/OpenGeoHubFoundation
+  title: "Open Land Data services"
+  twitter-card:
+    image: "img/openlandmap_gui_preview.jpg"
+  open-graph:
+    description: "OpenLandMap.org are Open Land Data services providing access to spatial layers
+covering global land mass (at spatial resolutions of 1-km, 250-m, 100-m, 30-m or finer) hosted by the OpenGeoHub foundation, GILAB.rs and collaborators. We host and serve only data that matches some of the compatible open data licenses and has close to global coverage."
 
 bibliography: ./tex/refs.bib
 
 format:
   html:
+    toc: true
     theme:
       light: flatly
       dark: solar

@@ -1,3 +1,10 @@
+
+---
+  format:
+    html:
+      code-link: true
+---
+
 # OpenLandMap STAC 
 
 ```{r, include=FALSE, message=FALSE, results='hide'}

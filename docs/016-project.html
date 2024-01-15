@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>OpenLandMap Open Land Data services - 3&nbsp; OpenLandMap layers</title>
+<title>Open Land Data services</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./020-stac.html" rel="next">
-<link href="./012-compendium.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -44,11 +42,11 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -72,55 +70,97 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
+<meta property="og:title" content="Open Land Data services">
+<meta property="og:description" content="OpenLandMap.org are Open Land Data services providing access to spatial layers covering global land mass (at spatial resolutions of 1-km, 250-m, 100-m, 30-m or finer) hosted by the OpenGeoHub foundation, GILAB.rs and collaborators. We host and serve only data that matches some of the compatible open data licenses and has close to global coverage.">
+<meta property="og:site_name" content="Open Land Data services">
+<meta name="twitter:title" content="Open Land Data services">
+<meta name="twitter:image" content="https://openlandmap.github.io/book/img/openlandmap_gui_preview.jpg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="././img/openlandmap_v2_logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Open Land Data services</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://OpenLandMap.org"> 
+<span class="menu-text">OpenLandMap App</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://EarthMonitor.org"> 
+<span class="menu-text">Open-Earth-Monitor</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools tools-wide">
+    <a href="https://fosstodon.org/@opengeohub" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-mastodon"></i></a>
+    <a href="https://opengeohub.medium.com/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-medium"></i></a>
+    <a href="https://twitter.com/opengeohub" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/openlandmap/book">
+            Source Code
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/openlandmap/book/issues">
+            Report a Bug
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./010-start_here.html">Part I: OpenLandMap layers</a></li><li class="breadcrumb-item"><a href="./016-project.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">OpenLandMap layers</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Data layers</a></li><li class="breadcrumb-item"><a href="./016-project.html">OpenLandMap layers</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">OpenLandMap Open Land Data services</a> 
-        <div class="sidebar-tools-main">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-</div>
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">About</span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Part I: OpenLandMap layers</span></a>
+ <span class="menu-text">Data layers</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -128,20 +168,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./010-start_here.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">New to markdown</span></span></a>
+ <span class="menu-text">New to markdown</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./012-compendium.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Compendium of Global Gridded Environmental Data Sets</span></span></a>
+ <span class="menu-text">Compendium of Global Gridded Environmental Data Sets</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./016-project.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">OpenLandMap layers</span></span></a>
+ <span class="menu-text">OpenLandMap layers</span></a>
   </div>
 </li>
       </ul>
@@ -149,7 +195,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Part II: Tutorials</span></a>
+ <span class="menu-text">Tutorials</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -158,17 +204,11 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./020-stac.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">OpenLandMap STAC</span></span></a>
+ <span class="menu-text">OpenLandMap STAC</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -176,680 +216,670 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#list-of-collections" id="toc-list-of-collections" class="nav-link active" data-scroll-target="#list-of-collections"><span class="header-section-number">3.1</span> List of collections</a>
+  <li><a href="#openlandmap-layers" id="toc-openlandmap-layers" class="nav-link active" data-scroll-target="#openlandmap-layers">OpenLandMap layers</a>
   <ul class="collapse">
-  <li><a href="#sentinel-5p-monthly-tropospheric-nitrogen-dioxide-density" id="toc-sentinel-5p-monthly-tropospheric-nitrogen-dioxide-density" class="nav-link" data-scroll-target="#sentinel-5p-monthly-tropospheric-nitrogen-dioxide-density"><span class="header-section-number">3.1.1</span> Sentinel-5P monthly tropospheric nitrogen dioxide density</a></li>
-  <li><a href="#sentinel-5p-long-term-tropospheric-nitrogen-dioxide-density" id="toc-sentinel-5p-long-term-tropospheric-nitrogen-dioxide-density" class="nav-link" data-scroll-target="#sentinel-5p-long-term-tropospheric-nitrogen-dioxide-density"><span class="header-section-number">3.1.2</span> Sentinel-5P long-term tropospheric nitrogen dioxide density</a></li>
-  <li><a href="#openlandmap-annual-soil-organic-carbon" id="toc-openlandmap-annual-soil-organic-carbon" class="nav-link" data-scroll-target="#openlandmap-annual-soil-organic-carbon"><span class="header-section-number">3.1.3</span> OpenLandMap annual soil organic carbon</a></li>
-  <li><a href="#mod13q1-long-term-enhanced-vegetation-index-evi---trend-analysis" id="toc-mod13q1-long-term-enhanced-vegetation-index-evi---trend-analysis" class="nav-link" data-scroll-target="#mod13q1-long-term-enhanced-vegetation-index-evi---trend-analysis"><span class="header-section-number">3.1.4</span> MOD13Q1 long-term Enhanced Vegetation Index (EVI - trend analysis)</a></li>
-  <li><a href="#esa-cci-annual-land-cover" id="toc-esa-cci-annual-land-cover" class="nav-link" data-scroll-target="#esa-cci-annual-land-cover"><span class="header-section-number">3.1.5</span> ESA CCI annual land cover</a></li>
-  <li><a href="#mod13q1-bi-monthly-enhanced-vegetation-index-index-evi" id="toc-mod13q1-bi-monthly-enhanced-vegetation-index-index-evi" class="nav-link" data-scroll-target="#mod13q1-bi-monthly-enhanced-vegetation-index-index-evi"><span class="header-section-number">3.1.6</span> MOD13Q1 bi-monthly Enhanced Vegetation Index Index (EVI)</a></li>
-  <li><a href="#openlandmap-ensemble-digital-terrain-model" id="toc-openlandmap-ensemble-digital-terrain-model" class="nav-link" data-scroll-target="#openlandmap-ensemble-digital-terrain-model"><span class="header-section-number">3.1.7</span> OpenLandMap ensemble digital terrain model</a></li>
-  <li><a href="#monthly-fraction-of-absorbed-photosynthetically-active-radiation-fapar" id="toc-monthly-fraction-of-absorbed-photosynthetically-active-radiation-fapar" class="nav-link" data-scroll-target="#monthly-fraction-of-absorbed-photosynthetically-active-radiation-fapar"><span class="header-section-number">3.1.8</span> Monthly fraction of absorbed photosynthetically active radiation (FAPAR)</a></li>
-  <li><a href="#long-term-fraction-of-absorbed-photosynthetically-active-radiation-fapar---trend-analysis" id="toc-long-term-fraction-of-absorbed-photosynthetically-active-radiation-fapar---trend-analysis" class="nav-link" data-scroll-target="#long-term-fraction-of-absorbed-photosynthetically-active-radiation-fapar---trend-analysis"><span class="header-section-number">3.1.9</span> Long-term fraction of absorbed photosynthetically active radiation (FAPAR - trend analysis)</a></li>
-  <li><a href="#annual-potential-fraction-of-absorbed-photosynthetically-active-radiation-fapar---2021" id="toc-annual-potential-fraction-of-absorbed-photosynthetically-active-radiation-fapar---2021" class="nav-link" data-scroll-target="#annual-potential-fraction-of-absorbed-photosynthetically-active-radiation-fapar---2021"><span class="header-section-number">3.1.10</span> Annual potential fraction of absorbed photosynthetically active radiation (FAPAR - 2021)</a></li>
-  <li><a href="#monthly-potential-fraction-of-absorbed-photosynthetically-active-radiation-fapar---2021" id="toc-monthly-potential-fraction-of-absorbed-photosynthetically-active-radiation-fapar---2021" class="nav-link" data-scroll-target="#monthly-potential-fraction-of-absorbed-photosynthetically-active-radiation-fapar---2021"><span class="header-section-number">3.1.11</span> Monthly potential fraction of absorbed photosynthetically active radiation (FAPAR - 2021)</a></li>
-  <li><a href="#esa-monthly-snow-cover-fraction" id="toc-esa-monthly-snow-cover-fraction" class="nav-link" data-scroll-target="#esa-monthly-snow-cover-fraction"><span class="header-section-number">3.1.12</span> ESA monthly snow cover fraction</a></li>
-  <li><a href="#esa-long-term-snow-cover-fraction" id="toc-esa-long-term-snow-cover-fraction" class="nav-link" data-scroll-target="#esa-long-term-snow-cover-fraction"><span class="header-section-number">3.1.13</span> ESA long-term snow cover fraction</a></li>
-  <li><a href="#annual-terrestrial-human-footprint" id="toc-annual-terrestrial-human-footprint" class="nav-link" data-scroll-target="#annual-terrestrial-human-footprint"><span class="header-section-number">3.1.14</span> Annual terrestrial human footprint</a></li>
-  <li><a href="#mcd19a2-monthly-water-vapor" id="toc-mcd19a2-monthly-water-vapor" class="nav-link" data-scroll-target="#mcd19a2-monthly-water-vapor"><span class="header-section-number">3.1.15</span> MCD19A2 monthly water vapor</a></li>
-  <li><a href="#mcd19a2-long-term-water-vapor-perc.-50th" id="toc-mcd19a2-long-term-water-vapor-perc.-50th" class="nav-link" data-scroll-target="#mcd19a2-long-term-water-vapor-perc.-50th"><span class="header-section-number">3.1.16</span> MCD19A2 long-term water vapor (perc. 50th)</a></li>
-  <li><a href="#mcd19a2-long-term-water-vapor-perc.-25th" id="toc-mcd19a2-long-term-water-vapor-perc.-25th" class="nav-link" data-scroll-target="#mcd19a2-long-term-water-vapor-perc.-25th"><span class="header-section-number">3.1.17</span> MCD19A2 long-term water vapor (perc. 25th)</a></li>
-  <li><a href="#mcd19a2-long-term-water-vapor-perc.-75th" id="toc-mcd19a2-long-term-water-vapor-perc.-75th" class="nav-link" data-scroll-target="#mcd19a2-long-term-water-vapor-perc.-75th"><span class="header-section-number">3.1.18</span> MCD19A2 long-term water vapor (perc. 75th)</a></li>
-  <li><a href="#mcd19a2-long-term-water-vapor-std.-dev." id="toc-mcd19a2-long-term-water-vapor-std.-dev." class="nav-link" data-scroll-target="#mcd19a2-long-term-water-vapor-std.-dev."><span class="header-section-number">3.1.19</span> MCD19A2 long-term water vapor (std. dev.)</a></li>
-  <li><a href="#mcd19a2-annual-water-vapor" id="toc-mcd19a2-annual-water-vapor" class="nav-link" data-scroll-target="#mcd19a2-annual-water-vapor"><span class="header-section-number">3.1.20</span> MCD19A2 annual water vapor</a></li>
-  <li><a href="#long-term-soil-bulk-density-for-fine-earth" id="toc-long-term-soil-bulk-density-for-fine-earth" class="nav-link" data-scroll-target="#long-term-soil-bulk-density-for-fine-earth"><span class="header-section-number">3.1.21</span> Long-term soil bulk density for fine earth</a></li>
-  <li><a href="#merit-geomorphometry" id="toc-merit-geomorphometry" class="nav-link" data-scroll-target="#merit-geomorphometry"><span class="header-section-number">3.1.22</span> MERIT geomorphometry</a></li>
-  <li><a href="#proba-v-long-term-fraction-of-absorbed-photosynthetically-active-radiation-fapar" id="toc-proba-v-long-term-fraction-of-absorbed-photosynthetically-active-radiation-fapar" class="nav-link" data-scroll-target="#proba-v-long-term-fraction-of-absorbed-photosynthetically-active-radiation-fapar"><span class="header-section-number">3.1.23</span> PROBA-V long-term fraction of absorbed photosynthetically active radiation (FAPAR)</a></li>
-  <li><a href="#tree-covered-and-intact-forest-landscapes" id="toc-tree-covered-and-intact-forest-landscapes" class="nav-link" data-scroll-target="#tree-covered-and-intact-forest-landscapes"><span class="header-section-number">3.1.24</span> Tree-covered and intact forest landscapes</a></li>
-  <li><a href="#usda-long-term-soil-great-groups" id="toc-usda-long-term-soil-great-groups" class="nav-link" data-scroll-target="#usda-long-term-soil-great-groups"><span class="header-section-number">3.1.25</span> USDA long-term soil great groups</a></li>
-  <li><a href="#copernicus-proba-v-annual-land-cover" id="toc-copernicus-proba-v-annual-land-cover" class="nav-link" data-scroll-target="#copernicus-proba-v-annual-land-cover"><span class="header-section-number">3.1.26</span> Copernicus PROBA-V annual land cover</a></li>
-  <li><a href="#openlandmap-long-term-soil-organic-carbon-stock" id="toc-openlandmap-long-term-soil-organic-carbon-stock" class="nav-link" data-scroll-target="#openlandmap-long-term-soil-organic-carbon-stock"><span class="header-section-number">3.1.27</span> OpenLandMap long-term soil organic carbon stock</a></li>
-  <li><a href="#openlandmap-long-term-soil-organic-carbon-content" id="toc-openlandmap-long-term-soil-organic-carbon-content" class="nav-link" data-scroll-target="#openlandmap-long-term-soil-organic-carbon-content"><span class="header-section-number">3.1.28</span> OpenLandMap long-term soil organic carbon content</a></li>
-  <li><a href="#esa-cci-annual-plant-functional-types-pft" id="toc-esa-cci-annual-plant-functional-types-pft" class="nav-link" data-scroll-target="#esa-cci-annual-plant-functional-types-pft"><span class="header-section-number">3.1.29</span> ESA CCI annual plant functional types (PFT)</a></li>
-  <li><a href="#sm2rain-long-term-precipitation" id="toc-sm2rain-long-term-precipitation" class="nav-link" data-scroll-target="#sm2rain-long-term-precipitation"><span class="header-section-number">3.1.30</span> SM2RAIN long-term precipitation</a></li>
-  <li><a href="#openlandmap-long-term-soil-ph" id="toc-openlandmap-long-term-soil-ph" class="nav-link" data-scroll-target="#openlandmap-long-term-soil-ph"><span class="header-section-number">3.1.31</span> OpenLandMap long-term soil pH</a></li>
-  <li><a href="#jrc-global-human-settlement-annual-population-ghs" id="toc-jrc-global-human-settlement-annual-population-ghs" class="nav-link" data-scroll-target="#jrc-global-human-settlement-annual-population-ghs"><span class="header-section-number">3.1.32</span> JRC Global Human Settlement annual population (GHS)</a></li>
-  <li><a href="#openlandmap-long-term-sand-content" id="toc-openlandmap-long-term-sand-content" class="nav-link" data-scroll-target="#openlandmap-long-term-sand-content"><span class="header-section-number">3.1.33</span> OpenLandMap long-term sand content</a></li>
-  <li><a href="#mcd12q1-annual-land-cover-and-land-use" id="toc-mcd12q1-annual-land-cover-and-land-use" class="nav-link" data-scroll-target="#mcd12q1-annual-land-cover-and-land-use"><span class="header-section-number">3.1.34</span> MCD12Q1 annual land cover and land use</a></li>
-  <li><a href="#openlandmap-long-term-soil-texture-classes-usda-system" id="toc-openlandmap-long-term-soil-texture-classes-usda-system" class="nav-link" data-scroll-target="#openlandmap-long-term-soil-texture-classes-usda-system"><span class="header-section-number">3.1.35</span> OpenLandMap long-term soil texture classes (USDA system)</a></li>
-  <li><a href="#jrc-long-term-surface-water-occurrence" id="toc-jrc-long-term-surface-water-occurrence" class="nav-link" data-scroll-target="#jrc-long-term-surface-water-occurrence"><span class="header-section-number">3.1.36</span> JRC long-term surface water occurrence</a></li>
-  <li><a href="#openlandmap-long-term-soil-water-content" id="toc-openlandmap-long-term-soil-water-content" class="nav-link" data-scroll-target="#openlandmap-long-term-soil-water-content"><span class="header-section-number">3.1.37</span> OpenLandMap long-term soil water content</a></li>
-  <li><a href="#copernius-dem-digital-surface-model" id="toc-copernius-dem-digital-surface-model" class="nav-link" data-scroll-target="#copernius-dem-digital-surface-model"><span class="header-section-number">3.1.38</span> Copernius DEM digital surface model</a></li>
-  <li><a href="#umd-glad-annual-land-cover-and-land-use-glcluc" id="toc-umd-glad-annual-land-cover-and-land-use-glcluc" class="nav-link" data-scroll-target="#umd-glad-annual-land-cover-and-land-use-glcluc"><span class="header-section-number">3.1.39</span> UMD GLAD annual land cover and land use (GLCLUC)</a></li>
-  <li><a href="#umd-glad-annual-land-cover-and-land-use-change-glcluc" id="toc-umd-glad-annual-land-cover-and-land-use-change-glcluc" class="nav-link" data-scroll-target="#umd-glad-annual-land-cover-and-land-use-change-glcluc"><span class="header-section-number">3.1.40</span> UMD GLAD annual land cover and land use change (GLCLUC)</a></li>
-  <li><a href="#hyde-annual-cropland-for-the-holocene" id="toc-hyde-annual-cropland-for-the-holocene" class="nav-link" data-scroll-target="#hyde-annual-cropland-for-the-holocene"><span class="header-section-number">3.1.41</span> HYDE annual cropland for the holocene</a></li>
-  <li><a href="#hyde-annual-pasture-for-the-holocene" id="toc-hyde-annual-pasture-for-the-holocene" class="nav-link" data-scroll-target="#hyde-annual-pasture-for-the-holocene"><span class="header-section-number">3.1.42</span> HYDE annual pasture for the holocene</a></li>
-  <li><a href="#hilda-annual-land-use-and-land-cover-change" id="toc-hilda-annual-land-use-and-land-cover-change" class="nav-link" data-scroll-target="#hilda-annual-land-use-and-land-cover-change"><span class="header-section-number">3.1.43</span> HILDA+ annual land use and land cover change</a></li>
-  <li><a href="#mod11a2-long-term-land-surface-temperature-trend-daytime" id="toc-mod11a2-long-term-land-surface-temperature-trend-daytime" class="nav-link" data-scroll-target="#mod11a2-long-term-land-surface-temperature-trend-daytime"><span class="header-section-number">3.1.44</span> MOD11A2 long-term land surface temperature trend (daytime)</a></li>
-  <li><a href="#mod11a2-long-term-land-surface-temperature-trend-nighttime" id="toc-mod11a2-long-term-land-surface-temperature-trend-nighttime" class="nav-link" data-scroll-target="#mod11a2-long-term-land-surface-temperature-trend-nighttime"><span class="header-section-number">3.1.45</span> MOD11A2 long-term land surface temperature trend (nighttime)</a></li>
-  <li><a href="#mod11a2-annual-land-surface-temperature-day-time" id="toc-mod11a2-annual-land-surface-temperature-day-time" class="nav-link" data-scroll-target="#mod11a2-annual-land-surface-temperature-day-time"><span class="header-section-number">3.1.46</span> MOD11A2 annual land surface temperature (day-time)</a></li>
-  <li><a href="#mod11a2-annual-land-surface-temperature-night-time" id="toc-mod11a2-annual-land-surface-temperature-night-time" class="nav-link" data-scroll-target="#mod11a2-annual-land-surface-temperature-night-time"><span class="header-section-number">3.1.47</span> MOD11A2 annual land surface temperature (night-time)</a></li>
-  <li><a href="#mod11a2-monthly-land-surface-temperature-day-time" id="toc-mod11a2-monthly-land-surface-temperature-day-time" class="nav-link" data-scroll-target="#mod11a2-monthly-land-surface-temperature-day-time"><span class="header-section-number">3.1.48</span> MOD11A2 monthly land surface temperature (day-time)</a></li>
-  <li><a href="#mod11a2-monthly-land-surface-temperature-night-time" id="toc-mod11a2-monthly-land-surface-temperature-night-time" class="nav-link" data-scroll-target="#mod11a2-monthly-land-surface-temperature-night-time"><span class="header-section-number">3.1.49</span> MOD11A2 monthly land surface temperature (night-time)</a></li>
-  <li><a href="#openlandmap-landform-classes" id="toc-openlandmap-landform-classes" class="nav-link" data-scroll-target="#openlandmap-landform-classes"><span class="header-section-number">3.1.50</span> OpenLandMap landform classes</a></li>
-  <li><a href="#openlandmap-lithology-classes" id="toc-openlandmap-lithology-classes" class="nav-link" data-scroll-target="#openlandmap-lithology-classes"><span class="header-section-number">3.1.51</span> OpenLandMap lithology classes</a></li>
-  <li><a href="#openlandmap-haopludalfs-of-usda-soil-great-groups" id="toc-openlandmap-haopludalfs-of-usda-soil-great-groups" class="nav-link" data-scroll-target="#openlandmap-haopludalfs-of-usda-soil-great-groups"><span class="header-section-number">3.1.52</span> OpenLandMap Haopludalfs of USDA soil great groups</a></li>
-  <li><a href="#potential-distribution-of-biomes" id="toc-potential-distribution-of-biomes" class="nav-link" data-scroll-target="#potential-distribution-of-biomes"><span class="header-section-number">3.1.53</span> Potential distribution of biomes</a></li>
-  <li><a href="#potential-distribution-of-tropical-evergreen-broadleaf-forest" id="toc-potential-distribution-of-tropical-evergreen-broadleaf-forest" class="nav-link" data-scroll-target="#potential-distribution-of-tropical-evergreen-broadleaf-forest"><span class="header-section-number">3.1.54</span> Potential distribution of tropical evergreen broadleaf forest</a></li>
-  <li><a href="#future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-2.6" id="toc-future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-2.6" class="nav-link" data-scroll-target="#future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-2.6"><span class="header-section-number">3.1.55</span> Future potential distribution of tropical evergreen broadleaf forest (RCP 2.6)</a></li>
-  <li><a href="#future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-4.5" id="toc-future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-4.5" class="nav-link" data-scroll-target="#future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-4.5"><span class="header-section-number">3.1.56</span> Future potential distribution of tropical evergreen broadleaf forest (RCP 4.5)</a></li>
-  <li><a href="#future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-8.5" id="toc-future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-8.5" class="nav-link" data-scroll-target="#future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-8.5"><span class="header-section-number">3.1.57</span> Future potential distribution of tropical evergreen broadleaf forest (RCP 8.5)</a></li>
-  <li><a href="#potential-distribution-of-tropical-savanna" id="toc-potential-distribution-of-tropical-savanna" class="nav-link" data-scroll-target="#potential-distribution-of-tropical-savanna"><span class="header-section-number">3.1.58</span> Potential distribution of tropical savanna</a></li>
-  <li><a href="#future-potential-distribution-of-tropical-savanna-rcp-2.6" id="toc-future-potential-distribution-of-tropical-savanna-rcp-2.6" class="nav-link" data-scroll-target="#future-potential-distribution-of-tropical-savanna-rcp-2.6"><span class="header-section-number">3.1.59</span> Future potential distribution of tropical savanna (RCP 2.6)</a></li>
-  <li><a href="#future-potential-distribution-of-tropical-savanna-rcp-4.5" id="toc-future-potential-distribution-of-tropical-savanna-rcp-4.5" class="nav-link" data-scroll-target="#future-potential-distribution-of-tropical-savanna-rcp-4.5"><span class="header-section-number">3.1.60</span> Future potential distribution of tropical savanna (RCP 4.5)</a></li>
-  <li><a href="#future-potential-distribution-of-tropical-savanna-rcp-8.5" id="toc-future-potential-distribution-of-tropical-savanna-rcp-8.5" class="nav-link" data-scroll-target="#future-potential-distribution-of-tropical-savanna-rcp-8.5"><span class="header-section-number">3.1.61</span> Future potential distribution of tropical savanna (RCP 8.5)</a></li>
-  <li><a href="#glc_fcs30d-annual-land-land-cover-dynamic-monitoring-product" id="toc-glc_fcs30d-annual-land-land-cover-dynamic-monitoring-product" class="nav-link" data-scroll-target="#glc_fcs30d-annual-land-land-cover-dynamic-monitoring-product"><span class="header-section-number">3.1.62</span> GLC_FCS30D annual land land-cover dynamic monitoring product</a></li>
-  <li><a href="#viirs-annual-nighttime-lights" id="toc-viirs-annual-nighttime-lights" class="nav-link" data-scroll-target="#viirs-annual-nighttime-lights"><span class="header-section-number">3.1.63</span> VIIRS annual nighttime lights</a></li>
-  <li><a href="#viirs-long-term-nighttime-lights-difference" id="toc-viirs-long-term-nighttime-lights-difference" class="nav-link" data-scroll-target="#viirs-long-term-nighttime-lights-difference"><span class="header-section-number">3.1.64</span> VIIRS long-term nighttime lights difference</a></li>
+  <li><a href="#list-of-collections" id="toc-list-of-collections" class="nav-link" data-scroll-target="#list-of-collections">List of collections</a>
+  <ul class="collapse">
+  <li><a href="#sentinel-5p-monthly-tropospheric-nitrogen-dioxide-density" id="toc-sentinel-5p-monthly-tropospheric-nitrogen-dioxide-density" class="nav-link" data-scroll-target="#sentinel-5p-monthly-tropospheric-nitrogen-dioxide-density">Sentinel-5P monthly tropospheric nitrogen dioxide density</a></li>
+  <li><a href="#sentinel-5p-long-term-tropospheric-nitrogen-dioxide-density" id="toc-sentinel-5p-long-term-tropospheric-nitrogen-dioxide-density" class="nav-link" data-scroll-target="#sentinel-5p-long-term-tropospheric-nitrogen-dioxide-density">Sentinel-5P long-term tropospheric nitrogen dioxide density</a></li>
+  <li><a href="#openlandmap-annual-soil-organic-carbon" id="toc-openlandmap-annual-soil-organic-carbon" class="nav-link" data-scroll-target="#openlandmap-annual-soil-organic-carbon">OpenLandMap annual soil organic carbon</a></li>
+  <li><a href="#mod13q1-long-term-enhanced-vegetation-index-evi---trend-analysis" id="toc-mod13q1-long-term-enhanced-vegetation-index-evi---trend-analysis" class="nav-link" data-scroll-target="#mod13q1-long-term-enhanced-vegetation-index-evi---trend-analysis">MOD13Q1 long-term Enhanced Vegetation Index (EVI - trend analysis)</a></li>
+  <li><a href="#esa-cci-annual-land-cover" id="toc-esa-cci-annual-land-cover" class="nav-link" data-scroll-target="#esa-cci-annual-land-cover">ESA CCI annual land cover</a></li>
+  <li><a href="#mod13q1-bi-monthly-enhanced-vegetation-index-index-evi" id="toc-mod13q1-bi-monthly-enhanced-vegetation-index-index-evi" class="nav-link" data-scroll-target="#mod13q1-bi-monthly-enhanced-vegetation-index-index-evi">MOD13Q1 bi-monthly Enhanced Vegetation Index Index (EVI)</a></li>
+  <li><a href="#openlandmap-ensemble-digital-terrain-model" id="toc-openlandmap-ensemble-digital-terrain-model" class="nav-link" data-scroll-target="#openlandmap-ensemble-digital-terrain-model">OpenLandMap ensemble digital terrain model</a></li>
+  <li><a href="#monthly-fraction-of-absorbed-photosynthetically-active-radiation-fapar" id="toc-monthly-fraction-of-absorbed-photosynthetically-active-radiation-fapar" class="nav-link" data-scroll-target="#monthly-fraction-of-absorbed-photosynthetically-active-radiation-fapar">Monthly fraction of absorbed photosynthetically active radiation (FAPAR)</a></li>
+  <li><a href="#long-term-fraction-of-absorbed-photosynthetically-active-radiation-fapar---trend-analysis" id="toc-long-term-fraction-of-absorbed-photosynthetically-active-radiation-fapar---trend-analysis" class="nav-link" data-scroll-target="#long-term-fraction-of-absorbed-photosynthetically-active-radiation-fapar---trend-analysis">Long-term fraction of absorbed photosynthetically active radiation (FAPAR - trend analysis)</a></li>
+  <li><a href="#annual-potential-fraction-of-absorbed-photosynthetically-active-radiation-fapar---2021" id="toc-annual-potential-fraction-of-absorbed-photosynthetically-active-radiation-fapar---2021" class="nav-link" data-scroll-target="#annual-potential-fraction-of-absorbed-photosynthetically-active-radiation-fapar---2021">Annual potential fraction of absorbed photosynthetically active radiation (FAPAR - 2021)</a></li>
+  <li><a href="#monthly-potential-fraction-of-absorbed-photosynthetically-active-radiation-fapar---2021" id="toc-monthly-potential-fraction-of-absorbed-photosynthetically-active-radiation-fapar---2021" class="nav-link" data-scroll-target="#monthly-potential-fraction-of-absorbed-photosynthetically-active-radiation-fapar---2021">Monthly potential fraction of absorbed photosynthetically active radiation (FAPAR - 2021)</a></li>
+  <li><a href="#esa-monthly-snow-cover-fraction" id="toc-esa-monthly-snow-cover-fraction" class="nav-link" data-scroll-target="#esa-monthly-snow-cover-fraction">ESA monthly snow cover fraction</a></li>
+  <li><a href="#esa-long-term-snow-cover-fraction" id="toc-esa-long-term-snow-cover-fraction" class="nav-link" data-scroll-target="#esa-long-term-snow-cover-fraction">ESA long-term snow cover fraction</a></li>
+  <li><a href="#annual-terrestrial-human-footprint" id="toc-annual-terrestrial-human-footprint" class="nav-link" data-scroll-target="#annual-terrestrial-human-footprint">Annual terrestrial human footprint</a></li>
+  <li><a href="#mcd19a2-monthly-water-vapor" id="toc-mcd19a2-monthly-water-vapor" class="nav-link" data-scroll-target="#mcd19a2-monthly-water-vapor">MCD19A2 monthly water vapor</a></li>
+  <li><a href="#mcd19a2-long-term-water-vapor-perc.-50th" id="toc-mcd19a2-long-term-water-vapor-perc.-50th" class="nav-link" data-scroll-target="#mcd19a2-long-term-water-vapor-perc.-50th">MCD19A2 long-term water vapor (perc. 50th)</a></li>
+  <li><a href="#mcd19a2-long-term-water-vapor-perc.-25th" id="toc-mcd19a2-long-term-water-vapor-perc.-25th" class="nav-link" data-scroll-target="#mcd19a2-long-term-water-vapor-perc.-25th">MCD19A2 long-term water vapor (perc. 25th)</a></li>
+  <li><a href="#mcd19a2-long-term-water-vapor-perc.-75th" id="toc-mcd19a2-long-term-water-vapor-perc.-75th" class="nav-link" data-scroll-target="#mcd19a2-long-term-water-vapor-perc.-75th">MCD19A2 long-term water vapor (perc. 75th)</a></li>
+  <li><a href="#mcd19a2-long-term-water-vapor-std.-dev." id="toc-mcd19a2-long-term-water-vapor-std.-dev." class="nav-link" data-scroll-target="#mcd19a2-long-term-water-vapor-std.-dev.">MCD19A2 long-term water vapor (std. dev.)</a></li>
+  <li><a href="#mcd19a2-annual-water-vapor" id="toc-mcd19a2-annual-water-vapor" class="nav-link" data-scroll-target="#mcd19a2-annual-water-vapor">MCD19A2 annual water vapor</a></li>
+  <li><a href="#long-term-soil-bulk-density-for-fine-earth" id="toc-long-term-soil-bulk-density-for-fine-earth" class="nav-link" data-scroll-target="#long-term-soil-bulk-density-for-fine-earth">Long-term soil bulk density for fine earth</a></li>
+  <li><a href="#merit-geomorphometry" id="toc-merit-geomorphometry" class="nav-link" data-scroll-target="#merit-geomorphometry">MERIT geomorphometry</a></li>
+  <li><a href="#proba-v-long-term-fraction-of-absorbed-photosynthetically-active-radiation-fapar" id="toc-proba-v-long-term-fraction-of-absorbed-photosynthetically-active-radiation-fapar" class="nav-link" data-scroll-target="#proba-v-long-term-fraction-of-absorbed-photosynthetically-active-radiation-fapar">PROBA-V long-term fraction of absorbed photosynthetically active radiation (FAPAR)</a></li>
+  <li><a href="#tree-covered-and-intact-forest-landscapes" id="toc-tree-covered-and-intact-forest-landscapes" class="nav-link" data-scroll-target="#tree-covered-and-intact-forest-landscapes">Tree-covered and intact forest landscapes</a></li>
+  <li><a href="#usda-long-term-soil-great-groups" id="toc-usda-long-term-soil-great-groups" class="nav-link" data-scroll-target="#usda-long-term-soil-great-groups">USDA long-term soil great groups</a></li>
+  <li><a href="#copernicus-proba-v-annual-land-cover" id="toc-copernicus-proba-v-annual-land-cover" class="nav-link" data-scroll-target="#copernicus-proba-v-annual-land-cover">Copernicus PROBA-V annual land cover</a></li>
+  <li><a href="#openlandmap-long-term-soil-organic-carbon-stock" id="toc-openlandmap-long-term-soil-organic-carbon-stock" class="nav-link" data-scroll-target="#openlandmap-long-term-soil-organic-carbon-stock">OpenLandMap long-term soil organic carbon stock</a></li>
+  <li><a href="#openlandmap-long-term-soil-organic-carbon-content" id="toc-openlandmap-long-term-soil-organic-carbon-content" class="nav-link" data-scroll-target="#openlandmap-long-term-soil-organic-carbon-content">OpenLandMap long-term soil organic carbon content</a></li>
+  <li><a href="#esa-cci-annual-plant-functional-types-pft" id="toc-esa-cci-annual-plant-functional-types-pft" class="nav-link" data-scroll-target="#esa-cci-annual-plant-functional-types-pft">ESA CCI annual plant functional types (PFT)</a></li>
+  <li><a href="#sm2rain-long-term-precipitation" id="toc-sm2rain-long-term-precipitation" class="nav-link" data-scroll-target="#sm2rain-long-term-precipitation">SM2RAIN long-term precipitation</a></li>
+  <li><a href="#openlandmap-long-term-soil-ph" id="toc-openlandmap-long-term-soil-ph" class="nav-link" data-scroll-target="#openlandmap-long-term-soil-ph">OpenLandMap long-term soil pH</a></li>
+  <li><a href="#jrc-global-human-settlement-annual-population-ghs" id="toc-jrc-global-human-settlement-annual-population-ghs" class="nav-link" data-scroll-target="#jrc-global-human-settlement-annual-population-ghs">JRC Global Human Settlement annual population (GHS)</a></li>
+  <li><a href="#openlandmap-long-term-sand-content" id="toc-openlandmap-long-term-sand-content" class="nav-link" data-scroll-target="#openlandmap-long-term-sand-content">OpenLandMap long-term sand content</a></li>
+  <li><a href="#mcd12q1-annual-land-cover-and-land-use" id="toc-mcd12q1-annual-land-cover-and-land-use" class="nav-link" data-scroll-target="#mcd12q1-annual-land-cover-and-land-use">MCD12Q1 annual land cover and land use</a></li>
+  <li><a href="#openlandmap-long-term-soil-texture-classes-usda-system" id="toc-openlandmap-long-term-soil-texture-classes-usda-system" class="nav-link" data-scroll-target="#openlandmap-long-term-soil-texture-classes-usda-system">OpenLandMap long-term soil texture classes (USDA system)</a></li>
+  <li><a href="#jrc-long-term-surface-water-occurrence" id="toc-jrc-long-term-surface-water-occurrence" class="nav-link" data-scroll-target="#jrc-long-term-surface-water-occurrence">JRC long-term surface water occurrence</a></li>
+  <li><a href="#openlandmap-long-term-soil-water-content" id="toc-openlandmap-long-term-soil-water-content" class="nav-link" data-scroll-target="#openlandmap-long-term-soil-water-content">OpenLandMap long-term soil water content</a></li>
+  <li><a href="#copernius-dem-digital-surface-model" id="toc-copernius-dem-digital-surface-model" class="nav-link" data-scroll-target="#copernius-dem-digital-surface-model">Copernius DEM digital surface model</a></li>
+  <li><a href="#umd-glad-annual-land-cover-and-land-use-glcluc" id="toc-umd-glad-annual-land-cover-and-land-use-glcluc" class="nav-link" data-scroll-target="#umd-glad-annual-land-cover-and-land-use-glcluc">UMD GLAD annual land cover and land use (GLCLUC)</a></li>
+  <li><a href="#umd-glad-annual-land-cover-and-land-use-change-glcluc" id="toc-umd-glad-annual-land-cover-and-land-use-change-glcluc" class="nav-link" data-scroll-target="#umd-glad-annual-land-cover-and-land-use-change-glcluc">UMD GLAD annual land cover and land use change (GLCLUC)</a></li>
+  <li><a href="#hyde-annual-cropland-for-the-holocene" id="toc-hyde-annual-cropland-for-the-holocene" class="nav-link" data-scroll-target="#hyde-annual-cropland-for-the-holocene">HYDE annual cropland for the holocene</a></li>
+  <li><a href="#hyde-annual-pasture-for-the-holocene" id="toc-hyde-annual-pasture-for-the-holocene" class="nav-link" data-scroll-target="#hyde-annual-pasture-for-the-holocene">HYDE annual pasture for the holocene</a></li>
+  <li><a href="#hilda-annual-land-use-and-land-cover-change" id="toc-hilda-annual-land-use-and-land-cover-change" class="nav-link" data-scroll-target="#hilda-annual-land-use-and-land-cover-change">HILDA+ annual land use and land cover change</a></li>
+  <li><a href="#mod11a2-long-term-land-surface-temperature-trend-daytime" id="toc-mod11a2-long-term-land-surface-temperature-trend-daytime" class="nav-link" data-scroll-target="#mod11a2-long-term-land-surface-temperature-trend-daytime">MOD11A2 long-term land surface temperature trend (daytime)</a></li>
+  <li><a href="#mod11a2-long-term-land-surface-temperature-trend-nighttime" id="toc-mod11a2-long-term-land-surface-temperature-trend-nighttime" class="nav-link" data-scroll-target="#mod11a2-long-term-land-surface-temperature-trend-nighttime">MOD11A2 long-term land surface temperature trend (nighttime)</a></li>
+  <li><a href="#mod11a2-annual-land-surface-temperature-day-time" id="toc-mod11a2-annual-land-surface-temperature-day-time" class="nav-link" data-scroll-target="#mod11a2-annual-land-surface-temperature-day-time">MOD11A2 annual land surface temperature (day-time)</a></li>
+  <li><a href="#mod11a2-annual-land-surface-temperature-night-time" id="toc-mod11a2-annual-land-surface-temperature-night-time" class="nav-link" data-scroll-target="#mod11a2-annual-land-surface-temperature-night-time">MOD11A2 annual land surface temperature (night-time)</a></li>
+  <li><a href="#mod11a2-monthly-land-surface-temperature-day-time" id="toc-mod11a2-monthly-land-surface-temperature-day-time" class="nav-link" data-scroll-target="#mod11a2-monthly-land-surface-temperature-day-time">MOD11A2 monthly land surface temperature (day-time)</a></li>
+  <li><a href="#mod11a2-monthly-land-surface-temperature-night-time" id="toc-mod11a2-monthly-land-surface-temperature-night-time" class="nav-link" data-scroll-target="#mod11a2-monthly-land-surface-temperature-night-time">MOD11A2 monthly land surface temperature (night-time)</a></li>
+  <li><a href="#openlandmap-landform-classes" id="toc-openlandmap-landform-classes" class="nav-link" data-scroll-target="#openlandmap-landform-classes">OpenLandMap landform classes</a></li>
+  <li><a href="#openlandmap-lithology-classes" id="toc-openlandmap-lithology-classes" class="nav-link" data-scroll-target="#openlandmap-lithology-classes">OpenLandMap lithology classes</a></li>
+  <li><a href="#openlandmap-haopludalfs-of-usda-soil-great-groups" id="toc-openlandmap-haopludalfs-of-usda-soil-great-groups" class="nav-link" data-scroll-target="#openlandmap-haopludalfs-of-usda-soil-great-groups">OpenLandMap Haopludalfs of USDA soil great groups</a></li>
+  <li><a href="#potential-distribution-of-biomes" id="toc-potential-distribution-of-biomes" class="nav-link" data-scroll-target="#potential-distribution-of-biomes">Potential distribution of biomes</a></li>
+  <li><a href="#potential-distribution-of-tropical-evergreen-broadleaf-forest" id="toc-potential-distribution-of-tropical-evergreen-broadleaf-forest" class="nav-link" data-scroll-target="#potential-distribution-of-tropical-evergreen-broadleaf-forest">Potential distribution of tropical evergreen broadleaf forest</a></li>
+  <li><a href="#future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-2.6" id="toc-future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-2.6" class="nav-link" data-scroll-target="#future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-2.6">Future potential distribution of tropical evergreen broadleaf forest (RCP 2.6)</a></li>
+  <li><a href="#future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-4.5" id="toc-future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-4.5" class="nav-link" data-scroll-target="#future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-4.5">Future potential distribution of tropical evergreen broadleaf forest (RCP 4.5)</a></li>
+  <li><a href="#future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-8.5" id="toc-future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-8.5" class="nav-link" data-scroll-target="#future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-8.5">Future potential distribution of tropical evergreen broadleaf forest (RCP 8.5)</a></li>
+  <li><a href="#potential-distribution-of-tropical-savanna" id="toc-potential-distribution-of-tropical-savanna" class="nav-link" data-scroll-target="#potential-distribution-of-tropical-savanna">Potential distribution of tropical savanna</a></li>
+  <li><a href="#future-potential-distribution-of-tropical-savanna-rcp-2.6" id="toc-future-potential-distribution-of-tropical-savanna-rcp-2.6" class="nav-link" data-scroll-target="#future-potential-distribution-of-tropical-savanna-rcp-2.6">Future potential distribution of tropical savanna (RCP 2.6)</a></li>
+  <li><a href="#future-potential-distribution-of-tropical-savanna-rcp-4.5" id="toc-future-potential-distribution-of-tropical-savanna-rcp-4.5" class="nav-link" data-scroll-target="#future-potential-distribution-of-tropical-savanna-rcp-4.5">Future potential distribution of tropical savanna (RCP 4.5)</a></li>
+  <li><a href="#future-potential-distribution-of-tropical-savanna-rcp-8.5" id="toc-future-potential-distribution-of-tropical-savanna-rcp-8.5" class="nav-link" data-scroll-target="#future-potential-distribution-of-tropical-savanna-rcp-8.5">Future potential distribution of tropical savanna (RCP 8.5)</a></li>
+  <li><a href="#glc_fcs30d-annual-land-land-cover-dynamic-monitoring-product" id="toc-glc_fcs30d-annual-land-land-cover-dynamic-monitoring-product" class="nav-link" data-scroll-target="#glc_fcs30d-annual-land-land-cover-dynamic-monitoring-product">GLC_FCS30D annual land land-cover dynamic monitoring product</a></li>
+  <li><a href="#viirs-annual-nighttime-lights" id="toc-viirs-annual-nighttime-lights" class="nav-link" data-scroll-target="#viirs-annual-nighttime-lights">VIIRS annual nighttime lights</a></li>
+  <li><a href="#viirs-long-term-nighttime-lights-difference" id="toc-viirs-long-term-nighttime-lights-difference" class="nav-link" data-scroll-target="#viirs-long-term-nighttime-lights-difference">VIIRS long-term nighttime lights difference</a></li>
+  </ul></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/openlandmap/book/edit/main/016-project.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/openlandmap/book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./010-start_here.html">Part I: OpenLandMap layers</a></li><li class="breadcrumb-item"><a href="./016-project.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">OpenLandMap layers</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">OpenLandMap layers</span></h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="list-of-collections" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="list-of-collections"><span class="header-section-number">3.1</span> List of collections</h2>
-<section id="sentinel-5p-monthly-tropospheric-nitrogen-dioxide-density" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="sentinel-5p-monthly-tropospheric-nitrogen-dioxide-density"><span class="header-section-number">3.1.1</span> Sentinel-5P monthly tropospheric nitrogen dioxide density</h3>
+<section id="openlandmap-layers" class="level1">
+<h1>OpenLandMap layers</h1>
+<section id="list-of-collections" class="level2">
+<h2 class="anchored" data-anchor-id="list-of-collections">List of collections</h2>
+<section id="sentinel-5p-monthly-tropospheric-nitrogen-dioxide-density" class="level3">
+<h3 class="anchored" data-anchor-id="sentinel-5p-monthly-tropospheric-nitrogen-dioxide-density">Sentinel-5P monthly tropospheric nitrogen dioxide density</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/no2_s5p.l3.trop.tmwm/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/no2_s5p.l3.trop.tmwm/collection.json" class="uri">https://stac.openlandmap.org/no2_s5p.l3.trop.tmwm/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Nitrogen Dioxide Density monthly median value May 2018 – November 2022. Derived using the <a href="https://eumap.readthedocs.io">eumap package in Python</a>. We derived three standard statistics: (1) 10th percentile (p10), median (m), and 90th percentile (p10).</li>
 <li><code>r emo::ji("memo")</code> Theme: Orthoimagery</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.7464099</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.7464099" class="uri">https://doi.org/10.5281/zenodo.7464099</a></li>
 </ul>
 </section>
-<section id="sentinel-5p-long-term-tropospheric-nitrogen-dioxide-density" class="level3" data-number="3.1.2">
-<h3 data-number="3.1.2" class="anchored" data-anchor-id="sentinel-5p-long-term-tropospheric-nitrogen-dioxide-density"><span class="header-section-number">3.1.2</span> Sentinel-5P long-term tropospheric nitrogen dioxide density</h3>
+<section id="sentinel-5p-long-term-tropospheric-nitrogen-dioxide-density" class="level3">
+<h3 class="anchored" data-anchor-id="sentinel-5p-long-term-tropospheric-nitrogen-dioxide-density">Sentinel-5P long-term tropospheric nitrogen dioxide density</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/no2_s5p.l3.trop.tmwm.ltm/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/no2_s5p.l3.trop.tmwm.ltm/collection.json" class="uri">https://stac.openlandmap.org/no2_s5p.l3.trop.tmwm.ltm/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Nitrogen Dioxide Density long term quantile from monthly median value May 2018 – November 2022. Derived using the <a href="https://eumap.readthedocs.io">eumap package in Python</a>. We derived three standard statistics: (1) 10th percentile (p10), median (m), and 90th percentile (p10).</li>
 <li><code>r emo::ji("memo")</code> Theme: Orthoimagery</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.7464099</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.7464099" class="uri">https://doi.org/10.5281/zenodo.7464099</a></li>
 </ul>
 </section>
-<section id="openlandmap-annual-soil-organic-carbon" class="level3" data-number="3.1.3">
-<h3 data-number="3.1.3" class="anchored" data-anchor-id="openlandmap-annual-soil-organic-carbon"><span class="header-section-number">3.1.3</span> OpenLandMap annual soil organic carbon</h3>
+<section id="openlandmap-annual-soil-organic-carbon" class="level3">
+<h3 class="anchored" data-anchor-id="openlandmap-annual-soil-organic-carbon">OpenLandMap annual soil organic carbon</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/log.oc_iso.10694/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/log.oc_iso.10694/collection.json" class="uri">https://stac.openlandmap.org/log.oc_iso.10694/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Log organic carbon [g/kg] predicted at various soil depths</li>
 <li><code>r emo::ji("memo")</code> Theme: Geology and Soils</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI:</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: &lt;&gt;</li>
 </ul>
 </section>
-<section id="mod13q1-long-term-enhanced-vegetation-index-evi---trend-analysis" class="level3" data-number="3.1.4">
-<h3 data-number="3.1.4" class="anchored" data-anchor-id="mod13q1-long-term-enhanced-vegetation-index-evi---trend-analysis"><span class="header-section-number">3.1.4</span> MOD13Q1 long-term Enhanced Vegetation Index (EVI - trend analysis)</h3>
+<section id="mod13q1-long-term-enhanced-vegetation-index-evi---trend-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="mod13q1-long-term-enhanced-vegetation-index-evi---trend-analysis">MOD13Q1 long-term Enhanced Vegetation Index (EVI - trend analysis)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/evi_mod13q1.stl.trend.logit.ols.beta/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/evi_mod13q1.stl.trend.logit.ols.beta/collection.json" class="uri">https://stac.openlandmap.org/evi_mod13q1.stl.trend.logit.ols.beta/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Analysis-ready EVI trend component based on MOD13Q1 by every two months and fully gapfilled. The trend component was derived by <a href="https://www.statsmodels.org/dev/generated/statsmodels.tsa.seasonal.STL.html#statsmodels.tsa.seasonal.STL">Season-Trend decomposition using LOESS</a>.</li>
 <li><code>r emo::ji("memo")</code> Theme: Orthoimagery</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI:</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: &lt;&gt;</li>
 </ul>
 </section>
-<section id="esa-cci-annual-land-cover" class="level3" data-number="3.1.5">
-<h3 data-number="3.1.5" class="anchored" data-anchor-id="esa-cci-annual-land-cover"><span class="header-section-number">3.1.5</span> ESA CCI annual land cover</h3>
+<section id="esa-cci-annual-land-cover" class="level3">
+<h3 class="anchored" data-anchor-id="esa-cci-annual-land-cover">ESA CCI annual land cover</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/land.cover_esacci.lc.l4/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/land.cover_esacci.lc.l4/collection.json" class="uri">https://stac.openlandmap.org/land.cover_esacci.lc.l4/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Based on the European Space Agency (ESA) Climate Change Initiative (ESACCI-LC).</li>
 <li><code>r emo::ji("memo")</code> Theme: Land Cover and Land Use</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI:</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: &lt;&gt;</li>
 </ul>
 </section>
-<section id="mod13q1-bi-monthly-enhanced-vegetation-index-index-evi" class="level3" data-number="3.1.6">
-<h3 data-number="3.1.6" class="anchored" data-anchor-id="mod13q1-bi-monthly-enhanced-vegetation-index-index-evi"><span class="header-section-number">3.1.6</span> MOD13Q1 bi-monthly Enhanced Vegetation Index Index (EVI)</h3>
+<section id="mod13q1-bi-monthly-enhanced-vegetation-index-index-evi" class="level3">
+<h3 class="anchored" data-anchor-id="mod13q1-bi-monthly-enhanced-vegetation-index-index-evi">MOD13Q1 bi-monthly Enhanced Vegetation Index Index (EVI)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/evi_mod13q1.tmwm.inpaint/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/evi_mod13q1.tmwm.inpaint/collection.json" class="uri">https://stac.openlandmap.org/evi_mod13q1.tmwm.inpaint/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Analysis-ready EVI based on MOD13Q1 aggregated by every two months, according to the percentile 90th, and fully gapfilled. The gapfilling was based in 1) <a href="https://eumap.readthedocs.io/en/latest/_autosummary/eumap.gapfiller.TMWM.html#eumap.gapfiller.TMWM">Temporal Moving Window Median</a> algorithm, and 2) <a href="https://eumap.readthedocs.io/en/latest/_autosummary/eumap.gapfiller.InPainting.html">inpating</a> technique.</li>
 <li><code>r emo::ji("memo")</code> Theme: Orthoimagery</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI:</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: &lt;&gt;</li>
 </ul>
 </section>
-<section id="openlandmap-ensemble-digital-terrain-model" class="level3" data-number="3.1.7">
-<h3 data-number="3.1.7" class="anchored" data-anchor-id="openlandmap-ensemble-digital-terrain-model"><span class="header-section-number">3.1.7</span> OpenLandMap ensemble digital terrain model</h3>
+<section id="openlandmap-ensemble-digital-terrain-model" class="level3">
+<h3 class="anchored" data-anchor-id="openlandmap-ensemble-digital-terrain-model">OpenLandMap ensemble digital terrain model</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/dtm.bareearth_ensemble/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/dtm.bareearth_ensemble/collection.json" class="uri">https://stac.openlandmap.org/dtm.bareearth_ensemble/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Derived using ALOS AW3D, GLO-30, MERITDEM, and national DTMs, considering the lower 10% quantile from all input layers. In order to create bare earth data, we used canopy height (canopy height &gt; 2m) and standard deviation (sd &gt; 6m) to mask building and forest in AW3D and GLO-30.</li>
 <li><code>r emo::ji("memo")</code> Theme: Elevation and Depth</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.7676373</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.7676373" class="uri">https://doi.org/10.5281/zenodo.7676373</a></li>
 </ul>
 </section>
-<section id="monthly-fraction-of-absorbed-photosynthetically-active-radiation-fapar" class="level3" data-number="3.1.8">
-<h3 data-number="3.1.8" class="anchored" data-anchor-id="monthly-fraction-of-absorbed-photosynthetically-active-radiation-fapar"><span class="header-section-number">3.1.8</span> Monthly fraction of absorbed photosynthetically active radiation (FAPAR)</h3>
+<section id="monthly-fraction-of-absorbed-photosynthetically-active-radiation-fapar" class="level3">
+<h3 class="anchored" data-anchor-id="monthly-fraction-of-absorbed-photosynthetically-active-radiation-fapar">Monthly fraction of absorbed photosynthetically active radiation (FAPAR)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/fapar_essd.lstm/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/fapar_essd.lstm/collection.json" class="uri">https://stac.openlandmap.org/fapar_essd.lstm/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: The monthly aggregated Fraction of Absorbed Photosynthetically Active Radiation (FAPAR) dataset is derived from 250m 8d GLASS V6 FAPAR, considering several other FAPAR products (MODIS Collection 6, GLASS FAPAR V5, and PROBA-V1 FAPAR) to generate a bidirectional long-short-term memory (Bi-LSTM) model to adjust and harmonize FAPAR across two decades. The monthly aggregation includes three standard statistics: (1) 5th percentile (p05), median (p50), and 95th percentile (p95). For each month, we aggregate all composites within that month plus one composite each before and after, ending up with 5 to 6 composites for a single month depending on the number of images within that month.</li>
 <li><code>r emo::ji("memo")</code> Theme: Biodiversity and Nature Conservation</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.8408654</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.8408654" class="uri">https://doi.org/10.5281/zenodo.8408654</a></li>
 </ul>
 </section>
-<section id="long-term-fraction-of-absorbed-photosynthetically-active-radiation-fapar---trend-analysis" class="level3" data-number="3.1.9">
-<h3 data-number="3.1.9" class="anchored" data-anchor-id="long-term-fraction-of-absorbed-photosynthetically-active-radiation-fapar---trend-analysis"><span class="header-section-number">3.1.9</span> Long-term fraction of absorbed photosynthetically active radiation (FAPAR - trend analysis)</h3>
+<section id="long-term-fraction-of-absorbed-photosynthetically-active-radiation-fapar---trend-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="long-term-fraction-of-absorbed-photosynthetically-active-radiation-fapar---trend-analysis">Long-term fraction of absorbed photosynthetically active radiation (FAPAR - trend analysis)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/fapar_essd.lstm.p95.beta/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/fapar_essd.lstm.p95.beta/collection.json" class="uri">https://stac.openlandmap.org/fapar_essd.lstm.p95.beta/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: The monthly aggregated Fraction of Absorbed Photosynthetically Active Radiation (FAPAR) dataset is derived from 250m 8d GLASS V6 FAPAR, considering several other FAPAR products (MODIS Collection 6, GLASS FAPAR V5, and PROBA-V1 FAPAR) to generate a bidirectional long-short-term memory (Bi-LSTM) model to adjust and harmonize FAPAR across two decades. The trend analysis provides OLS model for the p95 time-series including: (1) slope beta mean (p95.beta_m), p-value for beta (p95.beta_pv), intercept alpha mean (p95.alpha_m), p-value for alpha (p95.alpha_pv), and coefficient of determination R2 (p95.r2_m).</li>
 <li><code>r emo::ji("memo")</code> Theme: Biodiversity and Nature Conservation</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.8399173</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.8399173" class="uri">https://doi.org/10.5281/zenodo.8399173</a></li>
 </ul>
 </section>
-<section id="annual-potential-fraction-of-absorbed-photosynthetically-active-radiation-fapar---2021" class="level3" data-number="3.1.10">
-<h3 data-number="3.1.10" class="anchored" data-anchor-id="annual-potential-fraction-of-absorbed-photosynthetically-active-radiation-fapar---2021"><span class="header-section-number">3.1.10</span> Annual potential fraction of absorbed photosynthetically active radiation (FAPAR - 2021)</h3>
+<section id="annual-potential-fraction-of-absorbed-photosynthetically-active-radiation-fapar---2021" class="level3">
+<h3 class="anchored" data-anchor-id="annual-potential-fraction-of-absorbed-photosynthetically-active-radiation-fapar---2021">Annual potential fraction of absorbed photosynthetically active radiation (FAPAR - 2021)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/pot.fapar_fapar.p95.eml.m/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/pot.fapar_fapar.p95.eml.m/collection.json" class="uri">https://stac.openlandmap.org/pot.fapar_fapar.p95.eml.m/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Potential FAPAR predicted by fitting an ensemble ML model using globally distributed training points (cca 3 Mio) and a set of 52 biophysical covariates including several layers related to human pressure. The spatial layers include 1) yearly average of potential FAPAR + model deviance, 2) yearly average of FAPAR (P50).</li>
 <li><code>r emo::ji("memo")</code> Theme: Biodiversity and Nature Conservation</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.8404153</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.8404153" class="uri">https://doi.org/10.5281/zenodo.8404153</a></li>
 </ul>
 </section>
-<section id="monthly-potential-fraction-of-absorbed-photosynthetically-active-radiation-fapar---2021" class="level3" data-number="3.1.11">
-<h3 data-number="3.1.11" class="anchored" data-anchor-id="monthly-potential-fraction-of-absorbed-photosynthetically-active-radiation-fapar---2021"><span class="header-section-number">3.1.11</span> Monthly potential fraction of absorbed photosynthetically active radiation (FAPAR - 2021)</h3>
+<section id="monthly-potential-fraction-of-absorbed-photosynthetically-active-radiation-fapar---2021" class="level3">
+<h3 class="anchored" data-anchor-id="monthly-potential-fraction-of-absorbed-photosynthetically-active-radiation-fapar---2021">Monthly potential fraction of absorbed photosynthetically active radiation (FAPAR - 2021)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/pot.fapar_fapar.p95.eml/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/pot.fapar_fapar.p95.eml/collection.json" class="uri">https://stac.openlandmap.org/pot.fapar_fapar.p95.eml/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Potential FAPAR predicted every month, in 2021, by fitting an ensemble ML model using globally distributed training points (cca 3 Mio) and a set of 52 biophysical covariates including several layers related to human pressure.</li>
 <li><code>r emo::ji("memo")</code> Theme: Biodiversity and Nature Conservation</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.8404153</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.8404153" class="uri">https://doi.org/10.5281/zenodo.8404153</a></li>
 </ul>
 </section>
-<section id="esa-monthly-snow-cover-fraction" class="level3" data-number="3.1.12">
-<h3 data-number="3.1.12" class="anchored" data-anchor-id="esa-monthly-snow-cover-fraction"><span class="header-section-number">3.1.12</span> ESA monthly snow cover fraction</h3>
+<section id="esa-monthly-snow-cover-fraction" class="level3">
+<h3 class="anchored" data-anchor-id="esa-monthly-snow-cover-fraction">ESA monthly snow cover fraction</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/snow.cover_esa.modis/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/snow.cover_esa.modis/collection.json" class="uri">https://stac.openlandmap.org/snow.cover_esa.modis/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Global MODIS-based snow cover monthly long-term (2000-2012) at 500 m. Global snow cover monthly long-term (2000–2012) P90 and standard deviation derived from the ESA CCI snow cover weekly product.</li>
 <li><code>r emo::ji("memo")</code> Theme: Land Cover and Land Use</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.5774953</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.5774953" class="uri">https://doi.org/10.5281/zenodo.5774953</a></li>
 </ul>
 </section>
-<section id="esa-long-term-snow-cover-fraction" class="level3" data-number="3.1.13">
-<h3 data-number="3.1.13" class="anchored" data-anchor-id="esa-long-term-snow-cover-fraction"><span class="header-section-number">3.1.13</span> ESA long-term snow cover fraction</h3>
+<section id="esa-long-term-snow-cover-fraction" class="level3">
+<h3 class="anchored" data-anchor-id="esa-long-term-snow-cover-fraction">ESA long-term snow cover fraction</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/snow.cover_esa.modis.ltm/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/snow.cover_esa.modis.ltm/collection.json" class="uri">https://stac.openlandmap.org/snow.cover_esa.modis.ltm/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Global MODIS-based snow cover monthly long-term (2000-2012) at 500 m. Global snow cover monthly long-term (2000–2012) P90 and standard deviation derived from the ESA CCI snow cover weekly product.</li>
 <li><code>r emo::ji("memo")</code> Theme: Land Cover and Land Use</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.5774953</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.5774953" class="uri">https://doi.org/10.5281/zenodo.5774953</a></li>
 </ul>
 </section>
-<section id="annual-terrestrial-human-footprint" class="level3" data-number="3.1.14">
-<h3 data-number="3.1.14" class="anchored" data-anchor-id="annual-terrestrial-human-footprint"><span class="header-section-number">3.1.14</span> Annual terrestrial human footprint</h3>
+<section id="annual-terrestrial-human-footprint" class="level3">
+<h3 class="anchored" data-anchor-id="annual-terrestrial-human-footprint">Annual terrestrial human footprint</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/wilderness_li2022.human.footprint/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/wilderness_li2022.human.footprint/collection.json" class="uri">https://stac.openlandmap.org/wilderness_li2022.human.footprint/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Dataset of annual dynamics of the global Human Footprint from 2000 to 2018 using eight variables that reflect different aspects of human pressures.</li>
 <li><code>r emo::ji("memo")</code> Theme: Population Distribution</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.1038/s41597-022-01284-8</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.1038/s41597-022-01284-8" class="uri">https://doi.org/10.1038/s41597-022-01284-8</a></li>
 </ul>
 </section>
-<section id="mcd19a2-monthly-water-vapor" class="level3" data-number="3.1.15">
-<h3 data-number="3.1.15" class="anchored" data-anchor-id="mcd19a2-monthly-water-vapor"><span class="header-section-number">3.1.15</span> MCD19A2 monthly water vapor</h3>
+<section id="mcd19a2-monthly-water-vapor" class="level3">
+<h3 class="anchored" data-anchor-id="mcd19a2-monthly-water-vapor">MCD19A2 monthly water vapor</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/wv_mcd19a2v061.seasconv/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/wv_mcd19a2v061.seasconv/collection.json" class="uri">https://stac.openlandmap.org/wv_mcd19a2v061.seasconv/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: The monthly aggregated water vapor dataset is derived from MCD19A2 v061, measuring the column above ground retrieved from MODIS near-IR bands at 0.94μm. The dataset time spans from 2000 to 2022 and provides data that covers the entire globe. The monthly aggregation considered the mean and standard deviation of daily water vapor time-series data. Only positive non-cloudy pixels were considered valid observations to derive the mean and the standard deviation. The remaining no-data values were filled using the TMWM algorithm. This dataset also includes smoothed mean and standard deviation values using the Whittaker method. The quality assessment layers and the number of valid observations for each month can provide an indication of the reliability of the monthly mean and standard deviation values.</li>
 <li><code>r emo::ji("memo")</code> Theme: Climate</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.8226283</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.8226283" class="uri">https://doi.org/10.5281/zenodo.8226283</a></li>
 </ul>
 </section>
-<section id="mcd19a2-long-term-water-vapor-perc.-50th" class="level3" data-number="3.1.16">
-<h3 data-number="3.1.16" class="anchored" data-anchor-id="mcd19a2-long-term-water-vapor-perc.-50th"><span class="header-section-number">3.1.16</span> MCD19A2 long-term water vapor (perc. 50th)</h3>
+<section id="mcd19a2-long-term-water-vapor-perc.-50th" class="level3">
+<h3 class="anchored" data-anchor-id="mcd19a2-long-term-water-vapor-perc.-50th">MCD19A2 long-term water vapor (perc. 50th)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/wv_mcd19a2v061.seasconv.m_p50/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/wv_mcd19a2v061.seasconv.m_p50/collection.json" class="uri">https://stac.openlandmap.org/wv_mcd19a2v061.seasconv.m_p50/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: The monthly aggregated water vapor dataset is derived from MCD19A2 v061, measuring the column above ground retrieved from MODIS near-IR bands at 0.94μm. The dataset time spans from 2000 to 2022 and provides data that covers the entire globe. The monthly aggregation considered the mean and standard deviation of daily water vapor time-series data. Only positive non-cloudy pixels were considered valid observations to derive the mean and the standard deviation. The remaining no-data values were filled using the TMWM algorithm. This dataset also includes smoothed mean and standard deviation values using the Whittaker method. The quality assessment layers and the number of valid observations for each month can provide an indication of the reliability of the monthly mean and standard deviation values.</li>
 <li><code>r emo::ji("memo")</code> Theme: Climate</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.8226283</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.8226283" class="uri">https://doi.org/10.5281/zenodo.8226283</a></li>
 </ul>
 </section>
-<section id="mcd19a2-long-term-water-vapor-perc.-25th" class="level3" data-number="3.1.17">
-<h3 data-number="3.1.17" class="anchored" data-anchor-id="mcd19a2-long-term-water-vapor-perc.-25th"><span class="header-section-number">3.1.17</span> MCD19A2 long-term water vapor (perc. 25th)</h3>
+<section id="mcd19a2-long-term-water-vapor-perc.-25th" class="level3">
+<h3 class="anchored" data-anchor-id="mcd19a2-long-term-water-vapor-perc.-25th">MCD19A2 long-term water vapor (perc. 25th)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/wv_mcd19a2v061.seasconv.m_p25/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/wv_mcd19a2v061.seasconv.m_p25/collection.json" class="uri">https://stac.openlandmap.org/wv_mcd19a2v061.seasconv.m_p25/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: The monthly aggregated water vapor dataset is derived from MCD19A2 v061, measuring the column above ground retrieved from MODIS near-IR bands at 0.94μm. The dataset time spans from 2000 to 2022 and provides data that covers the entire globe. The monthly aggregation considered the mean and standard deviation of daily water vapor time-series data. Only positive non-cloudy pixels were considered valid observations to derive the mean and the standard deviation. The remaining no-data values were filled using the TMWM algorithm. This dataset also includes smoothed mean and standard deviation values using the Whittaker method. The quality assessment layers and the number of valid observations for each month can provide an indication of the reliability of the monthly mean and standard deviation values.</li>
 <li><code>r emo::ji("memo")</code> Theme: Climate</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.8226283</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.8226283" class="uri">https://doi.org/10.5281/zenodo.8226283</a></li>
 </ul>
 </section>
-<section id="mcd19a2-long-term-water-vapor-perc.-75th" class="level3" data-number="3.1.18">
-<h3 data-number="3.1.18" class="anchored" data-anchor-id="mcd19a2-long-term-water-vapor-perc.-75th"><span class="header-section-number">3.1.18</span> MCD19A2 long-term water vapor (perc. 75th)</h3>
+<section id="mcd19a2-long-term-water-vapor-perc.-75th" class="level3">
+<h3 class="anchored" data-anchor-id="mcd19a2-long-term-water-vapor-perc.-75th">MCD19A2 long-term water vapor (perc. 75th)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/wv_mcd19a2v061.seasconv.m_p75/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/wv_mcd19a2v061.seasconv.m_p75/collection.json" class="uri">https://stac.openlandmap.org/wv_mcd19a2v061.seasconv.m_p75/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: The monthly aggregated water vapor dataset is derived from MCD19A2 v061, measuring the column above ground retrieved from MODIS near-IR bands at 0.94μm. The dataset time spans from 2000 to 2022 and provides data that covers the entire globe. The monthly aggregation considered the mean and standard deviation of daily water vapor time-series data. Only positive non-cloudy pixels were considered valid observations to derive the mean and the standard deviation. The remaining no-data values were filled using the TMWM algorithm. This dataset also includes smoothed mean and standard deviation values using the Whittaker method. The quality assessment layers and the number of valid observations for each month can provide an indication of the reliability of the monthly mean and standard deviation values.</li>
 <li><code>r emo::ji("memo")</code> Theme: Climate</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.8226283</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.8226283" class="uri">https://doi.org/10.5281/zenodo.8226283</a></li>
 </ul>
 </section>
-<section id="mcd19a2-long-term-water-vapor-std.-dev." class="level3" data-number="3.1.19">
-<h3 data-number="3.1.19" class="anchored" data-anchor-id="mcd19a2-long-term-water-vapor-std.-dev."><span class="header-section-number">3.1.19</span> MCD19A2 long-term water vapor (std. dev.)</h3>
+<section id="mcd19a2-long-term-water-vapor-std.-dev." class="level3">
+<h3 class="anchored" data-anchor-id="mcd19a2-long-term-water-vapor-std.-dev.">MCD19A2 long-term water vapor (std. dev.)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/wv_mcd19a2v061.seasconv.m_std/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/wv_mcd19a2v061.seasconv.m_std/collection.json" class="uri">https://stac.openlandmap.org/wv_mcd19a2v061.seasconv.m_std/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: The monthly aggregated water vapor dataset is derived from MCD19A2 v061, measuring the column above ground retrieved from MODIS near-IR bands at 0.94μm. The dataset time spans from 2000 to 2022 and provides data that covers the entire globe. The monthly aggregation considered the mean and standard deviation of daily water vapor time-series data. Only positive non-cloudy pixels were considered valid observations to derive the mean and the standard deviation. The remaining no-data values were filled using the TMWM algorithm. This dataset also includes smoothed mean and standard deviation values using the Whittaker method. The quality assessment layers and the number of valid observations for each month can provide an indication of the reliability of the monthly mean and standard deviation values.</li>
 <li><code>r emo::ji("memo")</code> Theme: Climate</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.8226283</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.8226283" class="uri">https://doi.org/10.5281/zenodo.8226283</a></li>
 </ul>
 </section>
-<section id="mcd19a2-annual-water-vapor" class="level3" data-number="3.1.20">
-<h3 data-number="3.1.20" class="anchored" data-anchor-id="mcd19a2-annual-water-vapor"><span class="header-section-number">3.1.20</span> MCD19A2 annual water vapor</h3>
+<section id="mcd19a2-annual-water-vapor" class="level3">
+<h3 class="anchored" data-anchor-id="mcd19a2-annual-water-vapor">MCD19A2 annual water vapor</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/wv_mcd19a2v061.seasconv.m.yearly/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/wv_mcd19a2v061.seasconv.m.yearly/collection.json" class="uri">https://stac.openlandmap.org/wv_mcd19a2v061.seasconv.m.yearly/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: The monthly aggregated water vapor dataset is derived from MCD19A2 v061, measuring the column above ground retrieved from MODIS near-IR bands at 0.94μm. The dataset time spans from 2000 to 2022 and provides data that covers the entire globe. The monthly aggregation considered the mean and standard deviation of daily water vapor time-series data. Only positive non-cloudy pixels were considered valid observations to derive the mean and the standard deviation. The remaining no-data values were filled using the TMWM algorithm. This dataset is specifically derived from monthly time-series, providing a yearly time-series aggregated statistics of the monthly time-series data.</li>
 <li><code>r emo::ji("memo")</code> Theme: Climate</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.8226282</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.8226282" class="uri">https://doi.org/10.5281/zenodo.8226282</a></li>
 </ul>
 </section>
-<section id="long-term-soil-bulk-density-for-fine-earth" class="level3" data-number="3.1.21">
-<h3 data-number="3.1.21" class="anchored" data-anchor-id="long-term-soil-bulk-density-for-fine-earth"><span class="header-section-number">3.1.21</span> Long-term soil bulk density for fine earth</h3>
+<section id="long-term-soil-bulk-density-for-fine-earth" class="level3">
+<h3 class="anchored" data-anchor-id="long-term-soil-bulk-density-for-fine-earth">Long-term soil bulk density for fine earth</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/bulkdens.fineearth_usda.4a1h/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/bulkdens.fineearth_usda.4a1h/collection.json" class="uri">https://stac.openlandmap.org/bulkdens.fineearth_usda.4a1h/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Soil bulk density (fine earth) 10 x kg / m-cubic at 6 standard depths (0, 10, 30, 60, 100 and 200 cm) at 250 m resolution</li>
 <li><code>r emo::ji("memo")</code> Theme: Geology and Soils</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.2525665</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.2525665" class="uri">https://doi.org/10.5281/zenodo.2525665</a></li>
 </ul>
 </section>
-<section id="merit-geomorphometry" class="level3" data-number="3.1.22">
-<h3 data-number="3.1.22" class="anchored" data-anchor-id="merit-geomorphometry"><span class="header-section-number">3.1.22</span> MERIT geomorphometry</h3>
+<section id="merit-geomorphometry" class="level3">
+<h3 class="anchored" data-anchor-id="merit-geomorphometry">MERIT geomorphometry</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/geom_merit.dem/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/geom_merit.dem/collection.json" class="uri">https://stac.openlandmap.org/geom_merit.dem/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Relief parameters were derived derived using SAGA GIS (http://www.saga-gis.org/) and the MERIT DEM (Yamazaki et al.&nbsp;2017) projected in the Equi7 grid system (Bauer-Marschallinger et al.&nbsp;2014). Once derived, DEM derivatives were then reprojected to the lon-lat system.</li>
 <li><code>r emo::ji("memo")</code> Theme: Geology and Soils</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.1038/s41597-020-0479-6</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.1038/s41597-020-0479-6" class="uri">https://doi.org/10.1038/s41597-020-0479-6</a></li>
 </ul>
 </section>
-<section id="proba-v-long-term-fraction-of-absorbed-photosynthetically-active-radiation-fapar" class="level3" data-number="3.1.23">
-<h3 data-number="3.1.23" class="anchored" data-anchor-id="proba-v-long-term-fraction-of-absorbed-photosynthetically-active-radiation-fapar"><span class="header-section-number">3.1.23</span> PROBA-V long-term fraction of absorbed photosynthetically active radiation (FAPAR)</h3>
+<section id="proba-v-long-term-fraction-of-absorbed-photosynthetically-active-radiation-fapar" class="level3">
+<h3 class="anchored" data-anchor-id="proba-v-long-term-fraction-of-absorbed-photosynthetically-active-radiation-fapar">PROBA-V long-term fraction of absorbed photosynthetically active radiation (FAPAR)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/fapar_proba.v/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/fapar_proba.v/collection.json" class="uri">https://stac.openlandmap.org/fapar_proba.v/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Fraction of absorbed photosynthetically active radiation monthly images for 2014–2017 were obtained from https://land.copernicus.eu (original values reported in the range 0–235 with scaling factor 1/255, i.e., with a maximum value of 0.94). From a total of 142 images downloaded from https://land.copernicus.eu we derived minimum, median and maximum value of FAPAR per month (12) using the 95% probability interval using the data.table package (http://r-datatable.com).</li>
 <li><code>r emo::ji("memo")</code> Theme: Orthoimagery</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.3459830</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.3459830" class="uri">https://doi.org/10.5281/zenodo.3459830</a></li>
 </ul>
 </section>
-<section id="tree-covered-and-intact-forest-landscapes" class="level3" data-number="3.1.24">
-<h3 data-number="3.1.24" class="anchored" data-anchor-id="tree-covered-and-intact-forest-landscapes"><span class="header-section-number">3.1.24</span> Tree-covered and intact forest landscapes</h3>
+<section id="tree-covered-and-intact-forest-landscapes" class="level3">
+<h3 class="anchored" data-anchor-id="tree-covered-and-intact-forest-landscapes">Tree-covered and intact forest landscapes</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/forest.cover_esacci.ifl/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/forest.cover_esacci.ifl/collection.json" class="uri">https://stac.openlandmap.org/forest.cover_esacci.ifl/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Based on the UNEP historic forest cover map, ESA land cover time series and intact forest landscape (IFL 2000, 2013 and 2016) data (Potapov et al.&nbsp;2013).</li>
 <li><code>r emo::ji("memo")</code> Theme: Land Cover and Land Use</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.1477073</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.1477073" class="uri">https://doi.org/10.5281/zenodo.1477073</a></li>
 </ul>
 </section>
-<section id="usda-long-term-soil-great-groups" class="level3" data-number="3.1.25">
-<h3 data-number="3.1.25" class="anchored" data-anchor-id="usda-long-term-soil-great-groups"><span class="header-section-number">3.1.25</span> USDA long-term soil great groups</h3>
+<section id="usda-long-term-soil-great-groups" class="level3">
+<h3 class="anchored" data-anchor-id="usda-long-term-soil-great-groups">USDA long-term soil great groups</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/grtgroup_usda.soiltax/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/grtgroup_usda.soiltax/collection.json" class="uri">https://stac.openlandmap.org/grtgroup_usda.soiltax/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Distribution of the USDA soil great groups based on machine learning predictions from global compilation of soil profiles (&gt;350,000 training points).</li>
 <li><code>r emo::ji("memo")</code> Theme: Geology and Soils</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.3528062</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.3528062" class="uri">https://doi.org/10.5281/zenodo.3528062</a></li>
 </ul>
 </section>
-<section id="copernicus-proba-v-annual-land-cover" class="level3" data-number="3.1.26">
-<h3 data-number="3.1.26" class="anchored" data-anchor-id="copernicus-proba-v-annual-land-cover"><span class="header-section-number">3.1.26</span> Copernicus PROBA-V annual land cover</h3>
+<section id="copernicus-proba-v-annual-land-cover" class="level3">
+<h3 class="anchored" data-anchor-id="copernicus-proba-v-annual-land-cover">Copernicus PROBA-V annual land cover</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/land.cover_copernicus/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/land.cover_copernicus/collection.json" class="uri">https://stac.openlandmap.org/land.cover_copernicus/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Annual, global 100m land cover maps in 2015, 2016, 2017, 2018, 2019, produced by the global component of the Copernicus Land Service, derived from PROBA-V satellite observations and ancillary datasets</li>
 <li><code>r emo::ji("memo")</code> Theme: Land Cover and Land Use</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.4723924</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.4723924" class="uri">https://doi.org/10.5281/zenodo.4723924</a></li>
 </ul>
 </section>
-<section id="openlandmap-long-term-soil-organic-carbon-stock" class="level3" data-number="3.1.27">
-<h3 data-number="3.1.27" class="anchored" data-anchor-id="openlandmap-long-term-soil-organic-carbon-stock"><span class="header-section-number">3.1.27</span> OpenLandMap long-term soil organic carbon stock</h3>
+<section id="openlandmap-long-term-soil-organic-carbon-stock" class="level3">
+<h3 class="anchored" data-anchor-id="openlandmap-long-term-soil-organic-carbon-stock">OpenLandMap long-term soil organic carbon stock</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/organic.carbon.stock_msa.kgm2/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/organic.carbon.stock_msa.kgm2/collection.json" class="uri">https://stac.openlandmap.org/organic.carbon.stock_msa.kgm2/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Soil organic carbon stock in kg/m2 for 5 standard depth intervals (0–10, 10–30, 30–60, 60–100 and 100–200 cm) at 250 m resolution. To convert to t/ha multiply by 10. Derived using soil organic carbon content (https://doi.org/10.5281/zenodo.1475457), bulk density (https://doi.org/10.5281/zenodo.1475970) and coarse fragments (https://doi.org/10.5281/zenodo.2525681), predicted from point data at 6 standard depths. Depth to bed rock has been ignored, hence total stocks might be about 10–15% lower then reported.</li>
 <li><code>r emo::ji("memo")</code> Theme: Geology and Soils</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.2536040</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.2536040" class="uri">https://doi.org/10.5281/zenodo.2536040</a></li>
 </ul>
 </section>
-<section id="openlandmap-long-term-soil-organic-carbon-content" class="level3" data-number="3.1.28">
-<h3 data-number="3.1.28" class="anchored" data-anchor-id="openlandmap-long-term-soil-organic-carbon-content"><span class="header-section-number">3.1.28</span> OpenLandMap long-term soil organic carbon content</h3>
+<section id="openlandmap-long-term-soil-organic-carbon-content" class="level3">
+<h3 class="anchored" data-anchor-id="openlandmap-long-term-soil-organic-carbon-content">OpenLandMap long-term soil organic carbon content</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/organic.carbon_usda.6a1c/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/organic.carbon_usda.6a1c/collection.json" class="uri">https://stac.openlandmap.org/organic.carbon_usda.6a1c/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Soil organic carbon content in x 5 g / kg (to convert to % divide by 2) at 6 standard depths (0, 10, 30, 60, 100 and 200 cm) at 250 m resolution.Predicted from a global compilation of soil points. Also available for download: soil organic stock maps in in kg / m2 (https://doi.org/10.5281/zenodo.1475453) and bulk density maps in kg / m3 (https://doi.org/10.5281/zenodo.1475970).</li>
 <li><code>r emo::ji("memo")</code> Theme: Geology and Soils</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.2525553</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.2525553" class="uri">https://doi.org/10.5281/zenodo.2525553</a></li>
 </ul>
 </section>
-<section id="esa-cci-annual-plant-functional-types-pft" class="level3" data-number="3.1.29">
-<h3 data-number="3.1.29" class="anchored" data-anchor-id="esa-cci-annual-plant-functional-types-pft"><span class="header-section-number">3.1.29</span> ESA CCI annual plant functional types (PFT)</h3>
+<section id="esa-cci-annual-plant-functional-types-pft" class="level3">
+<h3 class="anchored" data-anchor-id="esa-cci-annual-plant-functional-types-pft">ESA CCI annual plant functional types (PFT)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/pft.landcover_esa.cci.lc/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/pft.landcover_esa.cci.lc/collection.json" class="uri">https://stac.openlandmap.org/pft.landcover_esa.cci.lc/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: This dataset contains Global Plant Functional Types (PFT) data, from the ESA Medium Resolution Land Cover (MRLC) Climate Change Initiative project. The data provides yearly data, and initially covers the time period from 1992 to 2020. It is anticipated that the dataset will be updated annually going forward. The PFT v2.0.8 global dataset has 14 layers, each describing the percentage cover (0-100%) of a plant functional type at a spatial resolution of 300 m: broadleaved evergreen trees, broadleaved deciduous trees, needleleaved evergreen trees, needleleaved deciduous trees, broadleaved evergreen shrubs, broadleaved deciduous shrubs, needleleaved evergreen shrubs, needleleaved deciduous shrubs, natural grasses, herbaceous cropland (i.e., managed grasses), built, water, bare areas, and snow and ice.</li>
 <li><code>r emo::ji("memo")</code> Theme: Land Cover and Land Use</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5285/26a0f46c95ee4c29b5c650b129aab788</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5285/26a0f46c95ee4c29b5c650b129aab788" class="uri">https://doi.org/10.5285/26a0f46c95ee4c29b5c650b129aab788</a></li>
 </ul>
 </section>
-<section id="sm2rain-long-term-precipitation" class="level3" data-number="3.1.30">
-<h3 data-number="3.1.30" class="anchored" data-anchor-id="sm2rain-long-term-precipitation"><span class="header-section-number">3.1.30</span> SM2RAIN long-term precipitation</h3>
+<section id="sm2rain-long-term-precipitation" class="level3">
+<h3 class="anchored" data-anchor-id="sm2rain-long-term-precipitation">SM2RAIN long-term precipitation</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/precipitation_sm2rain.ltm/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/precipitation_sm2rain.ltm/collection.json" class="uri">https://stac.openlandmap.org/precipitation_sm2rain.ltm/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Monthly precipitation in mm at 1 km resolution based on SM2RAIN-ASCAT 2007-2021 (https://doi.org/10.5281/zenodo.2615278). Downscaled to 1 km resolution using gdalwarp (cubic splines) and combined with WorldClim (https://worldclim.org/data/worldclim21.html) and CHELSA Climate (https://chelsa-climate.org/downloads/) monthly values. Final values are estimated as a simple average between the three precipitation data sources; a more objective approach would be to use training points e.g.&nbsp;meteo-station monthly values, then train an ensemble model using the 3 data sources as independent variables. Another global data source of precipitation images is the monthly IMERGE dataset, however this requires transformation and is available only for limited span of years.</li>
 <li><code>r emo::ji("memo")</code> Theme: Climate</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.6458580</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.6458580" class="uri">https://doi.org/10.5281/zenodo.6458580</a></li>
 </ul>
 </section>
-<section id="openlandmap-long-term-soil-ph" class="level3" data-number="3.1.31">
-<h3 data-number="3.1.31" class="anchored" data-anchor-id="openlandmap-long-term-soil-ph"><span class="header-section-number">3.1.31</span> OpenLandMap long-term soil pH</h3>
+<section id="openlandmap-long-term-soil-ph" class="level3">
+<h3 class="anchored" data-anchor-id="openlandmap-long-term-soil-ph">OpenLandMap long-term soil pH</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/ph.h2o_usda.4c1a2a/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/ph.h2o_usda.4c1a2a/collection.json" class="uri">https://stac.openlandmap.org/ph.h2o_usda.4c1a2a/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Soil pH in H2O at 6 standard depths (0, 10, 30, 60, 100 and 200 cm) at 250 m resolution according to USDA method code: 4C1a2a</li>
 <li><code>r emo::ji("memo")</code> Theme: Geology and Soils</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.2525664</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.2525664" class="uri">https://doi.org/10.5281/zenodo.2525664</a></li>
 </ul>
 </section>
-<section id="jrc-global-human-settlement-annual-population-ghs" class="level3" data-number="3.1.32">
-<h3 data-number="3.1.32" class="anchored" data-anchor-id="jrc-global-human-settlement-annual-population-ghs"><span class="header-section-number">3.1.32</span> JRC Global Human Settlement annual population (GHS)</h3>
+<section id="jrc-global-human-settlement-annual-population-ghs" class="level3">
+<h3 class="anchored" data-anchor-id="jrc-global-human-settlement-annual-population-ghs">JRC Global Human Settlement annual population (GHS)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/pop.count_ghs.jrc/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/pop.count_ghs.jrc/collection.json" class="uri">https://stac.openlandmap.org/pop.count_ghs.jrc/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: This GHS-POP spatial raster product (GHS-POP_GLOBE_R2023) depicts the distribution of human population, expressed as the number of people per cell. Residential population estimates at 5 years interval between 1975 and 2030 are derived from the raw global census data harmonized by CIESIN for the Gridded Population of the World, version 4.11 (GPWv4.11) at polygon level, and disaggregated from census or administrative units to grid cells, informed by the distribution, classification and volume of built-up as mapped in the GHSL global layers per corresponding epoch. The disaggregation methodology is described in Freire et al., (2016).</li>
 <li><code>r emo::ji("memo")</code> Theme: Population Distribution</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE" class="uri">https://doi.org/10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE</a></li>
 </ul>
 </section>
-<section id="openlandmap-long-term-sand-content" class="level3" data-number="3.1.33">
-<h3 data-number="3.1.33" class="anchored" data-anchor-id="openlandmap-long-term-sand-content"><span class="header-section-number">3.1.33</span> OpenLandMap long-term sand content</h3>
+<section id="openlandmap-long-term-sand-content" class="level3">
+<h3 class="anchored" data-anchor-id="openlandmap-long-term-sand-content">OpenLandMap long-term sand content</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/sand.wfraction_usda.3a1a1a/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/sand.wfraction_usda.3a1a1a/collection.json" class="uri">https://stac.openlandmap.org/sand.wfraction_usda.3a1a1a/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Sand content in % (kg / kg) at 6 standard depths (0, 10, 30, 60, 100 and 200 cm) at 250 m resolution. Based on machine learning predictions from global compilation of soil profiles and samples.</li>
 <li><code>r emo::ji("memo")</code> Theme: Water</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.2525662</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.2525662" class="uri">https://doi.org/10.5281/zenodo.2525662</a></li>
 </ul>
 </section>
-<section id="mcd12q1-annual-land-cover-and-land-use" class="level3" data-number="3.1.34">
-<h3 data-number="3.1.34" class="anchored" data-anchor-id="mcd12q1-annual-land-cover-and-land-use"><span class="header-section-number">3.1.34</span> MCD12Q1 annual land cover and land use</h3>
+<section id="mcd12q1-annual-land-cover-and-land-use" class="level3">
+<h3 class="anchored" data-anchor-id="mcd12q1-annual-land-cover-and-land-use">MCD12Q1 annual land cover and land use</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/lc_mcd12q1v061.p1/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/lc_mcd12q1v061.p1/collection.json" class="uri">https://stac.openlandmap.org/lc_mcd12q1v061.p1/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: The yearly land use and land cover dataset is derived from MCD12Q1 v061. This data provides an yearly mosaics of land use and land cover data from 2001 to 2022. This dataset includes layers of land cover type 1 (t1), 2 (t2), and 5 (t5), land cover property 1 (p1) and 2 (p2), land cover property assessment 1 (p1a) and 2 (p2a), and land cover quality control (qc).</li>
 <li><code>r emo::ji("memo")</code> Theme: Land Cover and Land Use</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.8367523</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.8367523" class="uri">https://doi.org/10.5281/zenodo.8367523</a></li>
 </ul>
 </section>
-<section id="openlandmap-long-term-soil-texture-classes-usda-system" class="level3" data-number="3.1.35">
-<h3 data-number="3.1.35" class="anchored" data-anchor-id="openlandmap-long-term-soil-texture-classes-usda-system"><span class="header-section-number">3.1.35</span> OpenLandMap long-term soil texture classes (USDA system)</h3>
+<section id="openlandmap-long-term-soil-texture-classes-usda-system" class="level3">
+<h3 class="anchored" data-anchor-id="openlandmap-long-term-soil-texture-classes-usda-system">OpenLandMap long-term soil texture classes (USDA system)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/texture.class_usda.tt/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/texture.class_usda.tt/collection.json" class="uri">https://stac.openlandmap.org/texture.class_usda.tt/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Soil texture classes (USDA system) for 6 standard soil depths (0, 10, 30, 60, 100 and 200 cm) at 250 m.</li>
 <li><code>r emo::ji("memo")</code> Theme: Geology and Soils</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.2525817</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.2525817" class="uri">https://doi.org/10.5281/zenodo.2525817</a></li>
 </ul>
 </section>
-<section id="jrc-long-term-surface-water-occurrence" class="level3" data-number="3.1.36">
-<h3 data-number="3.1.36" class="anchored" data-anchor-id="jrc-long-term-surface-water-occurrence"><span class="header-section-number">3.1.36</span> JRC long-term surface water occurrence</h3>
+<section id="jrc-long-term-surface-water-occurrence" class="level3">
+<h3 class="anchored" data-anchor-id="jrc-long-term-surface-water-occurrence">JRC long-term surface water occurrence</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/water.occurrence_jrc.surfacewater/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/water.occurrence_jrc.surfacewater/collection.json" class="uri">https://stac.openlandmap.org/water.occurrence_jrc.surfacewater/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Gobal surface water occurrence based on Pekel at al.&nbsp;(2016), and the layer is resampled to spatial resolution 1/480 d.d. (about 250 m) using gdalwarp with “average” resampling. Original layers are available at 30 m resolution. The orignal dataset and document: https://doi.org/10.1038/nature20584.</li>
 <li><code>r emo::ji("memo")</code> Theme: Water</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.1439254</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.1439254" class="uri">https://doi.org/10.5281/zenodo.1439254</a></li>
 </ul>
 </section>
-<section id="openlandmap-long-term-soil-water-content" class="level3" data-number="3.1.37">
-<h3 data-number="3.1.37" class="anchored" data-anchor-id="openlandmap-long-term-soil-water-content"><span class="header-section-number">3.1.37</span> OpenLandMap long-term soil water content</h3>
+<section id="openlandmap-long-term-soil-water-content" class="level3">
+<h3 class="anchored" data-anchor-id="openlandmap-long-term-soil-water-content">OpenLandMap long-term soil water content</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/watercontent.33kPa_usda.4b1c/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/watercontent.33kPa_usda.4b1c/collection.json" class="uri">https://stac.openlandmap.org/watercontent.33kPa_usda.4b1c/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Soil water content (volumetric) in percent for 33 kPa and 1500 kPa suctions predicted at 6 standard depths (0, 10, 30, 60, 100 and 200 cm) at 250 m resolution. Training points are based on a global compilation of soil profiles (USDA NCSS, AfSPDB, ISRIC WISE, EGRPR, SPADE, CanNPDB, UNSODA, SWIG, HYBRAS and HydroS). Data import steps are available here. Spatial prediction steps are described in detail here. Note: these are actually measured and mapped soil content values; no Pedo-Transfer-Functions have been used (except to fill-in the missing NCSS bulk densities). Available water capacity in mm (derived as a difference between field capacity and wilting point multiplied by layer thickness) per layer is available here. Antarctica is not included.</li>
 <li><code>r emo::ji("memo")</code> Theme: Geology and Soils</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.2784001</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.2784001" class="uri">https://doi.org/10.5281/zenodo.2784001</a></li>
 </ul>
 </section>
-<section id="copernius-dem-digital-surface-model" class="level3" data-number="3.1.38">
-<h3 data-number="3.1.38" class="anchored" data-anchor-id="copernius-dem-digital-surface-model"><span class="header-section-number">3.1.38</span> Copernius DEM digital surface model</h3>
+<section id="copernius-dem-digital-surface-model" class="level3">
+<h3 class="anchored" data-anchor-id="copernius-dem-digital-surface-model">Copernius DEM digital surface model</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/dsm_glo30/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/dsm_glo30/collection.json" class="uri">https://stac.openlandmap.org/dsm_glo30/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Global mosaic of 30m Copernicus DEM. The Copernicus DEM is a Digital Surface Model (DSM) that represents the surface of the Earth including buildings, infrastructure and vegetation. Data were acquired through the TanDEM-X mission between 2011 and 2015.</li>
 <li><code>r emo::ji("memo")</code> Theme: Elevation and Depth</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5270/ESA-c5d3d65</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5270/ESA-c5d3d65" class="uri">https://doi.org/10.5270/ESA-c5d3d65</a></li>
 </ul>
 </section>
-<section id="umd-glad-annual-land-cover-and-land-use-glcluc" class="level3" data-number="3.1.39">
-<h3 data-number="3.1.39" class="anchored" data-anchor-id="umd-glad-annual-land-cover-and-land-use-glcluc"><span class="header-section-number">3.1.39</span> UMD GLAD annual land cover and land use (GLCLUC)</h3>
+<section id="umd-glad-annual-land-cover-and-land-use-glcluc" class="level3">
+<h3 class="anchored" data-anchor-id="umd-glad-annual-land-cover-and-land-use-glcluc">UMD GLAD annual land cover and land use (GLCLUC)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/lc_glad.glcluc/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/lc_glad.glcluc/collection.json" class="uri">https://stac.openlandmap.org/lc_glad.glcluc/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: The global 30-m spatial resolution dataset quantifies changes in forest extent and height, cropland, built-up lands, surface water, and perennial snow and ice extent from the year 2000 to 2020. Landsat Analysis Ready Data served as an input for land cover and use mapping. Each thematic product was independently derived using locally and regionally calibrated machine learning tools.</li>
 <li><code>r emo::ji("memo")</code> Theme: Land Cover and Land Use</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.3389/frsen.2022.856903</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.3389/frsen.2022.856903" class="uri">https://doi.org/10.3389/frsen.2022.856903</a></li>
 </ul>
 </section>
-<section id="umd-glad-annual-land-cover-and-land-use-change-glcluc" class="level3" data-number="3.1.40">
-<h3 data-number="3.1.40" class="anchored" data-anchor-id="umd-glad-annual-land-cover-and-land-use-change-glcluc"><span class="header-section-number">3.1.40</span> UMD GLAD annual land cover and land use change (GLCLUC)</h3>
+<section id="umd-glad-annual-land-cover-and-land-use-change-glcluc" class="level3">
+<h3 class="anchored" data-anchor-id="umd-glad-annual-land-cover-and-land-use-change-glcluc">UMD GLAD annual land cover and land use change (GLCLUC)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/lc_glad.glcluc.change/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/lc_glad.glcluc.change/collection.json" class="uri">https://stac.openlandmap.org/lc_glad.glcluc.change/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: The global 30-m spatial resolution dataset quantifies changes in forest extent and height, cropland, built-up lands, surface water, and perennial snow and ice extent from the year 2000 to 2020. Landsat Analysis Ready Data served as an input for land cover and use mapping. Each thematic product was independently derived using locally and regionally calibrated machine learning tools.</li>
 <li><code>r emo::ji("memo")</code> Theme: Land Cover and Land Use</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.3389/frsen.2022.856903</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.3389/frsen.2022.856903" class="uri">https://doi.org/10.3389/frsen.2022.856903</a></li>
 </ul>
 </section>
-<section id="hyde-annual-cropland-for-the-holocene" class="level3" data-number="3.1.41">
-<h3 data-number="3.1.41" class="anchored" data-anchor-id="hyde-annual-cropland-for-the-holocene"><span class="header-section-number">3.1.41</span> HYDE annual cropland for the holocene</h3>
+<section id="hyde-annual-cropland-for-the-holocene" class="level3">
+<h3 class="anchored" data-anchor-id="hyde-annual-cropland-for-the-holocene">HYDE annual cropland for the holocene</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/landuse.cropland_hyde/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/landuse.cropland_hyde/collection.json" class="uri">https://stac.openlandmap.org/landuse.cropland_hyde/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: History Database of the Global Environment (HYDE version 3.2). HYDE is an internally consistent combination of historical population estimates and allocation algorithms with time-dependent weighting maps for land use.</li>
 <li><code>r emo::ji("memo")</code> Theme: Land Cover and Land Use</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.17026/dans-25g-gez3</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.17026/dans-25g-gez3" class="uri">https://doi.org/10.17026/dans-25g-gez3</a></li>
 </ul>
 </section>
-<section id="hyde-annual-pasture-for-the-holocene" class="level3" data-number="3.1.42">
-<h3 data-number="3.1.42" class="anchored" data-anchor-id="hyde-annual-pasture-for-the-holocene"><span class="header-section-number">3.1.42</span> HYDE annual pasture for the holocene</h3>
+<section id="hyde-annual-pasture-for-the-holocene" class="level3">
+<h3 class="anchored" data-anchor-id="hyde-annual-pasture-for-the-holocene">HYDE annual pasture for the holocene</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/landuse.pasture_hyde/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/landuse.pasture_hyde/collection.json" class="uri">https://stac.openlandmap.org/landuse.pasture_hyde/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: History Database of the Global Environment (HYDE version 3.2). HYDE is an internally consistent combination of historical population estimates and allocation algorithms with time-dependent weighting maps for land use.</li>
 <li><code>r emo::ji("memo")</code> Theme: Land Cover and Land Use</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.17026/dans-25g-gez3</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.17026/dans-25g-gez3" class="uri">https://doi.org/10.17026/dans-25g-gez3</a></li>
 </ul>
 </section>
-<section id="hilda-annual-land-use-and-land-cover-change" class="level3" data-number="3.1.43">
-<h3 data-number="3.1.43" class="anchored" data-anchor-id="hilda-annual-land-use-and-land-cover-change"><span class="header-section-number">3.1.43</span> HILDA+ annual land use and land cover change</h3>
+<section id="hilda-annual-land-use-and-land-cover-change" class="level3">
+<h3 class="anchored" data-anchor-id="hilda-annual-land-use-and-land-cover-change">HILDA+ annual land use and land cover change</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/land.use.land.cover_hilda.plus/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/land.use.land.cover_hilda.plus/collection.json" class="uri">https://stac.openlandmap.org/land.use.land.cover_hilda.plus/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: HILDA+ (HIstoric Land Dynamics Assessment+) global dataset indicates annual land use/cover change between 1960-2019 at 1 km spatial resolution. It integrates multiple open data streams (from high-resolution remote sensing, long-term land use reconstructions and statistics). It covers six generic land use/cover categories: 1: Urban areas, 2: Cropland, 3: Pasture/rangeland, 4: Forest, 5: Unmanaged grass/shrubland, 6: Sparse/no vegetation.</li>
 <li><code>r emo::ji("memo")</code> Theme: Land Cover and Land Use</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.1594/PANGAEA.921846</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.1594/PANGAEA.921846" class="uri">https://doi.org/10.1594/PANGAEA.921846</a></li>
 </ul>
 </section>
-<section id="mod11a2-long-term-land-surface-temperature-trend-daytime" class="level3" data-number="3.1.44">
-<h3 data-number="3.1.44" class="anchored" data-anchor-id="mod11a2-long-term-land-surface-temperature-trend-daytime"><span class="header-section-number">3.1.44</span> MOD11A2 long-term land surface temperature trend (daytime)</h3>
+<section id="mod11a2-long-term-land-surface-temperature-trend-daytime" class="level3">
+<h3 class="anchored" data-anchor-id="mod11a2-long-term-land-surface-temperature-trend-daytime">MOD11A2 long-term land surface temperature trend (daytime)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/lst_mod11a2.daytime.trend.logit.ols.beta/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/lst_mod11a2.daytime.trend.logit.ols.beta/collection.json" class="uri">https://stac.openlandmap.org/lst_mod11a2.daytime.trend.logit.ols.beta/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Long-term trend analysis of MOD11A2 monthly LST day-time temperatures. Trend was produced by fitting regression models to de-seasonalized time-series. Models are fitted for each pixel and several long-term temporal metrics (alpha, beta, P&gt;|t|, rsqr) has been derived.</li>
 <li><code>r emo::ji("memo")</code> Theme: Climate</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.1420114</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.1420114" class="uri">https://doi.org/10.5281/zenodo.1420114</a></li>
 </ul>
 </section>
-<section id="mod11a2-long-term-land-surface-temperature-trend-nighttime" class="level3" data-number="3.1.45">
-<h3 data-number="3.1.45" class="anchored" data-anchor-id="mod11a2-long-term-land-surface-temperature-trend-nighttime"><span class="header-section-number">3.1.45</span> MOD11A2 long-term land surface temperature trend (nighttime)</h3>
+<section id="mod11a2-long-term-land-surface-temperature-trend-nighttime" class="level3">
+<h3 class="anchored" data-anchor-id="mod11a2-long-term-land-surface-temperature-trend-nighttime">MOD11A2 long-term land surface temperature trend (nighttime)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/lst_mod11a2.nighttime.trend.logit.ols.beta/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/lst_mod11a2.nighttime.trend.logit.ols.beta/collection.json" class="uri">https://stac.openlandmap.org/lst_mod11a2.nighttime.trend.logit.ols.beta/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Long-term trend analysis of MOD11A2 monthly LST night-time temperatures. Trend was produced by fitting regression models to de-seasonalized time-series. Models are fitted for each pixel and several long-term temporal metrics (alpha, beta, P&gt;|t|, rsqr) has been derived.</li>
 <li><code>r emo::ji("memo")</code> Theme: Climate</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.1420114</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.1420114" class="uri">https://doi.org/10.5281/zenodo.1420114</a></li>
 </ul>
 </section>
-<section id="mod11a2-annual-land-surface-temperature-day-time" class="level3" data-number="3.1.46">
-<h3 data-number="3.1.46" class="anchored" data-anchor-id="mod11a2-annual-land-surface-temperature-day-time"><span class="header-section-number">3.1.46</span> MOD11A2 annual land surface temperature (day-time)</h3>
+<section id="mod11a2-annual-land-surface-temperature-day-time" class="level3">
+<h3 class="anchored" data-anchor-id="mod11a2-annual-land-surface-temperature-day-time">MOD11A2 annual land surface temperature (day-time)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/lst_mod11a2.daytime.annual/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/lst_mod11a2.daytime.annual/collection.json" class="uri">https://stac.openlandmap.org/lst_mod11a2.daytime.annual/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Day-time land surface temperature, derived from MOD11A2, yearly aggregated considering three percentiles (p05, p50 and p95) and standard deviation of cloud-free pixels. All months were gapfilled by TMWM, which uses cloud-free pixel values from diferent periods to interpolate the missing values.</li>
 <li><code>r emo::ji("memo")</code> Theme: Climate</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.1420114</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.1420114" class="uri">https://doi.org/10.5281/zenodo.1420114</a></li>
 </ul>
 </section>
-<section id="mod11a2-annual-land-surface-temperature-night-time" class="level3" data-number="3.1.47">
-<h3 data-number="3.1.47" class="anchored" data-anchor-id="mod11a2-annual-land-surface-temperature-night-time"><span class="header-section-number">3.1.47</span> MOD11A2 annual land surface temperature (night-time)</h3>
+<section id="mod11a2-annual-land-surface-temperature-night-time" class="level3">
+<h3 class="anchored" data-anchor-id="mod11a2-annual-land-surface-temperature-night-time">MOD11A2 annual land surface temperature (night-time)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/lst_mod11a2.nighttime.annual/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/lst_mod11a2.nighttime.annual/collection.json" class="uri">https://stac.openlandmap.org/lst_mod11a2.nighttime.annual/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Night-time land surface temperature, derived from MOD11A2, yearly aggregated considering three percentiles (p05, p50 and p95) and standard deviation of cloud-free pixels. All months were gapfilled by TMWM, which uses cloud-free pixel values from diferent periods to interpolate the missing values.</li>
 <li><code>r emo::ji("memo")</code> Theme: Climate</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.1420114</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.1420114" class="uri">https://doi.org/10.5281/zenodo.1420114</a></li>
 </ul>
 </section>
-<section id="mod11a2-monthly-land-surface-temperature-day-time" class="level3" data-number="3.1.48">
-<h3 data-number="3.1.48" class="anchored" data-anchor-id="mod11a2-monthly-land-surface-temperature-day-time"><span class="header-section-number">3.1.48</span> MOD11A2 monthly land surface temperature (day-time)</h3>
+<section id="mod11a2-monthly-land-surface-temperature-day-time" class="level3">
+<h3 class="anchored" data-anchor-id="mod11a2-monthly-land-surface-temperature-day-time">MOD11A2 monthly land surface temperature (day-time)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/lst_mod11a2.daytime/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/lst_mod11a2.daytime/collection.json" class="uri">https://stac.openlandmap.org/lst_mod11a2.daytime/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Day-time land surface temperature, derived from MOD11A2, monthly aggregated considering three percentiles (p05, p50 and p95) and standard deviation of cloud-free pixels. All months were gapfilled by TMWM, which uses cloud-free pixel values from diferent periods to interpolate the missing values.</li>
 <li><code>r emo::ji("memo")</code> Theme: Climate</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.1420114</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.1420114" class="uri">https://doi.org/10.5281/zenodo.1420114</a></li>
 </ul>
 </section>
-<section id="mod11a2-monthly-land-surface-temperature-night-time" class="level3" data-number="3.1.49">
-<h3 data-number="3.1.49" class="anchored" data-anchor-id="mod11a2-monthly-land-surface-temperature-night-time"><span class="header-section-number">3.1.49</span> MOD11A2 monthly land surface temperature (night-time)</h3>
+<section id="mod11a2-monthly-land-surface-temperature-night-time" class="level3">
+<h3 class="anchored" data-anchor-id="mod11a2-monthly-land-surface-temperature-night-time">MOD11A2 monthly land surface temperature (night-time)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/lst_mod11a2.nighttime/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/lst_mod11a2.nighttime/collection.json" class="uri">https://stac.openlandmap.org/lst_mod11a2.nighttime/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Night-time land surface temperature, derived from MOD11A2, monthly aggregated considering three percentiles (p05, p50 and p95) and standard deviation of cloud-free pixels. All months were gapfilled by TMWM, which uses cloud-free pixel values from diferent periods to interpolate the missing values.</li>
 <li><code>r emo::ji("memo")</code> Theme: Climate</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.1420114</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.1420114" class="uri">https://doi.org/10.5281/zenodo.1420114</a></li>
 </ul>
 </section>
-<section id="openlandmap-landform-classes" class="level3" data-number="3.1.50">
-<h3 data-number="3.1.50" class="anchored" data-anchor-id="openlandmap-landform-classes"><span class="header-section-number">3.1.50</span> OpenLandMap landform classes</h3>
+<section id="openlandmap-landform-classes" class="level3">
+<h3 class="anchored" data-anchor-id="openlandmap-landform-classes">OpenLandMap landform classes</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/landform_usgs.ecotapestry/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/landform_usgs.ecotapestry/collection.json" class="uri">https://stac.openlandmap.org/landform_usgs.ecotapestry/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Layers include: landform (7) indicator maps (0-100%). Derived from the USGS Global Ecosystem Map, i.e.&nbsp;the EcoTapestry map. Water bodies masked out. Antarctica is not included.</li>
 <li><code>r emo::ji("memo")</code> Theme: Geology and Soils</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.1464846</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.1464846" class="uri">https://doi.org/10.5281/zenodo.1464846</a></li>
 </ul>
 </section>
-<section id="openlandmap-lithology-classes" class="level3" data-number="3.1.51">
-<h3 data-number="3.1.51" class="anchored" data-anchor-id="openlandmap-lithology-classes"><span class="header-section-number">3.1.51</span> OpenLandMap lithology classes</h3>
+<section id="openlandmap-lithology-classes" class="level3">
+<h3 class="anchored" data-anchor-id="openlandmap-lithology-classes">OpenLandMap lithology classes</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/lithology_usgs.ecotapestry/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/lithology_usgs.ecotapestry/collection.json" class="uri">https://stac.openlandmap.org/lithology_usgs.ecotapestry/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Layers include: lithology (15) indicator maps (0-100%). Derived from the USGS Global Ecosystem Map, i.e.&nbsp;the EcoTapestry map. Water bodies masked out. Antarctica is not included.</li>
 <li><code>r emo::ji("memo")</code> Theme: Geology and Soils</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.1464846</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.1464846" class="uri">https://doi.org/10.5281/zenodo.1464846</a></li>
 </ul>
 </section>
-<section id="openlandmap-haopludalfs-of-usda-soil-great-groups" class="level3" data-number="3.1.52">
-<h3 data-number="3.1.52" class="anchored" data-anchor-id="openlandmap-haopludalfs-of-usda-soil-great-groups"><span class="header-section-number">3.1.52</span> OpenLandMap Haopludalfs of USDA soil great groups</h3>
+<section id="openlandmap-haopludalfs-of-usda-soil-great-groups" class="level3">
+<h3 class="anchored" data-anchor-id="openlandmap-haopludalfs-of-usda-soil-great-groups">OpenLandMap Haopludalfs of USDA soil great groups</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/grtgroup_usda.soiltax.hapludalfs/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/grtgroup_usda.soiltax.hapludalfs/collection.json" class="uri">https://stac.openlandmap.org/grtgroup_usda.soiltax.hapludalfs/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Distribution of hapludalfs ofthe USDA soil great groups based on machine learning predictions from global compilation of soil profiles (&gt;350,000 training points).</li>
 <li><code>r emo::ji("memo")</code> Theme: Geology and Soils</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.3528062</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.3528062" class="uri">https://doi.org/10.5281/zenodo.3528062</a></li>
 </ul>
 </section>
-<section id="potential-distribution-of-biomes" class="level3" data-number="3.1.53">
-<h3 data-number="3.1.53" class="anchored" data-anchor-id="potential-distribution-of-biomes"><span class="header-section-number">3.1.53</span> Potential distribution of biomes</h3>
+<section id="potential-distribution-of-biomes" class="level3">
+<h3 class="anchored" data-anchor-id="potential-distribution-of-biomes">Potential distribution of biomes</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/biome.type_biome00k/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/biome.type_biome00k/collection.json" class="uri">https://stac.openlandmap.org/biome.type_biome00k/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Potential distribution of biomes (Potential Natural Vegetation) at 250 m spatial resolution based on the BIOME 6000 data set (8057 modern pollen-based site reconstructions). Predicted at 250 m using Ensemble Machine Learning and relief and climate variables representing the climate for the last 20+ years.</li>
 <li><code>r emo::ji("memo")</code> Theme: Biodiversity and Nature Conservation</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.3526620</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.3526620" class="uri">https://doi.org/10.5281/zenodo.3526620</a></li>
 </ul>
 </section>
-<section id="potential-distribution-of-tropical-evergreen-broadleaf-forest" class="level3" data-number="3.1.54">
-<h3 data-number="3.1.54" class="anchored" data-anchor-id="potential-distribution-of-tropical-evergreen-broadleaf-forest"><span class="header-section-number">3.1.54</span> Potential distribution of tropical evergreen broadleaf forest</h3>
+<section id="potential-distribution-of-tropical-evergreen-broadleaf-forest" class="level3">
+<h3 class="anchored" data-anchor-id="potential-distribution-of-tropical-evergreen-broadleaf-forest">Potential distribution of tropical evergreen broadleaf forest</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/biomes_biome6k.tropical.evergreen.broadleaf.forest/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/biomes_biome6k.tropical.evergreen.broadleaf.forest/collection.json" class="uri">https://stac.openlandmap.org/biomes_biome6k.tropical.evergreen.broadleaf.forest/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Probability and uncertainty maps showing the potential current natural vegetation (tropical evergreen broadleaf forest) on a global scale. Current (2022 - 2023) conditions are calculated on historical long term averages (1979 - 2013)</li>
 <li><code>r emo::ji("memo")</code> Theme: Biodiversity and Nature Conservation</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.7822868</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.7822868" class="uri">https://doi.org/10.5281/zenodo.7822868</a></li>
 </ul>
 </section>
-<section id="future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-2.6" class="level3" data-number="3.1.55">
-<h3 data-number="3.1.55" class="anchored" data-anchor-id="future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-2.6"><span class="header-section-number">3.1.55</span> Future potential distribution of tropical evergreen broadleaf forest (RCP 2.6)</h3>
+<section id="future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-2.6" class="level3">
+<h3 class="anchored" data-anchor-id="future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-2.6">Future potential distribution of tropical evergreen broadleaf forest (RCP 2.6)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/biomes_biome6k.tropical.evergreen.broadleaf.forest.rcp26/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/biomes_biome6k.tropical.evergreen.broadleaf.forest.rcp26/collection.json" class="uri">https://stac.openlandmap.org/biomes_biome6k.tropical.evergreen.broadleaf.forest.rcp26/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Probability and uncertainty maps showing the potential future natural vegetation (tropical evergreen broadleaf forest) on a global scale. Future projections (RCP 2.6) cover two different epochs: 2041 - 2060 and 2061 - 2080</li>
 <li><code>r emo::ji("memo")</code> Theme: Biodiversity and Nature Conservation</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.7822868</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.7822868" class="uri">https://doi.org/10.5281/zenodo.7822868</a></li>
 </ul>
 </section>
-<section id="future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-4.5" class="level3" data-number="3.1.56">
-<h3 data-number="3.1.56" class="anchored" data-anchor-id="future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-4.5"><span class="header-section-number">3.1.56</span> Future potential distribution of tropical evergreen broadleaf forest (RCP 4.5)</h3>
+<section id="future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-4.5" class="level3">
+<h3 class="anchored" data-anchor-id="future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-4.5">Future potential distribution of tropical evergreen broadleaf forest (RCP 4.5)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/biomes_biome6k.tropical.evergreen.broadleaf.forest.rcp45/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/biomes_biome6k.tropical.evergreen.broadleaf.forest.rcp45/collection.json" class="uri">https://stac.openlandmap.org/biomes_biome6k.tropical.evergreen.broadleaf.forest.rcp45/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Probability and uncertainty maps showing the potential future natural vegetation (tropical evergreen broadleaf forest) on a global scale. Future projections (RCP 4.5) cover two different epochs: 2041 - 2060 and 2061 - 2080</li>
 <li><code>r emo::ji("memo")</code> Theme: Biodiversity and Nature Conservation</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.7822868</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.7822868" class="uri">https://doi.org/10.5281/zenodo.7822868</a></li>
 </ul>
 </section>
-<section id="future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-8.5" class="level3" data-number="3.1.57">
-<h3 data-number="3.1.57" class="anchored" data-anchor-id="future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-8.5"><span class="header-section-number">3.1.57</span> Future potential distribution of tropical evergreen broadleaf forest (RCP 8.5)</h3>
+<section id="future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-8.5" class="level3">
+<h3 class="anchored" data-anchor-id="future-potential-distribution-of-tropical-evergreen-broadleaf-forest-rcp-8.5">Future potential distribution of tropical evergreen broadleaf forest (RCP 8.5)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/biomes_biome6k.tropical.evergreen.broadleaf.forest.rcp85/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/biomes_biome6k.tropical.evergreen.broadleaf.forest.rcp85/collection.json" class="uri">https://stac.openlandmap.org/biomes_biome6k.tropical.evergreen.broadleaf.forest.rcp85/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Probability and uncertainty maps showing the potential future natural vegetation (tropical evergreen broadleaf forest) on a global scale. Future projections (RCP 8.5) cover two different epochs: 2041 - 2060 and 2061 - 2080</li>
 <li><code>r emo::ji("memo")</code> Theme: Biodiversity and Nature Conservation</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.7822868</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.7822868" class="uri">https://doi.org/10.5281/zenodo.7822868</a></li>
 </ul>
 </section>
-<section id="potential-distribution-of-tropical-savanna" class="level3" data-number="3.1.58">
-<h3 data-number="3.1.58" class="anchored" data-anchor-id="potential-distribution-of-tropical-savanna"><span class="header-section-number">3.1.58</span> Potential distribution of tropical savanna</h3>
+<section id="potential-distribution-of-tropical-savanna" class="level3">
+<h3 class="anchored" data-anchor-id="potential-distribution-of-tropical-savanna">Potential distribution of tropical savanna</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/biomes_biome6k.tropical.savanna/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/biomes_biome6k.tropical.savanna/collection.json" class="uri">https://stac.openlandmap.org/biomes_biome6k.tropical.savanna/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Probability and uncertainty maps showing the potential current natural vegetation (tropical savanna) on a global scale. Current (2022 - 2023) conditions are calculated on historical long term averages (1979 - 2013)</li>
 <li><code>r emo::ji("memo")</code> Theme: Biodiversity and Nature Conservation</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.7822868</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.7822868" class="uri">https://doi.org/10.5281/zenodo.7822868</a></li>
 </ul>
 </section>
-<section id="future-potential-distribution-of-tropical-savanna-rcp-2.6" class="level3" data-number="3.1.59">
-<h3 data-number="3.1.59" class="anchored" data-anchor-id="future-potential-distribution-of-tropical-savanna-rcp-2.6"><span class="header-section-number">3.1.59</span> Future potential distribution of tropical savanna (RCP 2.6)</h3>
+<section id="future-potential-distribution-of-tropical-savanna-rcp-2.6" class="level3">
+<h3 class="anchored" data-anchor-id="future-potential-distribution-of-tropical-savanna-rcp-2.6">Future potential distribution of tropical savanna (RCP 2.6)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/biomes_biome6k.tropical.savanna.rcp26/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/biomes_biome6k.tropical.savanna.rcp26/collection.json" class="uri">https://stac.openlandmap.org/biomes_biome6k.tropical.savanna.rcp26/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Probability and uncertainty maps showing the potential future natural vegetation (tropical savanna) on a global scale. Future projections (RCP 2.6) cover two different epochs: 2041 - 2060 and 2061 - 2080</li>
 <li><code>r emo::ji("memo")</code> Theme: Biodiversity and Nature Conservation</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.7822868</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.7822868" class="uri">https://doi.org/10.5281/zenodo.7822868</a></li>
 </ul>
 </section>
-<section id="future-potential-distribution-of-tropical-savanna-rcp-4.5" class="level3" data-number="3.1.60">
-<h3 data-number="3.1.60" class="anchored" data-anchor-id="future-potential-distribution-of-tropical-savanna-rcp-4.5"><span class="header-section-number">3.1.60</span> Future potential distribution of tropical savanna (RCP 4.5)</h3>
+<section id="future-potential-distribution-of-tropical-savanna-rcp-4.5" class="level3">
+<h3 class="anchored" data-anchor-id="future-potential-distribution-of-tropical-savanna-rcp-4.5">Future potential distribution of tropical savanna (RCP 4.5)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/biomes_biome6k.tropical.savanna.rcp45/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/biomes_biome6k.tropical.savanna.rcp45/collection.json" class="uri">https://stac.openlandmap.org/biomes_biome6k.tropical.savanna.rcp45/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Probability and uncertainty maps showing the potential future natural vegetation (tropical savanna) on a global scale. Future projections (RCP 4.5) cover two different epochs: 2041 - 2060 and 2061 - 2080</li>
 <li><code>r emo::ji("memo")</code> Theme: Biodiversity and Nature Conservation</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.7822868</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.7822868" class="uri">https://doi.org/10.5281/zenodo.7822868</a></li>
 </ul>
 </section>
-<section id="future-potential-distribution-of-tropical-savanna-rcp-8.5" class="level3" data-number="3.1.61">
-<h3 data-number="3.1.61" class="anchored" data-anchor-id="future-potential-distribution-of-tropical-savanna-rcp-8.5"><span class="header-section-number">3.1.61</span> Future potential distribution of tropical savanna (RCP 8.5)</h3>
+<section id="future-potential-distribution-of-tropical-savanna-rcp-8.5" class="level3">
+<h3 class="anchored" data-anchor-id="future-potential-distribution-of-tropical-savanna-rcp-8.5">Future potential distribution of tropical savanna (RCP 8.5)</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/biomes_biome6k.tropical.savanna.rcp85/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/biomes_biome6k.tropical.savanna.rcp85/collection.json" class="uri">https://stac.openlandmap.org/biomes_biome6k.tropical.savanna.rcp85/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: Probability and uncertainty maps showing the potential future natural vegetation (tropical savanna) on a global scale. Future projections (RCP 8.5) cover two different epochs: 2041 - 2060 and 2061 - 2080</li>
 <li><code>r emo::ji("memo")</code> Theme: Biodiversity and Nature Conservation</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.7822868</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.7822868" class="uri">https://doi.org/10.5281/zenodo.7822868</a></li>
 </ul>
 </section>
-<section id="glc_fcs30d-annual-land-land-cover-dynamic-monitoring-product" class="level3" data-number="3.1.62">
-<h3 data-number="3.1.62" class="anchored" data-anchor-id="glc_fcs30d-annual-land-land-cover-dynamic-monitoring-product"><span class="header-section-number">3.1.62</span> GLC_FCS30D annual land land-cover dynamic monitoring product</h3>
+<section id="glc_fcs30d-annual-land-land-cover-dynamic-monitoring-product" class="level3">
+<h3 class="anchored" data-anchor-id="glc_fcs30d-annual-land-land-cover-dynamic-monitoring-product">GLC_FCS30D annual land land-cover dynamic monitoring product</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/lc_glc.fcs30d/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/lc_glc.fcs30d/collection.json" class="uri">https://stac.openlandmap.org/lc_glc.fcs30d/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: GLC_FCS30D is the first global fine land cover dynamic product at a 30-meter resolution that adopts continuous change detection. It utilizes a refined classification system containing 35 land-cover categories and covers the time span from 1985 to 2022. Before the year 2000, the update cycle was every 5 years, while after 2000, it is updated annually. In specific, it developed by combining the continuous change detection method, local adaptive updating models and the spatiotemporal optimization algorithm from dense time-series Landsat imagery, and was validated to achieve an overall accuracy of 80.88% (±0.27%) for the basic classification system 10 major land-cover types) and 73.24% (±0.30%) for the LCCS level-1 validation system (17 LCCS land-cover types).</li>
 <li><code>r emo::ji("memo")</code> Theme: Land Cover and Land Use</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.8239305</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.8239305" class="uri">https://doi.org/10.5281/zenodo.8239305</a></li>
 </ul>
 </section>
-<section id="viirs-annual-nighttime-lights" class="level3" data-number="3.1.63">
-<h3 data-number="3.1.63" class="anchored" data-anchor-id="viirs-annual-nighttime-lights"><span class="header-section-number">3.1.63</span> VIIRS annual nighttime lights</h3>
+<section id="viirs-annual-nighttime-lights" class="level3">
+<h3 class="anchored" data-anchor-id="viirs-annual-nighttime-lights">VIIRS annual nighttime lights</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/nightlights.average_viirs.v21/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/nightlights.average_viirs.v21/collection.json" class="uri">https://stac.openlandmap.org/nightlights.average_viirs.v21/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: The Annual Visible Night Light (VNL) V2 (VIIRS) images at 500-m spatial resolution for the period 2012 to 2021 (Elvidge et al., 2021) have been used to extrapolate the values backwards for years 2000–2011. This was done by fitting a logistic regression (per pixel) and then predicting the values for the previous years. Use with caution: extrapolation of values can lead to artifacts. For most of the land surface, however, it appears that the growth of night lights follows exponential growth function and hence nights in the past can be represented accurately by fitting decay / logistic regression function.</li>
 <li><code>r emo::ji("memo")</code> Theme: Orthoimagery</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.8277198</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.8277198" class="uri">https://doi.org/10.5281/zenodo.8277198</a></li>
 </ul>
 </section>
-<section id="viirs-long-term-nighttime-lights-difference" class="level3" data-number="3.1.64">
-<h3 data-number="3.1.64" class="anchored" data-anchor-id="viirs-long-term-nighttime-lights-difference"><span class="header-section-number">3.1.64</span> VIIRS long-term nighttime lights difference</h3>
+<section id="viirs-long-term-nighttime-lights-difference" class="level3">
+<h3 class="anchored" data-anchor-id="viirs-long-term-nighttime-lights-difference">VIIRS long-term nighttime lights difference</h3>
 <ul>
-<li><code>r emo::ji("link")</code> URL: https://stac.openlandmap.org/nightlights.difference_viirs.v21/collection.json</li>
+<li><code>r emo::ji("link")</code> URL: <a href="https://stac.openlandmap.org/nightlights.difference_viirs.v21/collection.json" class="uri">https://stac.openlandmap.org/nightlights.difference_viirs.v21/collection.json</a></li>
 <li><code>r emo::ji("news")</code> Description: This dataset was derived by difference between average of the years 2020 / 2021 and years 2000 / 2021, showing an average rate of change for the 22 years period. Use with caution: extrapolation of values can lead to artifacts. For most of the land surface, however, it appears that the growth of night lights follows exponential growth function and hence nights in the past can be represented accurately by fitting decay / logistic regression function.</li>
 <li><code>r emo::ji("memo")</code> Theme: Orthoimagery</li>
-<li><code>r emo::ji("open_file_folder")</code> DOI: https://doi.org/10.5281/zenodo.8277198</li>
+<li><code>r emo::ji("open_file_folder")</code> DOI: <a href="https://doi.org/10.5281/zenodo.8277198" class="uri">https://doi.org/10.5281/zenodo.8277198</a></li>
 </ul>
 
 
+</section>
 </section>
 </section>
 
@@ -1380,19 +1410,51 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./012-compendium.html" class="pagination-link  aria-label=" &lt;span="" of="" global="" gridded="" environmental="" data="" sets&lt;="" span&gt;"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Compendium of Global Gridded Environmental Data Sets</span></span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./020-stac.html" class="pagination-link" aria-label="<span class='chapter-number'>4</span>&nbsp; <span class='chapter-title'>OpenLandMap STAC</span>">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">OpenLandMap STAC</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2024, OpenGeoHub foundation</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/openlandmap/book/edit/main/016-project.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/openlandmap/book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/openlandmap/book">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://fosstodon.org/@opengeohub">
+      <i class="bi bi-mastodon" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/opengeohub">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/company/opengeohub-foundation/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/OpenGeoHubFoundation">
+      <i class="bi bi-youtube" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 
