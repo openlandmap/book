@@ -138,13 +138,13 @@ need to plan carefully your time.
 Here are also some world-leading providers of tools for making geospatial 
 data more usable and more **[FAIR](https://www.go-fair.org/fair-principles/) (Findable, Accessible, Interoperable, and Reusable)** (unsorted):
 
--  https://gdal.org software backbone of any open geospatial data project;
--  https://radiant.earth/ is organization largely behind COGs and STAC;
--  https://pangeo.io/ a project developing tools for Big Data geoscience;
--  https://github.com/opengeospatial the Open Geospatial Consortium repositories hosting many open source solutions for Big Data geoscience;
--  https://github.com/opengeos/ a collection of open-source software packages for the geospatial community;
--  https://r-spatial.org/ and https://rspatial.org/ packages and tutorials for accessing and processing geospatial data using R;
--  https://juliageo.org/ libraries for Julia language to support processing geospatial data;
+-  <https://gdal.org> software backbone of any open geospatial data project;
+-  <https://radiant.earth/> is organization largely behind COGs and STAC;
+-  <https://pangeo.io/> a project developing tools for Big Data geoscience;
+-  <https://github.com/opengeospatial> the Open Geospatial Consortium repositories hosting many open source solutions for Big Data geoscience;
+-  <https://github.com/opengeos/> a collection of open-source software packages for the geospatial community;
+-  <https://r-spatial.org/> and <https://rspatial.org/> packages and tutorials for accessing and processing geospatial data using R;
+-  <https://juliageo.org/> libraries for Julia language to support processing geospatial data;
 
 ## Buildings and Settlements
 
@@ -250,6 +250,8 @@ Connected to GRanD, **Global reservoir bathymetry estimate (ReGeom)** dataset is
 @lane2023mapping produced a global 90-m resolution map of **[Non-Floodplain Wetland (Global NFW)](https://doi.org/10.23719/1528331)**.
 Global NFW is based on multiple input data sources including MERIT Hydro, 
 HydroBASINS and similar. 
+@Verkaik2024 produced a global map of [steady-state water table depth and water table amplitude](https://doi.org/10.24416/UU01-44L775) 
+at 1-km spatial resolution using the [GLOBGM](https://github.com/UU-Hydro/GLOBGM) (Groundwater Model at 30 arcsecond spatial resolution).
 
 Several data set exists that quantify global surface water extent and type, wetlands distribution and 
 fresh-water resources in general: 
@@ -346,6 +348,8 @@ also known as the **[Harmonized World Soil Database](https://www.fao.org/soils-p
 Global predicted WRB soil type maps at 1-km can be download as geotifs from [here](https://doi.org/10.5281/zenodo.7820796).
 USGS / USDA have produced a map of [Global Soil Regions](https://www.nrcs.usda.gov/conservation-basics/natural-resource-concerns/soils/soil-geography) 
 map at resolution of 60 arcsec, and which is based on the FAO-UNESCO soil map.
+@Melton2022 produced a global map of peatland ([Peat-ML](https://zenodo.org/doi/10.5281/zenodo.5794335)) 
+i.e. organic soils at 10-km spatial resolution.
 
 A list of seven gridded soil property maps (at resolution of 5 arc-minutes i.e. about 10-km) — 
 soil-carbon density, total nitrogen density, field capacity, wilting point, profile 
