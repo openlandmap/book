@@ -547,6 +547,7 @@ div.csl-indent {
 <li><strong><a href="https://glad.umd.edu/dataset/GLCLUC2020">GLAD Global Land Cover and Land Use Change 2000–2020 (GLCLUC2020)</a></strong> provides estimate of the land cover for the last 20+ years but also quantifies changes in forest extent and height, cropland, built-up lands, surface water, and perennial snow and ice extent <span class="citation" data-cites="Potapov2022">(<a href="#ref-Potapov2022" role="doc-biblioref">Potapov et al. 2022</a>)</span>.</li>
 <li><strong><a href="https://zenodo.org/doi/10.5281/zenodo.8239304">GLC FCS30D</a></strong> is a global 30-m annual land-cover time-series data set with 17-class system for the period 1982–2021 <span class="citation" data-cites="Zhang2021">(<a href="#ref-Zhang2021" role="doc-biblioref">X. Zhang et al. 2021</a>)</span>.</li>
 </ul>
+<p>An in-depth review of time-series of global land cover / land use maps is also provided by <span class="citation" data-cites="Mora2014">Mora et al. (<a href="#ref-Mora2014" role="doc-biblioref">2014</a>)</span> and <span class="citation" data-cites="garcia2022global">Garcı́a-Álvarez et al. (<a href="#ref-garcia2022global" role="doc-biblioref">2022</a>)</span>. <span class="citation" data-cites="garcia2022global">Garcı́a-Álvarez et al. (<a href="#ref-garcia2022global" role="doc-biblioref">2022</a>)</span> also provides all legends for all global land cover products.</p>
 <p><strong><a href="https://landuse.sites.uu.nl/datasets/">HYDE (History database of the Global Environment)</a></strong> contains historic (estimated) maps (10-km resolution) of main land use categories up to pre-historic times 10,000 BCE to CE 2020 <span class="citation" data-cites="klein2017anthropogenic">(<a href="#ref-klein2017anthropogenic" role="doc-biblioref">Klein Goldewijk et al. 2017</a>)</span>. HYDE includes irrigated areas, rice, intensive pasture, extensive rangelands and similar. Data can be downloaded from the <a href="https://landuse.sites.uu.nl/datasets/">University of Utrecht Copernicus Land Change Lab</a>.</p>
 <p>A detailed Water mask of the world is available also from the <strong><a href="https://global-surface-water.appspot.com/">Global Surface Water Explorer</a></strong> hosted by European Commission JRC <span class="citation" data-cites="Pekel2016">(<a href="#ref-Pekel2016" role="doc-biblioref">Pekel et al. 2016</a>)</span>. A Landsat-based water dynamics assessment (annual maps) at 30-m is also provided by <span class="citation" data-cites="pickens2020mapping">Pickens et al. (<a href="#ref-pickens2020mapping" role="doc-biblioref">2020</a>)</span>. <strong><a href="https://geoservice.dlr.de/web/maps/eoc:gwp:yearly">Global WaterPack (GWP) monthly and yearly</a></strong> product comprises different water coverage categories at 250-m spatial resolution.</p>
 <p>Due to the availability of the Sentinel-2 10-m resolution data, several land cover products are now available at very high resolution (but then only covering recent 3–5 years). These include:</p>
@@ -673,11 +674,11 @@ forest cover change at 30-m resolution. <strong><a href="https://geoservice.dlr.
 <li>precipitation (mm),</li>
 <li>solar radiation (kJ m-2 day-1),</li>
 <li>wind speed (m s-1),</li>
+<li>water vapor (cm liquid water),</li>
 <li>water vapor pressure (kPa),</li>
 <li>probability of occurrence of snow,</li>
-<li>snow thickness,</li>
-<li>soil moisture,</li>
-<li>water vapor (cm liquid water),</li>
+<li>snow thickness (cm),</li>
+<li>soil moisture (cm liquid water),</li>
 </ul>
 <p>The key public gridded global climatic data sets (current and past climate) include:</p>
 <ul>
@@ -859,6 +860,9 @@ Gao, Bo-Cai, and Yoram J Kaufman. 2003. <span>“Water Vapor Retrievals Using Mo
 <div id="ref-gao2020global" class="csl-entry" role="listitem">
 Gao, J. 2020. <em>Global 1-Km Downscaled Population Base Year and Projection Grids Based on the Shared Socioeconomic Pathways, Revision 01</em>. Palisades, New York: NASA Socioeconomic Data; Applications Center (SEDAC). <a href="https://doi.org/10.7927/q7z9-9r69">https://doi.org/10.7927/q7z9-9r69</a>.
 </div>
+<div id="ref-garcia2022global" class="csl-entry" role="listitem">
+Garcı́a-Álvarez, David, Javier Lara Hinojosa, Francisco José Jurado Pérez, and Jaime Quintero Villaraso. 2022. <span>“Global General Land Use Cover Datasets with a Time Series of Maps.”</span> In <em>Land Use Cover Datasets and Validation Tools: Validation Practices with QGIS</em>, 287–311. Springer International Publishing Cham. <a href="https://doi.org/10.1007/978-3-030-90998-7_15">https://doi.org/10.1007/978-3-030-90998-7_15</a>.
+</div>
 <div id="ref-GONG2019370" class="csl-entry" role="listitem">
 Gong, Peng, Han Liu, Meinan Zhang, Congcong Li, Jie Wang, Huabing Huang, Nicholas Clinton, et al. 2019. <span>“Stable Classification with Limited Sample: Transferring a 30-m Resolution Sample Set Collected in 2015 to Mapping 10-m Resolution Global Land Cover in 2017.”</span> <em>Science Bulletin</em> 64 (6): 370–73. <a href="https://doi.org/10.1016/j.scib.2019.03.002">https://doi.org/10.1016/j.scib.2019.03.002</a>.
 </div>
@@ -945,6 +949,9 @@ McCloskey, J Michael, and Heather Spalding. 1989. <span>“A Reconnaissance-Leve
 </div>
 <div id="ref-Melton2022" class="csl-entry" role="listitem">
 Melton, J. R., E. Chan, K. Millard, M. Fortier, R. S. Winton, J. M. Martı́n-López, H. Cadillo-Quiroz, D. Kidd, and L. V. Verchot. 2022. <span>“A Map of Global Peatland Extent Created Using Machine Learning (Peat-ML).”</span> <em>Geoscientific Model Development</em> 15 (12): 4709–38. <a href="https://doi.org/10.5194/gmd-15-4709-2022">https://doi.org/10.5194/gmd-15-4709-2022</a>.
+</div>
+<div id="ref-Mora2014" class="csl-entry" role="listitem">
+Mora, Brice, Nandin-Erdene Tsendbazar, Martin Herold, and Olivier Arino. 2014. <span>“Global Land Cover Mapping: Current Status and Future Trends.”</span> In <em>Land Use and Land Cover Mapping in Europe: Practices <span>&amp;</span> Trends</em>, edited by Ioannis Manakos and Matthias Braun, 11–30. Dordrecht: Springer Netherlands. <a href="https://doi.org/10.1007/978-94-007-7969-3_2">https://doi.org/10.1007/978-94-007-7969-3_2</a>.
 </div>
 <div id="ref-moudry2020quality" class="csl-entry" role="listitem">
 Moudrỳ, Vı́tězslav, and Rodolphe Devillers. 2020. <span>“Quality and Usability Challenges of Global Marine Biodiversity Databases: An Example for Marine Mammal Data.”</span> <em>Ecological Informatics</em> 56: 101051. <a href="https://doi.org/10.1016/j.ecoinf.2020.101051">https://doi.org/10.1016/j.ecoinf.2020.101051</a>.

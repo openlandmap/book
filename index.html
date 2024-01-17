@@ -305,7 +305,7 @@ div.csl-indent {
 
 <section id="about" class="level1 unnumbered">
 <h1 class="unnumbered">About</h1>
-<p><a href="https://openlandmap.org">OpenLandMap</a> are Open Land Data services providing access to spatial layers covering global land mass (at spatial resolutions of 1-km, 250-m, 100-m, 30-m or finer) hosted by the OpenGeoHub foundation, GILAB.rs and collaborators. It aims at becoming an <a href="https://towardsdatascience.com/everybody-has-a-right-to-know-whats-happening-with-the-planet-towards-a-global-commons-5a1ad4ba0bdd">OpenStreetMap-type system for land data</a>. Access to spatial layers is possible via interactive visualizations and/or Open Source software solutions. Read more about this project <a href="https://opengeohub.org/about-openlandmap/">here</a>.</p>
+<p><a href="https://openlandmap.org">OpenLandMap</a> are Open Land Data services providing access to spatial layers covering global land mass (at spatial resolutions of 1-km, 250-m, 100-m, 30-m or finer) hosted by the OpenGeoHub foundation, GILAB.rs and collaborators. It aims at becoming an <a href="https://towardsdatascience.com/everybody-has-a-right-to-know-whats-happening-with-the-planet-towards-a-global-commons-5a1ad4ba0bdd">OpenStreetMap-type system for land data</a>. Access to spatial layers is possible via interactive visualizations and/or Open Source software solutions. Read more about this project <a href="https://opengeohub.org/about-openlandmap/">here</a>. We will be continuously adding new layers, helping different groups fill-in gaps in data and improving <strong><a href="https://www.go-fair.org/fair-principles/">FAIRness</a> (Findable, Accessible, Interoperable, and Reusable)</strong> of the data. Our ultimate goal is to produce an Analysis-Ready (complete, consistent, current and correct) <a href="https://guide.cloudnativegeo.org/">cloud-optimized</a> data cube <span class="citation" data-cites="giuliani2019earth">(<a href="#ref-giuliani2019earth" role="doc-biblioref">Giuliani et al. 2019</a>)</span> that is available unrestricted and through a federated approach.</p>
 <p><a href="https://opengeohub.medium.com/"><img src="cover.jpg" alt="OpenLandMap banner" width="300"></a></p>
 <p>The OpenLandMap layers, if not specified otherwise, are licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">Creative Commons Attribution-ShareAlike 4.0 International license</a> (CC BY-SA) and/or the <a href="https://opendatacommons.org/licenses/odbl/">Open Data Commons Open Database License</a> (ODbL). This implies that anyone can use, or build upon, the OpenLandMap data without restrictions. See the <a href="https://opengeohub.org/about-openlandmap/">Copyright and License</a> page for more details.</p>
 <div class="cell">
@@ -355,7 +355,7 @@ div.csl-indent {
 </section>
 <section id="accessing-data" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="accessing-data">Accessing data</h2>
-<p>OpenLandMap data can be best accessed using the OpenLandMap <a href="https://en.wikipedia.org/wiki/Amazon_S3">S3</a> file service. This service is based on <a href="https://www.cogeo.org/">Cloud-Optimized GeoTIFFs</a> and is probably also the best solution for doing spatial queries and spatial analysis.</p>
+<p>OpenLandMap data can be best accessed using the OpenLandMap <a href="https://en.wikipedia.org/wiki/Amazon_S3">S3</a> file service. This service is based on <a href="https://www.cogeo.org/">Cloud-Optimized GeoTIFFs</a> and is probably also the best solution for doing spatial queries and spatial analysis <span class="citation" data-cites="stern2022pangeo">(<a href="#ref-stern2022pangeo" role="doc-biblioref">Stern et al. 2022</a>)</span>.</p>
 <p>To connect and use data seamlessly in your code, we recommend using STAC tools e.g.&nbsp; <a href="https://cran.r-project.org/web/packages/rstac/">RStac</a> to access the OpenLanMap catalog then program analysis by using the most up-to-date version of the data. You can use the https://s3.eu-central-1.wasabisys.com/stac/openlandmap/catalog.json and the <code>collection_id</code> (example: <code>fapar_essd.lstm</code>) to access description of data and URLs of filenames on S3.</p>
 <section id="accessing-data-from-zenodo" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="accessing-data-from-zenodo">Accessing data from Zenodo</h3>
@@ -594,7 +594,7 @@ Ymax = 8421750</code></pre>
    -tr 0.002083333 0.002083333 
    -te -180.00000 -62.00081 179.99994 87.37000
    -wm 2000 -co \"BIGTIFF=YES\"</code></pre>
-<p>To prepare a <a href="https://trac.osgeo.org/gdal/wiki/CloudOptimizedGeoTIFF">cloud-optimized GeoTIFF</a> use:</p>
+<p>To prepare a <a href="https://trac.osgeo.org/gdal/wiki/CloudOptimizedGeoTIFF">cloud-optimized GeoTIFF</a> you can use:</p>
 <pre><code>gdaladdo layer.tif -r near 2 4 8 16 32 64 128
 gdal_translate layer.tif layer-co.tif -mo \"CO=YES\" -co \"TILED=YES\" -co \"BLOCKXSIZE=512\" 
         -co \"BLOCKYSIZE=512\" -co \"COMPRESS=LZW\" -co \"COPY_SRC_OVERVIEWS=YES\" 
@@ -638,7 +638,7 @@ or Open Data Commons Open Database License (<a href="https://opendatacommons.org
 <section id="how-to-cite" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="how-to-cite">How to cite</h2>
 <p><img src="img/openlandmap_v2_logo.png" alt="OpenLandMap logo" width="350"></p>
-<p><a rel="license" href="https://doi.org/10.5281/zenodo.10466903"><img alt="DOI" style="border-width:0" src="zenodo.10466903.svg"></a><br></p>
+<p><a rel="license" href="https://zenodo.org/doi/10.5281/zenodo.10522799"><img alt="DOI" style="border-width:0" src="zenodo.10522799.svg"></a><br></p>
 <p>To cite this document please use:</p>
 <pre><code>@book{openlandmap_2023,
   author       = {Hengl, T., Parente, L., Ho, Y.-F., Simoes, R. and contributors},
@@ -647,7 +647,7 @@ or Open Data Commons Open Database License (<a href="https://opendatacommons.org
   publisher    = {OpenGeoHub foundation},
   address      = {Wageningen},
   version      = {v0.2},
-  doi          = {10.5281/zenodo.10466903},
+  doi          = {10.5281/zenodo.10522799},
   url          = {https://openlandmap.github.io/book/}
 }</code></pre>
 </section>
@@ -659,6 +659,7 @@ or Open Data Commons Open Database License (<a href="https://opendatacommons.org
 <section id="acknowledgments" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="acknowledgments">Acknowledgments</h2>
 <p><strong><a href="https://EarthMonitor.org/">EarthMonitor.org</a></strong> project has received funding from the European Union’s Horizon Europe research an innovation programme under grant agreement <strong><a href="https://cordis.europa.eu/project/id/101059548">No.&nbsp;101059548</a></strong>.</p>
+<p><a href="https://landcarbonlab.org/data"><img src="./img/global_pasture_watch_banner.jpg" alt="OpenLandMap training points banner" width="650"></a></p>
 
 
 
@@ -666,8 +667,14 @@ or Open Data Commons Open Database License (<a href="https://opendatacommons.org
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-giuliani2019earth" class="csl-entry" role="listitem">
+Giuliani, Gregory, Gilberto Camara, Brian Killough, and Stuart Minchin. 2019. <span>“Earth Observation Open Science: Enhancing Reproducible Science Using Data Cubes.”</span> <em>Data</em>. MDPI. <a href="https://doi.org/10.3390/data4040147">https://doi.org/10.3390/data4040147</a>.
+</div>
 <div id="ref-RADELOFF2024113918" class="csl-entry" role="listitem">
 Radeloff, Volker C., David P. Roy, Michael A. Wulder, Martha Anderson, Bruce Cook, Christopher J. Crawford, Mark Friedl, et al. 2024. <span>“Need and Vision for Global Medium-Resolution Landsat and Sentinel-2 Data Products.”</span> <em>Remote Sensing of Environment</em> 300: 113918. <a href="https://doi.org/10.1016/j.rse.2023.113918">https://doi.org/10.1016/j.rse.2023.113918</a>.
+</div>
+<div id="ref-stern2022pangeo" class="csl-entry" role="listitem">
+Stern, Charles, Ryan Abernathey, Joseph Hamman, Rachel Wegener, Chiara Lepore, Sean Harkins, and Alexander Merose. 2022. <span>“Pangeo Forge: Crowdsourcing Analysis-Ready, Cloud Optimized Data Production.”</span> <em>Frontiers in Climate</em> 3: 782909. <a href="https://doi.org/10.3389/fclim.2021.782909">https://doi.org/10.3389/fclim.2021.782909</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
