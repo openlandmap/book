@@ -601,6 +601,16 @@ gdal_translate layer.tif layer-co.tif -mo \"CO=YES\" -co \"TILED=YES\" -co \"BLO
         --config GDAL_TIFF_OVR_BLOCKSIZE 512</code></pre>
 <p>This will add tiles and optimize compression. <code>CO=YES</code> indicates that the GeoTIFF has been cloud-optimized.</p>
 <p>The OpenLandMap.org COG’s are all available publicly without restrictions via the <a href="https://gitlab.com/openlandmap/global-layers/-/blob/master/tutorial/OpenLandMap_COG_tutorial.md">Wasabi file service</a>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/esd-11-201-2020-f03-web.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Ultimately, the main objective of the OpenLandMap project is to help build <a href="https://medium.com/mlearning-ai/present-and-future-of-data-cubes-an-european-eo-perspective-735d3f16f7c9">4C-ARCO</a>: complete, consistent, current and correct, Analysis-ready and Cloud Optimized (ARCO) data cubes; i.e.&nbsp;perfectly stacked multidimentional time-series global composites. Image source: <span class="citation" data-cites="Mahecha2020">Mahecha et al. (<a href="#ref-Mahecha2020" role="doc-biblioref">2020</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="contributing-data" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="contributing-data">Contributing data</h2>
@@ -638,7 +648,7 @@ or Open Data Commons Open Database License (<a href="https://opendatacommons.org
 <section id="how-to-cite" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="how-to-cite">How to cite</h2>
 <p><img src="img/openlandmap_v2_logo.png" alt="OpenLandMap logo" width="350"></p>
-<p><a rel="license" href="https://zenodo.org/doi/10.5281/zenodo.10522799"><img alt="DOI" style="border-width:0" src="zenodo.10522799.svg"></a><br></p>
+<p><a rel="license" href="https://zenodo.org/doi/10.5281/zenodo.10522799"><img alt="DOI" style="border-width:0" src="https://zenodo.org/badge/DOI/10.5281/zenodo.10466992.svg"></a><br></p>
 <p>To cite this document please use:</p>
 <pre><code>@book{openlandmap_2023,
   author       = {Hengl, T., Parente, L., Ho, Y.-F., Simoes, R. and contributors},
@@ -669,6 +679,9 @@ or Open Data Commons Open Database License (<a href="https://opendatacommons.org
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-giuliani2019earth" class="csl-entry" role="listitem">
 Giuliani, Gregory, Gilberto Camara, Brian Killough, and Stuart Minchin. 2019. <span>“Earth Observation Open Science: Enhancing Reproducible Science Using Data Cubes.”</span> <em>Data</em>. MDPI. <a href="https://doi.org/10.3390/data4040147">https://doi.org/10.3390/data4040147</a>.
+</div>
+<div id="ref-Mahecha2020" class="csl-entry" role="listitem">
+Mahecha, M. D., F. Gans, G. Brandt, R. Christiansen, S. E. Cornell, N. Fomferra, G. Kraemer, et al. 2020. <span>“Earth System Data Cubes Unravel Global Multivariate Dynamics.”</span> <em>Earth System Dynamics</em> 11 (1): 201–34. <a href="https://doi.org/10.5194/esd-11-201-2020">https://doi.org/10.5194/esd-11-201-2020</a>.
 </div>
 <div id="ref-RADELOFF2024113918" class="csl-entry" role="listitem">
 Radeloff, Volker C., David P. Roy, Michael A. Wulder, Martha Anderson, Bruce Cook, Christopher J. Crawford, Mark Friedl, et al. 2024. <span>“Need and Vision for Global Medium-Resolution Landsat and Sentinel-2 Data Products.”</span> <em>Remote Sensing of Environment</em> 300: 113918. <a href="https://doi.org/10.1016/j.rse.2023.113918">https://doi.org/10.1016/j.rse.2023.113918</a>.
