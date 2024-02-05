@@ -1,0 +1,63 @@
+# New to markdown
+
+## Clone, add reference, submit merge request...
+
+To add a new dataset, please follow these steps:
+
+1.  Click on the edit button on the book homepage,\
+2.  Login to Github.com and select "Start a pull-request",\
+3.  Add new references to `012-compendium.Rmd` and save,\
+4.  Commit and push and make a [pull
+request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).\
+5.  Once received we will check it and if you have followed the instructions closely, 
+    the reference will appear in the document as soon as the code is merged with the master,\
+
+```{r pull-request, echo=FALSE, fig.cap="Example of a pull request on Github.com.", out.width="50%"}
+knitr::include_graphics("img/example_pull_request.jpg")
+```
+
+If you're new to markdown and want to learn how to use it, please refer to [this tutorial](https://guides.github.com/features/mastering-markdown/).
+
+If you are new to R and/or [**environmetrics**](https://cran.r-project.org/web/views/Environmetrics.html), please consider reading / studying:
+
+- Kabacoff, R.I., (2011). [R in Action: Data Analysis and Graphics with R](https://www.statmethods.net/). Manning publications, ISBN: 9781935182399, 472 pages.  
+- Grolemund, G., (2014). Hands-On Programming with R. O’Reilly, <https://github.com/rstudio-education/hopr>  
+- [RStudio](http://www.rstudio.com/products/RStudio/),  
+
+If you'd like more of a roadmap to guide you through R, have a look at Oscar's blogpost:
+
+- <https://oscarbaruffa.com/a-roadmap-for-getting-started-with-r/>  
+
+
+## Video Course: Getting started with R
+
+If you prefer video instruction with progress tracking:
+
+- <https://rfortherestofus.com/courses/getting-started/>  
+
+```{r, echo = FALSE}
+col = read.csv("./tabular/OpenLandMap_tables_collections.csv")
+```
+
+```{r, echo = FALSE}
+if(!file.exists("016-project.qmd")){
+sink("016-project.qmd")
+cat('# OpenLandMap layers')
+cat("\n\n")
+cat('## List of collections')
+cat("\n\n")
+for(i in 1:nrow(col)){
+  cat(paste0("### ", col$title[i]))
+  cat("\n\n")
+  cat(paste0('- `r emo::ji("link")` URL: <https://stac.openlandmap.org/', col$id[i], '/collection.json>'))
+  cat("\n")
+  cat(paste0('- `r emo::ji("news")` Description: ', col$description[i]))
+  cat("\n")
+  cat(paste0('- `r emo::ji("memo")` Theme: ', col$Theme[i]))
+  cat("\n")
+  cat(paste0('- `r emo::ji("open_file_folder")` DOI: <', col$doi[i], '>'))
+  cat("\n\n")
+}
+sink()
+}
+```

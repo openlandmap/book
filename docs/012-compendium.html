@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.538">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Open Land Data services</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<meta property="og:title" content="Open Land Data services">
+<meta property="og:description" content="OpenLandMap.org are Open Land Data services providing access to spatial layers covering global land mass (at spatial resolutions of 1-km, 250-m, 100-m, 30-m or finer) hosted by the OpenGeoHub foundation, GILAB.rs and collaborators. We host and serve only data that matches some of the compatible open data licenses and has close to global coverage.">
+<meta property="og:image" content="img/lpdaac_usgs_preview.jpg">
+<meta property="og:site_name" content="Open Land Data services">
+<meta name="twitter:title" content="Open Land Data services">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="img/openlandmap_gui_preview.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="././img/openlandmap_v2_logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Open Land Data services</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://OpenLandMap.org"> 
+<span class="menu-text">OpenLandMap App</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://EarthMonitor.org"> 
+<span class="menu-text">Open-Earth-Monitor</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools tools-wide">
+    <a href="https://fosstodon.org/@opengeohub" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-mastodon"></i></a>
+    <a href="https://opengeohub.medium.com/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-medium"></i></a>
+    <a href="https://twitter.com/opengeohub" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/openlandmap/book">
+            Source Code
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/openlandmap/book/issues">
+            Report a Bug
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Data layers</a></li><li class="breadcrumb-item"><a href="./012-compendium.html">Compendium of Global Gridded Environmental Data Sets</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Data layers</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./010-start_here.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">New to markdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./012-compendium.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Compendium of Global Gridded Environmental Data Sets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./016-project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OpenLandMap layers</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Tutorials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./020-stac.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OpenLandMap STAC</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#compendium-of-global-gridded-environmental-data-sets" id="toc-compendium-of-global-gridded-environmental-data-sets" class="nav-link active" data-scroll-target="#compendium-of-global-gridded-environmental-data-sets">Compendium of Global Gridded Environmental Data Sets</a>
+  <ul class="collapse">
+  <li><a href="#thematic-data-groups" id="toc-thematic-data-groups" class="nav-link" data-scroll-target="#thematic-data-groups">Thematic data groups:</a></li>
+  <li><a href="#other-repositories-of-global-open-environmental-layers" id="toc-other-repositories-of-global-open-environmental-layers" class="nav-link" data-scroll-target="#other-repositories-of-global-open-environmental-layers">Other repositories of global (open) environmental layers</a></li>
+  <li><a href="#make-your-data-more-accessible-more-usable" id="toc-make-your-data-more-accessible-more-usable" class="nav-link" data-scroll-target="#make-your-data-more-accessible-more-usable">Make your data more accessible more usable</a></li>
+  <li><a href="#buildings-and-settlements" id="toc-buildings-and-settlements" class="nav-link" data-scroll-target="#buildings-and-settlements">Buildings and Settlements</a>
+  <ul class="collapse">
+  <li><a href="#administrative-and-socio-economic-data" id="toc-administrative-and-socio-economic-data" class="nav-link" data-scroll-target="#administrative-and-socio-economic-data">Administrative and socio economic data</a></li>
+  </ul></li>
+  <li><a href="#elevation-and-depth" id="toc-elevation-and-depth" class="nav-link" data-scroll-target="#elevation-and-depth">Elevation and Depth</a>
+  <ul class="collapse">
+  <li><a href="#digital-terrain-models" id="toc-digital-terrain-models" class="nav-link" data-scroll-target="#digital-terrain-models">Digital Terrain Models</a></li>
+  <li><a href="#canopy-height-data" id="toc-canopy-height-data" class="nav-link" data-scroll-target="#canopy-height-data">Canopy height data</a></li>
+  <li><a href="#hydrological-hydrographic-data" id="toc-hydrological-hydrographic-data" class="nav-link" data-scroll-target="#hydrological-hydrographic-data">Hydrological / hydrographic data</a></li>
+  </ul></li>
+  <li><a href="#geology-and-soils" id="toc-geology-and-soils" class="nav-link" data-scroll-target="#geology-and-soils">Geology and Soils</a>
+  <ul class="collapse">
+  <li><a href="#geology-and-lithology" id="toc-geology-and-lithology" class="nav-link" data-scroll-target="#geology-and-lithology">Geology and lithology</a></li>
+  <li><a href="#earthquakes-natural-hazards" id="toc-earthquakes-natural-hazards" class="nav-link" data-scroll-target="#earthquakes-natural-hazards">Earthquakes / natural hazards</a></li>
+  <li><a href="#soils" id="toc-soils" class="nav-link" data-scroll-target="#soils">Soils</a></li>
+  </ul></li>
+  <li><a href="#land-cover-and-land-use" id="toc-land-cover-and-land-use" class="nav-link" data-scroll-target="#land-cover-and-land-use">Land Cover and Land Use</a>
+  <ul class="collapse">
+  <li><a href="#land-cover" id="toc-land-cover" class="nav-link" data-scroll-target="#land-cover">Land cover</a></li>
+  <li><a href="#biophysical-indices" id="toc-biophysical-indices" class="nav-link" data-scroll-target="#biophysical-indices">Biophysical indices</a></li>
+  <li><a href="#forest-resources" id="toc-forest-resources" class="nav-link" data-scroll-target="#forest-resources">Forest resources</a></li>
+  <li><a href="#land-use-change" id="toc-land-use-change" class="nav-link" data-scroll-target="#land-use-change">Land use change</a></li>
+  </ul></li>
+  <li><a href="#population-distribution" id="toc-population-distribution" class="nav-link" data-scroll-target="#population-distribution">Population Distribution</a>
+  <ul class="collapse">
+  <li><a href="#population-density-maps" id="toc-population-density-maps" class="nav-link" data-scroll-target="#population-density-maps">Population density maps</a></li>
+  <li><a href="#lights-at-night-images" id="toc-lights-at-night-images" class="nav-link" data-scroll-target="#lights-at-night-images">Lights at night images</a></li>
+  </ul></li>
+  <li><a href="#water-resources" id="toc-water-resources" class="nav-link" data-scroll-target="#water-resources">Water resources</a>
+  <ul class="collapse">
+  <li><a href="#global-surface-water-dynamics" id="toc-global-surface-water-dynamics" class="nav-link" data-scroll-target="#global-surface-water-dynamics">Global Surface Water dynamics</a></li>
+  <li><a href="#world-oceans" id="toc-world-oceans" class="nav-link" data-scroll-target="#world-oceans">World oceans</a></li>
+  </ul></li>
+  <li><a href="#physical-infrastructure" id="toc-physical-infrastructure" class="nav-link" data-scroll-target="#physical-infrastructure">Physical Infrastructure</a>
+  <ul class="collapse">
+  <li><a href="#urbanization-human-induced-changes" id="toc-urbanization-human-induced-changes" class="nav-link" data-scroll-target="#urbanization-human-induced-changes">Urbanization / human-induced changes</a></li>
+  <li><a href="#intact-forest-landscapes" id="toc-intact-forest-landscapes" class="nav-link" data-scroll-target="#intact-forest-landscapes">Intact forest landscapes</a></li>
+  </ul></li>
+  <li><a href="#climate" id="toc-climate" class="nav-link" data-scroll-target="#climate">Climate</a>
+  <ul class="collapse">
+  <li><a href="#climatic-datasets" id="toc-climatic-datasets" class="nav-link" data-scroll-target="#climatic-datasets">Climatic datasets</a></li>
+  <li><a href="#meteorological-images" id="toc-meteorological-images" class="nav-link" data-scroll-target="#meteorological-images">Meteorological images</a></li>
+  </ul></li>
+  <li><a href="#biodiversity-and-nature-conservation" id="toc-biodiversity-and-nature-conservation" class="nav-link" data-scroll-target="#biodiversity-and-nature-conservation">Biodiversity and Nature Conservation</a>
+  <ul class="collapse">
+  <li><a href="#world-ecosystems-biomes-ecoregions" id="toc-world-ecosystems-biomes-ecoregions" class="nav-link" data-scroll-target="#world-ecosystems-biomes-ecoregions">World ecosystems / biomes / ecoregions</a></li>
+  <li><a href="#potential-natural-vegetation-maps" id="toc-potential-natural-vegetation-maps" class="nav-link" data-scroll-target="#potential-natural-vegetation-maps">Potential Natural Vegetation maps</a></li>
+  <li><a href="#species-distribution-and-biodiversity-maps" id="toc-species-distribution-and-biodiversity-maps" class="nav-link" data-scroll-target="#species-distribution-and-biodiversity-maps">Species distribution and biodiversity maps</a></li>
+  <li><a href="#protected-areas" id="toc-protected-areas" class="nav-link" data-scroll-target="#protected-areas">Protected areas</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/openlandmap/book/edit/main/012-compendium.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/openlandmap/book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="compendium-of-global-gridded-environmental-data-sets" class="level1">
+<h1>Compendium of Global Gridded Environmental Data Sets</h1>
+<p>This is an open compendium of global (gridded) environmental datasets (bio-geophysical variables). Here you can find systematic listings of published data sets (a selection of the cutting-edge datasets we plan to upload to OpenLandMap.org) with emphasis on publicly available data sets available under open data license. These reviews are periodically maintained by the <a href="https://openlandmap.org/">www.OpenLandMap.org</a> development team and collaborators. They are only meant to serve as general inventories of what is available, and NOT as an in-depth review article.</p>
+<p>To contribute to this portal, consider submitting new data by editing this Markdown document. Please check also the working version of the <a href="https://docs.google.com/spreadsheets/d/1SX51OilNt-cUYpAa7t0LAvZRTzq3Sd4WJLnX6mWKfQk/edit?usp=sharing">OEMC global Land Use Land Cover Taxonomy Tables</a>.</p>
+<p>If your work / products are cited here, you are for us <strong>a champion of open environmental data</strong> and we are enormously thankful for your contributions (please never stop!).</p>
+<p>Minimum conditions to include your contribution to this compendium:</p>
+<ul>
+<li>Please submit / register <strong>only global data sets</strong> (at least 80% complete; at least 5 continents);</li>
+<li>The data sets should be peer-reviewed or at least come with fully documented processing steps / metadata and/or an official technical report;</li>
+<li>Refer to computational notebooks or materials that explain how was the data produced: follow as much as possible the <strong><a href="https://en.wikipedia.org/wiki/Open_science">open science</a></strong> principles;</li>
+<li>The data set should have one of the compatible <strong><a href="https://opendefinition.org/licenses/">open data licenses</a></strong> or at least allow for the derivative works to be released as open data;</li>
+<li>The data set should be current i.e.&nbsp;still in use and the citation / URL should mention the most recent update;</li>
+<li>Mention of the data should focus on practical things such as <em>“where I can read about how was this data set produced?”</em>, <em>“where can I download this data?”</em>, <em>“what are its technical characteristics such as spatial resolution, temporal coverage, biophysical variables and measurement units?”</em>;</li>
+</ul>
+<p>Here are the top 5 technical aspects of the data that should be clear to reader without confusion:</p>
+<ol type="1">
+<li>What is the DOI of the data set i.e.&nbsp;what is the permanent URL from which it can be accessed and downloaded?</li>
+<li>What is the spatial resolution / effective scale of the data set? We recommend to avoid using abstract metrics such as “3-arcseconds” or similar but use instead round metrics e.g.&nbsp;“90-m spatial resolution”.</li>
+<li>Which referent time-period does the data set covers / what is the time-span of the training or input data?</li>
+<li>What is the #1 technical documentation for this data set (ideally a peer-review publication DOI or similar)?</li>
+<li>For which purpose can/should this data set be used and what is its significance?</li>
+</ol>
+<p>Examples of contributions that will not be welcomed:</p>
+<ul>
+<li>Registering and submitting regional or local data sets i.e.&nbsp;covering only continents or countries;</li>
+<li>Mentioning, listing and/or self-promoting of proprietary / commercial data sets will not be accepted;</li>
+<li>Rating or criticizing data sets or expressing personal opinions;</li>
+<li>Deleting text submitted by others or inserting code that is computational or difficult to maintain;</li>
+</ul>
+<p>You can however mention some data sets that are not open if they are without any open data / open source alternative.</p>
+<section id="thematic-data-groups" class="level2">
+<h2 class="anchored" data-anchor-id="thematic-data-groups">Thematic data groups:</h2>
+<p>All layers are organized around the following themes (based on the <a href="https://ggim.un.org/meetings/GGIM-committee/9th-Session/documents/Fundamental_Data_Publication.pdf">UN-GGIM The Global Fundamental Geospatial Data Themes</a>):</p>
+<ul>
+<li><strong>Buildings and Settlements</strong>: includes administrative and socio-economic data, natural hazards and similar,</li>
+<li><strong>Elevation and Depth</strong>: includes Digital Terrain Models and DEM-derived parameters, LiDAR point clouds, canopy heights, hydrological data derived from DTMs and similar,</li>
+<li><strong>Geology and Soils</strong>: includes geological, surface lithology and soil property and class maps,</li>
+<li><strong>Land Cover and Land Use</strong>: includes land cover / land use classes, land cover change and drivers of land use / land cover change,</li>
+<li><strong>Population Distribution</strong>: includes population density and population variables, urbanization and lights at night images,</li>
+<li><strong>Water</strong>: includes surface and underground water resources and similar,</li>
+<li><strong>Physical Infrastructure</strong>: includes road and rail networks, dams, industrial facilities and similar,</li>
+<li><strong>Climate</strong>: includes long-term climatic images, climatic time-series data, future climate predictions and meteorological images,</li>
+<li><strong>Biodiversity and Nature Conservation</strong>: includes wildlife resources, protected areas, natural vegetation and biomes, ecoregions and biodiversity maps,</li>
+</ul>
+<p>This list is not universal and might need to be updated and improved. For comparison, <a href="https://www.earthdata.nasa.gov/eosdis">NASA’s EarthData</a> portal distinguishes the following global data themes:</p>
+<ul>
+<li>Atmosphere;</li>
+<li>Biosphere;</li>
+<li>Cryosphere;</li>
+<li>Human Dimensions;</li>
+<li>Land Surface;</li>
+<li>Ocean;</li>
+<li>Solid Earth;</li>
+<li>Sun-Earth Interactions;</li>
+<li>Terrestrial Hydrosphere;</li>
+</ul>
+</section>
+<section id="other-repositories-of-global-open-environmental-layers" class="level2">
+<h2 class="anchored" data-anchor-id="other-repositories-of-global-open-environmental-layers">Other repositories of global (open) environmental layers</h2>
+<p>Sorted alphabetically:</p>
+<ul>
+<li><a href="https://registry.opendata.aws/tag/earth-observation/">Amazon AWS Open EO Data</a>;</li>
+<li><a href="https://land.copernicus.eu/global/">Copernicus Global Land Service</a> — global data sets (bio-geophysical products) produced by the Land Monitoring Core Service (LMCS) of Copernicus, the European flagship programme on Earth Observation;</li>
+<li><a href="https://geoservice.dlr.de/web/maps">DLR Geoportal</a>;</li>
+<li><a href="http://earthenv.org/">EarthEnv.org</a> — Global, remote-sensing supported environmental layers for assessing status and trends in biodiversity, ecosystems, and climate (hosted by Yale University / NASA and others);</li>
+<li><a href="https://livingatlas.arcgis.com/en/home/">ESRI ArcGIS Living Atlas of the World</a>;</li>
+<li><a href="https://collections.eurodatacube.com/">Euro Data Cube Public Collections</a> — a series of global data sets primarily based on the Copernicus programme / Sentinel satellites;</li>
+<li><a href="http://www.fao.org/geonetwork/srv/en/main.home">FAO’s GeoNetwork</a> — serves a diversity of data produced by FAO run or supported projects at a diversity of scales;</li>
+<li><a href="http://freegisdata.rtwilson.com/">Free GIS data compendium</a> by R.T. Wilson;</li>
+<li><a href="http://www.geoportal.org/">GeoPortal.org</a> — The Global Earth Observation System of Systems (GEOSS) portal implemented and operated by the European Space Agency (typically only a catalog of data sets / no or limited data is hosted);</li>
+<li><a href="https://glad.geog.umd.edu/">Global Land and Discovery group</a> — University of Maryland Global Land and Discovery group (GLAD) group global data sets,</li>
+<li><a href="https://developers.google.com/earth-engine/datasets">Google Earth Engine Data Catalog</a> — Google’s repository of global and local data sets;</li>
+<li><a href="https://modis.gsfc.nasa.gov/data/dataprod/">MODIS Land products</a> usually at moderate resolutions from 250-m to 1-km (also available for searching via https://lpdaac.usgs.gov/product_search/);</li>
+<li><a href="https://earthobservatory.nasa.gov/global-maps">NASA Earth Observation (NEO)</a> is part of the <a href="http://eospso.nasa.gov/">EOS Project Science Office</a> located at NASA Goddard Space Flight Center;</li>
+<li><a href="https://www.earthdata.nasa.gov/eosdis">NASA’s Earth Observing System Data and Information System (EOSDIS)</a> provides tools to find and access global data sets produced by NASA and aiming at Earth System Science;</li>
+<li><a href="http://www.naturalearthdata.com/downloads/">Natural Earth Data</a> website compiled by Nathaniel Vaughn (KELSO) and volunteers;</li>
+<li><a href="https://github.com/opengeos/geospatial-data-catalogs">Open Geospatial Catalogs</a> a list of open geospatial datasets available on AWS, Earth Engine, Planetary Computer, NASA CMR, and STAC Index;</li>
+<li><a href="https://opendata.oraclecloud.com/">Oracle Open Data Repository (geospatial)</a>;</li>
+<li><a href="https://daac.ornl.gov/get_data/">ORNL DAAC</a> The Oak Ridge National Laboratory Distributed Active Archive Center (ORNL DAAC) for Biogeochemical Dynamics is a NASA Earth Observing System Data and Information System (<a href="https://earthdata.nasa.gov/eosdis/daacs">EOSDIS</a>) data center managed by the Earth Science Data and Information System (<a href="https://earthdata.nasa.gov/esds">ESDIS</a>) Project;</li>
+<li><a href="https://overturemaps.org/download/">Overture Maps</a> by the Overture Maps Foundation serves some basic admin layers e.g.&nbsp;buildings, road networks, places etc all as open data.</li>
+<li><a href="http://www.sage.wisc.edu/atlas/maps.php">SAGE Atlas of the Biosphere portal</a>;</li>
+<li><a href="https://sedac.ciesin.columbia.edu/data/sets/browse">SEDAC</a> — A Data Center in NASA’s Earth Observing System Data and Information System (EOSDIS) — Hosted by CIESIN at Columbia University;</li>
+<li><a href="https://stacindex.org/catalogs">STAC index</a> an international telephone book for STAC Catalogs, Collections, APIs, Software and Tools (you can also add your own data and tools to the list);</li>
+<li><a href="https://gee-community-catalog.org/">The awesome-gee-community-catalog</a> by Samapriya Roy et al.;</li>
+<li><a href="http://geodata.grid.unep.ch/">UNEP/GRID GEO DataPortal</a> and <a href="http://maps.grida.no/region/global">UNEP/GRID-Arendal</a> — a large repository of global grids at various resolutions;</li>
+<li><a href="https://datacatalog.unep.org/app/">UNEP Data Catalog</a>;</li>
+<li><a href="https://resourcewatch.org/data/explore">World Resources Institute (WRI) Resource Watch</a> — features hundreds of data sets all in one place on the state of the planet’s resources and citizens.</li>
+<li><a href="http://earthtrends.wri.org/">World Resources Institute (WRI) Environmental Information Portal</a> serves a number of global grids derived by the WRI and collaborators;</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/lpdaac_usgs_preview.jpg" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>LP DAAC data catalog is an example of continuosly updated and complete catalog of global environmental data (primarily based on MODIS and similar EO missions) which are available publicly without restrictions.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="make-your-data-more-accessible-more-usable" class="level2">
+<h2 class="anchored" data-anchor-id="make-your-data-more-accessible-more-usable">Make your data more accessible more usable</h2>
+<p>If you are making open global data aiming at enabling others to do more advanced analysis &amp; eventually help with better management of natural resources, what are the key steps to improve usability of your data? Within the <a href="https://earthmonitor.org/">Open-Earth-Monitor project</a> we specifically looked at hundreds of cases of data sets that have a high potential but are somewhat under-used or not used at all because of poor documentation, being incomplete or requiring specialized knowledge. This is what we believe is especially important to help boost usability and accessibility of your global geospatial data:</p>
+<ul>
+<li>Aim at making your data <strong><a href="https://medium.com/mlearning-ai/present-and-future-of-data-cubes-an-european-eo-perspective-735d3f16f7c9">4C-ARCO</a></strong>: complete, consistent, current and correct, then on top of it <strong>Analysis-ready and Cloud Optimized (ARCO)</strong>;</li>
+<li>Use <strong>(open) cloud-native data formats</strong> to distribute data (especially for large data) either <a href="https://www.cogeo.org/">COG’s</a>, <a href="https://radiant.earth/blog/2023/06/exploring-the-potential-of-geozarr-for-storage-and-analysis/">GeoZarr</a>, <a href="https://docs.xarray.dev/en/stable/">XArray</a> and/or <a href="https://geoparquet.org/">Geoparquet</a> / <a href="https://flatgeobuf.org/">Flatgeobuf</a> and similar for tabular / vector data;</li>
+<li>Optimize compression of the data so that data download is as fast as possible; for example, compression is by default already included in the <a href="https://www.cogeo.org/">Cloud-Optimized GeoTIFF data format</a>;</li>
+<li>Use <strong><a href="https://stacspec.org/en">SpatioTemporal Asset Catalogs (STAC)</a></strong> or similar to register data and the access points (usually also requires that you publish your data via a Simple Storage Service (S3));</li>
+<li>Best technical documentation for the data is (A) a peer-review publication, and (B) a <a href="https://www.datacamp.com/blog/jupyter-and-r-markdown-notebooks-with-r">computational notebook</a> providing a demo of the method used and key results; a peer-review publication increases confidence for non-experts; computational notebooks help increase quality as people then try to extend your work, then discover and report problems and help you make revisions;</li>
+<li>Always register all versions of your data so that anyone can track fixes and improvements; for each version try to obtain DOI, so that it is also kept for ever;</li>
+<li>Try to register your data in some higher level aggregator such as <a href="https://stacindex.org/">STAC index</a> (or this compendium!);</li>
+<li>Test if your data can be easily used in most-popular GIS software such as <a href="https://www.cogeo.org/qgis-tutorial.html">QGIS</a>: does it have the right legend? can users quickly find metadata, explanation of units, how was the map produced?</li>
+<li>Provide support and regularly update your data; like with software no data is bug-free, by updating and improving your data your user community learns to appreciate your efforts and builds higher trust;</li>
+</ul>
+<p>Of course, not every version or testing of your data / mapping skills needs to be registered with unique DOI. Also, writing metadata &amp; computational notebooks requires time and resource investments, so you need to plan carefully your time.</p>
+<p>Here are also some world-leading providers of tools for making geospatial data more usable and more <strong><a href="https://www.go-fair.org/fair-principles/">FAIR</a> (Findable, Accessible, Interoperable, and Reusable)</strong> (unsorted):</p>
+<ul>
+<li><a href="https://gdal.org" class="uri">https://gdal.org</a> software backbone of any open geospatial data project;</li>
+<li><a href="https://radiant.earth/" class="uri">https://radiant.earth/</a> is organization largely behind COGs and STAC;</li>
+<li><a href="https://pangeo.io/" class="uri">https://pangeo.io/</a> a project developing tools for Big Data geoscience;</li>
+<li><a href="https://github.com/opengeospatial" class="uri">https://github.com/opengeospatial</a> the Open Geospatial Consortium repositories hosting many open source solutions for Big Data geoscience;</li>
+<li><a href="https://github.com/opengeos/" class="uri">https://github.com/opengeos/</a> a collection of open-source software packages for the geospatial community;</li>
+<li><a href="https://r-spatial.org/" class="uri">https://r-spatial.org/</a> and <a href="https://rspatial.org/" class="uri">https://rspatial.org/</a> packages and tutorials for accessing and processing geospatial data using R;</li>
+<li><a href="https://juliageo.org/" class="uri">https://juliageo.org/</a> libraries for Julia language to support processing geospatial data;</li>
+</ul>
+</section>
+<section id="buildings-and-settlements" class="level2">
+<h2 class="anchored" data-anchor-id="buildings-and-settlements">Buildings and Settlements</h2>
+<section id="administrative-and-socio-economic-data" class="level3">
+<h3 class="anchored" data-anchor-id="administrative-and-socio-economic-data">Administrative and socio economic data</h3>
+<p>Administrative data can be used to calculate proximity-based parameters and to orient the users geographically. One publicly accessible global administrative data database is the <a href="http://gadm.org/">GADM</a> database of <strong>Global Administrative Areas</strong>. It comprises borders of countries and lower level subdivisions such as provinces and counties (more than 100,000 areas). Lower level administrative boundaries can be obtained via the <a href="http://www.fao.org/geonetwork/srv/en/main.home">FAO’s GeoNetwork server</a>. Even more detailed is the <strong><a href="https://data.apps.fao.org/map/catalog/static/search?keyword=HiH_boundaries">FAO GAUL: Global Administrative Unit Layers</a></strong> which is available for different periods and up to the 3rd admin level, so one can potentially also track changes in political units (the <a href="https://github.com/openlandmap/book/blob/master/tabular/GAUL_g2015_2014_1_legend.csv">table</a> <code>GAUL_g2015_2014_1_legend.csv</code> contains an example of cca 3500 administrative units with codes). The <a href="http://www.geoboundaries.org/">geoBoundaries</a> is a global Database of Political Administrative Boundaries and contains a snapshot of political and administrative boundaries since 2017.</p>
+<p>An important global vector dataset is the <strong><a href="https://shoreline.noaa.gov/data/datasheets/wvs.html">World Vector Shoreline</a></strong> data set at scale 1:250,000 <span class="citation" data-cites="carlotto2017enhancing">(<a href="#ref-carlotto2017enhancing" role="doc-biblioref">Carlotto, Nebrich, and DeMichele 2017</a>)</span>. This can be, for example, used to derive the global distance from the sea coast line map and similar.</p>
+<p>The <strong><a href="https://overturemaps.org/download/">Overture Maps foundation</a></strong> provides up-to-date (current) global vectors on Layers of interest include: admins, base, buildings, places etc. You can simply <a href="https://github.com/OvertureMaps/data/">download</a> the data for are of interest, then convert to <a href="https://msbarry.github.io/planetiler-overture-demo/">PMTiles</a> or similar, then add to your back-end/front-end as a clickable layer.</p>
+<p>The <strong><a href="https://geoservice.dlr.de/web/maps/eoc:wsf">World Settlement Footprint (WSF)</a></strong> is a series of datasets that provide comprehensive, high-resolution mapping of human settlements across the globe. WSF is a 10-m resolution binary mask outlining the extent of human settlements globally derived from 2014–2015 multitemporal Landsat-8 and Sentinel-1 imagery (<a href="https://geoservice.dlr.de/web/maps/eoc:wsf">WFS2015</a>) and 2019 multitemporal Sentinel-1 and Sentinel-2 imagery (<a href="https://geoservice.dlr.de/web/maps/eoc:wsf2019">WFS 2019</a>). <a href="https://geoservice.dlr.de/web/maps/eoc:wsfevolution">WSF Evolution</a> is a 30-m resolution dataset outlining the global settlement extent on a yearly basis from 1985 to 2015.</p>
+<p>The <a href="https://sedac.ciesin.columbia.edu/data/sets/browse">Socioeconomic Data and Applications Center (SEDAC)</a> a Data Center in NASA’s Earth Observing System Data and Information System (EOSDIS) Hosted by CIESIN at Columbia University has produced a number of open global socio-economic data sets including on themes such as: Agriculture, Climate, Conservation, Governance, Hazards, Health, Infrastructure, Land Use, Marine and Coastal, Population, Poverty, Sustainability, Urban and Water.</p>
+</section>
+</section>
+<section id="elevation-and-depth" class="level2">
+<h2 class="anchored" data-anchor-id="elevation-and-depth">Elevation and Depth</h2>
+<section id="digital-terrain-models" class="level3">
+<h3 class="anchored" data-anchor-id="digital-terrain-models">Digital Terrain Models</h3>
+<p>Global Shuttle Radar Topography Mission (SRTM) <a href="http://en.wikipedia.org/wiki/Digital_elevation_model">Digital Elevation Model</a> is on of the most well-known global environmental dataset <span class="citation" data-cites="rabus2003shuttle">(<a href="#ref-rabus2003shuttle" role="doc-biblioref">Rabus et al. 2003</a>)</span> available with a resolution of approximately 30-m (1 arcsec). The most recent version of the SRTM DEM is the <a href="https://lpdaac.usgs.gov/products/nasadem_hgtv001/">NASADEM</a>. In 2018 two new global elevation models were produced:</p>
+<ul>
+<li>ESA’s <strong><a href="https://doi.org/10.5270/ESA-c5d3d65">Copernicus DEM GLO-30</a></strong> at 30-m resolution;</li>
+<li>JAXA’s <strong><a href="https://www.eorc.jaxa.jp/ALOS/en/dataset/aw3d30/aw3d30_e.htm">ALOS AW3D30</a></strong> at 30-m resolution;</li>
+</ul>
+<p>Both ALOS AW3D and GLO-30 are the new generation surface models. Both need removal of canopy and buildings before they can be used as terrain models i.e.&nbsp;for surface water runoff and similar. <span class="citation" data-cites="MERITDEM">Yamazaki et al. (<a href="#ref-MERITDEM" role="doc-biblioref">2019</a>)</span> has produced <strong>MERIT DEM</strong> and <strong>MERIT Hydro</strong>, actual DTM post-filtered and hydrologically correct DTM. Both are available for <a href="https://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_Hydro/">download</a> under open data license but only at 90/100-m resolution. Using the MERIT DEM, <span class="citation" data-cites="amatulli2020geomorpho90m">Amatulli et al. (<a href="#ref-amatulli2020geomorpho90m" role="doc-biblioref">2020</a>)</span> have produced <strong><a href="https://doi.org/10.5069/G91R6NPX">Geomorpho90m</a></strong> and <a href="https://doi.org/10.18728/igb-fred-762.1">Hydrography90m</a> <span class="citation" data-cites="amatulli2022hydrography90m">(<a href="#ref-amatulli2022hydrography90m" role="doc-biblioref">Amatulli et al. 2022</a>)</span> data sets.</p>
+<p>A complete land surface model ETOPO1 Global Relief Model (includes bathymetry data) is available at resolution of 1-km and can be obtained from the <a href="http://ngdc.noaa.gov/">NOAA’s National Geophysical Data Center</a> <span class="citation" data-cites="amante2009etopo1">(<a href="#ref-amante2009etopo1" role="doc-biblioref">Amante and Eakins 2009</a>)</span>. An updated version of the ETOPO is the Global Land One-km Base Elevation Project (<a href="http://www.ngdc.noaa.gov/mgg/topo/globe.html">GLOBE</a>) DEM. Global bathymetry data (<strong><a href="http://www.gebco.net/data_and_products/gridded_bathymetry_data/">GEBCO data set</a></strong>) can also obtained from the British Oceanographic Data Centre.</p>
+<p><a href="https://portal.opentopography.org/dataCatalog?group=global">OpenTopography.org</a> maintains a catalog of global elevation data sets including national data sets. A combination (Ensemble-DTM) of GLO-30, AW3D30, MERIT DEM and number of continental / national DTM’s is available via <a href="https://stac.openlandmap.org/dtm.bareearth_ensemble/collection.json">OpenLandMap.org</a>.</p>
+<p><span class="citation" data-cites="iwahashi2007automated">Iwahashi and Pike (<a href="#ref-iwahashi2007automated" role="doc-biblioref">2007</a>)</span> produced a global landform type map of the world at 250-m. <strong>Geomorphological forms</strong> (Geomorphon classification system) at 100-m are also available for download via the <a href="https://doi.org/10.5069/G91R6NPX">OpenTopography.org</a> repository and/or <a href="https://zenodo.org/doi/10.5281/zenodo.1447198">Zenodo</a>. <span class="citation" data-cites="Frye2023">Charlie Frye and Richards (<a href="#ref-Frye2023" role="doc-biblioref">2023</a>)</span> produced <strong><a href="https://www.esri.com/arcgis-blog/products/arcgis-living-atlas/announcements/introducing_nlwv2/">Named Landforms of the World (NLW2)</a></strong> with most of data at 250-m resolution.</p>
+</section>
+<section id="canopy-height-data" class="level3">
+<h3 class="anchored" data-anchor-id="canopy-height-data">Canopy height data</h3>
+<p>There are several global reference point data set and products that represent canopy height (often including heights of building / human-built structures). Currently the two global public reference data sets / missions for monitoring canopy height and morphological ecosystem parameters are:</p>
+<ul>
+<li><a href="https://gedi.umd.edu/">Global Ecosystem Dynamics Investigation (GEDI) data set</a>;</li>
+<li><a href="https://openaltimetry.earthdatacloud.nasa.gov/data/">ICESat, ICESat-2 data sets</a>;</li>
+</ul>
+<p>You can visually explore and download the ICESat data from https://www.openaltimetry.org. GEDI and ICESat can be used to derive number of ecosystem parameters including biomass density (above ground), canopy height, terrain height, LAI, canopy structure etc. The complete global gridded canopy height / biomass density products include:</p>
+<ul>
+<li><strong><a href="https://glad.umd.edu/dataset/gedi/">Global forest canopy height maps at 30-m</a></strong> produced by GLAD <span class="citation" data-cites="POTAPOV2021112165">(<a href="#ref-POTAPOV2021112165" role="doc-biblioref">Potapov et al. 2021</a>)</span>;</li>
+<li><strong><a href="https://langnico.github.io/globalcanopyheight/">Global 10-m resolution canopy height map</a></strong> <span class="citation" data-cites="lang2023high">(<a href="#ref-lang2023high" role="doc-biblioref">Lang et al. 2023</a>)</span>;</li>
+<li><strong><a href="https://doi.org/10.6084/m9.figshare.c.4561940">Global 100-m resolution aboveground biomass carbon density</a></strong> <span class="citation" data-cites="Spawn2020">(<a href="#ref-Spawn2020" role="doc-biblioref">Spawn et al. 2020</a>)</span>;</li>
+<li><strong><a href="https://daac.ornl.gov/cgi-bin/dataset_lister.pl?p=40">GEDI L4B</a></strong> gridded aboveground biomass density (nominal latitude extent of -52 to 52 degrees) at 1-km resolution <span class="citation" data-cites="Dubayah2023">(<a href="#ref-Dubayah2023" role="doc-biblioref">Dubayah et al. 2023</a>)</span>;</li>
+</ul>
+<p><strong><a href="https://geoservice.dlr.de/web/maps/tdm:dcm30">TanDEM-X 30-m DEM Change Maps (DCM)</a></strong> shows significant changes in elevation (usually canopy height) for the period 2016 to 2022. DLR warns that users must be aware that a given elevation change measured in the DEM change maps corresponds to a topographic change with respect to TanDEM-X 30m EDEM, i.e.&nbsp;this is only an estimate of physical height change.</p>
+</section>
+<section id="hydrological-hydrographic-data" class="level3">
+<h3 class="anchored" data-anchor-id="hydrological-hydrographic-data">Hydrological / hydrographic data</h3>
+<p>World river and stream networks (vector files) are available from the <strong><a href="https://www.hydrosheds.org/page/gloric">Global River Classification (GLORIC) DB</a></strong>. A <a href="https://zenodo.org/doi/10.5281/zenodo.3355006">rasterized version of this data set</a> is available at resolution of 250-m. <strong><a href="http://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_Hydro">MERIT Hydro</a></strong> also provides Upstream Drainage Area at 100-m global and should be considered a reference at this scale <span class="citation" data-cites="MERITDEM">(<a href="#ref-MERITDEM" role="doc-biblioref">Yamazaki et al. 2019</a>)</span>. <span class="citation" data-cites="amatulli2022hydrography90m">Amatulli et al. (<a href="#ref-amatulli2022hydrography90m" role="doc-biblioref">2022</a>)</span> describes Hydrography90m (global hydrographic dataset) although this is not available as open data (authors used the NC-license).</p>
+<p><strong>Global reservoirs (GRanD)</strong> (polygons) dataset can be obtained from the <a href="https://www.globaldamwatch.org/directory">Global Dam Watch website</a>. Connected to GRanD, <strong>Global reservoir bathymetry estimate (ReGeom)</strong> dataset is available from <a href="https://zenodo.org/doi/10.5281/zenodo.1322883">zenodo</a>. <strong>Global streamflow time series dataset</strong> i.e.&nbsp;the GRDC’s (Global Runoff Data Centre) streamflow observations (cca 11,000 stations) can be downloaded from the <a href="https://portal.grdc.bafg.de/">GRDC data portal</a>.</p>
+<p><span class="citation" data-cites="lehner2013global">Lehner and Grill (<a href="#ref-lehner2013global" role="doc-biblioref">2013</a>)</span> provide a global river hydrography and river network routing data set (HydroBASINS and <strong><a href="https://www.hydrosheds.org/hydrosheds-core-downloads">HydroSHEDS</a></strong>) at 500-m spatial resolution. <span class="citation" data-cites="lane2023mapping">Lane et al. (<a href="#ref-lane2023mapping" role="doc-biblioref">2023</a>)</span> produced a global 90-m resolution map of <strong><a href="https://doi.org/10.23719/1528331">Non-Floodplain Wetland (Global NFW)</a></strong>. Global NFW is based on multiple input data sources including MERIT Hydro, HydroBASINS and similar. <span class="citation" data-cites="Verkaik2024">Verkaik et al. (<a href="#ref-Verkaik2024" role="doc-biblioref">2024</a>)</span> produced a global map of <a href="https://doi.org/10.24416/UU01-44L775">steady-state water table depth and water table amplitude</a> at 1-km spatial resolution using the <a href="https://github.com/UU-Hydro/GLOBGM">GLOBGM</a> (Groundwater Model at 30 arcsecond spatial resolution).</p>
+<p>Several data set exists that quantify global surface water extent and type, wetlands distribution and fresh-water resources in general:</p>
+<ul>
+<li><strong><a href="https://global-surface-water.appspot.com/">JRC’s global surface water dynamics data set at 30-m</a></strong>: this includes occurrence probability of surface water, surface water extent and change 1984–2021 <span class="citation" data-cites="Pekel2016">(<a href="#ref-Pekel2016" role="doc-biblioref">Pekel et al. 2016</a>)</span>;</li>
+<li><strong><a href="https://glad.umd.edu/dataset/global-surface-water-dynamics">GLAD’s global surface water dynamics 1999–2021</a></strong> at 30-m resolution providing also map of 7 types of surface water stable and change dynamics <span class="citation" data-cites="pickens2020mapping">(<a href="#ref-pickens2020mapping" role="doc-biblioref">Pickens et al. 2020</a>)</span>;</li>
+<li><strong><a href="https://doi.org/10.1594/PANGAEA.892657">Multi-source global wetland map at 500-m resolution</a></strong> <span class="citation" data-cites="tootchi2019multi">(<a href="#ref-tootchi2019multi" role="doc-biblioref">Tootchi, Jost, and Ducharne 2019</a>)</span></li>
+</ul>
+<p>DLR’s (MODIS-based) <strong><a href="https://geoservice.dlr.de/web/maps/eoc:gwp:yearly">Global WaterPack (GWP) monthly and yearly</a></strong> product (different water coverage categories) at 250-m spatial resolution is available for the period 2003 to 2022+.</p>
+<p><a href="https://www.earthdata.nasa.gov/eosdis/daacs/podaac">NASA’s Physical Oceanography Distributed Active Archive Center</a> (PO.DAAC) serves data on ocean winds, sea surface temperature, ocean surface topography, sea surface salinity, surface water and similar.</p>
+</section>
+</section>
+<section id="geology-and-soils" class="level2">
+<h2 class="anchored" data-anchor-id="geology-and-soils">Geology and Soils</h2>
+<section id="geology-and-lithology" class="level3">
+<h3 class="anchored" data-anchor-id="geology-and-lithology">Geology and lithology</h3>
+<p>The current global geological map approved by the Commission for the Geological Map of the World is the <a href="https://ccgm.org/en/">1:25M Geological Map of the World</a> (maps not available publicly). The world geological maps are now being integrated via the <a href="http://www.onegeology.org/">OneGeology</a> project which aims at producing a consistent Geological map of the world in approximate scale 1:1M <span class="citation" data-cites="jackson2010onegeology">(<a href="#ref-jackson2010onegeology" role="doc-biblioref">Jackson 2010</a>)</span>; progress can be followed via the interactive <a href="http://portal.onegeology.org/">OneGeology portal</a>.</p>
+<p>USGS has several <a href="http://energy.usgs.gov/">data portals</a>, e.g.&nbsp;that allow browsing of the <a href="https://certmapper.cr.usgs.gov/data/apps/world-maps/">International Surface Geology</a> (split into South Asia, South America, Iran, Gulf of Mexico, Former Soviet Union, Europe, Carribean, Bangladesh, Asia Pacific, Artic, Arabian Peninsula, Africa and Afganistan). <span class="citation" data-cites="hartmann2012new">Hartmann and Moosdorf (<a href="#ref-hartmann2012new" role="doc-biblioref">2012</a>)</span> have assembled a global, purely lithological database called <strong>GLiM</strong> (<a href="https://www.geo.uni-hamburg.de/geologie/forschung/aquatische-geochemie/glim.html">Global Lithological Map</a>). GLiM consists of over 1.25 million digital polygons with classified in three levels (a total of 42 rock-type classes).</p>
+<p>USGS, jointly with ESRI, have released in 2014 a <strong><a href="https://www.esri.com/about/newsroom/insider/the-first-detailed-ecological-land-unitsmap-in-the-world/">Global Ecological Land Units map</a></strong> at 250-m resolution. This also includes a world layer of rock types. The data can be downloaded from the <a href="http://rmgsc.cr.usgs.gov/outgoing/ecosystems/Global/">USGS site</a> or via <a href="https://zenodo.org/doi/10.5281/zenodo.1447198">Zenodo</a>.</p>
+<p><span class="citation" data-cites="fan2013global">Fan, Li, and Miguez-Macho (<a href="#ref-fan2013global" role="doc-biblioref">2013</a>)</span> produced global maps of <strong>Groundwater Table Depth</strong> that has been systematically updated in 2022. The modeled monthly water table depth can be <a href="http://thredds-gfnl.usc.es/thredds/catalog/GLOBALWTDFTP/catalog.html">downloaded for each continent</a>. <span class="citation" data-cites="cuthbert2019global">Cuthbert et al. (<a href="#ref-cuthbert2019global" role="doc-biblioref">2019</a>)</span> produced water table ratio and groundwater response times maps at 1-km resolution (available from <a href="https://doi.org/10.6084/m9.figshare.7393304">figshare</a>). The International Groundwater Resources Assessment Centre (IGRAC) maintains the <a href="https://ggis.un-igrac.org/">Global Groundwater Information System (GGIS)</a>. IGRAC is aiming at producing <a href="https://sdgs.un.org/partnerships/produce-and-disseminate-open-global-groundwater-datasets">global groundwater datasets</a>.</p>
+<p><span class="citation" data-cites="tang2023global">Tang and Werner (<a href="#ref-tang2023global" role="doc-biblioref">2023</a>)</span> made a global inventory (polygon map) of mining areas (<strong>global mine area coverage</strong>): The polygons cover about about 66,000 km-square of features like waste rock dumps, pits, water ponds, tailings dams, heap leach pads and processing/milling infrastructure. The data is available from <a href="https://doi.org/10.5281/zenodo.6806817">zenodo</a>. An update of the global mining areas (three layers: mining polygons, mining centroids, mining area per grid cell) is provided by <span class="citation" data-cites="maus2022update">Maus et al. (<a href="#ref-maus2022update" role="doc-biblioref">2022</a>)</span>; the data set is available via <a href="https://doi.org/10.1594/PANGAEA.942325">PANGAEA</a>; also available via https://fineprint.global/viewer.</p>
+</section>
+<section id="earthquakes-natural-hazards" class="level3">
+<h3 class="anchored" data-anchor-id="earthquakes-natural-hazards">Earthquakes / natural hazards</h3>
+<p>Natural hazards include:</p>
+<ul>
+<li>Earthquakes,</li>
+<li>Volcanoes,</li>
+<li>Landslides,</li>
+<li>Famines &amp; Droughts,</li>
+<li>Hurricanes, Tornados, and Cyclones,</li>
+<li>Extreme precipitation and flooding,</li>
+<li>Extreme Temperature (Heat &amp; Cold),</li>
+<li>Wildfires,</li>
+</ul>
+<p>A number of institutions have jointly produced a <a href="https://www.gfz-potsdam.de/gshap">Global Seismic Hazard map</a> <span class="citation" data-cites="shedlock2000gshap">(<a href="#ref-shedlock2000gshap" role="doc-biblioref">Shedlock et al. 2000</a>)</span>. This map, although slightly outdated and of limited detail, can be obtained directly from the GSHAP project <a href="https://www.gfz-potsdam.de/gshap">webite</a>. From the <a href="http://ngdc.noaa.gov/hazard/earthqk.shtml">NOAA’s National Geophysical Data Center</a> one can obtain a point map with all major earth quakes (<strong>Significant Earthquake Database</strong>; cca 5000 quakes), and generate a (kernel density) map for Earthquake magnitude.</p>
+<p>University of Hawaii maintains a <a href="https://www.pdc.org/risk-and-vulnerability/">Global Hazards Information Network</a>, which contains a number of global layers including a <a href="https://hub.arcgis.com/datasets/esri-de-content::world-airports">map of Global Airports</a>, locations of <a href="https://earthquake.usgs.gov/earthquakes/browse/significant.php">significant earthquakes</a> and earthquake zones.</p>
+<p>Copernicus Global Land Service distributes a global assessment of <strong><a href="https://land.copernicus.eu/global/products/ba">Burnt Area</a></strong> at 300-m spatial resolution, but available only from 2019 onwards. NASA’s <a href="https://firms.modaps.eosdis.nasa.gov/map/">FIRMS (Fire Information for Resource Management System)</a> provides real-time access to occurrence of fires including access to the <a href="https://firms.modaps.eosdis.nasa.gov/download/">archive data</a>. The <strong><a href="https://www.globalfiredata.org/">Global Fire Emissions Database</a></strong> provides <a href="https://doi.org/10.3334/ORNLDAAC/1642">maps of individual fire</a> size, duration, speed, and direction at relatively coarse spatial resolutions of (10–25 km), but ranging from 1979 to present times <span class="citation" data-cites="andela2019global">(<a href="#ref-andela2019global" role="doc-biblioref">Andela et al. 2019</a>)</span>. <a href="https://www.earthdata.nasa.gov/eosdis/daacs/ghrc">NASA’s Global Hydrometeorology Resource Center Distributed Active Archive Center (GHRC DAAC)</a> serves global data on lightning, tropical cyclones, and storm-induced hazards through integrated collections of satellite, airborne, and in-situ data sets.</p>
+<p>NOAA’s <a href="https://www.drought.gov/international">Global Drought Information System (GDIS)</a> serves global estimates of drought conditions. Maps are usually only available at coarse resolution of 25, 10 or 5-km or similar.</p>
+</section>
+<section id="soils" class="level3">
+<h3 class="anchored" data-anchor-id="soils">Soils</h3>
+<p>Soil maps (physical, chemical, biological soil properties and soil classes) are especially important for spatial prediction of distribution of vegetation and (plant) species distribution. FAO, IIASA, ISRIC, ISSCAS, JRC have produced in 2007 a 1-km resolution gridded soil-class map, produced by merging various national soil maps. This product is also known as the <strong><a href="https://www.fao.org/soils-portal/data-hub/soil-maps-and-databases/harmonized-world-soil-database-v20/en/">Harmonized World Soil Database</a></strong>. Global predicted WRB soil type maps at 1-km can be download as geotifs from <a href="https://doi.org/10.5281/zenodo.7820796">here</a>. USGS / USDA have produced a map of <a href="https://www.nrcs.usda.gov/conservation-basics/natural-resource-concerns/soils/soil-geography">Global Soil Regions</a> map at resolution of 60 arcsec, and which is based on the FAO-UNESCO soil map. <span class="citation" data-cites="Melton2022">Melton et al. (<a href="#ref-Melton2022" role="doc-biblioref">2022</a>)</span> produced a global map of peatland (<a href="https://zenodo.org/doi/10.5281/zenodo.5794335">Peat-ML</a>) i.e.&nbsp;organic soils at 10-km spatial resolution.</p>
+<p>A list of seven gridded soil property maps (at resolution of 5 arc-minutes i.e.&nbsp;about 10-km) — soil-carbon density, total nitrogen density, field capacity, wilting point, profile available water capacity, thermal capacity, and bulk density — is available via the <a href="https://daac.ornl.gov/SOILS/guides/IGBP-DIS.html">International Geosphere-Biosphere Program Data and Information System (IGBP-DIS) data set</a>. Some additional soil property maps such as <a href="https://sage.nelson.wisc.edu/data-and-models/atlas-of-the-biosphere/mapping-the-biosphere/ecosystems/">pH</a> and <a href="https://sage.nelson.wisc.edu/data-and-models/atlas-of-the-biosphere/mapping-the-biosphere/ecosystems/">soil moisture</a>, can be also obtained from the <a href="https://sage.nelson.wisc.edu/data-and-models/atlas-of-the-biosphere/">Atlas of Biosphere project</a>. <strong><a href="http://globalchange.bnu.edu.cn/research/soilw">Global Soil Dataset for Earth System Model (GSDE)</a></strong> contains the largest number of soil properties (gridded) at 1-km spatial resolution <span class="citation" data-cites="Shangguan2014">(<a href="#ref-Shangguan2014" role="doc-biblioref">Shangguan et al. 2014</a>)</span>.</p>
+<p>FAO’s Global Soil Partnership has produced a <strong><a href="https://doi.org/10.4060/ca7597en">Global Soil Organic Carbon Map (GSOCmap)</a></strong> at 1-km resolution. ISRIC — World Soil Information maintains <a href="http://www.isric.org/wosis">a global soil profile database (WoSIS)</a> with over 100,000 profiles and over 50 analytical and descriptive parameters <span class="citation" data-cites="batjes2020standardised">(<a href="#ref-batjes2020standardised" role="doc-biblioref">Batjes, Ribeiro, and Van Oostrum 2020</a>)</span>. Predictions of soil properties (GeoTIFFs) at spatial resolution of 250-m or better are available from multiple sources including:</p>
+<ul>
+<li><strong><a href="https://www.isric.org/explore/soilgrids">SoilGrids</a></strong> <span class="citation" data-cites="poggio2021soilgrids">(<a href="#ref-poggio2021soilgrids" role="doc-biblioref">Poggio et al. 2021</a>)</span>;</li>
+<li><strong><a href="https://developers.google.com/earth-engine/datasets/tags/openlandmap">OpenLandMap.org soil properties and classes</a></strong>;</li>
+<li><strong><a href="https://www.futurewater.eu/projects/hihydrosoil/">HiHydroSoil: Global Maps of Soil Hydraulic Properties</a></strong> (available upon request or directly <a href="https://code.earthengine.google.com/?scriptPath=users/sat-io/awesome-gee-catalog-examples:soil-properties/HiHYDRO-SOIL-LAYERS">via GEE</a>);</li>
+</ul>
+<p><a href="https://crowtherlab.com/maps/#/">Crowther’s lab</a> distributes a number of soil-biology global data sets (1-km) including maps of soil nematodes density, bacterial biomass, fungal biomass and similar.</p>
+<p>Some soil properties are often directly estimated from the EO data. For example the soil moisture <strong><a href="http://glass.umd.edu/soil_moisture/">GLASS SM data set</a></strong> and the <a href="https://doi.org/10.11888/RemoteSen.tpdc.272760">gap-free global daily surface soil moisture at 1-km grid resolution</a>. Bare soil surface fraction and <strong>bare soil spectral bands</strong> can be also derived directly from EO data e.g.&nbsp; global composites produced <span class="citation" data-cites="dematte2020bare">Demattê et al. (<a href="#ref-dematte2020bare" role="doc-biblioref">2020</a>)</span>; data available via <a href="https://gee-community-catalog.org/projects/bss/">GEE</a>.</p>
+<p><span class="citation" data-cites="lembrechts2022global">Lembrechts et al. (<a href="#ref-lembrechts2022global" role="doc-biblioref">2022</a>)</span> produced maps of <strong>Global Soil Bioclimatic variables</strong> (including soil temperatures) which are available at <a href="https://zenodo.org/doi/10.5281/zenodo.4558731">1-km spatial resolution</a> for depth intervals 0–5 and 5–15 cm (training data used to produce these maps is <a href="https://zenodo.org/doi/10.5281/zenodo.4558662">also available</a>). <span class="citation" data-cites="Pelletier2016">Pelletier et al. (<a href="#ref-Pelletier2016" role="doc-biblioref">2016</a>)</span> produced a <a href="https://daac.ornl.gov/SOILS/guides/Global_Soil_Regolith_Sediment.html">Gridded Thickness of Soil, Regolith, and Sedimentary Deposit Layers</a>.</p>
+<p>An in-depth review of the global soil data sets is available in <span class="citation" data-cites="Dai2019">Dai et al. (<a href="#ref-Dai2019" role="doc-biblioref">2019</a>)</span>. Status of the soil information in the world can be also followed via David G. Rossiter’s <a href="https://www.isric.org/explore/soil-geographic-databases#world">compendium of On-Line Soil Survey Information</a>.</p>
+</section>
+</section>
+<section id="land-cover-and-land-use" class="level2">
+<h2 class="anchored" data-anchor-id="land-cover-and-land-use">Land Cover and Land Use</h2>
+<section id="land-cover" class="level3">
+<h3 class="anchored" data-anchor-id="land-cover">Land cover</h3>
+<p>Land cover maps show distribution of above-surface cover in general categories and are used primarily for spatial planning and modeling. Ground truth observations of land cover can be obtained from multiple sources e.g.&nbsp;the <strong><a href="http://geo-wiki.org/">geo-wiki.org</a></strong> project <span class="citation" data-cites="Fritz2017">(<a href="#ref-Fritz2017" role="doc-biblioref">Fritz et al. 2017</a>)</span>, <a href="http://data.ess.tsinghua.edu.cn/">FROM-GLC</a> <span class="citation" data-cites="GONG2019370">(<a href="#ref-GONG2019370" role="doc-biblioref">Gong et al. 2019</a>)</span>; the most comprehensive recent global training data sets for land cover mapping to date (cca <a href="https://doi.org/10.34911/rdnt.x4xfh3">2M training points</a> covering from years 1984 to 2020) is provided by the <a href="https://sites.bu.edu/measures/">Global Land Cover Estimation (<strong>GLanCE</strong>) project</a> project <span class="citation" data-cites="Stanimirova2023">(<a href="#ref-Stanimirova2023" role="doc-biblioref">Stanimirova et al. 2023</a>)</span>. <span class="citation" data-cites="Shi2023">Shi et al. (<a href="#ref-Shi2023" role="doc-biblioref">2023</a>)</span> have produced <strong>Globe230k</strong>: a benchmark dataset for Global Land Cover Mapping which includes <a href="https://zenodo.org/doi/10.5281/zenodo.8429199">cca 230,000 annotated images</a> with a size of 512 × 512 and a spatial resolution of 1-m.</p>
+<p>Land cover maps are commonly derived using semi-automated methods and remote sensing images as the main inputs. Global land cover / land cover change maps are today primarily derived from the Sentinel-2 and Landsat imagery. For example, the <strong><a href="http://globalforestwatch.org/">GlobalForestWatch.org</a></strong> imagery showing deforestation/reforestation were derived from the 30 m resolution Landsat images <span class="citation" data-cites="hansen2013high">(<a href="#ref-hansen2013high" role="doc-biblioref">Hansen et al. 2013</a>)</span>. The global Analysis-Ready Landsat mosaics (<a href="https://glad.geog.umd.edu/ard/glad-landsat-ard">Landsat-ARD</a>) are available for download as harmonized scenes from the University of Maryland GLAD (<a href="https://glad.geog.umd.edu/">Global Land and Discovery group</a>) <span class="citation" data-cites="rs12030426">(<a href="#ref-rs12030426" role="doc-biblioref">Potapov et al. 2020</a>)</span>, but these datasets are significant in size and hence require significant processing facilities.</p>
+<p>Current publicly available global land cover and/or land use maps include <span class="citation" data-cites="Liu2021">(<a href="#ref-Liu2021" role="doc-biblioref">L. Liu et al. 2021</a>)</span>:</p>
+<ul>
+<li><strong><a href="https://doi.org/10.1594/PANGAEA.913496">GLASS-GLC</a></strong> is global land cover time-series 1982 to 2015 at 5-km resolution derived directly in Google Earth Engine <span class="citation" data-cites="Liu2020ESSD">(<a href="#ref-Liu2020ESSD" role="doc-biblioref">H. Liu et al. 2020</a>)</span>.</li>
+<li><strong><a href="https://lpdaac.usgs.gov/products/mcd12q1v061/">MCD12Q1 Land Cover Type Yearly L3 Global</a></strong> product available in resolution from 500-km. MODIS Land cover maps (17 land cover classes based on the <a href="http://www.igbp.net/">International Geosphere Biosphere Programme</a> IGBP classification system) is a temporal dataset so that one can also derive various change indices and quantify the land cover dynamics.</li>
+<li><strong><a href="http://www.esa-landcover-cci.org/">ESA CCI Land cover</a></strong> is a global land cover time series from 1992 to 2020+ derived at 300-m spatial resolution from MERIS, SPOT and PROBA-V imagery. Maps can be accessed through a <a href="http://maps.elie.ucl.ac.be/CCI/viewer/">viewer</a> and downloaded from the ESA website or from zenodo.org <span class="citation" data-cites="defourny2012land">(<a href="#ref-defourny2012land" role="doc-biblioref">Defourny et al. 2012</a>)</span>.</li>
+<li><strong><a href="https://land.copernicus.eu/global/products/lc">Copernicus Global Land Cover</a></strong> products at 100-m for years 2015, 2016, 2017 and 2018 and based on the PROBA-V imagery <span class="citation" data-cites="rs12061044">(<a href="#ref-rs12061044" role="doc-biblioref">Buchhorn et al. 2020</a>)</span>. The maps which can be downloaded directly from <a href="https://zenodo.org/communities/copernicus-land-cover/">zenodo.org</a>. These maps contain also predicted fractions for the main land cover classes (per pixel).</li>
+<li><strong><a href="https://glad.umd.edu/dataset/GLCLUC2020">GLAD Global Land Cover and Land Use Change 2000–2020 (GLCLUC2020)</a></strong> provides estimate of the land cover for the last 20+ years but also quantifies changes in forest extent and height, cropland, built-up lands, surface water, and perennial snow and ice extent <span class="citation" data-cites="Potapov2022">(<a href="#ref-Potapov2022" role="doc-biblioref">Potapov et al. 2022</a>)</span>.</li>
+<li><strong><a href="https://zenodo.org/doi/10.5281/zenodo.8239304">GLC FCS30D</a></strong> is a global 30-m annual land-cover time-series data set with 17-class system for the period 1982–2021 <span class="citation" data-cites="Zhang2021">(<a href="#ref-Zhang2021" role="doc-biblioref">X. Zhang et al. 2021</a>)</span>.</li>
+</ul>
+<p><strong><a href="https://landuse.sites.uu.nl/datasets/">HYDE (History database of the Global Environment)</a></strong> contains historic (estimated) maps (10-km resolution) of main land use categories up to pre-historic times 10,000 BCE to CE 2020 <span class="citation" data-cites="klein2017anthropogenic">(<a href="#ref-klein2017anthropogenic" role="doc-biblioref">Klein Goldewijk et al. 2017</a>)</span>. HYDE includes irrigated areas, rice, intensive pasture, extensive rangelands and similar. Data can be downloaded from the <a href="https://landuse.sites.uu.nl/datasets/">University of Utrecht Copernicus Land Change Lab</a>.</p>
+<p>A detailed Water mask of the world is available also from the <strong><a href="https://global-surface-water.appspot.com/">Global Surface Water Explorer</a></strong> hosted by European Commission JRC <span class="citation" data-cites="Pekel2016">(<a href="#ref-Pekel2016" role="doc-biblioref">Pekel et al. 2016</a>)</span>. A Landsat-based water dynamics assessment (annual maps) at 30-m is also provided by <span class="citation" data-cites="pickens2020mapping">Pickens et al. (<a href="#ref-pickens2020mapping" role="doc-biblioref">2020</a>)</span>. <strong><a href="https://geoservice.dlr.de/web/maps/eoc:gwp:yearly">Global WaterPack (GWP) monthly and yearly</a></strong> product comprises different water coverage categories at 250-m spatial resolution.</p>
+<p>Due to the availability of the Sentinel-2 10-m resolution data, several land cover products are now available at very high resolution (but then only covering recent 3–5 years). These include:</p>
+<ul>
+<li><strong><a href="https://dynamicworld.app/">Google Dynamic World</a></strong> at 10-m, limited to 9 classes but constantly updated <span class="citation" data-cites="Brown2022">(<a href="#ref-Brown2022" role="doc-biblioref">Brown et al. 2022</a>)</span>;</li>
+<li><strong><a href="https://esa-worldcover.org/en">ESA World Cover</a></strong> at 10-m based on Sentinel-1 and Sentinel-2 data for 2020 and 2021 available from <a href="https://doi.org/10.5281/zenodo.7254221">Zenodo</a>;<br>
+</li>
+<li><strong><a href="https://langnico.github.io/globalcanopyheight/">Global canopy top height map for the year 2020</a></strong> at 10-m <span class="citation" data-cites="lang2023high">(<a href="#ref-lang2023high" role="doc-biblioref">Lang et al. 2023</a>)</span>;</li>
+</ul>
+<p>Several initiatives aim at integrating multiple land cover products <span class="citation" data-cites="rs8121036">(<a href="#ref-rs8121036" role="doc-biblioref">Herold et al. 2016</a>)</span> and/or running land cover classification by fusing multisource EO data <span class="citation" data-cites="Song2017 Liu2021">(<a href="#ref-Song2017" role="doc-biblioref">Xiao-Peng Song and Townshend 2017</a>; <a href="#ref-Liu2021" role="doc-biblioref">L. Liu et al. 2021</a>)</span>.</p>
+<p>ESA’s <strong><a href="https://esa-worldcereal.org/en">WorldCereal</a></strong> provides access to <a href="https://doi.org/10.5281/zenodo.7875104">high resolution predictions</a> (10-m) of winter and spring cereals, maize, active cropland, irrigation and similar for year 2021 <span class="citation" data-cites="essd-15-5491-2023">(<a href="#ref-essd-15-5491-2023" role="doc-biblioref">Van Tricht et al. 2023</a>)</span>.</p>
+</section>
+<section id="biophysical-indices" class="level3">
+<h3 class="anchored" data-anchor-id="biophysical-indices">Biophysical indices</h3>
+<p>There are number of biophysical indices including vegetation indices that can be derivd from optical EO images such as MODIS, Landsat and/or Sentinel. This includes (note: formulas for biophysical indices for MODIS, Landsat etc might differ):</p>
+<ul>
+<li><a href="https://www.mdpi.com/2072-4292/13/3/474">Bare Soil Fraction</a> (BSF),</li>
+<li><a href="https://www.usgs.gov/landsat-missions/landsat-surface-reflectance-derived-spectral-indices">Enhanced Vegetation Index</a> (EVI),</li>
+<li><a href="https://doi.org/10.1016/j.srs.2022.100060">Fraction of Absorbed Photosynthetically Active Radiation</a> (FAPAR),</li>
+<li><a href="https://www.usgs.gov/landsat-missions/landsat-surface-reflectance-derived-spectral-indices">Leaf Area Index</a> (LAI),</li>
+<li><a href="https://www.usgs.gov/landsat-missions/landsat-surface-reflectance-derived-spectral-indices">Normalized Burn Ratio</a> (NBR),</li>
+<li><a href="https://www.usgs.gov/landsat-missions/normalized-difference-snow-index">Normalized Difference Snow Index</a> (NDSI),</li>
+<li><a href="https://www.mdpi.com/2072-4292/12/16/2665">Normalized Difference Tillage Index</a> (NDTI),</li>
+<li><a href="https://www.usgs.gov/landsat-missions/landsat-surface-reflectance-derived-spectral-indices">Normalized Difference Vegetation Index</a> (NDVI),</li>
+<li><a href="https://edo.jrc.ec.europa.eu/documents/factsheets/factsheet_ndwi.pdf">Normalized Difference Water Index</a> (NDWI),</li>
+</ul>
+<p>8-day, monthly and annual biophysical indiced such as EVI and Gross and Net Primary Production (GPP and NPP) from MODIS (250-m) are available via the <strong><a href="https://lpdaac.usgs.gov/products/mod13q1v061/">MOD13Q1</a></strong> and <strong><a href="https://doi.org/10.5067/MODIS/MOD17A2H.061">MOD17A2H</a></strong> products. These, however, often come with many missing pixels due to clouds and artifacts and require significant post-processing to reach a <a href="https://medium.com/mlearning-ai/present-and-future-of-data-cubes-an-european-eo-perspective-735d3f16f7c9">complete consistent structured product</a>. <strong><a href="https://land.copernicus.eu/en/products/vegetation/gross-primary-production-v1-0-300m">Global GPP at 300-m</a></strong> spatial resolution is also available based on the Sentinel-3/OLCI, but covering only recent years (&gt;2023).</p>
+<p><span class="citation" data-cites="ma2022global">Ma et al. (<a href="#ref-ma2022global" role="doc-biblioref">2022</a>)</span> produced global consistent <strong>8-day Fraction of Absorbed Photosynthetically Active Radiation (FAPAR)</strong> product at 250-m spatial resolution (available for download from <a href="https://zenodo.org/doi/10.5281/zenodo.6405563">Zenodo</a>). <span class="citation" data-cites="xiong2023improved">Xiong et al. (<a href="#ref-xiong2023improved" role="doc-biblioref">2023</a>)</span> produced an improved global consistent and complete 8-day 250-m NDVI and EVI products covering 2000 to 2021 (data is available for download from <a href="https://doi.org/10.6084/m9.figshare.22220050">Figshare</a>). <a href="http://www.glass.umd.edu/Download.html">Global LAnd Surface Satellite (GLASS)</a> serves a number of post-processed products including FAPAR and Leaf Area Index (LAI) at 250-m and also covering period 2000 to 2021. Based on the <span class="citation" data-cites="ma2022global">Ma et al. (<a href="#ref-ma2022global" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="Hacklaender2024PeerJ">Hackländer et al. (<a href="#ref-Hacklaender2024PeerJ" role="doc-biblioref">2024</a>)</span> produced an aggregated complete &amp; consistent <strong><a href="https://zenodo.org/doi/10.5281/zenodo.8418441">monthly FAPAR product</a></strong> which also includes P25, P50 and P75 quantiles.</p>
+<p>Global cloud-free Landsat composites (Red, NIR, SWIR1, SWIR2) for the world for multiple periods (2000, 2014, 2018, 2022) can be obtained from <strong><a href="https://glad.earthengine.app/view/global-forest-change">GLAD Global Forest Change</a></strong>.</p>
+</section>
+<section id="forest-resources" class="level3">
+<h3 class="anchored" data-anchor-id="forest-resources">Forest resources</h3>
+<p>FAO periodically (every 5 years) organizes the so called <a href="https://www.fao.org/forest-resources-assessment/en/">Forest Resources Assessment</a> (FRA) — an international compilation of forest resource assessment (forest maps, health and vitality status, forest functions and policies connected with forest management). This assessment typically results in a comprehensive report that includes both graphical and <a href="https://fra-data.fao.org/">tabular data</a>; gridded global FRA maps are typically not available.</p>
+<p>The Land Processes Distributed Active Archive Center (LP DAAC) archives and distributes <strong><a href="https://lpdaac.usgs.gov/products/gfcc30fccv001/">Global Forest Cover Change (GFCC) data product</a></strong> at 30-m resolution. Japan Aerospace Exploration Agency (JAXA) has also released in 2014 a global <strong><a href="https://www.eorc.jaxa.jp/ALOS/en/dataset/fnf_e.htm">25-m resolution PALSAR mosaic and forest/non-forest map (2007–2010 and 2015–2021)</a></strong>. This data is freely available for download via the <a href="https://www.eorc.jaxa.jp/ALOS/en/palsar_fnf/data/">JAXA pages</a>. Copernicus Global Land Cover and Tropical Forest Mapping and Monitoring service (LCFM) serves 10-m resolution sub-annual maps of tropical forest status.</p>
+<p>Detail maps of <strong>mangrove forests cover, habitat type and properties</strong> <span class="citation" data-cites="Bunting2022">(<a href="#ref-Bunting2022" role="doc-biblioref">Bunting et al. 2022</a>)</span>, the key products of the https://www.globalmangrovewatch.org/ project can be obtained from <a href="https://doi.org/10.5281/zenodo.6894273">zenodo</a>. <span class="citation" data-cites="vancutsem2021long">Vancutsem et al. (<a href="#ref-vancutsem2021long" role="doc-biblioref">2021</a>)</span> produced long-term (1990–2019) maps of forest cover changes in the humid tropics (<strong>Tropical moist forests TMF</strong>) at 30-m spatial resolution. The data is available for download via the project <a href="https://forobs.jrc.ec.europa.eu/TMF">homepage</a>.</p>
+<p>Forest resources and canopy height have been mapped by the GLAD group from the Maryland university <span class="citation" data-cites="POTAPOV2021112165">(<a href="#ref-POTAPOV2021112165" role="doc-biblioref">Potapov et al. 2021</a>)</span> The data is publicly available under open data license from: https://glad.umd.edu/dataset. The <strong><a href="https://www.globalforestwatch.org/map/">WRI’s Global Forest Watch</a></strong> service can be used to access annual tree cover maps for 2000–2022+, forest cover change and canopy height change <span class="citation" data-cites="hansen2013high">(<a href="#ref-hansen2013high" role="doc-biblioref">Hansen et al. 2013</a>)</span>. These global forest change data is openly available and can be <a href="https://glad.earthengine.app/view/global-forest-change">downloaded</a> including the Landsat cloud-free mosaics for the whole world at 30-m resolution.</p>
+<p>Note that tree cover loss can be permanent (e.g.&nbsp;change in land use, permanent deforestation, or natural transition i.e.&nbsp;<a href="https://en.wikipedia.org/wiki/Ecological_succession">ecological succession</a>) or can be temporary i.e.&nbsp;effect of fires, floods, pests and similar), therefore it is important to consider any forest inventory data within time-frame, previous state and considering succession rates.</p>
+</section>
+<section id="land-use-change" class="level3">
+<h3 class="anchored" data-anchor-id="land-use-change">Land use change</h3>
+<p>Land use change often comes with a special legend and should not be confused with land cover mapping. Some typical legend entries for land use change includes:</p>
+<ul>
+<li>Deforestation,</li>
+<li>Reforestation,</li>
+<li>Urbanization,</li>
+<li>Loss of wetlands,</li>
+<li>Wetland degradation,</li>
+<li>Water reduction (surface water change),</li>
+<li>Water expansion (surface water change),</li>
+<li>Desertification,</li>
+<li>Crop expansion,</li>
+<li>Pastureland expansion,</li>
+<li>Land abandonment,</li>
+</ul>
+<p><strong><a href="https://glad.umd.edu/dataset/GLCLUC2020">GLAD Global Land Cover and Land Use Change 2000–2020 (GLCLUC2020)</a></strong> provides estimate of the land cover for the last 20+ years at 30-m resolution quantifies changes in forest extent and height, cropland, built-up lands, surface water, and perennial snow and ice extent <span class="citation" data-cites="Potapov2022">(<a href="#ref-Potapov2022" role="doc-biblioref">Potapov et al. 2022</a>)</span>. This data set can be downloaded (per tile) via the <a href="https://glad.earthengine.app/view/glcluc-2000-2020">GLAD’s GEE repository</a>. <strong><a href="https://www.globalforestwatch.org/map/">WRI’s Global Forest Watch</a></strong> provides high resolution<br>
+forest cover change at 30-m resolution. <strong><a href="https://geoservice.dlr.de/web/maps/tdm:dcm30">TanDEM-X 30-m DEM Change Maps (DCM)</a></strong> shows significant changes in elevation (usually canopy height) for the period 2016 to 2022.</p>
+</section>
+</section>
+<section id="population-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="population-distribution">Population Distribution</h2>
+<section id="population-density-maps" class="level3">
+<h3 class="anchored" data-anchor-id="population-density-maps">Population density maps</h3>
+<p>For global modeling one of the most important global socio-economic data layers are the population density maps and attached socio-economic variables. The <a href="https://sedac.ciesin.columbia.edu/">Socioeconomic Data and Applications Center</a> (SEDAC) distributes the <strong><a href="https://doi.org/10.7927/H47M05W2">Global Population Density Grid Time Series Estimates</a></strong> (1970–2000), <strong>Global Rural-Urban Mapping Project</strong> data set, Version 1 (<a href="https://doi.org/10.7927/np6p-qe61">GRUMPv1</a>) and <strong><a href="https://doi.org/10.7927/H49C6VHW">Gridded Population of the World, Version 4 (GPWv4)</a></strong> all at resolution of up to 1-km. These are the currently most detailed gridded time-series dataset with consistent population density and structure; for modeling future, a <strong><a href="https://doi.org/10.7927/q7z9-9r69">Global 1-km Downscaled Population Base Year and Projection Grids Based on the SSPs</a></strong> (1990–2100) <span class="citation" data-cites="gao2020global">(<a href="#ref-gao2020global" role="doc-biblioref">J. Gao 2020</a>)</span> is also available. It consists of global urban, rural, and total population for the base year 2000, population projections at ten-year intervals for 2010–2100 at a resolution of 1-km, and was developed for the purpose of the IPCC climate modeling framework.</p>
+<p>Joint Research Centre (JRC) of the European Commission has produced a global 100-m spatial resolution product called <strong><a href="https://doi.org/10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE">Global Human Settlement (GHS) population grid multitemporal (1975-2030) layer</a></strong> <span class="citation" data-cites="schiavina2022ghsl">(<a href="#ref-schiavina2022ghsl" role="doc-biblioref">Schiavina et al. 2022</a>)</span>. This can be considered the most detailed global population density product to date and is also <a href="https://stac.openlandmap.org/pop.count_ghs.jrc/collection.json">available via OpenLandMap.org</a>.</p>
+<p>Facebook (Meta) through its not-for-profit project <a href="https://dataforgood.facebook.com/dfg/tools">“Data for Good”</a> is building a series of cutting-edge population data sets including the <strong>population density maps at 30-m</strong> (also includes age structure and gender). These are usually based on a combination of legacy population data from censuses and EO products / inventory of buildings etc that are then used to downscale the values to high spatial resolution <span class="citation" data-cites="tiecke2017mapping">(<a href="#ref-tiecke2017mapping" role="doc-biblioref">Tiecke et al. 2017</a>)</span>. The 30-m resolution population density maps for 160+ countries and territories around the world are available for download from https://portal.mwater.co/.</p>
+</section>
+<section id="lights-at-night-images" class="level3">
+<h3 class="anchored" data-anchor-id="lights-at-night-images">Lights at night images</h3>
+<p>The lights at night map contains the lights from cities, towns, and other sites with persistent lighting, including gas flares. Images of lights at night have shown to be highly correlated with industrial activity and Gross Domestic Product <span class="citation" data-cites="doll2006mapping">(<a href="#ref-doll2006mapping" role="doc-biblioref">Doll, Muller, and Morley 2006</a>)</span>. A time-series of (1-km resolution) annual global night light images (1992–2013) is available via the NOAA’s National Geophysical Data Center <strong><a href="https://ngdc.noaa.gov/eog/dmsp/downloadV4composites.html">the Version 4 DMSP-OLS Nighttime Lights Time Series</a></strong>. The <strong><a href="https://doi.org/10.6084/m9.figshare.16602224.v1">harmonized nighttime light (NTL) time-series composites for 1992–2020</a></strong> produced by <span class="citation" data-cites="zhao2022global">Zhao et al. (<a href="#ref-zhao2022global" role="doc-biblioref">2022</a>)</span> are available at 1-km resolution.</p>
+<p>Currently the most detailed global Lights at night images are the global <strong>VIIRS nighttime lights</strong> (<strong><a href="https://eogdata.mines.edu/products/vnl/#annual_v2">Annual VNL V2</a></strong>) covering 2012–2020 at 500-m spatial resolution <span class="citation" data-cites="elvidge2021annual">(<a href="#ref-elvidge2021annual" role="doc-biblioref">Elvidge et al. 2021</a>)</span>. The Annual VNL V2 contains average, average-masked, mean, minimum and maximum values of nighttime lights. The <a href="https://stac.openlandmap.org/nightlights.average_viirs.v21/collection.json?.language=en">lights at night images on OpenLandMap.org</a> are based on time-extrapolated values so that they cover 2000–2022 and are hence compatible with other global land products.</p>
+</section>
+</section>
+<section id="water-resources" class="level2">
+<h2 class="anchored" data-anchor-id="water-resources">Water resources</h2>
+<section id="global-surface-water-dynamics" class="level3">
+<h3 class="anchored" data-anchor-id="global-surface-water-dynamics">Global Surface Water dynamics</h3>
+<p>Global surface water dynamics can be followed from three global data sets:</p>
+<ul>
+<li><strong><a href="https://global-surface-water.appspot.com/">Global Surface Water Explorer</a></strong> 1985 to 2018 hosted by European Commission JRC <span class="citation" data-cites="Pekel2016">(<a href="#ref-Pekel2016" role="doc-biblioref">Pekel et al. 2016</a>)</span>;</li>
+<li><strong><a href="https://glad.umd.edu/dataset/global-surface-water-dynamics">Landsat-based water dynamics</a></strong> at 30-m for 1999 to 2018 period by <span class="citation" data-cites="pickens2020mapping">Pickens et al. (<a href="#ref-pickens2020mapping" role="doc-biblioref">2020</a>)</span>.</li>
+<li><strong><a href="https://zenodo.org/doi/10.5281/zenodo.8239304">GLC FCS30D</a></strong> a global 30-m annual land-cover time-series data set with 17-class system (also includes oceans, sees and fresh-water resources) for the period 1982–2021 <span class="citation" data-cites="Zhang2021">(<a href="#ref-Zhang2021" role="doc-biblioref">X. Zhang et al. 2021</a>)</span>.</li>
+</ul>
+<p>A <strong><a href="https://lpdaac.usgs.gov/products/mod44wv006/">MODIS-based water mask (MOD44WV)</a></strong> product at somewhat coarser resolution (250-m) can be also used to represent water dynamics for the last 25 years.</p>
+</section>
+<section id="world-oceans" class="level3">
+<h3 class="anchored" data-anchor-id="world-oceans">World oceans</h3>
+<p><strong><a href="https://www.ncei.noaa.gov/products/world-ocean-database">World Ocean Database</a></strong> (world’s largest collection of uniformly formatted, quality controlled, publicly available ocean profile data) is distributed by NOAA. The data set covers 1990 to 2021 period. MODIS distributes a number of global products for global oceans including <strong><a href="https://doi.org/10.5067/MODAM-8D9N9">sea surface temperature (SST)</a></strong> at 4-km resolution (daily, 8-day, monthly or annual) and similar (SST images are available for download from https://opendata.oraclecloud.com/).</p>
+<p>The Global Fishing Watch (founded by Oceana, SkyTruth and Google) hosts a <strong><a href="https://dx.doi.org/10.6084/m9.figshare.24309475.v1">Global data set of industrial activities at sea</a></strong>. This includes 53 billion vessel GPS positions and results of classification of over 67 million image tiles (SAR, Sentinel-1, Sentinel-2) <span class="citation" data-cites="paolo2024satellite">(<a href="#ref-paolo2024satellite" role="doc-biblioref">Paolo et al. 2024</a>)</span>. The GFW is currently maintaining the <strong>Open Ocean Project</strong> that aims at providing a total inventory of Industrial fishing vessels, non-fishing vessels, fixed infrastructure and small-scale fishing boats all as open data.</p>
+<p><span class="citation" data-cites="haigh2023gesla">Haigh et al. (<a href="#ref-haigh2023gesla" role="doc-biblioref">2023</a>)</span> describes the <strong><a href="https://www.gesla.org/">GESLA (Global Extreme Sea Level Analysis)</a></strong> that contains high-frequency sea-level information from tide gauge stations distributed worldwide. Global maps of the sea level change are also available for download from the <a href="https://uhslc.soest.hawaii.edu/">University of Hawaii Sea level center</a>.</p>
+</section>
+</section>
+<section id="physical-infrastructure" class="level2">
+<h2 class="anchored" data-anchor-id="physical-infrastructure">Physical Infrastructure</h2>
+<section id="urbanization-human-induced-changes" class="level3">
+<h3 class="anchored" data-anchor-id="urbanization-human-induced-changes">Urbanization / human-induced changes</h3>
+<p>Quantification of urbanization and human impact is usually modeled by using population density maps, lights at night images and/or data on buildings. Partners in the <a href="https://www.globio.info/resources">GLOBIO consortium</a> created a World Map of <strong>Human Impacts on the Biosphere</strong> for various time periods. This is basically a map showing a current status of the roads, railways and settlement density. Human impact maps can be also browsed via the <a href="http://grida.no/">UNEP Grid Arendal</a>. <span class="citation" data-cites="weiss2018global">Daniel J. Weiss et al. (<a href="#ref-weiss2018global" role="doc-biblioref">2018</a>)</span> and <span class="citation" data-cites="weiss_global_2020">D. J. Weiss et al. (<a href="#ref-weiss_global_2020" role="doc-biblioref">2020</a>)</span> have produced <strong><a href="https://data.malariaatlas.org/maps">a global map of accessibility and optimal travel time to healthcare</a></strong>.</p>
+<p>The International Biosphere-Geosphere Programme, the Stockholm Environment Institute, the Stockholm Resilience Center, the CSIRO in Australia and the International Human Dimensions Programme on Global Environmental Change are producing an outreach project on the Anthropocene and planetary boundaries named <a href="https://globaia.org/">“Globaia”</a>.</p>
+<p><span class="citation" data-cites="Theobald2020">Theobald et al. (<a href="#ref-Theobald2020" role="doc-biblioref">2020</a>)</span> provides a <a href="https://zenodo.org/doi/10.5281/zenodo.3963012">global time-series data set</a> representing <strong>Global human modification</strong> for 1990, 2000, 2010, 2015, and 2017 and at 300-m spatial resolution. The Wildlife Conservation Society is hosting <strong>Human Impact Index</strong> (HII) and <strong>Human Footprint</strong> maps that can be directly <a href="https://wcshumanfootprint.org/data-access">downloaded</a> <span class="citation" data-cites="sanderson2022march">(<a href="#ref-sanderson2022march" role="doc-biblioref">Sanderson et al. 2022</a>)</span>.</p>
+<p>The Copernicus Sentinel-5P has produced number of <strong><a href="https://maps.s5p-pal.com/cases/">monthly emission products</a></strong> at 2-km that can be used to quantify and monitor (industrial, traffic) emissions of NOx, CO/methane and SO2. The gap-filled monthly values of <a href="https://doi.org/10.5281/zenodo.7464099">NOx</a> and <a href="https://zenodo.org/doi/10.5281/zenodo.10265072">methane</a> emissions are available in OpenLandMap.org.</p>
+<p>A comprehensive global assessment of the human impacts to marine ecosystems can be followed via the work of the <a href="http://www.nceas.ucsb.edu/">National Center for Ecological Analysis and Synthesis</a> in Santa Barbara. This group have produced <strong><a href="http://www.nceas.ucsb.edu/globalmarine">a Global Map of Human Impacts to Marine Ecosystems</a></strong> by using a number of connected input GIS layers <span class="citation" data-cites="Halpern2008">(<a href="#ref-Halpern2008" role="doc-biblioref">Halpern et al. 2008</a>)</span>, which are available for <a href="https://doi.org/10.5063/F1S180FS">download</a>. Distribution of global airports and flight routes can be freely accessed from the <a href="https://github.com/jpatokal/openflights">openflights.org</a>. Chris Harrison produced the <a href="http://www.chrisharrison.net/projects/InternetMap/">world map</a> of internet connectivity and traffic.</p>
+<p><strong><a href="https://climatetrace.org/data">Climate TRACE</a></strong> provides an inventory of major source of greenhouse gas (GHG) emissions around the world and provides independently produced estimates of how much each emits. These data is available publicly, but requires pre-processing as it is a combination of point and polygon sources.</p>
+</section>
+<section id="intact-forest-landscapes" class="level3">
+<h3 class="anchored" data-anchor-id="intact-forest-landscapes">Intact forest landscapes</h3>
+<p>An important global forest landscape coverage / wildlife datasets is <strong><a href="http://www.intactforests.org/">the world map of intact forest landscapes (IFL)</a></strong> (areas hardly touched by mankind) at scale 1:1,000,000 (includes four classes of intact forests: 1. intact closed forests; 2. intact open forests, 3. woodlands and savannas, closed forests; and 4. open forests, woodlands and savannas). IFL is maintained by the Greenpeace organization <span class="citation" data-cites="potapov2008mapping">(<a href="#ref-potapov2008mapping" role="doc-biblioref">Potapov et al. 2008</a>)</span> and is available for years 2000, 2013, 2016, and 2020. Another similar data set is the <strong><a href="http://geodata.grid.unep.ch/">World Wilderness Areas</a></strong> and which is distributed via the UNEP GEO Data Portal <span class="citation" data-cites="mccloskey1989reconnaissance">(<a href="#ref-mccloskey1989reconnaissance" role="doc-biblioref">McCloskey and Spalding 1989</a>)</span>.</p>
+<p>The Global Generalized <strong><a href="https://resources.unep-wcmc.org/products/e56277812f854e7ca8fa9282ee323c5e">Original and Current Forest Cover dataset</a></strong> (V 3.0; polygon map) produced by UNEP-WCMC shows where were forest in past (assumed) and can be used to quantify deforestation at global scale.</p>
+</section>
+</section>
+<section id="climate" class="level2">
+<h2 class="anchored" data-anchor-id="climate">Climate</h2>
+<section id="climatic-datasets" class="level3">
+<h3 class="anchored" data-anchor-id="climatic-datasets">Climatic datasets</h3>
+<p><a href="https://climate.copernicus.eu/climate-datasets">Copernicus</a> makes a difference between three groups of climatic data sets:</p>
+<ul>
+<li>Station / point data sets;</li>
+<li>Gridded data sets derived from modeling / reanalysis (current and past climate);</li>
+<li>Projected gridded predictions / seasonal forecasting of future climate;</li>
+</ul>
+<p>Key climatic variables of interest are usually:</p>
+<ul>
+<li>minimum temperature (°C),</li>
+<li>maximum temperature (°C),</li>
+<li>average temperature (°C),</li>
+<li>precipitation (mm),</li>
+<li>solar radiation (kJ m-2 day-1),</li>
+<li>wind speed (m s-1),</li>
+<li>water vapor pressure (kPa),</li>
+<li>probability of occurrence of snow,</li>
+<li>snow thickness,</li>
+<li>soil moisture,</li>
+<li>water vapor (cm liquid water),</li>
+</ul>
+<p>The key public gridded global climatic data sets (current and past climate) include:</p>
+<ul>
+<li><strong><a href="https://chelsa-climate.org/">CHELSA Climate</a></strong> with multiple long term, monthly and even daily global products at 1-km <span class="citation" data-cites="karger2019climatologies">(<a href="#ref-karger2019climatologies" role="doc-biblioref">Karger and Zimmermann 2019</a>)</span>;</li>
+<li><strong><a href="https://www.worldclim.org/">WorldClim</a> with monthly historic and projected climatic data at 1-km spatial resolution <span class="citation" data-cites="Fick2017WorldClim">(<a href="#ref-Fick2017WorldClim" role="doc-biblioref">Fick and Hijmans 2017</a>)</span></strong>;</li>
+<li><strong><a href="http://doi.org/10.7923/G43J3B0R">TerraClimate</a></strong> gridded monthly temperature, precipitation, and other water balance variables at 4-km spatial resolution <span class="citation" data-cites="abatzoglou2018terraclimate">(<a href="#ref-abatzoglou2018terraclimate" role="doc-biblioref">Abatzoglou et al. 2018</a>)</span>;</li>
+<li><strong><a href="https://earthobservatory.nasa.gov/global-maps">NASA’s NEO</a></strong> global climatic monthly images at 10-km covering 2000–2022+ or finer;</li>
+<li><strong><a href="https://doi.org/10.24381/cds.adbb2d47">Copernicus ERA5</a></strong> available from 1940 providing hourly data on many atmospheric, land-surface and sea-state parameters together with estimates of uncertainty but at a coarse spatial resolution of cca 25-km;</li>
+</ul>
+<p>In addition to basic climatic variables, WorldClim and CHELSA Climate also provide <strong>BioClimatic variables</strong> at 1-km spatial resolution e.g.&nbsp;frost change frequency (fcf), snow cover days (scd), potential net primary productivity (npp), growing degree days (gdd), growing season characteristics and similar <span class="citation" data-cites="brun2022global">(<a href="#ref-brun2022global" role="doc-biblioref">Brun et al. 2022</a>)</span>. From the sources listed above, <strong>CHELSA Climate</strong> is possibly the most comprehensive most up-to-date repository with global 1-km data and even includes daily global 1km products (<strong><a href="https://doi.org/10.48364/ISIMIP.836809.1">CHELSA-W5E5</a></strong>), e.g.&nbsp;<strong><a href="http://www.earthenv.org/precipitation">daily precipitation images</a></strong> <span class="citation" data-cites="karger2021global">(<a href="#ref-karger2021global" role="doc-biblioref">Karger et al. 2021</a>)</span>.</p>
+<p>More detailed climatic images can be obtained via the <a href="http://www.gewex.org/datasets.html">Global Energy and Water Cycle Experiment project</a> and the <a href="http://badc.nerc.ac.uk/browse/badc/">British Atmospheric Data Centre</a> (BADC). The National Center for Atmospheric Research maintains a <a href="https://climatedataguide.ucar.edu/">ClimateDataGuide</a> portal.</p>
+<p>The National Geophysical Data Centre (NGDC) provides <a href="https://www.ncei.noaa.gov/products">free access</a> to numerous remote sensing based global maps — from solar parameters to cloud imagery, energetic particle measurements and similar (collectively called “Climate monitoring” products). <a href="http://nsidc.org/data/easytouse.html">The National Snow and Ice Data Center</a> maintains a number of global data sets important for monitoring global snow and ice — frozen ground maps, monthly satellite-derived snow water equivalent (SWE) climatologies and similar. These data can be obtained for northern and southern hemisphere at resolution of 25-km. <span class="citation" data-cites="gruber2012derivation">Gruber (<a href="#ref-gruber2012derivation" role="doc-biblioref">2012</a>)</span> produced a <strong><a href="https://www.geo.uzh.ch/microsite/cryodata/pf_global/">Global Permafrost Zonation Index Map</a></strong> (excluding Antartica) which is available at resolution of 1-km. <a href="https://viirsland.gsfc.nasa.gov/Products/NASA/SnowESDR.html">NASA’s VIIRS (Visible Infrared Imaging Radiometer Suite) Land products</a> include also <strong>VIIRS-land snow cover daily</strong> (gap-filled) at 375-m resolution. These can be downloaded from the <a href="https://nsidc.org/data/vnp10a1f/versions/1">NSIDC</a> data portal. <a href="https://climate.esa.int/en/projects/snow/Snow_data/">ESA CCI (Climate Change Initiative)</a> also maintains and distributes <strong><a href="https://dx.doi.org/10.5285/ebe625b6f77945a68bda0ab7c78dd76b">Daily Snow Cover Fraction Viewable (SCFV)</a></strong>, <strong><a href="https://dx.doi.org/10.5285/8847a05eeda646a29da58b42bdf2a87c">Daily Snow Cover Fraction on Ground (SCFG)</a></strong> i.e.&nbsp;a canopy corrected snow fraction to adjust for snow on ground also in forested areas (both at 1-km resolution and covering 2000–2020), and <strong><a href="https://dx.doi.org/10.5285/4647cc9ad3c044439d6c643208d3c494">Snow Water Equivalent (SWE)</a></strong> at 10-km resolution covering 1979–2020.</p>
+<p>DLR (German Space Agency) Geoportal distributes the <strong><a href="https://geoservice.dlr.de/web/maps/eoc:gsp:yearly">Global SnowPack</a></strong> monthly and annual products at 500-m spatial resolution covering 2000 to 2023 (current) <span class="citation" data-cites="dietz2015global">(<a href="#ref-dietz2015global" role="doc-biblioref">Dietz, Kuenzer, and Dech 2015</a>)</span>. <a href="https://www.earthdata.nasa.gov/eosdis/daacs/nsidc">NASA’s National Snow and Ice Data Center (NSIDC) Distributed Active Archive Center (DAAC)</a> provides data and information for snow and ice processes, interactions among snow, ice, atmosphere, and ocean.</p>
+<p><span class="citation" data-cites="cui20211">Cui et al. (<a href="#ref-cui20211" role="doc-biblioref">2021</a>)</span> have produced 1-km resolution maps of present-time and future <strong>Koppen-Geiger climate classification zones</strong> and bioclimatic variables, available for download from http://glass.umd.edu/KGClim. The <a href="https://en.wikipedia.org/wiki/K%C3%B6ppen_climate_classification">Koppen-Geiger climate classification</a> is is one of the most widely used climate classification systems with five main classes: A (tropical), B (arid), C (temperate), D (continental), and E (polar).</p>
+<p>There are multiple daily and monthly global soil moisture products either purely based on EO images or a combination of downscaling and modeling. <span class="citation" data-cites="Fang2022">Fang et al. (<a href="#ref-Fang2022" role="doc-biblioref">2022</a>)</span> produced 1-km soil moisture data set covering years 2015 to 2020 by downscaling the SMAP product. National Snow and Ice Data Center has also produced SMAP-Derived 1-km Downscaled <strong>Surface Soil Moisture Product</strong>. This data set is available for download from <a href="https://nsidc.org/data/nsidc-0779/versions/1">NSIDC</a>. <span class="citation" data-cites="han2023global">Han et al. (<a href="#ref-han2023global" role="doc-biblioref">2023</a>)</span> produced a global daily soil moisture data set at 1-km resolution called <strong>GSSM1-km</strong> covering period 2000–2020. The GSSM1-km dataset can be downloaded from <a href="https://doi.org/10.6084/m9.figshare.21806457.v1">Figshare</a>. <span class="citation" data-cites="Zhang2023">Y. Zhang et al. (<a href="#ref-Zhang2023" role="doc-biblioref">2023</a>)</span> used ensemble learning to produce a daily 1-km spatiotemporally continuous soil moisture product for 2000–2020 called <strong>GLASS SM</strong>. The GLASS SM is freely available at http://glass.umd.edu/soil_moisture/; the annual average global soil moisture dataset at 1-km resolution was also generated, which can be downloaded from <a href="https://doi.org/10.5281/zenodo.7172664">zenodo</a>. <span class="citation" data-cites="zheng202321">Zheng, Jia, and Zhao (<a href="#ref-zheng202321" role="doc-biblioref">2023</a>)</span> produced a <strong>gap-free global daily surface soil moisture at 1-km grid resolution</strong> for 2000–2020, which is available for download from the <a href="https://doi.org/10.11888/RemoteSen.tpdc.272760">National Tibetan Plateau/Third Pole Environment Data Center</a> (almost 1TB of data).<br>
+Coarser resolution (10-km or coarser) soil moisture global images are also available such as the <strong><a href="https://climate.esa.int/en/projects/soil-moisture/data/">ESA’s CCI soil moisture product</a></strong>, <strong><a href="https://nsidc.org/data/spl3smp_e/versions/3">SMAP Enhanced L3 Radiometer Global Daily 9 km EASE-Grid Soil Moisture</a></strong> and the <strong><a href="https://hsaf.meteoam.it/Products/ProductsList?type=soil_moisture">ASCAT</a></strong> <strong>Soil Wetness Profile Index</strong> and <strong>Root Zone Soil Moisture Profile Index</strong>.</p>
+<p>Global soil temperatures i.e.&nbsp;<strong>Global Soil Bioclimatic variables</strong> are available at <a href="https://zenodo.org/doi/10.5281/zenodo.4558731">1-km spatial resolution</a> thanks to <span class="citation" data-cites="lembrechts2022global">Lembrechts et al. (<a href="#ref-lembrechts2022global" role="doc-biblioref">2022</a>)</span>.</p>
+<p><a href="https://stac.openlandmap.org/wv_mcd19a2v061.seasconv/collection.json">OpenLandMap.org</a> provides access to number of original climatic data sets produced at OpenGeoHub including:</p>
+<ul>
+<li><strong><a href="https://zenodo.org/doi/10.5281/zenodo.1420114">Long-term MODIS Land Surface Temperature (LST) monthly daytime and nightime</a></strong> images at 1-km resolution for 2000–2022;</li>
+<li><strong><a href="https://zenodo.org/doi/10.5281/zenodo.8193740">Global monthly water vapor at 1-km resolution</a></strong> for 2000–2022 based on <a href="https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/MCD19A2">MCD19A2</a>;</li>
+<li><strong><a href="https://zenodo.org/doi/10.5281/zenodo.5774953">Global MODIS-based snow cover monthly long-term at 500-km resolution</a></strong> for 2000–2012;</li>
+<li><strong><a href="https://zenodo.org/doi/10.5281/zenodo.2615278">SM2RAIN global precipitation daily and monthly</a></strong> at 10-km resolution;</li>
+</ul>
+</section>
+<section id="meteorological-images" class="level3">
+<h3 class="anchored" data-anchor-id="meteorological-images">Meteorological images</h3>
+<p>A number of <a href="https://modis.gsfc.nasa.gov/data/dataprod/">MODIS atmospheric / terrestrial products</a> are available with daily updates (usually at 1-km spatial resolution) including:</p>
+<ul>
+<li><a href="https://modis.gsfc.nasa.gov/data/dataprod/mod11.php">Daily daytime and nightime Land Surface Temperature (LST)</a>;</li>
+<li><a href="https://modis.gsfc.nasa.gov/data/dataprod/mod06.php">Daily cloud products</a> such as cloud thickness and temperatures <span class="citation" data-cites="platnick2003modis">(<a href="#ref-platnick2003modis" role="doc-biblioref">Platnick et al. 2003</a>)</span>;</li>
+<li><a href="https://modis.gsfc.nasa.gov/data/dataprod/mod05.php">Daily Total Precipitable Water / water vapor</a> <span class="citation" data-cites="gao2003water">(<a href="#ref-gao2003water" role="doc-biblioref">B.-C. Gao and Kaufman 2003</a>)</span>;</li>
+</ul>
+<p>MODIS produces <a href="https://lpdaac.usgs.gov/products/mod11a1v061/">daily estimates of the global Land Surface Temperature</a>, which are supposedly highly accurate with an average accuracy of ±1 degree Kelvin <span class="citation" data-cites="Wan2004">(<a href="#ref-Wan2004" role="doc-biblioref">Wan et al. 2004</a>)</span>.</p>
+<p>The <a href="http://www.eumetsat.int/">Meteosat</a> Second Generation (MSG) satellites (from Meteosat-8 onwards) produce SEVIRI 15–minutes images at resolution of 1-km. The most interesting SEVIRI data set for environmental applications is the High Rate SEVIRI, which consists of 12 spectral channels including: visible and near infrared light, water vapor band, carbon dioxide and ozone bands. Meteosat LST products are available from the <a href="https://land.copernicus.eu/global/products/lst">Copernicus Global Land Service</a>.</p>
+<p><a href="https://www.eoportal.org/satellite-missions/lstm">LSTM (Land Surface Temperature Monitoring)</a> is an ESA mission developed by Airbus Defense and Space, set to start in 2028. The satellite will have Thermal Infrared (TIR) observation capabilities at high spatial resolution (30–50-m) over land and coastal regions in support of agriculture management services, and possibly a range of additional services.</p>
+</section>
+</section>
+<section id="biodiversity-and-nature-conservation" class="level2">
+<h2 class="anchored" data-anchor-id="biodiversity-and-nature-conservation">Biodiversity and Nature Conservation</h2>
+<section id="world-ecosystems-biomes-ecoregions" class="level3">
+<h3 class="anchored" data-anchor-id="world-ecosystems-biomes-ecoregions">World ecosystems / biomes / ecoregions</h3>
+<p>Numerous global data products have been produced to show either boundaries of natural ecosystems also referred to as <a href="https://en.wikipedia.org/wiki/Ecoregion">ecoregions</a> or biomes. Ecoregions are terrestrial, freshwater and/or marine areas with characteristic combinations of soil and landform that characterize that region. Leading providers of the global maps on biodiversity and nature conservation include:</p>
+<ul>
+<li><strong><a href="https://databasin.org/galleries/2d2d35ae3bc34399976b598ed7893254/">TNC’s Atlas of global conservation</a></strong>;</li>
+<li><strong><a href="https://resources.unep-wcmc.org/products/WCMC_RT103">UNEP’s World Atlas of Biodiversity (book)</a></strong>;</li>
+<li><strong><a href="https://explorer.naturemap.earth/">Nature Map Earth project</a></strong>;</li>
+</ul>
+<p>The World Wildlife Fund has produced the global (polygon) map of <strong><a href="https://databasin.org/datasets/">Terrestrial ecoregions</a></strong>, which shows some 867 distinct eco-units, including the relative richness of terrestrial species by ecoregion <span class="citation" data-cites="olson2001terrestrial">(<a href="#ref-olson2001terrestrial" role="doc-biblioref">Olson et al. 2001</a>)</span>. Another similar data set is the <strong><a href="https://databasin.org/datasets/">Freshwater Ecoregions of the World</a></strong> <span class="citation" data-cites="abell2008freshwater">(<a href="#ref-abell2008freshwater" role="doc-biblioref">Abell et al. 2008</a>)</span>.</p>
+<p>USGS distributes a <strong><a href="https://doi.org/10.5066/P9WRNPTN">“World Ecological Land Units”</a></strong> with 3,923 terrestrial ecological land units (ELUs) at a base resolution of 250 meters and available for <a href="https://rmgsc.cr.usgs.gov/outgoing/ecosystems/Global/">download from the USGS Global Ecosystems Data</a> repository. <span class="citation" data-cites="sayre2019new">Sayre et al. (<a href="#ref-sayre2019new" role="doc-biblioref">2019</a>)</span> also produced a 30-m resolution <strong>global shoreline vector and associated global islands database</strong> for the development of standardized ecological coastal units.</p>
+<p>FAO and IIASA maintain also a global map of <strong><a href="https://gaez.fao.org/">Global Agro-Ecological Zones (GAEZ)</a></strong>. GAEZ classification, soil suitability, terrain slopes and land cover are provided at 1-km spatial resolution. The <a href="https://gaez.fao.org/pages/data-viewer">GAEZ data viewer</a> provides easy access to all data layers.</p>
+<p><span class="citation" data-cites="Jung2020">Jung et al. (<a href="#ref-Jung2020" role="doc-biblioref">2020</a>)</span> have produced a <strong><a href="https://zenodo.org/doi/10.5281/zenodo.3666245">global map of terrestrial habitat types</a></strong> at 1-km spatial resolution. This is based on the International Union for Conservation of Nature (IUCN) <a href="https://www.iucnredlist.org/resources/habitat-classification-scheme">habitat classification scheme</a>.</p>
+<p>The ESA’s CCI <strong><a href="https://doi.org/10.5285/26a0f46c95ee4c29b5c650b129aab788">Global Plant Functional Types (PFT)</a></strong> data provides yearly data for the time period from 1992 to 2020. PTF global dataset has 14 layers, each describing the percentage cover (0–100%) of a plant functional type at a spatial resolution of 300-m: broadleaved evergreen trees, broadleaved deciduous trees, needleleaved evergreen trees, needleleaved deciduous trees, broadleaved evergreen shrubs, broadleaved deciduous shrubs, needleleaved evergreen shrubs, needleleaved deciduous shrubs, natural grasses, herbaceous cropland (i.e., managed grasses), built, water, bare areas, and snow and ice.</p>
+</section>
+<section id="potential-natural-vegetation-maps" class="level3">
+<h3 class="anchored" data-anchor-id="potential-natural-vegetation-maps">Potential Natural Vegetation maps</h3>
+<p>Potential Natural Vegetation (PNV) is the hypothetical vegetation cover that would be present if the vegetation were in equilibrium with environmental controls, including climatic factors and disturbance, and not subject to human management. When considering PNV, one needs to distinguish between potential <em>natural</em> and potential <em>managed</em> vegetation, and <em>actual</em> natural and <em>actual</em> managed vegetation <span class="citation" data-cites="hengl2018global">(<a href="#ref-hengl2018global" role="doc-biblioref">Hengl et al. 2018</a>)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/fig_scheme_pnv.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Schematic explanation of differences between (A) potential and actual natural/managed vegetation, and (B) current and historic vegetation in the context of global land area. Image source: https://doi.org/10.7717/peerj.5457.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="citation" data-cites="griscom2017natural">Griscom et al. (<a href="#ref-griscom2017natural" role="doc-biblioref">2017</a>)</span> produced the <strong><a href="https://zenodo.org/doi/10.5281/zenodo.883443">Global Reforestation Potential Map</a></strong> at 1-km resolution. <span class="citation" data-cites="bastin2019global">Bastin et al. (<a href="#ref-bastin2019global" role="doc-biblioref">2019</a>)</span> produced <a href="https://crowtherlab.com/maps/">Potential forest cover map</a> at 1-km resolution assuming no humans present. <strong><a href="https://zenodo.org/doi/10.5281/zenodo.3631253">Potential distribution of LCCS land cover classes</a></strong> at 250-m spatial resolution based on the UN FAO Land Cover Classification System (LCCS) is part of the <a href="https://naturemap.earth/">NatureMap project</a>. <span class="citation" data-cites="bonannella2023biomes">Bonannella et al. (<a href="#ref-bonannella2023biomes" role="doc-biblioref">2023</a>)</span> provides an updated predictions of the potential distribution of <strong><a href="https://zenodo.org/doi/10.5281/zenodo.7520813">global biomes</a></strong> at 1-km including for the future climate scenarios (2040, 2060 and beyond).</p>
+</section>
+<section id="species-distribution-and-biodiversity-maps" class="level3">
+<h3 class="anchored" data-anchor-id="species-distribution-and-biodiversity-maps">Species distribution and biodiversity maps</h3>
+<p><strong><a href="http://data.gbif.org/">Global Biodiversity Information Facility (GBIF)</a></strong> provides access to global data showing the distribution of all flora and fauna species. The density maps are available only at resolution of 1 arcdegree (about 100-km) and often without any bias-correction. Global maps of biodiversity measures for various groups of taxa (e.g.&nbsp;vascular plants, birds and mammals) can be browsed using the <a href="https://earthobservations.org/solutions/incubators/global-ecosystems-atlas">Global Ecosystem Atlas</a>. Similar type of maps can be browsed via the <a href="http://www.unep-wcmc.org/">UNEP’s World Conservation Monitoring Centre</a>.</p>
+<p>A shape file showing location of hotspot regions is distributed by the <a href="http://www.biodiversityhotspots.org/">Conservation International</a>. <span class="citation" data-cites="Kreft2007">Kreft and Jetz (<a href="#ref-Kreft2007" role="doc-biblioref">2007</a>)</span> produced a <strong>global map of plant species diversity</strong> (number of plant species) by using field records from 1,032 locations (maps are available only in coarse resolution of 120-km). <a href="https://datazone.birdlife.org/home">BirdLife International</a> publishes a number of global maps indicating <strong><a href="https://datazone.birdlife.org/site/requestgis">Endemic and Important Bird Areas</a></strong> (EBAs and IBAs).</p>
+<p><span class="citation" data-cites="pimm2014biodiversity">Pimm et al. (<a href="#ref-pimm2014biodiversity" role="doc-biblioref">2014</a>)</span> produced <strong><a href="https://biodiversitymapping.org/">maps of species richness</a></strong> for mammals, birds, amphibians and other taxa at 10-km spatial resolution. <a href="https://explorer.naturemap.earth/">EarthMap project</a> produced a species richness (number of species per grid cell) maps for amphibians, birds, mammals, reptiles and a representative set of plant taxa whose distribution overlaps in each 10-km cell, and a global map of Areas of global significance for conservation <span class="citation" data-cites="brooks2019measuring">(<a href="#ref-brooks2019measuring" role="doc-biblioref">Brooks et al. 2019</a>)</span>.</p>
+<p><span class="citation" data-cites="sabatini2022global">Sabatini et al. (<a href="#ref-sabatini2022global" role="doc-biblioref">2022</a>)</span> produced a number of <a href="https://doi.org/10.25829/idiv.3506-p4c0mo">global biodiversity maps</a> including the <strong>map of plant species richness</strong> at 1-km spatial resolutions. These maps are based using <a href="http://www.idiv.de/splot">sPlot database</a> (whichs is available upon request by submitting a project proposal to sPlot’s Steering Committee). <a href="https://www.aquamaps.org/">Auamaps</a> serves standardized distribution maps (at a coarse spatial resolution) for over 33,500 species of fishes, marine mammals and invertebrates, based on the FishBase and SeaLifeBase data <span class="citation" data-cites="hodapp2023climate">(<a href="#ref-hodapp2023climate" role="doc-biblioref">Hodapp et al. 2023</a>)</span>. Species distribution maps can be also accessed from the <a href="https://mapper.obis.org/">Ocean Biodiversity Information System</a> <span class="citation" data-cites="moudry2020quality">(<a href="#ref-moudry2020quality" role="doc-biblioref">Moudrỳ and Devillers 2020</a>)</span>.</p>
+</section>
+<section id="protected-areas" class="level3">
+<h3 class="anchored" data-anchor-id="protected-areas">Protected areas</h3>
+<p>National and international protected sites and attributes can be downloaded (ESRI Shapefiles; after registering on the website) via the <strong><a href="http://protectedplanet.net/">World Database On Protected Areas</a></strong>. International Union for Conservation of Nature and Natural Resources (IUCN) has released a Red List of Threatened Species that contains assessments for +130,000 species. Distribution maps (presence) for these species (with limited coverage) can be downloaded from the <a href="https://www.iucnredlist.org/resources/spatial-data-download">IUCN website</a>.</p>
+<p><span class="citation" data-cites="neugarten2023mapping">Neugarten et al. (<a href="#ref-neugarten2023mapping" role="doc-biblioref">2023</a>)</span> produced <a href="https://zenodo.org/doi/10.5281/zenodo.7109026">maps of planet’s critical areas for biodiversity and people at 2-km resolution</a>. This finding supports recent commitments by national governments under the Global Biodiversity Framework to conserve at least 30% of global lands and waters, and proposals to conserve “half Earth”.</p>
+
+
+
+</section>
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-abatzoglou2018terraclimate" class="csl-entry" role="listitem">
+Abatzoglou, John T, Solomon Z Dobrowski, Sean A Parks, and Katherine C Hegewisch. 2018. <span>“TerraClimate, a High-Resolution Global Dataset of Monthly Climate and Climatic Water Balance from 1958–2015.”</span> <em>Scientific Data</em> 5 (1): 1–12. <a href="https://doi.org/10.1038/sdata.2017.191">https://doi.org/10.1038/sdata.2017.191</a>.
+</div>
+<div id="ref-abell2008freshwater" class="csl-entry" role="listitem">
+Abell, Robin, Michele L Thieme, Carmen Revenga, Mark Bryer, Maurice Kottelat, Nina Bogutskaya, Brian Coad, et al. 2008. <span>“Freshwater Ecoregions of the World: A New Map of Biogeographic Units for Freshwater Biodiversity Conservation.”</span> <em>BioScience</em> 58 (5): 403–14. <a href="https://doi.org/10.1641/B580507">https://doi.org/10.1641/B580507</a>.
+</div>
+<div id="ref-amante2009etopo1" class="csl-entry" role="listitem">
+Amante, Christopher, and Barry W Eakins. 2009. <em><a href="">ETOPO1 Arc-Minute Global Relief Model: Procedures, Data Sources and Analysis</a></em>. Boulder, Colorado: NOAA, National Geophysical Data Center.
+</div>
+<div id="ref-amatulli2022hydrography90m" class="csl-entry" role="listitem">
+Amatulli, Giuseppe, Jaime Garcia Marquez, Tushar Sethi, Jens Kiesel, Afroditi Grigoropoulou, Maria M Üblacker, Longzhu Q Shen, and Sami Domisch. 2022. <span>“Hydrography90m: A New High-Resolution Global Hydrographic Dataset.”</span> <em>Earth System Science Data</em> 14 (10): 4525–50. <a href="https://doi.org/10.5194/essd-14-4525-2022">https://doi.org/10.5194/essd-14-4525-2022</a>.
+</div>
+<div id="ref-amatulli2020geomorpho90m" class="csl-entry" role="listitem">
+Amatulli, Giuseppe, Daniel McInerney, Tushar Sethi, Peter Strobl, and Sami Domisch. 2020. <span>“Geomorpho90m, Empirical Evaluation and Accuracy Assessment of Global High-Resolution Geomorphometric Layers.”</span> <em>Scientific Data</em> 7 (1): 162. <a href="https://doi.org/10.1038/s41597-020-0479-6">https://doi.org/10.1038/s41597-020-0479-6</a>.
+</div>
+<div id="ref-andela2019global" class="csl-entry" role="listitem">
+Andela, Niels, Douglas C Morton, Louis Giglio, Ronan Paugam, Yang Chen, Stijn Hantson, Guido R Van Der Werf, and James T Randerson. 2019. <span>“The Global Fire Atlas of Individual Fire Size, Duration, Speed and Direction.”</span> <em>Earth System Science Data</em> 11 (2): 529–52. <a href="https://doi.org/10.5194/essd-11-529-2019">https://doi.org/10.5194/essd-11-529-2019</a>.
+</div>
+<div id="ref-bastin2019global" class="csl-entry" role="listitem">
+Bastin, Jean-Francois, Yelena Finegold, Claude Garcia, Danilo Mollicone, Marcelo Rezende, Devin Routh, Constantin M Zohner, and Thomas W Crowther. 2019. <span>“The Global Tree Restoration Potential.”</span> <em>Science</em> 365 (6448): 76–79. <a href="https://doi.org/10.1126/science.aax0848">https://doi.org/10.1126/science.aax0848</a>.
+</div>
+<div id="ref-batjes2020standardised" class="csl-entry" role="listitem">
+Batjes, Niels H, Eloi Ribeiro, and Ad Van Oostrum. 2020. <span>“Standardised Soil Profile Data to Support Global Mapping and Modelling (WoSIS Snapshot 2019).”</span> <em>Earth System Science Data</em> 12 (1): 299–320. <a href="https://doi.org/10.5194/essd-12-299-2020">https://doi.org/10.5194/essd-12-299-2020</a>.
+</div>
+<div id="ref-bonannella2023biomes" class="csl-entry" role="listitem">
+Bonannella, Carmelo, Tomislav Hengl, Leandro Parente, and Sytze de Bruin. 2023. <span>“Biomes of the World Under Climate Change Scenarios: Increasing Aridity and Higher Temperatures Lead to Significant Shifts in Natural Vegetation.”</span> <em>PeerJ</em> 11: e15593. <a href="https://doi.org/10.7717/peerj.15593">https://doi.org/10.7717/peerj.15593</a>.
+</div>
+<div id="ref-brooks2019measuring" class="csl-entry" role="listitem">
+Brooks, Thomas M, Stuart L Pimm, H Resit Akçakaya, Graeme M Buchanan, Stuart HM Butchart, Wendy Foden, Craig Hilton-Taylor, et al. 2019. <span>“Measuring Terrestrial Area of Habitat (AOH) and Its Utility for the IUCN Red List.”</span> <em>Trends in Ecology &amp; Evolution</em> 34 (11): 977–86. <a href="https://doi.org/10.1016/j.tree.2019.06.009">https://doi.org/10.1016/j.tree.2019.06.009</a>.
+</div>
+<div id="ref-Brown2022" class="csl-entry" role="listitem">
+Brown, Christopher F., Steven P. Brumby, Brookie Guzder-Williams, Tanya Birch, Samantha Brooks Hyde, Joseph Mazzariello, Wanda Czerwinski, et al. 2022. <span>“Dynamic World, Near Real-Time Global 10 m Land Use Land Cover Mapping.”</span> <em>Scientific Data</em> 9 (1): 251. <a href="https://doi.org/10.1038/s41597-022-01307-4">https://doi.org/10.1038/s41597-022-01307-4</a>.
+</div>
+<div id="ref-brun2022global" class="csl-entry" role="listitem">
+Brun, Philipp, Niklaus E Zimmermann, Chantal Hari, Loı̈c Pellissier, and Dirk Nikolaus Karger. 2022. <span>“Global Climate-Related Predictors at Kilometer Resolution for the Past and Future.”</span> <em>Earth System Science Data</em> 14 (12): 5573–603. <a href="https://doi.org/10.5194/essd-14-5573-2022">https://doi.org/10.5194/essd-14-5573-2022</a>.
+</div>
+<div id="ref-rs12061044" class="csl-entry" role="listitem">
+Buchhorn, Marcel, Myroslava Lesiv, Nandin-Erdene Tsendbazar, Martin Herold, Luc Bertels, and Bruno Smets. 2020. <span>“Copernicus Global Land Cover Layers—Collection 2.”</span> <em>Remote Sensing</em> 12 (6). <a href="https://doi.org/10.3390/rs12061044">https://doi.org/10.3390/rs12061044</a>.
+</div>
+<div id="ref-Bunting2022" class="csl-entry" role="listitem">
+Bunting, Pete, Ake Rosenqvist, Lammert Hilarides, Richard M. Lucas, Nathan Thomas, Takeo Tadono, Thomas A. Worthington, Mark Spalding, Nicholas J. Murray, and Lisa-Maria Rebelo. 2022. <span>“Global Mangrove Extent Change 1996&amp;ndash;2020: Global Mangrove Watch Version 3.0.”</span> <em>Remote Sensing</em> 14 (15). <a href="https://doi.org/10.3390/rs14153657">https://doi.org/10.3390/rs14153657</a>.
+</div>
+<div id="ref-carlotto2017enhancing" class="csl-entry" role="listitem">
+Carlotto, Mark, Mark Nebrich, and David DeMichele. 2017. <span>“Enhancing Vector Shoreline Data Using a Data Fusion Approach.”</span> In <em>Signal Processing, Sensor/Information Fusion, and Target Recognition XXVI</em>, 10200:285–91. SPIE. <a href="https://doi.org/10.1117/12.2265422">https://doi.org/10.1117/12.2265422</a>.
+</div>
+<div id="ref-Frye2023" class="csl-entry" role="listitem">
+Charlie Frye, Alexander B. Murphy, Roger Sayre, and Jaynya W. Richards. 2023. <span>“Named Landforms of the World: A Geomorphological and Physiographic Compilation.”</span> <em>Annals of the American Association of Geographers</em> 113 (8): 1762–80. <a href="https://doi.org/10.1080/24694452.2023.2200548">https://doi.org/10.1080/24694452.2023.2200548</a>.
+</div>
+<div id="ref-cui20211" class="csl-entry" role="listitem">
+Cui, Diyang, Shunlin Liang, Dongdong Wang, and Zheng Liu. 2021. <span>“A 1 Km Global Dataset of Historical (1979–2013) and Future (2020–2100) k<span>ö</span>ppen–Geiger Climate Classification and Bioclimatic Variables.”</span> <em>Earth System Science Data</em> 13 (11): 5087–5114. <a href="https://doi.org/10.5194/essd-13-5087-2021">https://doi.org/10.5194/essd-13-5087-2021</a>.
+</div>
+<div id="ref-cuthbert2019global" class="csl-entry" role="listitem">
+Cuthbert, MO, Tom Gleeson, Nils Moosdorf, Kelvin M Befus, A Schneider, Jens Hartmann, and B Lehner. 2019. <span>“Global Patterns and Dynamics of Climate–Groundwater Interactions.”</span> <em>Nature Climate Change</em> 9 (2): 137–41. <a href="https://doi.org/10.1038/s41558-018-0386-4">https://doi.org/10.1038/s41558-018-0386-4</a>.
+</div>
+<div id="ref-Dai2019" class="csl-entry" role="listitem">
+Dai, Y., W. Shangguan, N. Wei, Q. Xin, H. Yuan, S. Zhang, S. Liu, X. Lu, D. Wang, and F. Yan. 2019. <span>“A Review of the Global Soil Property Maps for Earth System Models.”</span> <em>SOIL</em> 5 (2): 137–58. <a href="https://doi.org/10.5194/soil-5-137-2019">https://doi.org/10.5194/soil-5-137-2019</a>.
+</div>
+<div id="ref-defourny2012land" class="csl-entry" role="listitem">
+Defourny, Pierre, G Kirches, C Brockmann, M Boettcher, M Peters, S Bontemps, C Lamarche, M Schlerf, and M Santoro. 2012. <em>Land Cover CCI: Product User Guide Version 2.4</em>. Vol. 2. 325. European Space Agency (ESA), UCL-Geomatics. <a href="https://www.esa-landcover-cci.org/">https://www.esa-landcover-cci.org/</a>.
+</div>
+<div id="ref-dematte2020bare" class="csl-entry" role="listitem">
+Demattê, José AM, José Lucas Safanelli, Raul Roberto Poppiel, Rodnei Rizzo, Nélida Elizabet Quiñonez Silvero, Wanderson de Sousa Mendes, Benito Roberto Bonfatti, et al. 2020. <span>“Bare Earth’s Surface Spectra as a Proxy for Soil Resource Monitoring.”</span> <em>Scientific Reports</em> 10 (1): 4461. <a href="https://doi.org/10.1038/s41598-020-61408-1">https://doi.org/10.1038/s41598-020-61408-1</a>.
+</div>
+<div id="ref-dietz2015global" class="csl-entry" role="listitem">
+Dietz, Andreas J, Claudia Kuenzer, and Stefan Dech. 2015. <span>“Global SnowPack: A New Set of Snow Cover Parameters for Studying Status and Dynamics of the Planetary Snow Cover Extent.”</span> <em>Remote Sensing Letters</em> 6 (11): 844–53. <a href="https://doi.org/10.1080/2150704X.2015.1084551">https://doi.org/10.1080/2150704X.2015.1084551</a>.
+</div>
+<div id="ref-doll2006mapping" class="csl-entry" role="listitem">
+Doll, Christopher NH, Jan-Peter Muller, and Jeremy G Morley. 2006. <span>“Mapping Regional Economic Activity from Night-Time Light Satellite Imagery.”</span> <em>Ecological Economics</em> 57 (1): 75–92. <a href="https://doi.org/10.1016/j.ecolecon.2005.03.007">https://doi.org/10.1016/j.ecolecon.2005.03.007</a>.
+</div>
+<div id="ref-Dubayah2023" class="csl-entry" role="listitem">
+Dubayah, R. O., J. Armston, S. P. Healey, Z. Yang, P. L. Patterson, S. Saarela, G. Stahl, et al. 2023. <em>GEDI L4B Gridded Aboveground Biomass Density, Version 2.1</em>. Oak Ridge, Tennessee: ORNL Distributed Active Archive Center. <a href="https://doi.org/10.3334/ORNLDAAC/2299">https://doi.org/10.3334/ORNLDAAC/2299</a>.
+</div>
+<div id="ref-elvidge2021annual" class="csl-entry" role="listitem">
+Elvidge, Christopher D, Mikhail Zhizhin, Tilottama Ghosh, Feng-Chi Hsu, and Jay Taneja. 2021. <span>“Annual Time Series of Global VIIRS Nighttime Lights Derived from Monthly Averages: 2012 to 2019.”</span> <em>Remote Sensing</em> 13 (5): 922. <a href="https://doi.org/10.3390/rs13050922">https://doi.org/10.3390/rs13050922</a>.
+</div>
+<div id="ref-fan2013global" class="csl-entry" role="listitem">
+Fan, Ying, H Li, and Gonzalo Miguez-Macho. 2013. <span>“Global Patterns of Groundwater Table Depth.”</span> <em>Science</em> 339 (6122): 940–43. <a href="https://doi.org/10.1126/science.1229881">https://doi.org/10.1126/science.1229881</a>.
+</div>
+<div id="ref-Fang2022" class="csl-entry" role="listitem">
+Fang, Bin, Venkat Lakshmi, Michael Cosh, Pang-Wei Liu, Rajat Bindlish, and Thomas J. Jackson. 2022. <span>“A Global 1-Km Downscaled SMAP Soil Moisture Product Based on Thermal Inertia Theory.”</span> <em>Vadose Zone Journal</em> 21 (2): e20182. <a href="https://doi.org/10.1002/vzj2.20182">https://doi.org/10.1002/vzj2.20182</a>.
+</div>
+<div id="ref-Fick2017WorldClim" class="csl-entry" role="listitem">
+Fick, Stephen E., and Robert J. Hijmans. 2017. <span>“<span class="nocase">WorldClim 2: new 1-km spatial resolution climate surfaces for global land areas</span>.”</span> <em>International Journal of Climatology</em> 37 (12): 4302–15. <a href="https://doi.org/10.1002/joc.5086">https://doi.org/10.1002/joc.5086</a>.
+</div>
+<div id="ref-Fritz2017" class="csl-entry" role="listitem">
+Fritz, Steffen, Linda See, Christoph Perger, Ian McCallum, Christian Schill, Dmitry Schepaschenko, Martina Duerauer, et al. 2017. <span>“A Global Dataset of Crowdsourced Land Cover and Land Use Reference Data.”</span> <em>Scientific Data</em> 4 (1): 170075. <a href="https://doi.org/10.1038/sdata.2017.75">https://doi.org/10.1038/sdata.2017.75</a>.
+</div>
+<div id="ref-gao2003water" class="csl-entry" role="listitem">
+Gao, Bo-Cai, and Yoram J Kaufman. 2003. <span>“Water Vapor Retrievals Using Moderate Resolution Imaging Spectroradiometer (MODIS) Near-Infrared Channels.”</span> <em>Journal of Geophysical Research: Atmospheres</em> 108 (D13). <a href="https://doi.org/10.1029/2002JD003023">https://doi.org/10.1029/2002JD003023</a>.
+</div>
+<div id="ref-gao2020global" class="csl-entry" role="listitem">
+Gao, J. 2020. <em>Global 1-Km Downscaled Population Base Year and Projection Grids Based on the Shared Socioeconomic Pathways, Revision 01</em>. Palisades, New York: NASA Socioeconomic Data; Applications Center (SEDAC). <a href="https://doi.org/10.7927/q7z9-9r69">https://doi.org/10.7927/q7z9-9r69</a>.
+</div>
+<div id="ref-GONG2019370" class="csl-entry" role="listitem">
+Gong, Peng, Han Liu, Meinan Zhang, Congcong Li, Jie Wang, Huabing Huang, Nicholas Clinton, et al. 2019. <span>“Stable Classification with Limited Sample: Transferring a 30-m Resolution Sample Set Collected in 2015 to Mapping 10-m Resolution Global Land Cover in 2017.”</span> <em>Science Bulletin</em> 64 (6): 370–73. <a href="https://doi.org/10.1016/j.scib.2019.03.002">https://doi.org/10.1016/j.scib.2019.03.002</a>.
+</div>
+<div id="ref-griscom2017natural" class="csl-entry" role="listitem">
+Griscom, Bronson W, Justin Adams, Peter W Ellis, Richard A Houghton, Guy Lomax, Daniela A Miteva, William H Schlesinger, et al. 2017. <span>“Natural Climate Solutions.”</span> <em>Proceedings of the National Academy of Sciences</em> 114 (44): 11645–50. <a href="https://doi.org/10.1073/pnas.1710465114">https://doi.org/10.1073/pnas.1710465114</a>.
+</div>
+<div id="ref-gruber2012derivation" class="csl-entry" role="listitem">
+Gruber, Stephan. 2012. <span>“Derivation and Analysis of a High-Resolution Estimate of Global Permafrost Zonation.”</span> <em>The Cryosphere</em> 6 (1): 221–33. <a href="https://doi.org/10.5194/tc-6-221-2012">https://doi.org/10.5194/tc-6-221-2012</a>.
+</div>
+<div id="ref-Hacklaender2024PeerJ" class="csl-entry" role="listitem">
+Hackländer, Julia, Leandro Parente, Yu-Feng Ho, Tomislav Hengl, Rolf Simoes, Davide Consoli, Murat Şahin, Xuemeng Tian, Martin Jung, and Martin Herold. 2024. <span>“<span class="nocase">Land potential assessment and trend-analysis using 2000–2021 FAPAR monthly time-series at 250 m spatial resolution</span>.”</span> <em>PeerJ</em>, in review. <a href="https://doi.org/10.21203/rs.3.rs-3415685/v1">https://doi.org/10.21203/rs.3.rs-3415685/v1</a>.
+</div>
+<div id="ref-haigh2023gesla" class="csl-entry" role="listitem">
+Haigh, Ivan D, Marta Marcos, Stefan A Talke, Philip L Woodworth, John R Hunter, Ben S Hague, Arne Arns, Elizabeth Bradshaw, and Philip Thompson. 2023. <span>“GESLA Version 3: A Major Update to the Global Higher-Frequency Sea-Level Dataset.”</span> <em>Geoscience Data Journal</em> 10 (3): 293–314. <a href="https://doi.org/10.1002/gdj3.174">https://doi.org/10.1002/gdj3.174</a>.
+</div>
+<div id="ref-Halpern2008" class="csl-entry" role="listitem">
+Halpern, Benjamin S., Shaun Walbridge, Kimberly A. Selkoe, Carrie V. Kappel, Fiorenza Micheli, Caterina D’Agrosa, John F. Bruno, et al. 2008. <span>“A Global Map of Human Impact on Marine Ecosystems.”</span> <em>Science</em> 319 (5865): 948–52. <a href="https://doi.org/10.1126/science.1149345">https://doi.org/10.1126/science.1149345</a>.
+</div>
+<div id="ref-han2023global" class="csl-entry" role="listitem">
+Han, Qianqian, Yijian Zeng, Lijie Zhang, Chao Wang, Egor Prikaziuk, Zhenguo Niu, and Bob Su. 2023. <span>“Global Long Term Daily 1 Km Surface Soil Moisture Dataset with Physics Informed Machine Learning.”</span> <em>Scientific Data</em> 10 (1): 101. <a href="https://doi.org/10.1038/s41597-023-02011-7">https://doi.org/10.1038/s41597-023-02011-7</a>.
+</div>
+<div id="ref-hansen2013high" class="csl-entry" role="listitem">
+Hansen, Matthew C, Peter V Potapov, Rebecca Moore, Matt Hancher, Svetlana A Turubanova, Alexandra Tyukavina, David Thau, et al. 2013. <span>“High-Resolution Global Maps of 21st-Century Forest Cover Change.”</span> <em>Science</em> 342 (6160): 850–53. <a href="https://doi.org/10.1126/science.1244693">https://doi.org/10.1126/science.1244693</a>.
+</div>
+<div id="ref-hartmann2012new" class="csl-entry" role="listitem">
+Hartmann, Jens, and Nils Moosdorf. 2012. <span>“The New Global Lithological Map Database GLiM: A Representation of Rock Properties at the Earth Surface.”</span> <em>Geochemistry, Geophysics, Geosystems</em> 13 (12). <a href="https://doi.org/10.1029/2012GC004370">https://doi.org/10.1029/2012GC004370</a>.
+</div>
+<div id="ref-hengl2018global" class="csl-entry" role="listitem">
+Hengl, Tomislav, Markus G Walsh, Jonathan Sanderman, Ichsani Wheeler, Sandy P Harrison, and Iain C Prentice. 2018. <span>“Global Mapping of Potential Natural Vegetation: An Assessment of Machine Learning Algorithms for Estimating Land Potential.”</span> <em>PeerJ</em> 6: e5457. <a href="https://doi.org/10.7717/peerj.5457">https://doi.org/10.7717/peerj.5457</a>.
+</div>
+<div id="ref-rs8121036" class="csl-entry" role="listitem">
+Herold, Martin, Linda See, Nandin-Erdene Tsendbazar, and Steffen Fritz. 2016. <span>“Towards an Integrated Global Land Cover Monitoring and Mapping System.”</span> <em>Remote Sensing</em> 8 (12). <a href="https://doi.org/10.3390/rs8121036">https://doi.org/10.3390/rs8121036</a>.
+</div>
+<div id="ref-hodapp2023climate" class="csl-entry" role="listitem">
+Hodapp, Dorothee, Irene T Roca, Dario Fiorentino, Cristina Garilao, Kristin Kaschner, Kathleen Kesner-Reyes, Birgit Schneider, et al. 2023. <span>“Climate Change Disrupts Core Habitats of Marine Species.”</span> <em>Global Change Biology</em>. <a href="https://doi.org/10.1111/gcb.16612">https://doi.org/10.1111/gcb.16612</a>.
+</div>
+<div id="ref-iwahashi2007automated" class="csl-entry" role="listitem">
+Iwahashi, Junko, and Richard J Pike. 2007. <span>“Automated Classifications of Topography from DEMs by an Unsupervised Nested-Means Algorithm and a Three-Part Geometric Signature.”</span> <em>Geomorphology</em> 86 (3-4): 409–40. <a href="https://doi.org/10.1016/j.geomorph.2006.09.012">https://doi.org/10.1016/j.geomorph.2006.09.012</a>.
+</div>
+<div id="ref-jackson2010onegeology" class="csl-entry" role="listitem">
+Jackson, Ian. 2010. <span>“OneGeology: Improving Access to Geoscience Globally.”</span> <em>Earthwise</em> 26: 14–15. <a href="https://nora.nerc.ac.uk/id/eprint/17372">https://nora.nerc.ac.uk/id/eprint/17372</a>.
+</div>
+<div id="ref-Jung2020" class="csl-entry" role="listitem">
+Jung, Martin, Prabhat Raj Dahal, Stuart H. M. Butchart, Paul F. Donald, Xavier De Lamo, Myroslava Lesiv, Valerie Kapos, Carlo Rondinini, and Piero Visconti. 2020. <span>“A Global Map of Terrestrial Habitat Types.”</span> <em>Scientific Data</em> 7 (1): 256. <a href="https://doi.org/10.1038/s41597-020-00599-8">https://doi.org/10.1038/s41597-020-00599-8</a>.
+</div>
+<div id="ref-karger2021global" class="csl-entry" role="listitem">
+Karger, Dirk Nikolaus, Adam M Wilson, Colin Mahony, Niklaus E Zimmermann, and Walter Jetz. 2021. <span>“Global Daily 1 Km Land Surface Precipitation Based on Cloud Cover-Informed Downscaling.”</span> <em>Scientific Data</em> 8 (1): 307. <a href="https://doi.org/10.1038/s41597-021-01084-6">https://doi.org/10.1038/s41597-021-01084-6</a>.
+</div>
+<div id="ref-karger2019climatologies" class="csl-entry" role="listitem">
+Karger, Dirk Nikolaus, and Niklaus E Zimmermann. 2019. <em>Climatologies at High Resolution for the Earth Land Surface Areas CHELSA V1. 2: Technical Specification</em>. Switzerland: Swiss Federal Research Institute WSL. <a href="https://doi.org/10.16904/envidat.228.v2.1">https://doi.org/10.16904/envidat.228.v2.1</a>.
+</div>
+<div id="ref-klein2017anthropogenic" class="csl-entry" role="listitem">
+Klein Goldewijk, Kees, Arthur Beusen, Jonathan Doelman, and Elke Stehfest. 2017. <span>“Anthropogenic Land Use Estimates for the Holocene–HYDE 3.2.”</span> <em>Earth System Science Data</em> 9 (2): 927–53. <a href="https://doi.org/10.5194/essd-9-927-2017">https://doi.org/10.5194/essd-9-927-2017</a>.
+</div>
+<div id="ref-Kreft2007" class="csl-entry" role="listitem">
+Kreft, Holger, and Walter Jetz. 2007. <span>“Global Patterns and Determinants of Vascular Plant Diversity.”</span> <em>Proceedings of the National Academy of Sciences</em> 104 (14): 5925–30. <a href="https://doi.org/10.1073/pnas.0608361104">https://doi.org/10.1073/pnas.0608361104</a>.
+</div>
+<div id="ref-lane2023mapping" class="csl-entry" role="listitem">
+Lane, Charles R, Ellen D’Amico, Jay R Christensen, Heather E Golden, Qiusheng Wu, and Adnan Rajib. 2023. <span>“Mapping Global Non-Floodplain Wetlands.”</span> <em>Earth System Science Data</em> 15 (7): 2927–55. <a href="https://doi.org/10.5194/essd-15-2927-2023">https://doi.org/10.5194/essd-15-2927-2023</a>.
+</div>
+<div id="ref-lang2023high" class="csl-entry" role="listitem">
+Lang, Nico, Walter Jetz, Konrad Schindler, and Jan Dirk Wegner. 2023. <span>“A High-Resolution Canopy Height Model of the Earth.”</span> <em>Nature Ecology &amp; Evolution</em>, 1–12. <a href="https://doi.org/10.1038/s41559-023-02206-6">https://doi.org/10.1038/s41559-023-02206-6</a>.
+</div>
+<div id="ref-lehner2013global" class="csl-entry" role="listitem">
+Lehner, Bernhard, and Günther Grill. 2013. <span>“Global River Hydrography and Network Routing: Baseline Data and New Approaches to Study the World’s Large River Systems.”</span> <em>Hydrological Processes</em> 27 (15): 2171–86. <a href="https://doi.org/10.1002/hyp.9740">https://doi.org/10.1002/hyp.9740</a>.
+</div>
+<div id="ref-lembrechts2022global" class="csl-entry" role="listitem">
+Lembrechts, Jonas J, Johan van den Hoogen, Juha Aalto, Michael B Ashcroft, Pieter De Frenne, Julia Kemppinen, Martin Kopeckỳ, et al. 2022. <span>“Global Maps of Soil Temperature.”</span> <em>Global Change Biology</em> 28 (9): 3110–44. <a href="https://doi.org/10.1111/gcb.16060">https://doi.org/10.1111/gcb.16060</a>.
+</div>
+<div id="ref-Liu2020ESSD" class="csl-entry" role="listitem">
+Liu, H., P. Gong, J. Wang, N. Clinton, Y. Bai, and S. Liang. 2020. <span>“Annual Dynamics of Global Land Cover and Its Long-Term Changes from 1982 to 2015.”</span> <em>Earth System Science Data</em> 12 (2): 1217–43. <a href="https://doi.org/10.5194/essd-12-1217-2020">https://doi.org/10.5194/essd-12-1217-2020</a>.
+</div>
+<div id="ref-Liu2021" class="csl-entry" role="listitem">
+Liu, Liangyun, Xiao Zhang, Yuan Gao, Xidong Chen, Xie Shuai, and Jun Mi. 2021. <span>“Finer-Resolution Mapping of Global Land Cover: Recent Developments, Consistency Analysis, and Prospects.”</span> <em>Journal of Remote Sensing</em> 2021. <a href="https://doi.org/10.34133/2021/5289697">https://doi.org/10.34133/2021/5289697</a>.
+</div>
+<div id="ref-ma2022global" class="csl-entry" role="listitem">
+Ma, H., S. Liang, C. Xiong, Q. Wang, A. Jia, and B. Li. 2022. <span>“<span class="nocase">Global land surface 250 m 8 d fraction of absorbed photosynthetically active radiation (FAPAR) product from 2000 to 2021</span>.”</span> <em>Earth System Science Data</em> 14 (12): 5333–47. <a href="https://doi.org/10.5194/essd-14-5333-2022">https://doi.org/10.5194/essd-14-5333-2022</a>.
+</div>
+<div id="ref-maus2022update" class="csl-entry" role="listitem">
+Maus, Victor, Stefan Giljum, Dieison M da Silva, Jakob Gutschlhofer, Robson P da Rosa, Sebastian Luckeneder, Sidnei LB Gass, Mirko Lieber, and Ian McCallum. 2022. <span>“An Update on Global Mining Land Use.”</span> <em>Scientific Data</em> 9 (1): 1–11. <a href="https://doi.org/10.1038/s41597-022-01547-4">https://doi.org/10.1038/s41597-022-01547-4</a>.
+</div>
+<div id="ref-mccloskey1989reconnaissance" class="csl-entry" role="listitem">
+McCloskey, J Michael, and Heather Spalding. 1989. <span>“A Reconnaissance-Level Inventory of the Amount of Wilderness Remaining in the World.”</span> <em>Ambio</em>, 221–27. <a href="http://www.jstor.org/stable/4313570">http://www.jstor.org/stable/4313570</a>.
+</div>
+<div id="ref-Melton2022" class="csl-entry" role="listitem">
+Melton, J. R., E. Chan, K. Millard, M. Fortier, R. S. Winton, J. M. Martı́n-López, H. Cadillo-Quiroz, D. Kidd, and L. V. Verchot. 2022. <span>“A Map of Global Peatland Extent Created Using Machine Learning (Peat-ML).”</span> <em>Geoscientific Model Development</em> 15 (12): 4709–38. <a href="https://doi.org/10.5194/gmd-15-4709-2022">https://doi.org/10.5194/gmd-15-4709-2022</a>.
+</div>
+<div id="ref-moudry2020quality" class="csl-entry" role="listitem">
+Moudrỳ, Vı́tězslav, and Rodolphe Devillers. 2020. <span>“Quality and Usability Challenges of Global Marine Biodiversity Databases: An Example for Marine Mammal Data.”</span> <em>Ecological Informatics</em> 56: 101051. <a href="https://doi.org/10.1016/j.ecoinf.2020.101051">https://doi.org/10.1016/j.ecoinf.2020.101051</a>.
+</div>
+<div id="ref-neugarten2023mapping" class="csl-entry" role="listitem">
+Neugarten, Rachel, Rebecca Chaplin-Kramer, Richard Sharp, Richard Schuster, Matthew Strimas-Mackey, Patrick Roehrdanz, Mark Mulligan, et al. 2023. <span>“Mapping the Planet’s Critical Areas for Biodiversity and People.”</span> <em>Nature Communications</em> 15. <a href="https://doi.org/10.1038/s41467-023-43832-9">https://doi.org/10.1038/s41467-023-43832-9</a>.
+</div>
+<div id="ref-olson2001terrestrial" class="csl-entry" role="listitem">
+Olson, David M, Eric Dinerstein, Eric D Wikramanayake, Neil D Burgess, George VN Powell, Emma C Underwood, Jennifer A D’amico, et al. 2001. <span>“Terrestrial Ecoregions of the World: A New Map of Life on Earth: A New Global Map of Terrestrial Ecoregions Provides an Innovative Tool for Conserving Biodiversity.”</span> <em>BioScience</em> 51 (11): 933–38. <a href="https://doi.org/10.1641/0006-3568(2001)051[0933:TEOTWA]2.0.CO;2">https://doi.org/10.1641/0006-3568(2001)051[0933:TEOTWA]2.0.CO;2</a>.
+</div>
+<div id="ref-paolo2024satellite" class="csl-entry" role="listitem">
+Paolo, Fernando, David Kroodsma, Jennifer Raynor, Tim Hochberg, Pete Davis, Jesse Cleary, Luca Marsaglia, Sara Orofino, Christian Thomas, and Patrick Halpin. 2024. <span>“Satellite Mapping Reveals Extensive Industrial Activity at Sea.”</span> <em>Nature</em> 625 (7993): 85–91. <a href="https://doi.org/10.1038/s41586-023-06825-8">https://doi.org/10.1038/s41586-023-06825-8</a>.
+</div>
+<div id="ref-Pekel2016" class="csl-entry" role="listitem">
+Pekel, Jean-François, Andrew Cottam, Noel Gorelick, and Alan S. Belward. 2016. <span>“High-Resolution Mapping of Global Surface Water and Its Long-Term Changes.”</span> <em>Nature</em> 540 (7633): 418–22. <a href="https://doi.org/10.1038/nature20584">https://doi.org/10.1038/nature20584</a>.
+</div>
+<div id="ref-Pelletier2016" class="csl-entry" role="listitem">
+Pelletier, J. D., P. D. Broxton, P. Hazenberg, X. Zeng, P. A. Troch, G.-Y. Niu, Z. Williams, M. A. Brunke, and D. Gochis. 2016. <span>“A Gridded Global Data Set of Soil, Immobile Regolith, and Sedimentary Deposit Thicknesses for Regional and Global Land Surface Modeling.”</span> <em>Journal of Advances in Modeling Earth Systems</em> 8. <a href="https://doi.org/10.1002/2015MS000526">https://doi.org/10.1002/2015MS000526</a>.
+</div>
+<div id="ref-pickens2020mapping" class="csl-entry" role="listitem">
+Pickens, Amy H, Matthew C Hansen, Matthew Hancher, Stephen V Stehman, Alexandra Tyukavina, Peter Potapov, Byron Marroquin, and Zainab Sherani. 2020. <span>“Mapping and Sampling to Characterize Global Inland Water Dynamics from 1999 to 2018 with Full Landsat Time-Series.”</span> <em>Remote Sensing of Environment</em> 243: 111792. <a href="https://doi.org/10.1016/j.rse.2020.111792">https://doi.org/10.1016/j.rse.2020.111792</a>.
+</div>
+<div id="ref-pimm2014biodiversity" class="csl-entry" role="listitem">
+Pimm, Stuart L, Clinton N Jenkins, Robin Abell, Thomas M Brooks, John L Gittleman, Lucas N Joppa, Peter H Raven, Callum M Roberts, and Joseph O Sexton. 2014. <span>“The Biodiversity of Species and Their Rates of Extinction, Distribution, and Protection.”</span> <em>Science</em> 344 (6187): 1246752. <a href="https://doi.org/10.1126/science.124675">https://doi.org/10.1126/science.124675</a>.
+</div>
+<div id="ref-platnick2003modis" class="csl-entry" role="listitem">
+Platnick, Steven, Michael D King, Steven A Ackerman, W Paul Menzel, Bryan A Baum, Jérôme C Riédi, and Richard A Frey. 2003. <span>“The MODIS Cloud Products: Algorithms and Examples from Terra.”</span> <em>IEEE Transactions on Geoscience and Remote Sensing</em> 41 (2): 459–73. <a href="https://doi.org/10.1109/TGRS.2002.808301">https://doi.org/10.1109/TGRS.2002.808301</a>.
+</div>
+<div id="ref-poggio2021soilgrids" class="csl-entry" role="listitem">
+Poggio, Laura, Luis M De Sousa, Niels H Batjes, Gerard Heuvelink, Bas Kempen, Eloi Ribeiro, and David Rossiter. 2021. <span>“SoilGrids 2.0: Producing Soil Information for the Globe with Quantified Spatial Uncertainty.”</span> <em>Soil</em> 7 (1): 217–40. <a href="https://doi.org/10.5194/soil-7-217-2021">https://doi.org/10.5194/soil-7-217-2021</a>.
+</div>
+<div id="ref-rs12030426" class="csl-entry" role="listitem">
+Potapov, Peter, Matthew C. Hansen, Indrani Kommareddy, Anil Kommareddy, Svetlana Turubanova, Amy Pickens, Bernard Adusei, Alexandra Tyukavina, and Qing Ying. 2020. <span>“Landsat Analysis Ready Data for Global Land Cover and Land Cover Change Mapping.”</span> <em>Remote Sensing</em> 12 (3). <a href="https://doi.org/10.3390/rs12030426">https://doi.org/10.3390/rs12030426</a>.
+</div>
+<div id="ref-Potapov2022" class="csl-entry" role="listitem">
+Potapov, Peter, Matthew C. Hansen, Amy Pickens, Andres Hernandez-Serna, Alexandra Tyukavina, Svetlana Turubanova, Viviana Zalles, et al. 2022. <span>“The Global 2000-2020 Land Cover and Land Use Change Dataset Derived from the Landsat Archive: First Results.”</span> <em>Frontiers in Remote Sensing</em> 3. <a href="https://doi.org/10.3389/frsen.2022.856903">https://doi.org/10.3389/frsen.2022.856903</a>.
+</div>
+<div id="ref-POTAPOV2021112165" class="csl-entry" role="listitem">
+Potapov, Peter, Xinyuan Li, Andres Hernandez-Serna, Alexandra Tyukavina, Matthew C. Hansen, Anil Kommareddy, Amy Pickens, et al. 2021. <span>“Mapping Global Forest Canopy Height Through Integration of GEDI and Landsat Data.”</span> <em>Remote Sensing of Environment</em> 253: 112165. <a href="https://doi.org/10.1016/j.rse.2020.112165">https://doi.org/10.1016/j.rse.2020.112165</a>.
+</div>
+<div id="ref-potapov2008mapping" class="csl-entry" role="listitem">
+Potapov, Peter, Aleksey Yaroshenko, Svetlana Turubanova, Maxim Dubinin, Lars Laestadius, Christoph Thies, Dmitry Aksenov, et al. 2008. <span>“Mapping the World’s Intact Forest Landscapes by Remote Sensing.”</span> <em>Ecology and Society</em> 13 (2). <a href="http://www.ecologyandsociety.org/vol13/iss2/art51/">http://www.ecologyandsociety.org/vol13/iss2/art51/</a>.
+</div>
+<div id="ref-rabus2003shuttle" class="csl-entry" role="listitem">
+Rabus, B. Eineder, Roth M., Bamler A., and R. 2003. <span>“The Shuttle Radar Topography Mission - a New Class of Digital Elevation Models Acquired by <span>Spaceborne</span> Radar.”</span> <em>ISPRS Journal of Photogrammetry Remote Sensing</em> 57: 241–62. <a href="https://doi.org/10.1016/S0924-2716(02)00124-7">https://doi.org/10.1016/S0924-2716(02)00124-7</a>.
+</div>
+<div id="ref-sabatini2022global" class="csl-entry" role="listitem">
+Sabatini, Francesco Maria, Borja Jiménez-Alfaro, Ute Jandt, Milan Chytrỳ, Richard Field, Michael Kessler, Jonathan Lenoir, et al. 2022. <span>“Global Patterns of Vascular Plant Alpha Diversity.”</span> <em>Nature Communications</em> 13 (1): 4683. <a href="https://doi.org/10.1038/s41467-022-32063-z">https://doi.org/10.1038/s41467-022-32063-z</a>.
+</div>
+<div id="ref-sanderson2022march" class="csl-entry" role="listitem">
+Sanderson, Eric Wayne, Kim Fisher, Nathaniel Robinson, Dustin Sampson, Adam Duncan, and Lucinda Royte. 2022. <span>“The March of the Human Footprint.”</span> <em>EcoEvoRxiv</em>. <a href="https://doi.org/10.32942/osf.io/d7rh6">https://doi.org/10.32942/osf.io/d7rh6</a>.
+</div>
+<div id="ref-sayre2019new" class="csl-entry" role="listitem">
+Sayre, Roger, Suzanne Noble, Sharon Hamann, Rebecca Smith, Dawn Wright, Sean Breyer, Kevin Butler, et al. 2019. <span>“A New 30 Meter Resolution Global Shoreline Vector and Associated Global Islands Database for the Development of Standardized Ecological Coastal Units.”</span> <em>Journal of Operational Oceanography</em> 12 (sup2): S47–56. <a href="https://doi.org/10.1080/1755876X.2018.1529714">https://doi.org/10.1080/1755876X.2018.1529714</a>.
+</div>
+<div id="ref-schiavina2022ghsl" class="csl-entry" role="listitem">
+Schiavina, Marcello, Michele Melchiorri, Martino Pesaresi, Panagiotis Politis, S Freire, Luca Maffenini, Pietro Florio, et al. 2022. <em>GHSL Data Package 2022</em>. Luxembourg: Publications Office of the European Union. <a href="https://doi.org/10.2760/098587">https://doi.org/10.2760/098587</a>.
+</div>
+<div id="ref-Shangguan2014" class="csl-entry" role="listitem">
+Shangguan, Wei, Yongjiu Dai, Qingyun Duan, Baoyuan Liu, and Hua Yuan. 2014. <span>“A Global Soil Data Set for Earth System Modeling.”</span> <em>Journal of Advances in Modeling Earth Systems</em> 6 (1): 249–63. https://doi.org/<a href="https://doi.org/10.1002/2013MS000293">https://doi.org/10.1002/2013MS000293</a>.
+</div>
+<div id="ref-shedlock2000gshap" class="csl-entry" role="listitem">
+Shedlock, Kaye M, Domenico Giardini, Gottfried Grunthal, and Peizhen Zhang. 2000. <span>“The GSHAP Global Seismic Hazard Map.”</span> <em>Seismological Research Letters</em> 71 (6): 679–86. <a href="https://doi.org/10.1785/gssrl.71.6.679">https://doi.org/10.1785/gssrl.71.6.679</a>.
+</div>
+<div id="ref-Shi2023" class="csl-entry" role="listitem">
+Shi, Qian, Da He, Zhengyu Liu, Xiaoping Liu, and Jingqian Xue. 2023. <span>“Globe230k: A Benchmark Dense-Pixel Annotation Dataset for Global Land Cover Mapping.”</span> <em>Journal of Remote Sensing</em> 3: 0078. <a href="https://doi.org/10.34133/remotesensing.0078">https://doi.org/10.34133/remotesensing.0078</a>.
+</div>
+<div id="ref-Spawn2020" class="csl-entry" role="listitem">
+Spawn, Seth A., Clare C. Sullivan, Tyler J. Lark, and Holly K. Gibbs. 2020. <span>“Harmonized Global Maps of Above and Belowground Biomass Carbon Density in the Year 2010.”</span> <em>Scientific Data</em> 7 (1): 112. <a href="https://doi.org/10.1038/s41597-020-0444-4">https://doi.org/10.1038/s41597-020-0444-4</a>.
+</div>
+<div id="ref-Stanimirova2023" class="csl-entry" role="listitem">
+Stanimirova, Radost, Katelyn Tarrio, Konrad Turlej, Kristina McAvoy, Sophia Stonebrook, Kai-Ting Hu, Paulo Arévalo, et al. 2023. <span>“A Global Land Cover Training Dataset from 1984 to 2020.”</span> <em>Scientific Data</em> 10 (1): 879. <a href="https://doi.org/10.1038/s41597-023-02798-5">https://doi.org/10.1038/s41597-023-02798-5</a>.
+</div>
+<div id="ref-tang2023global" class="csl-entry" role="listitem">
+Tang, Liang, and Tim T Werner. 2023. <span>“Global Mining Footprint Mapped from High-Resolution Satellite Imagery.”</span> <em>Communications Earth &amp; Environment</em> 4 (1): 134. <a href="https://doi.org/10.1038/s43247-023-00805-6">https://doi.org/10.1038/s43247-023-00805-6</a>.
+</div>
+<div id="ref-Theobald2020" class="csl-entry" role="listitem">
+Theobald, D. M., C. Kennedy, B. Chen, J. Oakleaf, S. Baruch-Mordo, and J. Kiesecker. 2020. <span>“Earth Transformed: Detailed Mapping of Global Human Modification from 1990 to 2017.”</span> <em>Earth System Science Data</em> 12 (3): 1953–72. <a href="https://doi.org/10.5194/essd-12-1953-2020">https://doi.org/10.5194/essd-12-1953-2020</a>.
+</div>
+<div id="ref-tiecke2017mapping" class="csl-entry" role="listitem">
+Tiecke, Tobias G., Xianming Liu, Amy Zhang, Andreas Gros, Nan Li, Gregory Yetman, Talip Kilic, et al. 2017. <span>“Mapping the World Population One Building at a Time.”</span> <a href="https://doi.org/10.48550/arXiv.1712.05839">https://doi.org/10.48550/arXiv.1712.05839</a>.
+</div>
+<div id="ref-tootchi2019multi" class="csl-entry" role="listitem">
+Tootchi, Ardalan, Anne Jost, and Agnès Ducharne. 2019. <span>“Multi-Source Global Wetland Maps Combining Surface Water Imagery and Groundwater Constraints.”</span> <em>Earth System Science Data</em> 11 (1): 189–220. <a href="https://doi.org/10.5194/essd-11-189-2019">https://doi.org/10.5194/essd-11-189-2019</a>.
+</div>
+<div id="ref-essd-15-5491-2023" class="csl-entry" role="listitem">
+Van Tricht, K., J. Degerickx, S. Gilliams, D. Zanaga, M. Battude, A. Grosu, J. Brombacher, et al. 2023. <span>“WorldCereal: A Dynamic Open-Source System for Global-Scale, Seasonal, and Reproducible Crop and Irrigation Mapping.”</span> <em>Earth System Science Data</em> 15 (12): 5491–5515. <a href="https://doi.org/10.5194/essd-15-5491-2023">https://doi.org/10.5194/essd-15-5491-2023</a>.
+</div>
+<div id="ref-vancutsem2021long" class="csl-entry" role="listitem">
+Vancutsem, Christelle, Frédéric Achard, J-F Pekel, Ghislain Vieilledent, Silvia Carboni, Dario Simonetti, Javier Gallego, Luiz EOC Aragao, and Robert Nasi. 2021. <span>“Long-Term (1990–2019) Monitoring of Forest Cover Changes in the Humid Tropics.”</span> <em>Science Advances</em> 7 (10): eabe1603. <a href="https://doi.org/10.1126/sciadv.abe1603">https://doi.org/10.1126/sciadv.abe1603</a>.
+</div>
+<div id="ref-Verkaik2024" class="csl-entry" role="listitem">
+Verkaik, J., E. H. Sutanudjaja, G. H. P. Oude Essink, H. X. Lin, and M. F. P. Bierkens. 2024. <span>“GLOBGM V1.0: A Parallel Implementation of a 30 Arcsec PCR-GLOBWB-MODFLOW Global-Scale Groundwater Model.”</span> <em>Geoscientific Model Development</em> 17 (1): 275–300. <a href="https://doi.org/10.5194/gmd-17-275-2024">https://doi.org/10.5194/gmd-17-275-2024</a>.
+</div>
+<div id="ref-Wan2004" class="csl-entry" role="listitem">
+Wan, Z., Y. Zhang, Q. Zhang, and Z.-L. Li. 2004. <span>“Quality Assessment and Validation of the MODIS Global Land Surface Temperature.”</span> <em>International Journal of Remote Sensing</em> 25 (1): 261–74. <a href="https://doi.org/10.1080/0143116031000116417">https://doi.org/10.1080/0143116031000116417</a>.
+</div>
+<div id="ref-weiss_global_2020" class="csl-entry" role="listitem">
+Weiss, D. J., A. Nelson, C. A. Vargas-Ruiz, K. Gligorić, S. Bavadekar, E. Gabrilovich, A. Bertozzi-Villa, et al. 2020. <span>“Global Maps of Travel Time to Healthcare Facilities.”</span> <em>Nature Medicine</em> 26 (12): 1835–38. <a href="https://doi.org/10.1038/s41591-020-1059-1">https://doi.org/10.1038/s41591-020-1059-1</a>.
+</div>
+<div id="ref-weiss2018global" class="csl-entry" role="listitem">
+Weiss, Daniel J, Andy Nelson, HS Gibson, W Temperley, Stephen Peedell, Allie Lieber, Matt Hancher, et al. 2018. <span>“A Global Map of Travel Time to Cities to Assess Inequalities in Accessibility in 2015.”</span> <em>Nature</em> 553 (7688): 333–36. <a href="https://doi.org/10.1038/nature25181">https://doi.org/10.1038/nature25181</a>.
+</div>
+<div id="ref-Song2017" class="csl-entry" role="listitem">
+Xiao-Peng Song, Chengquan Huang, and John R. Townshend. 2017. <span>“Improving Global Land Cover Characterization Through Data Fusion.”</span> <em>Geo-Spatial Information Science</em> 20 (2): 141–50. <a href="https://doi.org/10.1080/10095020.2017.1323522">https://doi.org/10.1080/10095020.2017.1323522</a>.
+</div>
+<div id="ref-xiong2023improved" class="csl-entry" role="listitem">
+Xiong, Changhao, Han Ma, Shunlin Liang, Tao He, Yufang Zhang, Guodong Zhang, and Jianglei Xu. 2023. <span>“Improved Global 250 m 8-Day NDVI and EVI Products from 2000–2021 Using the LSTM Model.”</span> <em>Scientific Data</em> 10 (1): 800. <a href="https://doi.org/10.1038/s41597-023-02695-x">https://doi.org/10.1038/s41597-023-02695-x</a>.
+</div>
+<div id="ref-MERITDEM" class="csl-entry" role="listitem">
+Yamazaki, Dai, Daiki Ikeshima, Jeison Sosa, Paul D. Bates, George H. Allen, and Tamlin M. Pavelsky. 2019. <span>“<span class="nocase">MERIT Hydro: A High-Resolution Global Hydrography Map Based on Latest Topography Dataset</span>.”</span> <em>Water Resources Research</em> 55 (6): 5053–73. <a href="https://doi.org/10.1029/2019WR024873">https://doi.org/10.1029/2019WR024873</a>.
+</div>
+<div id="ref-Zhang2021" class="csl-entry" role="listitem">
+Zhang, X., L. Liu, X. Chen, Y. Gao, S. Xie, and J. Mi. 2021. <span>“GLC_FCS30: Global Land-Cover Product with Fine Classification System at 30 m Using Time-Series Landsat Imagery.”</span> <em>Earth System Science Data</em> 13 (6): 2753–76. <a href="https://doi.org/10.5194/essd-13-2753-2021">https://doi.org/10.5194/essd-13-2753-2021</a>.
+</div>
+<div id="ref-Zhang2023" class="csl-entry" role="listitem">
+Zhang, Y., S. Liang, H. Ma, T. He, Q. Wang, B. Li, J. Xu, G. Zhang, X. Liu, and C. Xiong. 2023. <span>“Generation of Global 1 Km Daily Soil Moisture Product from 2000 to 2020 Using Ensemble Learning.”</span> <em>Earth System Science Data</em> 15 (5): 2055–79. <a href="https://doi.org/10.5194/essd-15-2055-2023">https://doi.org/10.5194/essd-15-2055-2023</a>.
+</div>
+<div id="ref-zhao2022global" class="csl-entry" role="listitem">
+Zhao, Min, Changxiu Cheng, Yuyu Zhou, Xuecao Li, Shi Shen, and Changqing Song. 2022. <span>“A Global Dataset of Annual Urban Extents (1992–2020) from Harmonized Nighttime Lights.”</span> <em>Earth System Science Data</em> 14 (2): 517–34. <a href="https://doi.org/10.5194/essd-14-517-2022">https://doi.org/10.5194/essd-14-517-2022</a>.
+</div>
+<div id="ref-zheng202321" class="csl-entry" role="listitem">
+Zheng, Chaolei, Li Jia, and Tianjie Zhao. 2023. <span>“A 21-Year Dataset (2000–2020) of Gap-Free Global Daily Surface Soil Moisture at 1-Km Grid Resolution.”</span> <em>Scientific Data</em> 10 (1): 139. <a href="https://doi.org/10.1038/s41597-023-01991-w">https://doi.org/10.1038/s41597-023-01991-w</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2024, OpenGeoHub foundation</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/openlandmap/book/edit/main/012-compendium.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/openlandmap/book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/openlandmap/book">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://fosstodon.org/@opengeohub">
+      <i class="bi bi-mastodon" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/opengeohub">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/company/opengeohub-foundation/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/c/OpenGeoHubFoundation">
+      <i class="bi bi-youtube" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

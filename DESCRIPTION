@@ -1,38 +1,24 @@
-Package: ossl
-Title: Open Soil Spectral Library Manual.
+Package: openlandmap
+Title: OpenLandMap Open Land Data services.
 Version: 0.1
 Authors@R: c(
     person("Tomislav", "Hengl", , "tom.hengl@opengeohub.org", role = c("aut", "cre")),
-    person("Jonathan", "Sanderman", , "jsanderman@woodwellclimate.org", role = "aut"),
-    person("Kathe", "Todd-Brown", , "kathe.toddbrown@essie.ufl.edu", role = "aut"),
-    person("Jose", "Safanelli", , "jsafanelli@woodwellclimate.org", role = "aut"),
     person("Leandro", "Parente", , "leandro.parente@opengeohub.org", role = "aut"),
-    person("Dellena E.", "Bloom", , "develyn.bloom@ufl.edu", role = "aut")
+    person("Yu-feng", "Ho", , "yu-feng.ho@opengeohub.org", role = "aut")
   )
-URL: https://github.com/soilspectroscopy/ossl-manual
+URL: https://openlandmap.github.io/book/
 Depends: 
     R (>= 3.1.0)
 Imports:
-    openair,
-    prospectr,
-    simplerspec,
-    asdreader,
-    plyr
+    sf,
+    rstac,
+    terra,
 Suggests:
-    bookdown,
-    bslib,
-    downlit,
-    htmltools,
-    htmlwidgets,
-    jpeg,
-    jsonlite,
-    knitr,
     png,
     sessioninfo,
     xml2
 Remotes:
     r-lib/downlit,
-    rstudio/bookdown,
     rstudio/bslib,
     tidyverse/stringr
 Encoding: UTF-8
