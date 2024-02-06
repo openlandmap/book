@@ -1,9 +1,15 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # About {.unnumbered}
 
 ```{r, include=FALSE, message=FALSE, results='hide'}
-ls <- c("jsonlite", "RCurl", "emo", "stringi")
+ls <- c("jsonlite", "RCurl", "emo", "stringi", "sf")
 new.packages <- ls[!(ls %in% installed.packages()[,"Package"])]
-if(length(new.packages)) install.packages(new.packages, repos = "https://cloud.r-project.org")
+if (length(new.packages)) install.packages(new.packages, repos = "https://cloud.r-project.org")
+# devtools::install_github("hadley/emo")
 lapply(ls, require, character.only = TRUE)
 ```
 
@@ -11,7 +17,10 @@ lapply(ls, require, character.only = TRUE)
 covering global land mass (at spatial resolutions of 1-km, 250-m, 100-m, 30-m or finer) hosted by the OpenGeoHub foundation, GILAB.rs and collaborators. 
 It aims at becoming an [OpenStreetMap-type system for land data](https://towardsdatascience.com/everybody-has-a-right-to-know-whats-happening-with-the-planet-towards-a-global-commons-5a1ad4ba0bdd). Access to spatial layers is 
 possible via interactive visualizations and/or Open Source software solutions. 
-Read more about this project [here](https://opengeohub.org/about-openlandmap/).
+Read more about this project [here](https://opengeohub.org/about-openlandmap/). 
+We will be continuously adding new layers, helping different groups fill-in gaps in 
+data and improving **[FAIRness](https://www.go-fair.org/fair-principles/) (Findable, Accessible, Interoperable, and Reusable)** of the data. Our ultimate goal is to produce an Analysis-Ready (complete, consistent, current and correct) 
+[cloud-optimized](https://guide.cloudnativegeo.org/) data cube [@giuliani2019earth] that is available unrestricted and through a federated approach.
 
 <a href="https://opengeohub.medium.com/"><img src="cover.jpg" alt="OpenLandMap banner" width="300"></a>
 
@@ -95,7 +104,7 @@ evaporation and transpiration. This list is largely a basis for OpenLandMap acti
 
 OpenLandMap data can be best accessed using the OpenLandMap [S3](https://en.wikipedia.org/wiki/Amazon_S3) file service. 
 This service is based on [Cloud-Optimized GeoTIFFs](https://www.cogeo.org/) and is 
-probably also the best solution for doing spatial queries and spatial analysis. 
+probably also the best solution for doing spatial queries and spatial analysis [@stern2022pangeo]. 
 
 To connect and use data seamlessly in your code, we recommend using STAC tools e.g. 
 [RStac](https://cran.r-project.org/web/packages/rstac/) to access the OpenLanMap catalog 
@@ -398,7 +407,7 @@ gdalwarp layer.vrt layer.tif
    -wm 2000 -co \"BIGTIFF=YES\"
 ```
 
-To prepare a [cloud-optimized GeoTIFF](https://trac.osgeo.org/gdal/wiki/CloudOptimizedGeoTIFF) use:
+To prepare a [cloud-optimized GeoTIFF](https://trac.osgeo.org/gdal/wiki/CloudOptimizedGeoTIFF) you can use:
 
 ```
 gdaladdo layer.tif -r near 2 4 8 16 32 64 128
@@ -411,6 +420,10 @@ This will add tiles and optimize compression. `CO=YES` indicates that the GeoTIF
 
 The OpenLandMap.org COG's are all available publicly without restrictions via the 
 [Wasabi file service](https://gitlab.com/openlandmap/global-layers/-/blob/master/tutorial/OpenLandMap_COG_tutorial.md).
+
+```{r data-cube, echo=FALSE, fig.cap="Ultimately, the main objective of the OpenLandMap project is to help build [4C-ARCO](https://medium.com/mlearning-ai/present-and-future-of-data-cubes-an-european-eo-perspective-735d3f16f7c9): complete, consistent, current and correct, Analysis-ready and Cloud Optimized (ARCO) data cubes; i.e. perfectly stacked multidimentional time-series global composites. Image source: @Mahecha2020.", out.width="50%"}
+knitr::include_graphics("img/esd-11-201-2020-f03-web.png")
+```
 
 ## Contributing data {.unnumbered}
 
@@ -484,7 +497,7 @@ contact us via: <https://opengeohub.org/contact-us/>.
 
 <img src="img/openlandmap_v2_logo.png" alt="OpenLandMap logo" width="350">
 
-<a rel="license" href="https://doi.org/10.5281/zenodo.10466903"><img alt="DOI" style="border-width:0" src="zenodo.10466903.svg" /></a><br />
+<a rel="license" href="https://zenodo.org/doi/10.5281/zenodo.10522799"><img alt="DOI" style="border-width:0" src="https://zenodo.org/badge/DOI/10.5281/zenodo.10466992.svg" /></a><br />
 
 To cite this document please use:
 
@@ -496,7 +509,7 @@ To cite this document please use:
   publisher    = {OpenGeoHub foundation},
   address      = {Wageningen},
   version      = {v0.2},
-  doi          = {10.5281/zenodo.10466903},
+  doi          = {10.5281/zenodo.10522799},
   url          = {https://openlandmap.github.io/book/}
 }
 ```
@@ -511,3 +524,5 @@ Th attached software/code is free to use, and is licensed under [the MIT License
 ## Acknowledgments {.unnumbered}
 
 **[EarthMonitor.org](https://EarthMonitor.org/)** project has received funding from the European Union's Horizon Europe research an innovation programme under grant agreement **[No. 101059548](https://cordis.europa.eu/project/id/101059548)**.
+
+<a href="https://landcarbonlab.org/data"><img src="./img/global_pasture_watch_banner.jpg" alt="Global Pasture Watch banner" width="650"></a>

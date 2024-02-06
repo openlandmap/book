@@ -26,14 +26,14 @@ are available in STAC, might not be available in the front-end / web-GIS):
 
 ```{r}
 library(rstac)
-olm <- stac_read("http://s3.eu-central-1.wasabisys.com/stac/openlandmap/catalog.json")
+olm <- read_stac("http://s3.eu-central-1.wasabisys.com/stac/openlandmap/catalog.json")
 olm
 ```
 
-To enumerate all available collections in the OpenLandMap catalog, we can scrutinize the links entry:
+To enumerate all available collections in the OpenLandMap catalog, we can scrutinize the links entry and filter only `"child" relations:
 
 ```{r}
-links(olm)
+links(olm, rel == "child")
 ```
 
 For instance, to compile a list of layers with the `title` containing the text `"GLC"` for land cover annual time-series, we can use:
@@ -45,18 +45,17 @@ links(olm, grepl("GLC", title))
 Let's explore the third link, referencing the `GLC_FCS30D` annual land-cover dynamic monitoring product:
 
 ```{r}
-glc_link <- links(olm, grepl("GLC", title))[[3]]
-glc <- link_open(glc_link)
+glc <- links(olm, grepl("GLC", title))[[3]] %>% link_open()
 glc
 ```
 
-Now, let's list its available items by filtering links with the `rel == "item"` attribute:
+Now, let's list its available items by filtering links with the `rel == "item"` filter expression:
 
 ```{r}
 links(glc, rel == "item")
 ```
 
-To be able to filter items based on spatial and temporal attributes, we need to open them:
+To be able to filter items based on spatial and temporal attributes, we need to read them:
 
 ```{r}
 glc_items <- read_items(glc, progress = FALSE)
@@ -81,11 +80,16 @@ items_assets(glc_items)
 For overlaying multiple new points with COGs, we can leverage the `rstac` function `assets_url()` to retrieve the URLs of all COG files. These URLs can then be passed to an extraction function:
 
 ```{r}
-urls <- assets_url(glc_items, asset_names = "lc_glc.fcs30d_c_30m_s", append_gdalvsi = TRUE)
+urls <- assets_url(
+  items = glc_items, 
+  asset_names = "lc_glc.fcs30d_c_30m_s", 
+  append_gdalvsi = TRUE)
 urls[1:3]
 ```
 
-Let's define an extracting function. This function can extract the values in parallel:
+The `append_gdalvsi=TRUE` parameter informs the function to add the string `"/vsicurl/"` to each URLs so that GDAL can open the files.
+
+Now, let's define an extracting function. This function can extract the values in parallel:
 
 ```{r}
 extract_xy = function(lon, lat, cogs, mc.cores = 10) {
