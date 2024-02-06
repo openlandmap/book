@@ -13,6 +13,10 @@ maintained by the [www.OpenLandMap.org](https://openlandmap.org/) development te
 collaborators. They are only meant to serve as general inventories of what is 
 available, and NOT as an in-depth review article. 
 
+```{r nasa-terra, echo=FALSE, fig.cap="Earth Observation programmes such as the NASA's Terra and Landsat, ESA's Copernicus, JAXA's ALOS and similar have been the key drivers of publicly available global environmental data and monitoring systems, mainly thanks to the open data policy introduced since 2010's [@wulder2012opening]. Image source: <https://terra.nasa.gov/data>.", out.width="100%"}
+knitr::include_graphics("img/TerraFlagshipBanner1.jpg")
+```
+
 To contribute to this portal, consider submitting new data by editing this Markdown document. 
 Please check also the working version of the [OEMC global Land Use Land Cover Taxonomy Tables](https://docs.google.com/spreadsheets/d/1SX51OilNt-cUYpAa7t0LAvZRTzq3Sd4WJLnX6mWKfQk/edit?usp=sharing).
 
@@ -79,6 +83,7 @@ Sorted alphabetically:
 
 * [Amazon AWS Open EO Data](https://registry.opendata.aws/tag/earth-observation/);
 * [Copernicus Global Land Service](https://land.copernicus.eu/global/) — global data sets (bio-geophysical products) produced by the Land Monitoring Core Service (LMCS) of Copernicus, the European flagship programme on Earth Observation;
+* [The Deep Earth System Data Lab (DeepESDL)](https://www.earthsystemdatalab.net/) — serves number of [thematic data cubes](https://deepesdl.readthedocs.io/en/latest/datasets/datasets/) (from land cover data cube to Earth System Science data cube and similar) [@Mahecha2020];
 * [DLR Geoportal](https://geoservice.dlr.de/web/maps);
 * [EarthEnv.org](http://earthenv.org/) — Global, remote-sensing supported environmental layers for assessing status and trends in biodiversity, ecosystems, and climate (hosted by Yale University / NASA and others);
 * [ESRI ArcGIS Living Atlas of the World](https://livingatlas.arcgis.com/en/home/);
@@ -86,9 +91,10 @@ Sorted alphabetically:
 * [FAO's GeoNetwork](http://www.fao.org/geonetwork/srv/en/main.home) — serves a diversity of data produced by FAO run or supported projects at a diversity of scales;
 * [Free GIS data compendium](http://freegisdata.rtwilson.com/) by R.T. Wilson;
 * [GeoPortal.org](http://www.geoportal.org/) — The Global Earth Observation System of Systems (GEOSS) portal implemented and operated by the European Space Agency (typically only a catalog of data sets / no or limited data is hosted);
+* [Global Land Surface Satellite (GLASS) Product](http://glass.umd.edu/Download.html) — a suite of global products produced by the researchers from the Beijing Normal University and University of Maryland [@liang2021global];
 * [Global Land and Discovery group](https://glad.geog.umd.edu/) — University of Maryland Global Land and Discovery group (GLAD) group global data sets,
 * [Google Earth Engine Data Catalog](https://developers.google.com/earth-engine/datasets) — Google's repository of global and local data sets;
-* [MODIS Land products](https://modis.gsfc.nasa.gov/data/dataprod/) usually at moderate resolutions from 250-m to 1-km (also available for searching via https://lpdaac.usgs.gov/product_search/);
+* [MODIS Land products](https://modis.gsfc.nasa.gov/data/dataprod/) usually at moderate resolutions from 250-m to 1-km (also available for searching via <https://lpdaac.usgs.gov/product_search/>);
 * [NASA Earth Observation (NEO)](https://earthobservatory.nasa.gov/global-maps) is part of the [EOS Project Science Office](http://eospso.nasa.gov/) located at NASA Goddard Space Flight Center;
 * [NASA's Earth Observing System Data and Information System (EOSDIS)](https://www.earthdata.nasa.gov/eosdis) provides tools to find and access global data sets produced by NASA and aiming at Earth System Science;
 * [Natural Earth Data](http://www.naturalearthdata.com/downloads/) website compiled by Nathaniel Vaughn (KELSO) and volunteers;
@@ -102,6 +108,7 @@ Sorted alphabetically:
 * [The awesome-gee-community-catalog](https://gee-community-catalog.org/) by Samapriya Roy et al.;
 * [UNEP/GRID GEO DataPortal](http://geodata.grid.unep.ch/) and [UNEP/GRID-Arendal](http://maps.grida.no/region/global) — a large repository of global grids at various resolutions;
 * [UNEP Data Catalog](https://datacatalog.unep.org/app/);
+* [World Food Programme's HumanitarianDataCube STAC](https://data.earthobservation.vam.wfp.org/stac/);
 * [World Resources Institute (WRI) Resource Watch](https://resourcewatch.org/data/explore) — features hundreds of data sets all in one place on the state of the planet’s resources and citizens.
 * [World Resources Institute (WRI) Environmental Information Portal](http://earthtrends.wri.org/) serves a number of global grids derived by the WRI and collaborators;
 
@@ -172,6 +179,8 @@ Layers of interest include: admins, base, buildings, places etc. You can simply 
 the data for are of interest, then convert to [PMTiles](https://msbarry.github.io/planetiler-overture-demo/) or similar, then add to your back-end/front-end as a clickable layer.
 
 The **[World Settlement Footprint (WSF)](https://geoservice.dlr.de/web/maps/eoc:wsf)** is a series of datasets that provide comprehensive, high-resolution mapping of human settlements across the globe. WSF is a 10-m resolution binary mask outlining the extent of human settlements globally derived from 2014–2015 multitemporal Landsat-8 and Sentinel-1 imagery ([WFS2015](https://geoservice.dlr.de/web/maps/eoc:wsf)) and 2019 multitemporal Sentinel-1 and Sentinel-2 imagery ([WFS 2019](https://geoservice.dlr.de/web/maps/eoc:wsf2019)). [WSF Evolution](https://geoservice.dlr.de/web/maps/eoc:wsfevolution) is a 30-m resolution dataset outlining the global settlement extent on a yearly basis from 1985 to 2015.
+@rs70911887 produced **Normalized Difference Urban Index (NDUI)** global at 30-m resolution product which is 
+available for download covering 2000 to 2012 from the [AWS open data registry](https://registry.opendata.aws/ndui/) [@singh2023long].
 
 The [Socioeconomic Data and Applications Center (SEDAC)](https://sedac.ciesin.columbia.edu/data/sets/browse) a Data Center in NASA's Earth 
 Observing System Data and Information System (EOSDIS) Hosted by CIESIN at Columbia University 
@@ -221,7 +230,7 @@ parameters are:
 -  [Global Ecosystem Dynamics Investigation (GEDI) data set](https://gedi.umd.edu/);
 -  [ICESat, ICESat-2 data sets](https://openaltimetry.earthdatacloud.nasa.gov/data/);
 
-You can visually explore and download the ICESat data from https://www.openaltimetry.org. 
+You can visually explore and download the ICESat data from <https://www.openaltimetry.org>. 
 GEDI and ICESat can be used to derive number of ecosystem parameters including biomass 
 density (above ground), canopy height, terrain height, LAI, canopy structure etc.
 The complete global gridded canopy height / biomass density products include: 
@@ -300,7 +309,7 @@ pads and processing/milling infrastructure.
 The data is available from [zenodo](https://doi.org/10.5281/zenodo.6806817).
 An update of the global mining areas (three layers: mining polygons, mining centroids, 
 mining area per grid cell) is provided by @maus2022update; the data set is available via 
-[PANGAEA](https://doi.org/10.1594/PANGAEA.942325); also available via https://fineprint.global/viewer.
+[PANGAEA](https://doi.org/10.1594/PANGAEA.942325); also available via <https://fineprint.global/viewer>.
 
 ### Earthquakes / natural hazards
 
@@ -348,7 +357,7 @@ also known as the **[Harmonized World Soil Database](https://www.fao.org/soils-p
 Global predicted WRB soil type maps at 1-km can be download as geotifs from [here](https://doi.org/10.5281/zenodo.7820796).
 USGS / USDA have produced a map of [Global Soil Regions](https://www.nrcs.usda.gov/conservation-basics/natural-resource-concerns/soils/soil-geography) 
 map at resolution of 60 arcsec, and which is based on the FAO-UNESCO soil map.
-@Melton2022 produced a global map of peatland ([Peat-ML](https://zenodo.org/doi/10.5281/zenodo.5794335)) 
+@Melton2022 produced a global map of peatland (**[Peat-ML](https://zenodo.org/doi/10.5281/zenodo.5794335)**) 
 i.e. organic soils at 10-km spatial resolution.
 
 A list of seven gridded soil property maps (at resolution of 5 arc-minutes i.e. about 10-km) — 
@@ -378,6 +387,8 @@ global composites produced @dematte2020bare; data available via [GEE](https://ge
 @lembrechts2022global produced maps of **Global Soil Bioclimatic variables** (including soil temperatures) 
 which are available at [1-km spatial resolution](https://zenodo.org/doi/10.5281/zenodo.4558731) for depth intervals 0–5 and 5–15 cm (training data used to produce these maps is [also available](https://zenodo.org/doi/10.5281/zenodo.4558662)).
 @Pelletier2016 produced a [Gridded Thickness of Soil, Regolith, and Sedimentary Deposit Layers](https://daac.ornl.gov/SOILS/guides/Global_Soil_Regolith_Sediment.html). 
+@Xu2024 produced estimates of global NH3 emissions (atmospheric ammonia) from croplands for 2018; 
+data is available at 5-arcmins (about 10-km) from [Zenodo](https://doi.org/10.5281/zenodo.10302502).
 
 An in-depth review of the global soil data sets is available in @Dai2019. 
 Status of the soil information in the world can be also followed via David G. Rossiter's [compendium of On-Line Soil Survey Information](https://www.isric.org/explore/soil-geographic-databases#world).
@@ -399,7 +410,7 @@ which includes [cca 230,000 annotated images](https://zenodo.org/doi/10.5281/zen
 
 Land cover maps are commonly derived using semi-automated methods and remote sensing 
 images as the main inputs. Global land cover / land cover change maps are today primarily derived from the Sentinel-2 
-and Landsat imagery. For example, the **[GlobalForestWatch.org](http://globalforestwatch.org/)** 
+and Landsat imagery [@wulder2022fifty]. For example, the **[GlobalForestWatch.org](http://globalforestwatch.org/)** 
 imagery showing deforestation/reforestation were derived from the 30 m resolution Landsat 
 images [@hansen2013high]. The global Analysis-Ready Landsat mosaics ([Landsat-ARD](https://glad.geog.umd.edu/ard/glad-landsat-ard)) 
 are available for download as harmonized scenes from the University of Maryland GLAD ([Global Land and Discovery group](https://glad.geog.umd.edu/)) [@rs12030426], 
@@ -413,6 +424,9 @@ Current publicly available global land cover and/or land use maps include [@Liu2
 * **[Copernicus Global Land Cover](https://land.copernicus.eu/global/products/lc)** products at 100-m for years 2015, 2016, 2017 and 2018 and based on the PROBA-V imagery [@rs12061044]. The maps which can be downloaded directly from [zenodo.org](https://zenodo.org/communities/copernicus-land-cover/). These maps contain also predicted fractions for the main land cover classes (per pixel).
 * **[GLAD Global Land Cover and Land Use Change 2000–2020 (GLCLUC2020)](https://glad.umd.edu/dataset/GLCLUC2020)** provides estimate of the land cover for the last 20+ years but also quantifies changes in forest extent and height, cropland, built-up lands, surface water, and perennial snow and ice extent [@Potapov2022].
 * **[GLC FCS30D](https://zenodo.org/doi/10.5281/zenodo.8239304)** is a global 30-m annual land-cover time-series data set with 17-class system for the period 1982–2021 [@Zhang2021].
+
+An in-depth review of time-series of global land cover / land use maps is also provided by @Mora2014 and @garcia2022global. 
+@garcia2022global also provides all legends for all global land cover products.
 
 **[HYDE (History database of the Global Environment)](https://landuse.sites.uu.nl/datasets/)** contains historic (estimated) maps (10-km resolution) of main land use 
 categories up to pre-historic times 10,000 BCE to CE 2020 [@klein2017anthropogenic]. 
@@ -485,15 +499,17 @@ Copernicus Global Land Cover and Tropical Forest Mapping and Monitoring service 
 serves 10-m resolution sub-annual maps of tropical forest status.
 
 Detail maps of **mangrove forests cover, habitat type and properties** [@Bunting2022], 
-the key products of the https://www.globalmangrovewatch.org/ project can be obtained from [zenodo](https://doi.org/10.5281/zenodo.6894273). 
+the key products of the <https://www.globalmangrovewatch.org/> project can be obtained from [zenodo](https://doi.org/10.5281/zenodo.6894273). 
 @vancutsem2021long produced long-term (1990–2019) maps of forest cover changes in 
 the humid tropics (**Tropical moist forests TMF**) at 30-m spatial resolution. The 
 data is available for download via the project [homepage](https://forobs.jrc.ec.europa.eu/TMF).
 
 Forest resources and canopy height have been mapped by the GLAD group from the Maryland university [@POTAPOV2021112165]
-The data is publicly available under open data license from: https://glad.umd.edu/dataset. 
+The data is publicly available under open data license from: <https://glad.umd.edu/dataset>. 
 The **[WRI's Global Forest Watch](https://www.globalforestwatch.org/map/)** service can be used to access annual tree cover maps for 2000–2022+, 
 forest cover change and canopy height change [@hansen2013high]. These global forest change data is openly available and can be [downloaded](https://glad.earthengine.app/view/global-forest-change) including the Landsat cloud-free mosaics for the whole world at 30-m resolution. 
+@lesiv2022global produced a **Global forest management data for 2015 at 100-m spatial resolution** 
+which is available from [Zenodo](https://zenodo.org/doi/10.5281/zenodo.4541512).
 
 Note that tree cover loss can be permanent (e.g. change in land use, permanent deforestation, or natural transition i.e. [ecological succession](https://en.wikipedia.org/wiki/Ecological_succession)) or 
 can be temporary i.e. effect of fires, floods, pests and similar), therefore it 
@@ -517,6 +533,8 @@ land cover mapping. Some typical legend entries for land use change includes:
 -  Pastureland expansion,
 -  Land abandonment,
 
+**Annual dynamics of global land cover and its long-term changes from 1982 to 2015 at 5-km resolution** is 
+part of the Global Land Surface Characterization Parameters (GLASS) product [@Liu2020ESSD]; data is available for download from [Pangea](https://doi.org/10.1594/PANGAEA.913496).
 **[GLAD Global Land Cover and Land Use Change 2000–2020 (GLCLUC2020)](https://glad.umd.edu/dataset/GLCLUC2020)** provides estimate of the land cover for the last 20+ years at 30-m resolution quantifies changes in forest extent 
 and height, cropland, built-up lands, surface water, and perennial snow and ice extent [@Potapov2022]. 
 This data set can be downloaded (per tile) via the [GLAD's GEE repository](https://glad.earthengine.app/view/glcluc-2000-2020).
@@ -548,7 +566,7 @@ building a series of cutting-edge population data sets including the **populatio
 of legacy population data from censuses and EO products / inventory of buildings etc 
 that are then used to downscale the values to high spatial resolution [@tiecke2017mapping].
 The 30-m resolution population density maps for 160+ countries and territories around the world 
-are available for download from https://portal.mwater.co/.
+are available for download from <https://portal.mwater.co/>.
 
 ### Lights at night images
 
@@ -669,11 +687,11 @@ Key climatic variables of interest are usually:
 -  precipitation (mm),
 -  solar radiation (kJ m-2 day-1),
 -  wind speed (m s-1),
+-  water vapor (cm liquid water),
 -  water vapor pressure (kPa),
 -  probability of occurrence of snow,
--  snow thickness,
--  soil moisture,
--  water vapor (cm liquid water),
+-  snow thickness (cm),
+-  soil moisture (cm liquid water),
 
 The key public gridded global climatic data sets (current and past climate) include: 
 
@@ -688,6 +706,14 @@ variables** at 1-km spatial resolution e.g. frost change frequency (fcf), snow c
 From the sources listed above, **CHELSA Climate** is possibly the most comprehensive most 
 up-to-date repository with global 1-km data and even includes daily global 1km products (**[CHELSA-W5E5](https://doi.org/10.48364/ISIMIP.836809.1)**), 
 e.g. **[daily precipitation images](http://www.earthenv.org/precipitation)** [@karger2021global].
+@zhang2022global produced a global seamless 1-km resolution daily land surface temperature dataset 2003–2020 
+(primarily based on MODIS 8-day LST products); data is available for download via [Iowa State University's DataShare](https://doi.org/10.25380/iastate.c.5078492).
+@yao2023global produced **Global seamless and high-resolution temperature dataset (GSHTD)**, 2001–2020 
+at 1-km spatial resolution and which is available for [download](https://cjgeodata.cug.edu.cn/#/pageDetail?id=97).
+5-km resolution daily temperature and long-term **GLASS Land Surface Temperature** 
+product data set for 1981–2000 based on NOAA-AVHRR has been produced by @Ma2020ESSD 
+and is available for download from <http://glass.umd.edu/LST/>; monthly 
+averages (still with significant gaps) are also available via [Zenodo](https://zenodo.org/doi/10.5281/zenodo.3936640).
 
 More detailed climatic images can be obtained via the [Global Energy and Water Cycle Experiment project](http://www.gewex.org/datasets.html) and the [British Atmospheric Data Centre](http://badc.nerc.ac.uk/browse/badc/) (BADC). The National Center for Atmospheric Research maintains a [ClimateDataGuide](https://climatedataguide.ucar.edu/) portal. 
 
@@ -813,7 +839,7 @@ and not subject to human management. When considering PNV, one needs to distingu
 between potential _natural_ and potential _managed_ vegetation, and _actual_ natural 
 and _actual_ managed vegetation [@hengl2018global]. 
 
-```{r scheme-pnv, echo=FALSE, fig.cap="Schematic explanation of differences between (A) potential and actual natural/managed vegetation, and (B) current and historic vegetation in the context of global land area. Image source: https://doi.org/10.7717/peerj.5457.", out.width="100%"}
+```{r scheme-pnv, echo=FALSE, fig.cap="Schematic explanation of differences between (A) potential and actual natural/managed vegetation, and (B) current and historic vegetation in the context of global land area. Image source: @hengl2018global.", out.width="100%"}
 knitr::include_graphics("img/fig_scheme_pnv.png")
 ```
 

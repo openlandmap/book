@@ -26,7 +26,7 @@ are available in STAC, might not be available in the front-end / web-GIS):
 
 ```{r}
 library(rstac)
-olm <- stac_read("http://s3.eu-central-1.wasabisys.com/stac/openlandmap/catalog.json")
+olm <- read_stac("http://s3.eu-central-1.wasabisys.com/stac/openlandmap/catalog.json")
 olm
 ```
 
@@ -39,6 +39,7 @@ links(olm)
 For instance, to compile a list of layers with the `title` containing the text `"GLC"` for land cover annual time-series, we can use:
 
 ```{r}
+olm$links <- links(olm, rel == "child")
 links(olm, grepl("GLC", title))
 ```
 
