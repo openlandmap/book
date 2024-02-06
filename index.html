@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.538">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -362,8 +362,7 @@ div.csl-indent {
 <p>To download whole layers from zenodo you can use the R packages jsonlite and RCurl:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RCurl)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgdal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RCurl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You first need to authenticate yourself by using a Zenodo API TOKEN (see: <a href="http://developers.zenodo.org/#quickstart-upload">how to obtain API TOKEN</a>):</p>
 <div class="cell">
@@ -669,7 +668,7 @@ or Open Data Commons Open Database License (<a href="https://opendatacommons.org
 <section id="acknowledgments" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="acknowledgments">Acknowledgments</h2>
 <p><strong><a href="https://EarthMonitor.org/">EarthMonitor.org</a></strong> project has received funding from the European Union’s Horizon Europe research an innovation programme under grant agreement <strong><a href="https://cordis.europa.eu/project/id/101059548">No.&nbsp;101059548</a></strong>.</p>
-<p><a href="https://landcarbonlab.org/data"><img src="./img/global_pasture_watch_banner.jpg" alt="OpenLandMap training points banner" width="650"></a></p>
+<p><a href="https://landcarbonlab.org/data"><img src="./img/global_pasture_watch_banner.jpg" alt="Global Pasture Watch banner" width="650"></a></p>
 
 
 
@@ -995,7 +994,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      return note.innerHTML;
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {

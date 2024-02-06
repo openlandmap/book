@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.538">
+<meta name="generator" content="quarto-1.4.549">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Open Land Data services</title>
 <style>
@@ -249,7 +249,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Thanks to the STAC functionality and <code>rstac</code> package, it is possible to query directly which collections are available on the stac.OpenLandMap.org (Note: some layers that are available in STAC, might not be available in the front-end / web-GIS):</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://brazil-data-cube.github.io/rstac/">rstac</a></span><span class="op">)</span></span>
-<span><span class="va">olm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">stac_read</a></span><span class="op">(</span><span class="st">"http://s3.eu-central-1.wasabisys.com/stac/openlandmap/catalog.json"</span><span class="op">)</span></span>
+<span><span class="va">olm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">read_stac</a></span><span class="op">(</span><span class="st">"http://s3.eu-central-1.wasabisys.com/stac/openlandmap/catalog.json"</span><span class="op">)</span></span>
 <span><span class="va">olm</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>###Catalog
@@ -264,31 +264,30 @@ Spatio-Temporal Asset Catalog for global layers provided by [OpenLandMap](https:
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links</a></span><span class="op">(</span><span class="va">olm</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>###Links
-- links (74 entries(s)):
- 1 OpenLandMap STAC (./catalog.json)
- 2 Sentinel-5P monthly tropospheric nitrogen dioxide density 
+- links (75 entries(s)):
+ 1 [self] (http://s3.eu-central-1.wasabisys.com/stac/openlandmap/catalog.json)
+ 2 OpenLandMap STAC (./catalog.json)
+ 3 Sentinel-5P monthly tropospheric nitrogen dioxide density 
 (./no2_s5p.l3.trop.tmwm/collection.json)
- 3 Sentinel-5P long-term tropospheric nitrogen dioxide density 
+ 4 Sentinel-5P long-term tropospheric nitrogen dioxide density 
 (./no2_s5p.l3.trop.tmwm.ltm/collection.json)
- 4 OpenLandMap annual soil organic carbon (./log.oc_iso.10694/collection.json)
- 5 MOD13Q1 long-term Enhanced Vegetation Index (EVI - trend analysis) 
+ 5 OpenLandMap annual soil organic carbon (./log.oc_iso.10694/collection.json)
+ 6 MOD13Q1 long-term Enhanced Vegetation Index (EVI - trend analysis) 
 (./evi_mod13q1.stl.trend.logit.ols.beta/collection.json)
- 6 ESA CCI annual land cover (./land.cover_esacci.lc.l4/collection.json)
- 7 MOD13Q1 bi-monthly Enhanced Vegetation Index Index (EVI) 
+ 7 ESA CCI annual land cover (./land.cover_esacci.lc.l4/collection.json)
+ 8 MOD13Q1 bi-monthly Enhanced Vegetation Index Index (EVI) 
 (./evi_mod13q1.tmwm.inpaint/collection.json)
- 8 OpenLandMap ensemble digital terrain model 
+ 9 OpenLandMap ensemble digital terrain model 
 (./dtm.bareearth_ensemble/collection.json)
- 9 Monthly fraction of absorbed photosynthetically active radiation (FAPAR) 
+10 Monthly fraction of absorbed photosynthetically active radiation (FAPAR) 
 (./fapar_essd.lstm/collection.json)
-10 
-Long-term fraction of absorbed photosynthetically active radiation (FAPAR - trend analysis) 
-(./fapar_essd.lstm.p95.beta/collection.json)
-  ... with 64 more link(s).</code></pre>
+  ... with 65 more link(s).</code></pre>
 </div>
 </div>
 <p>For instance, to compile a list of layers with the <code>title</code> containing the text <code>"GLC"</code> for land cover annual time-series, we can use:</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links</a></span><span class="op">(</span><span class="va">olm</span>, <span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"GLC"</span>, <span class="va">title</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">olm</span><span class="op">$</span><span class="va">links</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links</a></span><span class="op">(</span><span class="va">olm</span>, <span class="va">rel</span> <span class="op">==</span> <span class="st">"child"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links</a></span><span class="op">(</span><span class="va">olm</span>, <span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"GLC"</span>, <span class="va">title</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>###Links
 - links (3 entries(s)):
@@ -405,8 +404,8 @@ assets, bbox, collection, geometry, id, links, properties, stac_extensions, stac
 <div class="cell">
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">extract_xy</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">lon</span>, <span class="va">lat</span>, <span class="va">cogs</span>, <span class="va">mc.cores</span> <span class="op">=</span> <span class="fl">10</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">values</span> <span class="op">=</span> <span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/mclapply.html">mclapply</a></span><span class="op">(</span><span class="va">cogs</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="va">point</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">lon</span>, <span class="va">lat</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, crs <span class="op">=</span> <span class="st">"EPSG:4326"</span><span class="op">)</span></span>
-<span>    <span class="va">value</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/extract.html">extract</a></span><span class="op">(</span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html">rast</a></span><span class="op">(</span><span class="va">i</span><span class="op">)</span>, <span class="va">point</span><span class="op">)</span></span>
+<span>    <span class="va">point</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">lon</span>, <span class="va">lat</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, crs <span class="op">=</span> <span class="st">"EPSG:4326"</span><span class="op">)</span></span>
+<span>    <span class="va">value</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/extract.html">extract</a></span><span class="op">(</span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html">rast</a></span><span class="op">(</span><span class="va">i</span><span class="op">)</span>, <span class="va">point</span><span class="op">)</span></span>
 <span>    <span class="co">#dplyr::as_tibble(value)[,2]</span></span>
 <span>    <span class="va">value</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span></span>
 <span>  <span class="op">}</span>, mc.cores <span class="op">=</span> <span class="va">mc.cores</span><span class="op">)</span></span>
@@ -744,7 +743,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      return note.innerHTML;
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
