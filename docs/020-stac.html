@@ -396,8 +396,8 @@ assets, bbox, collection, geometry, id, links, properties, stac_extensions, stac
 <div class="cell">
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">extract_xy</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">lon</span>, <span class="va">lat</span>, <span class="va">cogs</span>, <span class="va">mc.cores</span> <span class="op">=</span> <span class="fl">10</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">values</span> <span class="op">=</span> <span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/mclapply.html">mclapply</a></span><span class="op">(</span><span class="va">cogs</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="va">point</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu">vect</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">lon</span>, <span class="va">lat</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, crs <span class="op">=</span> <span class="st">"EPSG:4326"</span><span class="op">)</span></span>
-<span>    <span class="va">value</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu">extract</span><span class="op">(</span><span class="fu">terra</span><span class="fu">::</span><span class="fu">rast</span><span class="op">(</span><span class="va">i</span><span class="op">)</span>, <span class="va">point</span><span class="op">)</span></span>
+<span>    <span class="va">point</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">lon</span>, <span class="va">lat</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, crs <span class="op">=</span> <span class="st">"EPSG:4326"</span><span class="op">)</span></span>
+<span>    <span class="va">value</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/extract.html">extract</a></span><span class="op">(</span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html">rast</a></span><span class="op">(</span><span class="va">i</span><span class="op">)</span>, <span class="va">point</span><span class="op">)</span></span>
 <span>    <span class="co">#dplyr::as_tibble(value)[,2]</span></span>
 <span>    <span class="va">value</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span></span>
 <span>  <span class="op">}</span>, mc.cores <span class="op">=</span> <span class="va">mc.cores</span><span class="op">)</span></span>
@@ -407,28 +407,24 @@ assets, bbox, collection, geometry, id, links, properties, stac_extensions, stac
 </div>
 <p>This only needs URL address of the COGs on some S3 storage and then longitude and latitude of the query points (in the WGS84 system). This is an example of query of all land cover classes from 1985 to 2022:</p>
 <div class="cell">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">values</span> <span class="op">&lt;-</span> <span class="fu">extract_xy</span><span class="op">(</span><span class="op">-</span><span class="fl">35.5</span>, <span class="op">-</span><span class="fl">9.0</span>, <span class="va">urls</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in parallel::mclapply(cogs, function(i) {: all scheduled cores
-encountered errors in user code</code></pre>
-</div>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># add date column</span></span>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">values</span> <span class="op">&lt;-</span> <span class="fu">extract_xy</span><span class="op">(</span><span class="op">-</span><span class="fl">35.5</span>, <span class="op">-</span><span class="fl">9.0</span>, <span class="va">urls</span><span class="op">)</span></span>
+<span><span class="co"># add date column</span></span>
 <span><span class="va">values</span><span class="op">$</span><span class="va">date</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/items_functions.html">items_datetime</a></span><span class="op">(</span><span class="va">glc_items</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 26 × 2
-   glc                                                                date      
-   &lt;chr&gt;                                                              &lt;date&gt;    
- 1 "Error in loadNamespace(x) : there is no package called 'terra'\n" 1985-01-01
- 2 "Error in loadNamespace(x) : there is no package called 'terra'\n" 1990-01-01
- 3 "Error in loadNamespace(x) : there is no package called 'terra'\n" 1995-01-01
- 4 "Error in loadNamespace(x) : there is no package called 'terra'\n" 2000-01-01
- 5 "Error in loadNamespace(x) : there is no package called 'terra'\n" 2001-01-01
- 6 "Error in loadNamespace(x) : there is no package called 'terra'\n" 2002-01-01
- 7 "Error in loadNamespace(x) : there is no package called 'terra'\n" 2003-01-01
- 8 "Error in loadNamespace(x) : there is no package called 'terra'\n" 2004-01-01
- 9 "Error in loadNamespace(x) : there is no package called 'terra'\n" 2005-01-01
-10 "Error in loadNamespace(x) : there is no package called 'terra'\n" 2006-01-01
+     glc date      
+   &lt;int&gt; &lt;date&gt;    
+ 1   130 1985-01-01
+ 2   130 1990-01-01
+ 3   130 1995-01-01
+ 4    10 2000-01-01
+ 5    10 2001-01-01
+ 6    10 2002-01-01
+ 7    10 2003-01-01
+ 8    10 2004-01-01
+ 9    10 2005-01-01
+10    10 2006-01-01
 # ℹ 16 more rows</code></pre>
 </div>
 </div>
