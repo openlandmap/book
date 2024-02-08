@@ -13,10 +13,12 @@ new.packages <- ls[!(ls %in% installed.packages()[,"Package"])]
 if (length(new.packages)) {
   install.packages(new.packages, repos = "https://cloud.r-project.org")
   # temporarily up to the package's new version is available on CRAN
-  devtools::install_github("rolfsimoes/rstac@b-1.0.0-beta")
+  remotes::install_github("rolfsimoes/rstac@b-1.0.0-beta")
 }
 lapply(ls, require, character.only = TRUE)
 ```
+
+This tutorial will utilize the open-source package `rstac` to explore the STAC static catalog of OpenLandMap. The tutorial aims to demonstrate the functionality of `rstac` in searching for datasets within OpenLandMap's STAC static catalog. 
 
 ## Listing layers
 
@@ -30,7 +32,9 @@ olm <- read_stac("http://s3.eu-central-1.wasabisys.com/stac/openlandmap/catalog.
 olm
 ```
 
-To enumerate all available collections in the OpenLandMap catalog, we can scrutinize the links entry and filter only `"child" relations:
+Users should call the `read_stac()` function to access static STAC catalog data from a specified URL into their environment. This function allows users to read any type of STAC document.
+
+To enumerate all available collections in the OpenLandMap catalog, we can scrutinize the links entry and filter only `"child"` relations that are links to collections. We do this by providing an expression that will be evaluated for each link entry inside the documents' links field:
 
 ```{r}
 links(olm, rel == "child")
@@ -49,18 +53,34 @@ glc <- links(olm, grepl("GLC", title))[[3]] %>% link_open()
 glc
 ```
 
-Now, let's list its available items by filtering links with the `rel == "item"` filter expression:
+Now, let's list its available items. We can use the same function `links()` to access and filter links using an expression. To filter all items's links let's use `rel == "item"` expression:
 
 ```{r}
 links(glc, rel == "item")
 ```
 
-To be able to filter items based on spatial and temporal attributes, we need to read them:
+At this point, we didn't accessed any `item` we are just seeing the links that point to items for this collection. Despite links don't have any special field like date/time or bounding box, that we could use to filter them, we could use the OpenLandMap [file naming convention](https://openlandmap.github.io/book/#the-file-naming-convention) to be able to do a finer filtering using the `href` field before read all listed links. For example, we could use `grepl()` to find the link to a specific year:
 
 ```{r}
-glc_items <- read_items(glc, progress = FALSE)
+links(glc, rel == "item", grepl("20200101", href))
+```
+
+Now we can open it by selecting the first item and calling `link_open()` function:
+```{r}
+glc_2020 <- links(glc, rel == "item", grepl("20200101", href))[[1]] %>% link_open()
+glc_2020
+```
+
+However, to be able to proper filter items based on its spatial/temporal attributes, we need to read the items to have access to its metadata. To open a list of links we would need to call `links()` and `link_open()` many times. We can open a set of links using the functions `read_collections()` and `read_items()`. These functions call `links()` in background to filter all links for us, and open each link in a single document. `read_items()` returns an `Items` document while `read_collections()` returns a `Collections` document. 
+
+As we do with `links()` function, we could pass additional filter expressions to `...` parameter:
+
+```{r}
+glc_items <- read_items(glc, grepl("20200101", href))
 glc_items
 ```
+
+
 
 We have items for all dates:
 

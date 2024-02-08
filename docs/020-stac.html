@@ -231,6 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><section id="openlandmap-stac" class="level1"><h1>OpenLandMap STAC</h1>
+<p>This tutorial will utilize the open-source package <code>rstac</code> to explore the STAC static catalog of OpenLandMap. The tutorial aims to demonstrate the functionality of <code>rstac</code> in searching for datasets within OpenLandMap’s STAC static catalog.</p>
 <section id="listing-layers" class="level2"><h2 class="anchored" data-anchor-id="listing-layers">Listing layers</h2>
 <p>Thanks to the STAC functionality and <code>rstac</code> package, it is possible to query directly which collections are available on the stac.OpenLandMap.org (Note: some layers that are available in STAC, might not be available in the front-end / web-GIS):</p>
 <div class="cell">
@@ -245,7 +246,8 @@ Spatio-Temporal Asset Catalog for global layers provided by [OpenLandMap](https:
 - field(s): type, id, stac_version, description, links, title</code></pre>
 </div>
 </div>
-<p>To enumerate all available collections in the OpenLandMap catalog, we can scrutinize the links entry and filter only `“child” relations:</p>
+<p>Users should call the <code><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">read_stac()</a></code> function to access static STAC catalog data from a specified URL into their environment. This function allows users to read any type of STAC document.</p>
+<p>To enumerate all available collections in the OpenLandMap catalog, we can scrutinize the links entry and filter only <code>"child"</code> relations that are links to collections. We do this by providing an expression that will be evaluated for each link entry inside the documents’ links field:</p>
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links</a></span><span class="op">(</span><span class="va">olm</span>, <span class="va">rel</span> <span class="op">==</span> <span class="st">"child"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -302,7 +304,7 @@ GLC_FCS30D is the first global fine land cover dynamic product at a 30-meter res
 type, id, stac_version, description, links, stac_extensions, Theme, version, doi, layer_unit, contact_name, contact_email, date_offset, sld_url, qml_url, title, extent, license, keywords, providers</code></pre>
 </div>
 </div>
-<p>Now, let’s list its available items by filtering links with the <code>rel == "item"</code> filter expression:</p>
+<p>Now, let’s list its available items. We can use the same function <code><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links()</a></code> to access and filter links using an expression. To filter all items’s links let’s use <code>rel == "item"</code> expression:</p>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links</a></span><span class="op">(</span><span class="va">glc</span>, <span class="va">rel</span> <span class="op">==</span> <span class="st">"item"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -331,24 +333,40 @@ type, id, stac_version, description, links, stac_extensions, Theme, version, doi
   ... with 16 more link(s).</code></pre>
 </div>
 </div>
-<p>To be able to filter items based on spatial and temporal attributes, we need to read them:</p>
+<p>At this point, we didn’t accessed any <code>item</code> we are just seeing the links that point to items for this collection. Despite links don’t have any special field like date/time or bounding box, that we could use to filter them, we could use the OpenLandMap <a href="https://openlandmap.github.io/book/#the-file-naming-convention">file naming convention</a> to be able to do a finer filtering using the <code>href</code> field before read all listed links. For example, we could use <code><a href="https://rdrr.io/r/base/grep.html">grepl()</a></code> to find the link to a specific year:</p>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">glc_items</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">read_items</a></span><span class="op">(</span><span class="va">glc</span>, progress <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links</a></span><span class="op">(</span><span class="va">glc</span>, <span class="va">rel</span> <span class="op">==</span> <span class="st">"item"</span>, <span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"20200101"</span>, <span class="va">href</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>###Links
+- links (1 entries(s)):
+1 [item] 
+(./lc_glc.fcs30d_20200101_20201231/lc_glc.fcs30d_20200101_20201231.json)</code></pre>
+</div>
+</div>
+<p>Now we can open it by selecting the first item and calling <code><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">link_open()</a></code> function:</p>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">glc_2020</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links</a></span><span class="op">(</span><span class="va">glc</span>, <span class="va">rel</span> <span class="op">==</span> <span class="st">"item"</span>, <span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"20200101"</span>, <span class="va">href</span><span class="op">)</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">link_open</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">glc_2020</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>###Item
+- id: lc_glc.fcs30d_20200101_20201231
+- collection: lc_glc.fcs30d
+- bbox: xmin: -62.00068, ymin: -180.00000, xmax: 87.37000, ymax: 180.00001
+- datetime: 2020-01-01T00:00:00Z
+- assets: lc_glc.fcs30d_c_30m_s, sld, qml, thumbnail
+- item's fields: 
+assets, bbox, collection, geometry, id, links, properties, stac_extensions, stac_version, type</code></pre>
+</div>
+</div>
+<p>However, to be able to proper filter items based on its spatial/temporal attributes, we need to read the items to have access to its metadata. To open a list of links we would need to call <code><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links()</a></code> and <code><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">link_open()</a></code> many times. We can open a set of links using the functions <code><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">read_collections()</a></code> and <code><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">read_items()</a></code>. These functions call <code><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links()</a></code> in background to filter all links for us, and open each link in a single document. <code><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">read_items()</a></code> returns an <code>Items</code> document while <code><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">read_collections()</a></code> returns a <code>Collections</code> document.</p>
+<p>As we do with <code><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links()</a></code> function, we could pass additional filter expressions to <code>...</code> parameter:</p>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">glc_items</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">read_items</a></span><span class="op">(</span><span class="va">glc</span>, <span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"20200101"</span>, <span class="va">href</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">glc_items</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>###Items
-- features (26 item(s)):
-  - lc_glc.fcs30d_19850101_19851231
-  - lc_glc.fcs30d_19900101_19901231
-  - lc_glc.fcs30d_19950101_19951231
-  - lc_glc.fcs30d_20000101_20001231
-  - lc_glc.fcs30d_20010101_20011231
-  - lc_glc.fcs30d_20020101_20021231
-  - lc_glc.fcs30d_20030101_20031231
-  - lc_glc.fcs30d_20040101_20041231
-  - lc_glc.fcs30d_20050101_20051231
-  - lc_glc.fcs30d_20060101_20061231
-  - ... with 16 more feature(s).
+- features (1 item(s)):
+  - lc_glc.fcs30d_20200101_20201231
 - assets: lc_glc.fcs30d_c_30m_s, qml, sld, thumbnail
 - item's fields: 
 assets, bbox, collection, geometry, id, links, properties, stac_extensions, stac_version, type</code></pre>
@@ -356,22 +374,14 @@ assets, bbox, collection, geometry, id, links, properties, stac_extensions, stac
 </div>
 <p>We have items for all dates:</p>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/items_functions.html">items_datetime</a></span><span class="op">(</span><span class="va">glc_items</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/items_functions.html">items_datetime</a></span><span class="op">(</span><span class="va">glc_items</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "1985-01-01T00:00:00Z" "1990-01-01T00:00:00Z" "1995-01-01T00:00:00Z"
- [4] "2000-01-01T00:00:00Z" "2001-01-01T00:00:00Z" "2002-01-01T00:00:00Z"
- [7] "2003-01-01T00:00:00Z" "2004-01-01T00:00:00Z" "2005-01-01T00:00:00Z"
-[10] "2006-01-01T00:00:00Z" "2007-01-01T00:00:00Z" "2008-01-01T00:00:00Z"
-[13] "2009-01-01T00:00:00Z" "2010-01-01T00:00:00Z" "2011-01-01T00:00:00Z"
-[16] "2012-01-01T00:00:00Z" "2013-01-01T00:00:00Z" "2014-01-01T00:00:00Z"
-[19] "2015-01-01T00:00:00Z" "2016-01-01T00:00:00Z" "2017-01-01T00:00:00Z"
-[22] "2018-01-01T00:00:00Z" "2019-01-01T00:00:00Z" "2020-01-01T00:00:00Z"
-[25] "2021-01-01T00:00:00Z" "2022-01-01T00:00:00Z"</code></pre>
+<pre><code>[1] "2020-01-01T00:00:00Z"</code></pre>
 </div>
 </div>
 <p>To enumerate all available assets across these items, we can run:</p>
 <div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/items_functions.html">items_assets</a></span><span class="op">(</span><span class="va">glc_items</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/items_functions.html">items_assets</a></span><span class="op">(</span><span class="va">glc_items</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "lc_glc.fcs30d_c_30m_s" "qml"                   "sld"                  
 [4] "thumbnail"            </code></pre>
@@ -380,24 +390,24 @@ assets, bbox, collection, geometry, id, links, properties, stac_extensions, stac
 </section><section id="spatial-overlay" class="level2"><h2 class="anchored" data-anchor-id="spatial-overlay">Spatial overlay</h2>
 <p>For overlaying multiple new points with COGs, we can leverage the <code>rstac</code> function <code><a href="https://brazil-data-cube.github.io/rstac/reference/assets_functions.html">assets_url()</a></code> to retrieve the URLs of all COG files. These URLs can then be passed to an extraction function:</p>
 <div class="cell">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">urls</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/assets_functions.html">assets_url</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">urls</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/assets_functions.html">assets_url</a></span><span class="op">(</span></span>
 <span>  items <span class="op">=</span> <span class="va">glc_items</span>, </span>
 <span>  asset_names <span class="op">=</span> <span class="st">"lc_glc.fcs30d_c_30m_s"</span>, </span>
 <span>  append_gdalvsi <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">urls</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "/vsicurl/https://s3.openlandmap.org/arco/lc_glc.fcs30d_c_30m_s_19850101_19851231_go_epsg.4326_v20231026.tif"
-[2] "/vsicurl/https://s3.openlandmap.org/arco/lc_glc.fcs30d_c_30m_s_19900101_19901231_go_epsg.4326_v20231026.tif"
-[3] "/vsicurl/https://s3.openlandmap.org/arco/lc_glc.fcs30d_c_30m_s_19950101_19951231_go_epsg.4326_v20231026.tif"</code></pre>
+<pre><code>[1] "/vsicurl/https://s3.openlandmap.org/arco/lc_glc.fcs30d_c_30m_s_20200101_20201231_go_epsg.4326_v20231026.tif"
+[2] NA                                                                                                           
+[3] NA                                                                                                           </code></pre>
 </div>
 </div>
 <p>The <code>append_gdalvsi=TRUE</code> parameter informs the function to add the string <code>"/vsicurl/"</code> to each URLs so that GDAL can open the files.</p>
 <p>Now, let’s define an extracting function. This function can extract the values in parallel:</p>
 <div class="cell">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">extract_xy</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">lon</span>, <span class="va">lat</span>, <span class="va">cogs</span>, <span class="va">mc.cores</span> <span class="op">=</span> <span class="fl">10</span><span class="op">)</span> <span class="op">{</span></span>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">extract_xy</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">lon</span>, <span class="va">lat</span>, <span class="va">cogs</span>, <span class="va">mc.cores</span> <span class="op">=</span> <span class="fl">10</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">values</span> <span class="op">=</span> <span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/mclapply.html">mclapply</a></span><span class="op">(</span><span class="va">cogs</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="va">point</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">lon</span>, <span class="va">lat</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, crs <span class="op">=</span> <span class="st">"EPSG:4326"</span><span class="op">)</span></span>
-<span>    <span class="va">value</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/extract.html">extract</a></span><span class="op">(</span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html">rast</a></span><span class="op">(</span><span class="va">i</span><span class="op">)</span>, <span class="va">point</span><span class="op">)</span></span>
+<span>    <span class="va">point</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">lon</span>, <span class="va">lat</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, crs <span class="op">=</span> <span class="st">"EPSG:4326"</span><span class="op">)</span></span>
+<span>    <span class="va">value</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/extract.html">extract</a></span><span class="op">(</span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html">rast</a></span><span class="op">(</span><span class="va">i</span><span class="op">)</span>, <span class="va">point</span><span class="op">)</span></span>
 <span>    <span class="co">#dplyr::as_tibble(value)[,2]</span></span>
 <span>    <span class="va">value</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span></span>
 <span>  <span class="op">}</span>, mc.cores <span class="op">=</span> <span class="va">mc.cores</span><span class="op">)</span></span>
@@ -407,25 +417,15 @@ assets, bbox, collection, geometry, id, links, properties, stac_extensions, stac
 </div>
 <p>This only needs URL address of the COGs on some S3 storage and then longitude and latitude of the query points (in the WGS84 system). This is an example of query of all land cover classes from 1985 to 2022:</p>
 <div class="cell">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">values</span> <span class="op">&lt;-</span> <span class="fu">extract_xy</span><span class="op">(</span><span class="op">-</span><span class="fl">35.5</span>, <span class="op">-</span><span class="fl">9.0</span>, <span class="va">urls</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">values</span> <span class="op">&lt;-</span> <span class="fu">extract_xy</span><span class="op">(</span><span class="op">-</span><span class="fl">35.5</span>, <span class="op">-</span><span class="fl">9.0</span>, <span class="va">urls</span><span class="op">)</span></span>
 <span><span class="co"># add date column</span></span>
 <span><span class="va">values</span><span class="op">$</span><span class="va">date</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/items_functions.html">items_datetime</a></span><span class="op">(</span><span class="va">glc_items</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 26 × 2
-     glc date      
-   &lt;int&gt; &lt;date&gt;    
- 1   130 1985-01-01
- 2   130 1990-01-01
- 3   130 1995-01-01
- 4    10 2000-01-01
- 5    10 2001-01-01
- 6    10 2002-01-01
- 7    10 2003-01-01
- 8    10 2004-01-01
- 9    10 2005-01-01
-10    10 2006-01-01
-# ℹ 16 more rows</code></pre>
+<pre><code># A tibble: 1 × 2
+    glc date      
+  &lt;int&gt; &lt;date&gt;    
+1    10 2020-01-01</code></pre>
 </div>
 </div>
 
