@@ -23,11 +23,11 @@ This tutorial will utilize the open-source package `rstac` to explore the STAC s
 ## Listing layers
 
 Thanks to the STAC functionality and `rstac` package, it is possible to query directly 
-which collections are available on the stac.OpenLandMap.org (Note: some layers that 
-are available in STAC, might not be available in the front-end / web-GIS):
+which collections are available on the [stac.OpenLandMap.org](http://stac.OpenLandMap.org) (Note: some layers that are available in STAC, might not be available in the front-end/web-GIS):
 
 ```{r}
 library(rstac)
+# Read the OpenLandMap Catalog
 olm <- read_stac("http://s3.eu-central-1.wasabisys.com/stac/openlandmap/catalog.json")
 olm
 ```
@@ -40,98 +40,185 @@ To enumerate all available collections in the OpenLandMap catalog, we can scruti
 links(olm, rel == "child")
 ```
 
-For instance, to compile a list of layers with the `title` containing the text `"GLC"` for land cover annual time-series, we can use:
+For instance, to compile a list of layers with the `title` containing the text `"GLC"` we can use:
 
 ```{r}
+# Lists links that matches the filter expressions
 links(olm, grepl("GLC", title))
 ```
 
 Let's explore the third link, referencing the `GLC_FCS30D` annual land-cover dynamic monitoring product:
 
 ```{r}
-glc <- links(olm, grepl("GLC", title))[[3]] %>% link_open()
+# Get the link of the GLC dataset
+glc_link <- links(olm, grepl("GLC", title))[[3]]
+# Open the link
+glc <- link_open(glc_link)
 glc
 ```
 
-Now, let's list its available items. We can use the same function `links()` to access and filter links using an expression. To filter all items's links let's use `rel == "item"` expression:
+Now, let's list its available items. We can use the same function `links()` to access and filter links using an expression. To filter just links that point to items let's use `rel == "item"` expression:
 
 ```{r}
+# Lists links that point to items
 links(glc, rel == "item")
 ```
 
-At this point, we didn't accessed any `item` we are just seeing the links that point to items for this collection. Despite links don't have any special field like date/time or bounding box, that we could use to filter them, we could use the OpenLandMap [file naming convention](https://openlandmap.github.io/book/#the-file-naming-convention) to be able to do a finer filtering using the `href` field before read all listed links. For example, we could use `grepl()` to find the link to a specific year:
+At this point, we didn't accessed any `item` we are just seeing links. Links have some metadata that describes them:
 
 ```{r}
+# Get the first link that matches the filter
+glc_link_1 <- links(glc, rel == "item")[[1]]
+glc_link_1
+```
+
+We can see the list of links metadata in `field(s)` entry above. These fields can be used in filter expressions. Despite links don't have any special metadata like date or bounding box, we can use the `href` field to filter items using the OpenLandMap [file naming convention](https://openlandmap.github.io/book/#the-file-naming-convention). For example, we can use `grepl()` to find the link to an item of a specific date:
+
+```{r}
+# Lists links that matches the filter expressions
 links(glc, rel == "item", grepl("20200101", href))
 ```
 
-Now we can open it by selecting the first item and calling `link_open()` function:
+We can open it by selecting the first item and call `link_open()` function:
+
 ```{r}
-glc_2020 <- links(glc, rel == "item", grepl("20200101", href))[[1]] %>% link_open()
-glc_2020
+links(glc, rel == "item", grepl("20200101", href))[[1]] %>% 
+  link_open()
 ```
 
-However, to be able to proper filter items based on its spatial/temporal attributes, we need to read the items to have access to its metadata. To open a list of links we would need to call `links()` and `link_open()` many times. We can open a set of links using the functions `read_collections()` and `read_items()`. These functions call `links()` in background to filter all links for us, and open each link in a single document. `read_items()` returns an `Items` document while `read_collections()` returns a `Collections` document. 
-
-As we do with `links()` function, we could pass additional filter expressions to `...` parameter:
+To open multiple items you can use the function `read_items()`. This functions filters items links and open them in a single document. You still can pass any additional filter:
 
 ```{r}
-glc_items <- read_items(glc, grepl("20200101", href))
+# Read all links with rel == "item" and any additional filter expression
+glc_items <- read_items(glc, grepl("200[1-5]0101", href), progress = FALSE)
 glc_items
 ```
 
-
-
-We have items for all dates:
+The resulting `JSON` document is a `FeatureCollection`. Each element in its `features` property is an `item` that stores metadata on spatio-temporal assets. Here we enumerate all available assets in this document:
 
 ```{r}
-items_datetime(glc_items)
-```
-
-To enumerate all available assets across these items, we can run:
-
-```{r}
+# Lists all assets name in the document
 items_assets(glc_items)
 ```
+Here, `"lc_glc.fcs30d_c_30m_s"` is the name of the main data, while `"qml"` and `"sld"` are style assets to be used in GIS. We can use the `thumbnail` asset to take a preview on the main data:
 
+```{r}
+# Get thumbnail URL for each item
+thumbnails <- glc_items %>%
+  assets_url("thumbnail")
+# Plot the thumbnail of the first URL
+preview_plot(thumbnails[[1]])
+```
 
-## Spatial overlay
+The `rstac` package provides many other functions to work with `assets` and `item` documents. Users can also convert `items` to a more familiar format as data frames or simple features to work with the data using their own functions:
+
+```{r}
+# Converts the items into a tibble data frame
+items_as_tibble(glc_items)
+# Converts the items into a sf data frame
+items_as_sf(glc_items)
+```
+
+## Spatial overlay - Example 1
+
+In this section, we will explore how to overlay multiple points with Cloud-Optimized GeoTIFFs (COGs). This process involves retrieving COG URLs from STAC items and then extracting values at specific coordinates.
 
 For overlaying multiple new points with COGs, we can leverage the `rstac` function `assets_url()` to retrieve the URLs of all COG files. These URLs can then be passed to an extraction function:
 
 ```{r}
-urls <- assets_url(
-  items = glc_items, 
-  asset_names = "lc_glc.fcs30d_c_30m_s", 
-  append_gdalvsi = TRUE)
-urls[1:3]
+# Get main data URL for each item 
+urls <- glc_items %>% 
+  assets_url("lc_glc.fcs30d_c_30m_s", append_gdalvsi = TRUE)
+urls
 ```
 
-The `append_gdalvsi=TRUE` parameter informs the function to add the string `"/vsicurl/"` to each URLs so that GDAL can open the files.
+In this code snippet, the `append_gdalvsi=TRUE` parameter is set to inform the function to add the string `"/vsicurl/"` to each URL. This step is necessary for GDAL to open the files properly.
 
-Now, let's define an extracting function. This function can extract the values in parallel:
+Next, we define a function `extract_xy()` to extract values from COGs at specific longitude and latitude coordinates. This function utilizes parallel processing for efficiency:
 
 ```{r}
-extract_xy = function(lon, lat, cogs, mc.cores = 10) {
-  values = parallel::mclapply(cogs, function(i) {
-    point <- terra::vect(matrix(c(lon, lat), ncol = 2), crs = "EPSG:4326")
-    value <- terra::extract(terra::rast(i), point)
-    #dplyr::as_tibble(value)[,2]
-    value[,2]
-  }, mc.cores = mc.cores)
-  values = dplyr::tibble(glc = unlist(values))
-  return(values)
+extract_xy = function(urls, lon, lat) {
+  requireNamespace("terra", quietly = TRUE)
+  requireNamespace("dplyr", quietly = TRUE)
+  point <- terra::vect(matrix(c(lon, lat), ncol = 2), crs = "EPSG:4326")
+  values <- terra::extract(terra::rast(urls), point, ID = FALSE)
+  return(unlist(values, TRUE, FALSE))
 }
 ```
 
-This only needs URL address of the COGs on some S3 storage and then longitude and 
-latitude of the query points (in the WGS84 system). This is an example of query of 
-all land cover classes from 1985 to 2022:
+This function takes a list of COG URLs, longitude, and latitude as inputs and returns a vector containing extracted values:
 
 ```{r}
-values <- extract_xy(-35.5, -9.0, urls)
-# add date column
-values$date <- as.Date(items_datetime(glc_items))
+# Extract values for each URL
+values <- urls %>% extract_xy(-35.5, -9.0)
 values
 ```
 
+Let's organize the extracted values as a tibble column. We can use the tibble derived from `glc_items`:
+
+```{r}
+# Convert the items document into a tibble object
+items <- items_as_tibble(glc_items)
+items$values <- values
+items
+```
+
+## Spatial overlay - Example 2
+
+In this section, we're obtaining municipal boundaries for Brazil using `gadm()` function of `geodata` package. The boundaries are stored as spatial features. In this example, we use the boundary for the municipality of Altamira in Pará state.
+
+```{r}
+library(exactextractr)
+library(geodata)
+
+# Download Brazilian municipality data
+dir <- tempdir() # Change to a non-temporary directory
+geodata::geodata_path(dir)
+brazil <- geodata::gadm(country = 'BRA', level = 2)
+# Select Pará state
+para <- brazil[which(grepl("^Pará$", brazil$NAME_1)),]
+# Select Altamira municipality
+altamira <- brazil[which(grepl("^Altamira$", brazil$NAME_2)),]
+# View municipal boundaries for Pará state
+plot(para, main = "Altamira-Pará-Brazil")
+plot(altamira, col = "gray", add = TRUE)
+```
+
+```{r}
+links(olm, grepl("FAPAR", title))
+
+fapar_link <- links(olm, grepl("FAPAR", title))[[1]]
+fapar_collection <- link_open(fapar_link)
+links(fapar_collection, rel == "item")
+```
+
+```{r}
+fapar_items <- read_items(
+  collection = fapar_collection, 
+  grepl("20..0601", href), 
+  progress = FALSE
+)
+```
+
+```{r}
+items_assets(fapar_items)
+```
+
+```{r}
+fapar <- fapar_items |> 
+  assets_url("fapar_essd.lstm_p95_250m_s", TRUE) |> 
+  rast()
+fapar
+```
+
+```{r}
+x <- 0:21
+y <- unlist(
+  exact_extract(fapar, sf::st_as_sf(altamira), 'quantile', quantiles = 0.02), 
+  use.names = FALSE
+)
+
+plot(x, y, ylim = c(0.5, 0.7), xlab = "year since 2000")
+lines(x, y)
+
+```
