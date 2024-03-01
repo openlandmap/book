@@ -12,8 +12,6 @@ ls <- c("rstac", "curl")
 new.packages <- ls[!(ls %in% installed.packages()[,"Package"])]
 if (length(new.packages)) {
   install.packages(new.packages, repos = "https://cloud.r-project.org")
-  # temporarily up to the package's new version is available on CRAN
-  remotes::install_github("rolfsimoes/rstac@b-1.0.0-beta")
 }
 lapply(ls, require, character.only = TRUE)
 ```
@@ -112,7 +110,7 @@ preview_plot(thumbnails[[1]])
 
 The `rstac` package provides many other functions to work with `assets` and `item` documents. Users can also convert `items` to a more familiar format as data frames or simple features to work with the data using their own functions:
 
-```{r}
+```{r eval=FALSE}
 # Converts the items into a tibble data frame
 items_as_tibble(glc_items)
 # Converts the items into a sf data frame
@@ -123,25 +121,28 @@ items_as_sf(glc_items)
 
 In this section, we will explore how to overlay multiple points with Cloud-Optimized GeoTIFFs (COGs). This process involves retrieving COG URLs from STAC items and then extracting values at specific coordinates.
 
-For overlaying multiple new points with COGs, we can leverage the `rstac` function `assets_url()` to retrieve the URLs of all COG files. These URLs can then be passed to an extraction function:
+For overlaying multiple new points with COGs, we can leverage the `rstac` function `assets_url()` to retrieve the URLs of all COG files. These URLs can then be used to read the COGs:
 
 ```{r}
 # Get main data URL for each item 
 urls <- glc_items %>% 
   assets_url("lc_glc.fcs30d_c_30m_s", append_gdalvsi = TRUE)
-urls
 ```
 
-In this code snippet, the `append_gdalvsi=TRUE` parameter is set to inform the function to add the string `"/vsicurl/"` to each URL. This step is necessary for GDAL to open the files properly.
+In this code, the `append_gdalvsi=TRUE` parameter is set to inform the function to add the string `"/vsicurl/"` to each URL. This step is necessary for GDAL to open the files properly.
 
 Next, we define a function `extract_xy()` to extract values from COGs at specific longitude and latitude coordinates. This function utilizes parallel processing for efficiency:
 
 ```{r}
 extract_xy = function(urls, lon, lat) {
   requireNamespace("terra", quietly = TRUE)
-  requireNamespace("dplyr", quietly = TRUE)
+  # Create a SpatVector point
   point <- terra::vect(matrix(c(lon, lat), ncol = 2), crs = "EPSG:4326")
-  values <- terra::extract(terra::rast(urls), point, ID = FALSE)
+  # Open COGs
+  rasters <- terra::rast(urls)
+  # Extract values using terra package
+  values <- terra::extract(rasters, point, ID = FALSE)
+  # Return a vector of values, one for each layer
   return(unlist(values, TRUE, FALSE))
 }
 ```
@@ -154,7 +155,7 @@ values <- urls %>% extract_xy(-35.5, -9.0)
 values
 ```
 
-Let's organize the extracted values as a tibble column. We can use the tibble derived from `glc_items`:
+Let's organize the extracted values as a tibble column. We can use a `tibble` derived from `glc_items` using the `items_as_tibble` function:
 
 ```{r}
 # Convert the items document into a tibble object
@@ -165,31 +166,21 @@ items
 
 ## Spatial overlay - Example 2
 
-In this section, we're obtaining municipal boundaries for Brazil using `gadm()` function of `geodata` package. The boundaries are stored as spatial features. In this example, we use the boundary for the municipality of Altamira in Pará state.
+In this section, we're obtaining municipal boundaries for Brazilian Pará state using `gadm` data extracted from `geodata` package. The boundaries are stored as `SpatVector` object. In this example, we use the boundary of the municipality of Altamira in Pará state.
 
 ```{r}
-library(exactextractr)
-library(geodata)
-
-# Download Brazilian municipality data
-dir <- tempdir() # Change to a non-temporary directory
-geodata::geodata_path(dir)
-brazil <- geodata::gadm(country = 'BRA', level = 2)
-# Select Pará state
-para <- brazil[which(grepl("^Pará$", brazil$NAME_1)),]
+# Read data on Pará state, Brazil
+para <- readRDS("data/brazil-para-state.rds")
 # Select Altamira municipality
-altamira <- brazil[which(grepl("^Altamira$", brazil$NAME_2)),]
+altamira <- para[which(grepl("^Altamira$", para$NAME_2))]
 # View municipal boundaries for Pará state
 plot(para, main = "Altamira-Pará-Brazil")
 plot(altamira, col = "gray", add = TRUE)
 ```
 
 ```{r}
-links(olm, grepl("FAPAR", title))
-
 fapar_link <- links(olm, grepl("FAPAR", title))[[1]]
 fapar_collection <- link_open(fapar_link)
-links(fapar_collection, rel == "item")
 ```
 
 ```{r}
@@ -207,14 +198,16 @@ items_assets(fapar_items)
 ```{r}
 fapar <- fapar_items |> 
   assets_url("fapar_essd.lstm_p95_250m_s", TRUE) |> 
-  rast()
+  terra::rast()
 fapar
 ```
 
 ```{r}
+library(exactextractr)
+
 x <- 0:21
 y <- unlist(
-  exact_extract(fapar, sf::st_as_sf(altamira), 'quantile', quantiles = 0.02), 
+  exact_extract(fapar, sf::st_as_sf(altamira), 'quantile', quantiles = 0.05), 
   use.names = FALSE
 )
 
