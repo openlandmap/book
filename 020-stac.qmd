@@ -57,7 +57,7 @@ glc
 
 Now, let's list its available items. We can use the same function `links()` to access and filter links using an expression. To filter just links that point to items let's use `rel == "item"` expression:
 
-```{r}
+```{r eval=FALSE}
 # Lists links that point to items
 links(glc, rel == "item")
 ```
@@ -66,8 +66,7 @@ At this point, we didn't accessed any `item` we are just seeing links. Links hav
 
 ```{r}
 # Get the first link that matches the filter
-glc_link_1 <- links(glc, rel == "item")[[1]]
-glc_link_1
+links(glc, rel == "item")[[1]]
 ```
 
 We can see the list of links metadata in `field(s)` entry above. These fields can be used in filter expressions. Despite links don't have any special metadata like date or bounding box, we can use the `href` field to filter items using the OpenLandMap [file naming convention](https://openlandmap.github.io/book/#the-file-naming-convention). For example, we can use `grepl()` to find the link to an item of a specific date:
@@ -102,8 +101,7 @@ Here, `"lc_glc.fcs30d_c_30m_s"` is the name of the main data, while `"qml"` and 
 
 ```{r}
 # Get thumbnail URL for each item
-thumbnails <- glc_items %>%
-  assets_url("thumbnail")
+thumbnails <- assets_url(glc_items, "thumbnail")
 # Plot the thumbnail of the first URL
 preview_plot(thumbnails[[1]])
 ```
@@ -125,20 +123,20 @@ To overlay points with COGs, we utilize the `assets_url()` function from `rstac`
 
 ```{r}
 # Get main data URL for each item 
-urls <- glc_items %>% 
+glc_items %>% 
   assets_url("lc_glc.fcs30d_c_30m_s", append_gdalvsi = TRUE)
 ```
 
 In the code snippet above, the `append_gdalvsi=TRUE` parameter ensures the addition of `"/vsicurl/"` to each URL, necessary to GDAL open the file.
 
-Next, we define the `extract_xy()` function to extract values from COGs at specific longitude and latitude coordinates.
+Next, we define the `extract_xy()` function to extract values from COGs at specific longitude and latitude coordinates. We use `terra` package to access the files.
 
 ```{r}
 extract_xy = function(urls, lon, lat) {
   requireNamespace("terra", quietly = TRUE)
   # Create a SpatVector point
   point <- terra::vect(matrix(c(lon, lat), ncol = 2), crs = "EPSG:4326")
-  # Open COGs
+  # Open COGs using terra package
   rasters <- terra::rast(urls)
   # Extract values using terra package
   values <- terra::extract(rasters, point, ID = FALSE)
@@ -151,20 +149,24 @@ The `extract_xy()` function takes a list of COG URLs, longitude, and latitude as
 
 ```{r}
 # Extract values for each URL
-values <- urls %>% extract_xy(-35.5, -9.0)
-values
+codes <- glc_items %>% 
+  assets_url("lc_glc.fcs30d_c_30m_s", append_gdalvsi = TRUE) %>%
+  extract_xy(-35.5, -9.0)
+codes
 ```
 
-The extracted values might appear as a list of meaningless integers. To interpret these values and assign to it a label, we can utilize the `qml` asset to retrieve information on land cover classes. This is a QML (Quantum Markup Language) file and we can use `xml2` package to find class labels.
+The extracted values represent land cover codes. To interpret these values and assign to it a label, we can utilize the `qml` asset to retrieve information on land cover classes. This is a QML (Quantum Markup Language) file and we can use `xml2` package to find class labels.
 
 First, let's create a function to extract class labels from the QML file based on provided class codes:
 
 ```{r}
-get_qml_label <- function(qml, codes) {
+get_qml_label <- function(qml_url, codes) {
+  requireNamespace("xml2", quietly = TRUE)
+  # Read the QML file
+  qml <- xml2::read_xml(qml_url[[1]])
   # Find the class label in the QML
   class_label <- sapply(codes, function(code) {
-    qml %>%
-      xml2::xml_find_all(sprintf(".//item[@value='%s']", code)) %>%
+    xml2::xml_find_all(qml, sprintf(".//item[@value='%s']", code)) %>%
       xml2::xml_attr("label")
   })
   return(class_label)
@@ -174,12 +176,13 @@ get_qml_label <- function(qml, codes) {
 After creating the function, we can use it to extract class labels from the QML file based on provided class codes. 
 
 ```{r}
-# Retrieve the URL for the QML file
-qml_url <- assets_url(glc_items, "qml")[[1]]
-# Read the XML
-qml <- xml2::read_xml(qml_url)
-# Get the labels
-get_qml_label(qml, values)
+library(xml2)
+
+# Read the QML file and get the labels
+labels <- glc_items %>% 
+  assets_url("qml") %>%
+  get_qml_label(codes)
+labels
 ```
 
 We can store the extracted values and their respective labels in the `tibble` derived by `items_as_tibble()` function:
@@ -187,16 +190,20 @@ We can store the extracted values and their respective labels in the `tibble` de
 ```{r}
 # Convert the items document into a tibble object
 items <- items_as_tibble(glc_items)
-items$values <- values
-items$labels <- get_qml_label(qml, values)
+items$codes <- codes
+items$labels <- labels
 items
 ```
 
 ## Spatial overlay - Example 2
 
-In this section, we're using municipal boundaries for Brazilian Pará state using `gadm` data extracted from `geodata` package. The boundaries are stored as `SpatVector` object. In this example, we use the boundary of the municipality of Altamira in Pará state.
+In this section, we'll explore the Fraction of Absorbed Photosynthetically Active Radiation (FAPAR) dataset. It is a key biophysical data used to quantify the fraction of sunlight absorbed by vegetation for photosynthesis, typically in the wavelength range of 400 to 700 nanometers.
+
+Using Altamira municipality's boundaries in Brazil's Pará state, we'll extract zonal statistics over time. The municipality data comes from the `gadm` data in the `geodata` package, stored as a `terra` `SpatVector` object. Due to its proximity to areas of high biodiversity and its history of land-use change, Altamira has been in focus of conservation debate. The agricultural expansion and access to major transportation routes have contributed to its prominence in the ongoing deforestation in the Amazon region.
 
 ```{r}
+library(terra, quietly = TRUE)
+
 # Read data on Pará state, Brazil
 para <- readRDS("data/brazil-para-state.rds")
 # Select Altamira municipality
@@ -206,40 +213,79 @@ plot(para, main = "Altamira-Pará-Brazil")
 plot(altamira, col = "gray", add = TRUE)
 ```
 
+Let's start by find datasets related to FAPAR in OpenLandMap. This can be done by searching for datasets with `"FAPAR"` in their `title`. We then open the collection corresponding to the FAPAR dataset using the retrieved link.
+
 ```{r}
 fapar_link <- links(olm, grepl("FAPAR", title))[[1]]
 fapar_collection <- link_open(fapar_link)
 ```
 
+Now, we'll read the FAPAR items from the collection, filtering for June datasets from 2000 to 2021. We use `grepl()` function to filter FAPAR items based on the date embedded in their filenames. The pattern `"20..0601"` matches filenames with the format `"20YY0601"`.
+
 ```{r}
-fapar_items <- read_items(
-  collection = fapar_collection, 
-  grepl("20..0601", href), 
-  progress = FALSE
-)
+fapar_items <- fapar_collection %>% 
+  read_items(grepl("20..0601", href), progress = FALSE)
 ```
+
+What assets are associated with the FAPAR items?
 
 ```{r}
 items_assets(fapar_items)
 ```
 
+Let's preview the first asset (June 2000) we'll use, `"fapar_essd.lstm_p95_250m_s_preview"`.
+This will give us a visual representation of the FAPAR data before we proceed with the analysis.
+
 ```{r}
-fapar <- fapar_items |> 
-  assets_url("fapar_essd.lstm_p95_250m_s", TRUE) |> 
-  terra::rast()
+thumbnails <- fapar_items %>% 
+  assets_url("fapar_essd.lstm_p95_250m_s_preview")
+# Plot the thumbnail of the first URL
+preview_plot(thumbnails[[1]])
+```
+
+Next, let's define a function to extract zonal statistics using `exactextractr` package. This function takes the URLs of COGs, geometry of the region of interest, a statistical function (such as quantile), and additional arguments as input.
+
+```{r}
+extract_zonal <- function(urls, geom, fun, ...) {
+  requireNamespace("exactextractr", quietly = TRUE)
+  # Create a sf geometry
+  geom <- sf::st_as_sf(geom)
+  # Open COGs using terra package
+  rasters <- terra::rast(urls)
+  # Extract values using exactextract package
+  values <- exactextractr::exact_extract(
+    x = rasters, 
+    y = sf::st_as_sf(altamira), 
+    fun = fun, ...
+  )
+  # Return a vector of values, one for each layer
+  return(unlist(values, TRUE, FALSE))
+}
+```
+
+Now we get the URLs for the monthly `"fapar_essd.lstm_p95_250m_s"` asset. This asset represents the 95th percentile of FAPAR values observed within each month. This corresponds to high FAPAR values. Now, our focus shifts to computing the 5th percentile of FAPAR values within the Altamira territory. This approach allows us to explore the lower 5% of the FAPAR values observed in Altamira area.
+
+```{r}
+quantiles <- seq(0.05, 0.15, 0.01)
+quantiles_name <- gsub("0\\.", "p", quantiles)
+fapar_q <- fapar_items %>%
+  assets_url("fapar_essd.lstm_p95_250m_s", append_gdalvsi = TRUE) %>%
+  extract_zonal(altamira, 'quantile', quantiles = quantiles) %>%
+  matrix(ncol = length(quantiles), dimnames = list(NULL, quantiles_name)) %>%
+  as.data.frame()
+
+fapar <- items_as_tibble(fapar_items)
+fapar <- cbind(fapar, fapar_q)
 fapar
 ```
 
 ```{r}
-library(exactextractr)
+library(ggplot2)
 
-x <- 0:21
-y <- unlist(
-  exact_extract(fapar, sf::st_as_sf(altamira), 'quantile', quantiles = 0.05), 
-  use.names = FALSE
-)
+fapar$datetime <- as.Date(fapar$datetime)
 
-plot(x, y, ylim = c(0.5, 0.7), xlab = "year since 2000")
-lines(x, y)
-
+ggplot(fapar, aes(x = datetime, y = fapar_p95)) +
+  geom_line()
 ```
+A decreasing 5th percentile of FAPAR p95 values suggests the increasing of areas with lower vegetation than the threshold set by the p95 value.
+This could indicate regions within Altamira that experience relatively lower vegetation density or health compared to the broader region represented by the p95 values.
