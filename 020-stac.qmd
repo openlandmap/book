@@ -119,9 +119,9 @@ items_as_sf(glc_items)
 
 ## Spatial overlay - Example 1
 
-In this section, we will explore how to overlay multiple points with Cloud-Optimized GeoTIFFs (COGs). This process involves retrieving COG URLs from STAC items and then extracting values at specific coordinates.
+This section illustrates how to overlay multiple points with Cloud-Optimized GeoTIFFs (COGs). The process involves retrieving COG URLs from STAC items and extracting values at specified coordinates.
 
-For overlaying multiple new points with COGs, we can leverage the `rstac` function `assets_url()` to retrieve the URLs of all COG files. These URLs can then be used to read the COGs:
+To overlay points with COGs, we utilize the `assets_url()` function from `rstac`. This function retrieves the URLs of all COG files, which are then passed to an extraction function.
 
 ```{r}
 # Get main data URL for each item 
@@ -129,9 +129,9 @@ urls <- glc_items %>%
   assets_url("lc_glc.fcs30d_c_30m_s", append_gdalvsi = TRUE)
 ```
 
-In this code, the `append_gdalvsi=TRUE` parameter is set to inform the function to add the string `"/vsicurl/"` to each URL. This step is necessary for GDAL to open the files properly.
+In the code snippet above, the `append_gdalvsi=TRUE` parameter ensures the addition of `"/vsicurl/"` to each URL, necessary to GDAL open the file.
 
-Next, we define a function `extract_xy()` to extract values from COGs at specific longitude and latitude coordinates. This function utilizes parallel processing for efficiency:
+Next, we define the `extract_xy()` function to extract values from COGs at specific longitude and latitude coordinates.
 
 ```{r}
 extract_xy = function(urls, lon, lat) {
@@ -147,7 +147,7 @@ extract_xy = function(urls, lon, lat) {
 }
 ```
 
-This function takes a list of COG URLs, longitude, and latitude as inputs and returns a vector containing extracted values:
+The `extract_xy()` function takes a list of COG URLs, longitude, and latitude as inputs, and returns a vector containing extracted values. Let's extract values at a specific coordinate (e.g., longitude = -35.5, latitude = -9.0).
 
 ```{r}
 # Extract values for each URL
@@ -155,18 +155,46 @@ values <- urls %>% extract_xy(-35.5, -9.0)
 values
 ```
 
-Let's organize the extracted values as a tibble column. We can use a `tibble` derived from `glc_items` using the `items_as_tibble` function:
+The extracted values might appear as a list of meaningless integers. To interpret these values and assign to it a label, we can utilize the `qml` asset to retrieve information on land cover classes. This is a QML (Quantum Markup Language) file and we can use `xml2` package to find class labels.
+
+First, let's create a function to extract class labels from the QML file based on provided class codes:
+
+```{r}
+get_qml_label <- function(qml, codes) {
+  # Find the class label in the QML
+  class_label <- sapply(codes, function(code) {
+    qml %>%
+      xml2::xml_find_all(sprintf(".//item[@value='%s']", code)) %>%
+      xml2::xml_attr("label")
+  })
+  return(class_label)
+}
+```
+
+After creating the function, we can use it to extract class labels from the QML file based on provided class codes. 
+
+```{r}
+# Retrieve the URL for the QML file
+qml_url <- assets_url(glc_items, "qml")[[1]]
+# Read the XML
+qml <- xml2::read_xml(qml_url)
+# Get the labels
+get_qml_label(qml, values)
+```
+
+We can store the extracted values and their respective labels in the `tibble` derived by `items_as_tibble()` function:
 
 ```{r}
 # Convert the items document into a tibble object
 items <- items_as_tibble(glc_items)
 items$values <- values
+items$labels <- get_qml_label(qml, values)
 items
 ```
 
 ## Spatial overlay - Example 2
 
-In this section, we're obtaining municipal boundaries for Brazilian Pará state using `gadm` data extracted from `geodata` package. The boundaries are stored as `SpatVector` object. In this example, we use the boundary of the municipality of Altamira in Pará state.
+In this section, we're using municipal boundaries for Brazilian Pará state using `gadm` data extracted from `geodata` package. The boundaries are stored as `SpatVector` object. In this example, we use the boundary of the municipality of Altamira in Pará state.
 
 ```{r}
 # Read data on Pará state, Brazil
