@@ -25,6 +25,7 @@ which collections are available on the [stac.OpenLandMap.org](http://stac.OpenLa
 
 ```{r}
 library(rstac)
+
 # Read the OpenLandMap Catalog
 olm <- read_stac("http://s3.eu-central-1.wasabisys.com/stac/openlandmap/catalog.json")
 olm
@@ -51,35 +52,35 @@ Let's explore the third link, referencing the `GLC_FCS30D` annual land-cover dyn
 # Get the link of the GLC dataset
 glc_link <- links(olm, grepl("GLC", title))[[3]]
 # Open the link
-glc <- link_open(glc_link)
-glc
+glc_collection <- link_open(glc_link)
+glc_collection
 ```
 
 Now, let's list its available items. We can use the same function `links()` to access and filter links using an expression. To filter just links that point to items let's use `rel == "item"` expression:
 
 ```{r eval=FALSE}
 # Lists links that point to items
-links(glc, rel == "item")
+links(glc_collection, rel == "item")
 ```
 
 At this point, we didn't accessed any `item` we are just seeing links. Links have some metadata that describes them:
 
 ```{r}
 # Get the first link that matches the filter
-links(glc, rel == "item")[[1]]
+links(glc_collection, rel == "item")[[1]]
 ```
 
 We can see the list of links metadata in `field(s)` entry above. These fields can be used in filter expressions. Despite links don't have any special metadata like date or bounding box, we can use the `href` field to filter items using the OpenLandMap [file naming convention](https://openlandmap.github.io/book/#the-file-naming-convention). For example, we can use `grepl()` to find the link to an item of a specific date:
 
 ```{r}
 # Lists links that matches the filter expressions
-links(glc, rel == "item", grepl("20200101", href))
+links(glc_collection, rel == "item", grepl("20200101", href))
 ```
 
 We can open it by selecting the first item and call `link_open()` function:
 
 ```{r}
-links(glc, rel == "item", grepl("20200101", href))[[1]] %>% 
+links(glc_collection, rel == "item", grepl("20200101", href))[[1]] %>% 
   link_open()
 ```
 
@@ -87,7 +88,7 @@ To open multiple items you can use the function `read_items()`. This functions f
 
 ```{r}
 # Read all links with rel == "item" and any additional filter expression
-glc_items <- read_items(glc, grepl("200[1-5]0101", href), progress = FALSE)
+glc_items <- read_items(glc_collection, progress = FALSE)
 glc_items
 ```
 
@@ -121,7 +122,7 @@ This section illustrates how to overlay multiple points with Cloud-Optimized Geo
 
 To overlay points with COGs, we utilize the `assets_url()` function from `rstac`. This function retrieves the URLs of all COG files, which are then passed to an extraction function.
 
-```{r}
+```{r eval=FALSE}
 # Get main data URL for each item 
 glc_items %>% 
   assets_url("lc_glc.fcs30d_c_30m_s", append_gdalvsi = TRUE)
@@ -145,7 +146,7 @@ extract_xy = function(urls, lon, lat) {
 }
 ```
 
-The `extract_xy()` function takes a list of COG URLs, longitude, and latitude as inputs, and returns a vector containing extracted values. Let's extract values at a specific coordinate (e.g., longitude = -35.5, latitude = -9.0).
+The `extract_xy()` function takes a list of COG URLs, longitude, and latitude as inputs, and returns a vector containing extracted values. Let's extract values at a specific coordinate (e.g., longitude = -55.126476, latitude = -6.864224).
 
 ```{r}
 # Extract values for each URL
@@ -176,8 +177,6 @@ get_qml_label <- function(qml_url, codes) {
 After creating the function, we can use it to extract class labels from the QML file based on provided class codes. 
 
 ```{r}
-library(xml2)
-
 # Read the QML file and get the labels
 labels <- glc_items %>% 
   assets_url("qml") %>%
@@ -189,10 +188,10 @@ We can store the extracted values and their respective labels in the `tibble` de
 
 ```{r}
 # Convert the items document into a tibble object
-items <- items_as_tibble(glc_items)
-items$codes <- codes
-items$labels <- labels
-items
+glc <- items_as_tibble(glc_items)
+glc$codes <- codes
+glc$labels <- labels
+glc
 ```
 
 ## Spatial overlay - Example 2
@@ -263,29 +262,33 @@ extract_zonal <- function(urls, geom, fun, ...) {
 }
 ```
 
-Now we get the URLs for the monthly `"fapar_essd.lstm_p95_250m_s"` asset. This asset represents the 95th percentile of FAPAR values observed within each month. This corresponds to high FAPAR values. Now, our focus shifts to computing the 5th percentile of FAPAR values within the Altamira territory. This approach allows us to explore the lower 5% of the FAPAR values observed in Altamira area.
+Now we get the URLs for the monthly `"fapar_essd.lstm_p95_250m_s"` asset. This asset represents the 95th percentile of FAPAR values observed within each month. This corresponds to high FAPAR values. Now, our focus shifts to computing the lower percentiles of FAPAR values within the Altamira territory. This approach allows us to explore the increasing area of lower values of FAPAR observed in Altamira for the month June.
 
 ```{r}
-quantiles <- seq(0.05, 0.15, 0.01)
-quantiles_name <- gsub("0\\.", "p", quantiles)
+quantiles <- seq(0.02, 0.12, 0.01)
+quantiles_name <- gsub("0\\.", "p", sprintf("%0.2f", quantiles))
 fapar_q <- fapar_items %>%
   assets_url("fapar_essd.lstm_p95_250m_s", append_gdalvsi = TRUE) %>%
   extract_zonal(altamira, 'quantile', quantiles = quantiles) %>%
-  matrix(ncol = length(quantiles), dimnames = list(NULL, quantiles_name)) %>%
-  as.data.frame()
+  matrix(ncol = length(quantiles), dimnames = list(NULL, quantiles_name))
 
 fapar <- items_as_tibble(fapar_items)
 fapar <- cbind(fapar, fapar_q)
-fapar
 ```
 
 ```{r}
 library(ggplot2)
 
 fapar$datetime <- as.Date(fapar$datetime)
-
-ggplot(fapar, aes(x = datetime, y = fapar_p95)) +
+fapar %>%
+  tidyr::pivot_longer(
+    cols = dplyr::starts_with("p"), 
+    names_to = "percentile",
+    values_to = "fapar"
+  ) %>%
+  ggplot(aes(x = datetime, y = fapar, color = percentile)) +
   geom_line()
+
 ```
-A decreasing 5th percentile of FAPAR p95 values suggests the increasing of areas with lower vegetation than the threshold set by the p95 value.
-This could indicate regions within Altamira that experience relatively lower vegetation density or health compared to the broader region represented by the p95 values.
+
+The decreasing trend of the FAPAR values indicates regions within Altamira experiencing vegetation suppression. Over the period from 2008 to 2018, we observe that this area expanded by approximately one percentile, equivalent to about 1600 $km^2$, every five years.
