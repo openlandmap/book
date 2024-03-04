@@ -198,7 +198,7 @@ glc
 
 In this section, we'll explore the Fraction of Absorbed Photosynthetically Active Radiation (FAPAR) dataset. It is a key biophysical data used to quantify the fraction of sunlight absorbed by vegetation for photosynthesis, typically in the wavelength range of 400 to 700 nanometers.
 
-Using Altamira municipality's boundaries in Brazil's Pará state, we'll extract zonal statistics over time. The municipality data comes from the `gadm` data in the `geodata` package, stored as a `terra` `SpatVector` object. Due to its proximity to areas of high biodiversity and its history of land-use change, Altamira has been in focus of conservation debate. The agricultural expansion and access to major transportation routes have contributed to its prominence in the ongoing deforestation in the Amazon region.
+Using Altamira municipality's boundaries in Brazil's Pará state, we'll extract zonal statistics over time. The municipality data comes from the `gadm` data in the `geodata` package, stored as a `terra` `SpatVector` object. 
 
 ```{r}
 library(terra, quietly = TRUE)
@@ -211,6 +211,8 @@ altamira <- para[which(grepl("^Altamira$", para$NAME_2))]
 plot(para, main = "Altamira-Pará-Brazil")
 plot(altamira, col = "gray", add = TRUE)
 ```
+
+Due to its proximity to areas of high biodiversity and its history of land-use change, Altamira has been in focus of conservation debate. The agricultural expansion and access to major transportation routes have contributed to its prominence in the ongoing deforestation in the Amazon region.
 
 Let's start by find datasets related to FAPAR in OpenLandMap. This can be done by searching for datasets with `"FAPAR"` in their `title`. We then open the collection corresponding to the FAPAR dataset using the retrieved link.
 
