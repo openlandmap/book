@@ -196,9 +196,9 @@ glc
 
 ## Spatial overlay - Example 2
 
-In this section, we'll explore the Fraction of Absorbed Photosynthetically Active Radiation (FAPAR) dataset. It is a key biophysical data used to quantify the fraction of sunlight absorbed by vegetation for photosynthesis, typically in the wavelength range of 400 to 700 nanometers.
+In this example, we'll explore the Fraction of Absorbed Photosynthetically Active Radiation (FAPAR) dataset. The FAPAR is a key biophysical data used to quantify the fraction of sunlight absorbed by vegetation for photosynthesis, typically in the wavelength range of 400 to 700 nanometers.
 
-Using Altamira municipality's boundaries in Brazil's Pará state, we'll extract zonal statistics over time. The municipality data comes from the `gadm` data in the `geodata` package, stored as a `terra` `SpatVector` object. 
+Using Altamira municipality's boundaries in Brazil's Pará state, we'll extract zonal statistics over time from FAPAR. The municipality data comes from the `gadm` data in the `geodata` package, stored as a `terra` `SpatVector` object. 
 
 ```{r}
 library(terra, quietly = TRUE)
@@ -221,21 +221,22 @@ fapar_link <- links(olm, grepl("FAPAR", title))[[1]]
 fapar_collection <- link_open(fapar_link)
 ```
 
-Now, we'll read the FAPAR items from the collection, filtering for June datasets from 2000 to 2021. We use `grepl()` function to filter FAPAR items based on the date embedded in their filenames. The pattern `"20..0601"` matches filenames with the format `"20YY0601"`.
+Now, we'll read the FAPAR items from the collection, filtering items for the June month from 2000 to 2021. We use `grepl()` function to filter items link based on the date embedded in their filenames. The pattern `"20..0601"` matches filenames with the format `"20YY0601"`.
 
 ```{r}
 fapar_items <- fapar_collection %>% 
   read_items(grepl("20..0601", href), progress = FALSE)
 ```
 
-What assets are associated with the FAPAR items?
+What assets are associated with the FAPAR items? To list the assets, we run:
 
 ```{r}
 items_assets(fapar_items)
 ```
 
-Let's preview the first asset (June 2000) we'll use, `"fapar_essd.lstm_p95_250m_s_preview"`.
-This will give us a visual representation of the FAPAR data before we proceed with the analysis.
+We'll use the `"fapar_essd.lstm_p95_250m_s_preview"` asset to get a preview of the first item (June 2000) for the asset `"fapar_essd.lstm_p95_250m_s"`. This asset represents the 95th percentile of FAPAR values observed within each month. This corresponds to high FAPAR values. 
+
+This give us an overview of the FAPAR data before we proceed with the analysis:
 
 ```{r}
 thumbnails <- fapar_items %>% 
@@ -244,7 +245,7 @@ thumbnails <- fapar_items %>%
 preview_plot(thumbnails[[1]])
 ```
 
-Next, let's define a function to extract zonal statistics using `exactextractr` package. This function takes the URLs of COGs, geometry of the region of interest, a statistical function (such as quantile), and additional arguments as input.
+Next, let's define a function to extract zonal statistics using `exactextractr` package. This function should take the URLs of COGs, a geometry of the region of interest, a statistical function (e.g. `"quantile"`, `"mean"`), and additional arguments as input to be passed to `exact_extract()` function.
 
 ```{r}
 extract_zonal <- function(urls, geom, fun, ...) {
@@ -264,7 +265,7 @@ extract_zonal <- function(urls, geom, fun, ...) {
 }
 ```
 
-Now we get the URLs for the monthly `"fapar_essd.lstm_p95_250m_s"` asset. This asset represents the 95th percentile of FAPAR values observed within each month. This corresponds to high FAPAR values. Now, our focus shifts to computing the lower percentiles of FAPAR values within the Altamira territory. This approach allows us to explore the increasing area of lower values of FAPAR observed in Altamira for the month June.
+Now, our focus shifts to computing the lower percentiles of FAPAR values within the Altamira territory. This approach allows us to explore the increasing area of lower values of FAPAR observed in Altamira for the month June. We are going to compute the FAPAR values for percentiles ranging from p02 to p12 to explore how high FAPAR values evolve over time on that area range:
 
 ```{r}
 quantiles <- seq(0.02, 0.12, 0.01)
@@ -293,4 +294,4 @@ fapar %>%
 
 ```
 
-The decreasing trend of the FAPAR values indicates regions within Altamira experiencing vegetation suppression. Over the period from 2008 to 2018, we observe that this area expanded by approximately one percentile, equivalent to about 1600 $km^2$, every five years.
+The decreasing trend of the FAPAR values at low percentiles (p02-p10) indicates an increasing area of Altamira experiencing vegetation suppression along 22 years.
