@@ -178,7 +178,7 @@ The **[Overture Maps foundation](https://overturemaps.org/download/)** provides 
 Layers of interest include: admins, base, buildings, places etc. You can simply [download](https://github.com/OvertureMaps/data/) 
 the data for are of interest, then convert to [PMTiles](https://msbarry.github.io/planetiler-overture-demo/) or similar, then add to your back-end/front-end as a clickable layer.
 
-The **[World Settlement Footprint (WSF)](https://geoservice.dlr.de/web/maps/eoc:wsf)** is a series of datasets that provide comprehensive, high-resolution mapping of human settlements across the globe. WSF is a 10-m resolution binary mask outlining the extent of human settlements globally derived from 2014–2015 multitemporal Landsat-8 and Sentinel-1 imagery ([WFS2015](https://geoservice.dlr.de/web/maps/eoc:wsf)) and 2019 multitemporal Sentinel-1 and Sentinel-2 imagery ([WFS 2019](https://geoservice.dlr.de/web/maps/eoc:wsf2019)). [WSF Evolution](https://geoservice.dlr.de/web/maps/eoc:wsfevolution) is a 30-m resolution dataset outlining the global settlement extent on a yearly basis from 1985 to 2015.
+The **[World Settlement Footprint (WSF)](https://geoservice.dlr.de/web/maps/eoc:wsf)** is a series of datasets that provide comprehensive, high-resolution mapping of human settlements across the globe. WSF is a 10-m resolution binary mask outlining the extent of human settlements globally derived from 2014–2015 multitemporal Landsat-8 and Sentinel-1 imagery ([WFS2015](https://geoservice.dlr.de/web/maps/eoc:wsf)) [@Marconcini2020] and 2019 multitemporal Sentinel-1 and Sentinel-2 imagery ([WFS 2019](https://geoservice.dlr.de/web/maps/eoc:wsf2019)). [WSF Evolution](https://geoservice.dlr.de/web/maps/eoc:wsfevolution) is a 30-m resolution dataset outlining the global settlement extent on a yearly basis from 1985 to 2015.
 @rs70911887 produced **Normalized Difference Urban Index (NDUI)** global at 30-m resolution product which is 
 available for download covering 2000 to 2012 from the [AWS open data registry](https://registry.opendata.aws/ndui/) [@singh2023long].
 
@@ -429,7 +429,9 @@ An in-depth review of time-series of global land cover / land use maps is also p
 @garcia2022global also provides all legends for all global land cover products.
 
 **[HYDE (History database of the Global Environment)](https://landuse.sites.uu.nl/datasets/)** contains historic (estimated) maps (10-km resolution) of main land use 
-categories up to pre-historic times 10,000 BCE to CE 2020 [@klein2017anthropogenic]. 
+categories up to pre-historic times 10,000 BCE to CE 2020 [@klein2017anthropogenic]. A similar data set to 
+HYDE is HILDA+ [@winkler2021global], which is probably the longest time-series of land cover (9 classes only) data spanning from 
+1962 to 2022 and at relatively fine resolution of 1~km; data is available for download from [Pangea](https://doi.pangaea.de/10.1594/PANGAEA.921846).
 HYDE includes irrigated areas, rice, intensive pasture, extensive rangelands and similar. Data can be downloaded from 
 the [University of Utrecht Copernicus Land Change Lab](https://landuse.sites.uu.nl/datasets/).
 
