@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.3.450">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Open Land Data services</title>
+<title>Open Land Data services – stac</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,7 +19,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -76,13 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -91,24 +85,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-<meta property="og:title" content="Open Land Data services">
-<meta property="og:description" content="OpenLandMap.org are Open Land Data services providing access to spatial layers covering global land mass (at spatial resolutions of 1-km, 250-m, 100-m, 30-m or finer) hosted by the OpenGeoHub foundation, GILAB.rs and collaborators. We host and serve only data that matches some of the compatible open data licenses and has close to global coverage.">
-<meta property="og:site_name" content="Open Land Data services">
-<meta name="twitter:title" content="Open Land Data services">
-<meta name="twitter:image" content="https://openlandmap.github.io/book/img/openlandmap_gui_preview.jpg">
-<meta name="twitter:card" content="summary_large_image">
+}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 </head>
 <body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
     <img src="././img/openlandmap_v2_logo.png" alt="" class="navbar-logo"></a>
     <a class="navbar-brand" href="./index.html">
@@ -122,33 +109,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
 <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
+    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://OpenLandMap.org"> 
-<span class="menu-text">OpenLandMap App</span></a>
+    <a class="nav-link" href="https://OpenLandMap.org" rel="" target="">
+ <span class="menu-text">OpenLandMap App</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://EarthMonitor.org"> 
-<span class="menu-text">Open-Earth-Monitor</span></a>
+    <a class="nav-link" href="https://EarthMonitor.org" rel="" target="">
+ <span class="menu-text">Open-Earth-Monitor</span></a>
   </li>  
 </ul>
-</div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools tools-wide">
-    <a href="https://fosstodon.org/@opengeohub" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-mastodon"></i></a>
-    <a href="https://opengeohub.medium.com/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-medium"></i></a>
-    <a href="https://twitter.com/opengeohub" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+<div class="quarto-navbar-tools ms-auto tools-wide">
+    <a href="https://fosstodon.org/(opengeohub?)" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-mastodon"></i></a>
+    <a href="https://opengeohub.medium.com/" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-medium"></i></a>
+    <a href="https://twitter.com/opengeohub" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
 <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/openlandmap/book">
+            <a class="dropdown-item quarto-navbar-tools ms-auto-item" href="https://github.com/openlandmap/book">
             Source Code
             </a>
           </li>
           <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/openlandmap/book/issues">
+            <a class="dropdown-item quarto-navbar-tools ms-auto-item" href="https://github.com/openlandmap/book/issues">
             Report a Bug
             </a>
           </li>
@@ -161,18 +147,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </a>
 </div>
+          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./020-stac.html">Tutorials</a></li><li class="breadcrumb-item"><a href="./020-stac.html">OpenLandMap STAC</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./020-stac.html">Tutorials</a></li><li class="breadcrumb-item"><a href="./020-stac.html">OpenLandMap STAC</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="sidebar-menu-container"> 
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto"><div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
 <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -228,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
     </ul>
 </div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
@@ -238,17 +225,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <a href="#openlandmap-stac" id="toc-openlandmap-stac" class="nav-link active" data-scroll-target="#openlandmap-stac">OpenLandMap STAC</a>
   <ul class="collapse">
 <li><a href="#listing-layers" id="toc-listing-layers" class="nav-link" data-scroll-target="#listing-layers">Listing layers</a></li>
-  <li><a href="#spatial-overlay" id="toc-spatial-overlay" class="nav-link" data-scroll-target="#spatial-overlay">Spatial overlay</a></li>
+  <li><a href="#spatial-overlay---example-1" id="toc-spatial-overlay---example-1" class="nav-link" data-scroll-target="#spatial-overlay---example-1">Spatial overlay - Example 1</a></li>
+  <li><a href="#spatial-overlay---example-2" id="toc-spatial-overlay---example-2" class="nav-link" data-scroll-target="#spatial-overlay---example-2">Spatial overlay - Example 2</a></li>
   </ul>
 </li>
-  </ul><div class="toc-actions"><ul><li><a href="https://github.com/openlandmap/book/edit/main/020-stac.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/openlandmap/book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/openlandmap/book/edit/main/020-stac.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/openlandmap/book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><section id="openlandmap-stac" class="level1"><h1>OpenLandMap STAC</h1>
+<p>This tutorial will utilize the open-source package <code>rstac</code> to explore the STAC static catalog of OpenLandMap. The tutorial aims to demonstrate the functionality of <code>rstac</code> in searching for datasets within OpenLandMap’s STAC static catalog.</p>
 <section id="listing-layers" class="level2"><h2 class="anchored" data-anchor-id="listing-layers">Listing layers</h2>
-<p>Thanks to the STAC functionality and <code>rstac</code> package, it is possible to query directly which collections are available on the stac.OpenLandMap.org (Note: some layers that are available in STAC, might not be available in the front-end / web-GIS):</p>
+<p>Thanks to the STAC functionality and <code>rstac</code> package, it is possible to query directly which collections are available on the <a href="http://stac.OpenLandMap.org">stac.OpenLandMap.org</a> (Note: some layers that are available in STAC, might not be available in the front-end/web-GIS):</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://brazil-data-cube.github.io/rstac/">rstac</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Read the OpenLandMap Catalog</span></span>
 <span><span class="va">olm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">read_stac</a></span><span class="op">(</span><span class="st">"http://s3.eu-central-1.wasabisys.com/stac/openlandmap/catalog.json"</span><span class="op">)</span></span>
 <span><span class="va">olm</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -259,34 +250,39 @@ Spatio-Temporal Asset Catalog for global layers provided by [OpenLandMap](https:
 - field(s): type, id, stac_version, description, links, title</code></pre>
 </div>
 </div>
-<p>To enumerate all available collections in the OpenLandMap catalog, we can scrutinize the links entry:</p>
+<p>Users should call the <code><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">read_stac()</a></code> function to access static STAC catalog data from a specified URL into their environment. This function allows users to read any type of STAC document.</p>
+<p>To enumerate all available collections in the OpenLandMap catalog, we can scrutinize the links entry and filter only <code>"child"</code> relations that are links to collections. We do this by providing an expression that will be evaluated for each link entry inside the documents’ links field:</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links</a></span><span class="op">(</span><span class="va">olm</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links</a></span><span class="op">(</span><span class="va">olm</span>, <span class="va">rel</span> <span class="op">==</span> <span class="st">"child"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>###Links
-- links (75 entries(s)):
- 1 [self] (http://s3.eu-central-1.wasabisys.com/stac/openlandmap/catalog.json)
- 2 OpenLandMap STAC (./catalog.json)
- 3 Sentinel-5P monthly tropospheric nitrogen dioxide density 
+- links (72 entries(s)):
+ 1 Sentinel-5P monthly tropospheric nitrogen dioxide density 
 (./no2_s5p.l3.trop.tmwm/collection.json)
- 4 Sentinel-5P long-term tropospheric nitrogen dioxide density 
+ 2 Sentinel-5P long-term tropospheric nitrogen dioxide density 
 (./no2_s5p.l3.trop.tmwm.ltm/collection.json)
- 5 OpenLandMap annual soil organic carbon (./log.oc_iso.10694/collection.json)
- 6 MOD13Q1 long-term Enhanced Vegetation Index (EVI - trend analysis) 
+ 3 OpenLandMap annual soil organic carbon (./log.oc_iso.10694/collection.json)
+ 4 MOD13Q1 long-term Enhanced Vegetation Index (EVI - trend analysis) 
 (./evi_mod13q1.stl.trend.logit.ols.beta/collection.json)
- 7 ESA CCI annual land cover (./land.cover_esacci.lc.l4/collection.json)
- 8 MOD13Q1 bi-monthly Enhanced Vegetation Index Index (EVI) 
+ 5 ESA CCI annual land cover (./land.cover_esacci.lc.l4/collection.json)
+ 6 MOD13Q1 bi-monthly Enhanced Vegetation Index Index (EVI) 
 (./evi_mod13q1.tmwm.inpaint/collection.json)
- 9 OpenLandMap ensemble digital terrain model 
+ 7 OpenLandMap ensemble digital terrain model 
 (./dtm.bareearth_ensemble/collection.json)
-10 Monthly fraction of absorbed photosynthetically active radiation (FAPAR) 
+ 8 Monthly fraction of absorbed photosynthetically active radiation (FAPAR) 
 (./fapar_essd.lstm/collection.json)
-  ... with 65 more link(s).</code></pre>
+ 9 
+Long-term fraction of absorbed photosynthetically active radiation (FAPAR - trend analysis) 
+(./fapar_essd.lstm.p95.beta/collection.json)
+10 
+Annual potential fraction of absorbed photosynthetically active radiation (FAPAR - 2021) 
+(./pot.fapar_fapar.p95.eml.m/collection.json)
+  ... with 62 more link(s).</code></pre>
 </div>
 </div>
-<p>For instance, to compile a list of layers with the <code>title</code> containing the text <code>"GLC"</code> for land cover annual time-series, we can use:</p>
+<p>For instance, to compile a list of layers with the <code>title</code> containing the text <code>"GLC"</code> we can use:</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">olm</span><span class="op">$</span><span class="va">links</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links</a></span><span class="op">(</span><span class="va">olm</span>, <span class="va">rel</span> <span class="op">==</span> <span class="st">"child"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Lists links that matches the filter expressions</span></span>
 <span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links</a></span><span class="op">(</span><span class="va">olm</span>, <span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"GLC"</span>, <span class="va">title</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>###Links
@@ -301,9 +297,11 @@ Spatio-Temporal Asset Catalog for global layers provided by [OpenLandMap](https:
 </div>
 <p>Let’s explore the third link, referencing the <code>GLC_FCS30D</code> annual land-cover dynamic monitoring product:</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">glc_link</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links</a></span><span class="op">(</span><span class="va">olm</span>, <span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"GLC"</span>, <span class="va">title</span><span class="op">)</span><span class="op">)</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span></span>
-<span><span class="va">glc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">link_open</a></span><span class="op">(</span><span class="va">glc_link</span><span class="op">)</span></span>
-<span><span class="va">glc</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Get the link of the GLC dataset</span></span>
+<span><span class="va">glc_link</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links</a></span><span class="op">(</span><span class="va">olm</span>, <span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"GLC"</span>, <span class="va">title</span><span class="op">)</span><span class="op">)</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span></span>
+<span><span class="co"># Open the link</span></span>
+<span><span class="va">glc_collection</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">link_open</a></span><span class="op">(</span><span class="va">glc_link</span><span class="op">)</span></span>
+<span><span class="va">glc_collection</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>###Collection
 - id: lc_glc.fcs30d
@@ -314,38 +312,52 @@ GLC_FCS30D is the first global fine land cover dynamic product at a 30-meter res
 type, id, stac_version, description, links, stac_extensions, Theme, version, doi, layer_unit, contact_name, contact_email, date_offset, sld_url, qml_url, title, extent, license, keywords, providers</code></pre>
 </div>
 </div>
-<p>Now, let’s list its available items by filtering links with the <code>rel == "item"</code> attribute:</p>
+<p>Now, let’s list its available items. We can use the same function <code><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links()</a></code> to access and filter links using an expression. To filter just links that point to items let’s use <code>rel == "item"</code> expression:</p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links</a></span><span class="op">(</span><span class="va">glc</span>, <span class="va">rel</span> <span class="op">==</span> <span class="st">"item"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Lists links that point to items</span></span>
+<span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links</a></span><span class="op">(</span><span class="va">glc_collection</span>, <span class="va">rel</span> <span class="op">==</span> <span class="st">"item"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>At this point, we didn’t accessed any <code>item</code> we are just seeing links. Links have some metadata that describes them:</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Get the first link that matches the filter</span></span>
+<span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links</a></span><span class="op">(</span><span class="va">glc_collection</span>, <span class="va">rel</span> <span class="op">==</span> <span class="st">"item"</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>###Link
+- href: ./lc_glc.fcs30d_19850101_19851231/lc_glc.fcs30d_19850101_19851231.json
+- rel: item
+- field(s): rel, href, type, rstac:base_url</code></pre>
+</div>
+</div>
+<p>We can see the list of links metadata in <code>field(s)</code> entry above. These fields can be used in filter expressions. Despite links don’t have any special metadata like date or bounding box, we can use the <code>href</code> field to filter items using the OpenLandMap <a href="https://openlandmap.github.io/book/#the-file-naming-convention">file naming convention</a>. For example, we can use <code><a href="https://rdrr.io/r/base/grep.html">grepl()</a></code> to find the link to an item of a specific date:</p>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Lists links that matches the filter expressions</span></span>
+<span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links</a></span><span class="op">(</span><span class="va">glc_collection</span>, <span class="va">rel</span> <span class="op">==</span> <span class="st">"item"</span>, <span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"20200101"</span>, <span class="va">href</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>###Links
-- links (26 entries(s)):
- 1 [item] 
-(./lc_glc.fcs30d_19850101_19851231/lc_glc.fcs30d_19850101_19851231.json)
- 2 [item] 
-(./lc_glc.fcs30d_19900101_19901231/lc_glc.fcs30d_19900101_19901231.json)
- 3 [item] 
-(./lc_glc.fcs30d_19950101_19951231/lc_glc.fcs30d_19950101_19951231.json)
- 4 [item] 
-(./lc_glc.fcs30d_20000101_20001231/lc_glc.fcs30d_20000101_20001231.json)
- 5 [item] 
-(./lc_glc.fcs30d_20010101_20011231/lc_glc.fcs30d_20010101_20011231.json)
- 6 [item] 
-(./lc_glc.fcs30d_20020101_20021231/lc_glc.fcs30d_20020101_20021231.json)
- 7 [item] 
-(./lc_glc.fcs30d_20030101_20031231/lc_glc.fcs30d_20030101_20031231.json)
- 8 [item] 
-(./lc_glc.fcs30d_20040101_20041231/lc_glc.fcs30d_20040101_20041231.json)
- 9 [item] 
-(./lc_glc.fcs30d_20050101_20051231/lc_glc.fcs30d_20050101_20051231.json)
-10 [item] 
-(./lc_glc.fcs30d_20060101_20061231/lc_glc.fcs30d_20060101_20061231.json)
-  ... with 16 more link(s).</code></pre>
+- links (1 entries(s)):
+1 [item] 
+(./lc_glc.fcs30d_20200101_20201231/lc_glc.fcs30d_20200101_20201231.json)</code></pre>
 </div>
 </div>
-<p>To be able to filter items based on spatial and temporal attributes, we need to open them:</p>
+<p>We can open it by selecting the first item and call <code><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">link_open()</a></code> function:</p>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">glc_items</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">read_items</a></span><span class="op">(</span><span class="va">glc</span>, progress <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links</a></span><span class="op">(</span><span class="va">glc_collection</span>, <span class="va">rel</span> <span class="op">==</span> <span class="st">"item"</span>, <span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"20200101"</span>, <span class="va">href</span><span class="op">)</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">link_open</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>###Item
+- id: lc_glc.fcs30d_20200101_20201231
+- collection: lc_glc.fcs30d
+- bbox: xmin: -62.00068, ymin: -180.00000, xmax: 87.37000, ymax: 180.00001
+- datetime: 2020-01-01T00:00:00Z
+- assets: lc_glc.fcs30d_c_30m_s, sld, qml, thumbnail
+- item's fields: 
+assets, bbox, collection, geometry, id, links, properties, stac_extensions, stac_version, type</code></pre>
+</div>
+</div>
+<p>To open multiple items you can use the function <code><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">read_items()</a></code>. This functions filters items links and open them in a single document. You still can pass any additional filter:</p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Read all links with rel == "item" and any additional filter expression</span></span>
+<span><span class="va">glc_items</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">read_items</a></span><span class="op">(</span><span class="va">glc_collection</span>, progress <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="va">glc_items</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>###Items
@@ -366,76 +378,222 @@ type, id, stac_version, description, links, stac_extensions, Theme, version, doi
 assets, bbox, collection, geometry, id, links, properties, stac_extensions, stac_version, type</code></pre>
 </div>
 </div>
-<p>We have items for all dates:</p>
+<p>The resulting <code>JSON</code> document is a <code>FeatureCollection</code>. Each element in its <code>features</code> property is an <code>item</code> that stores metadata on spatio-temporal assets. Here we enumerate all available assets in this document:</p>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/items_functions.html">items_datetime</a></span><span class="op">(</span><span class="va">glc_items</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "1985-01-01T00:00:00Z" "1990-01-01T00:00:00Z" "1995-01-01T00:00:00Z"
- [4] "2000-01-01T00:00:00Z" "2001-01-01T00:00:00Z" "2002-01-01T00:00:00Z"
- [7] "2003-01-01T00:00:00Z" "2004-01-01T00:00:00Z" "2005-01-01T00:00:00Z"
-[10] "2006-01-01T00:00:00Z" "2007-01-01T00:00:00Z" "2008-01-01T00:00:00Z"
-[13] "2009-01-01T00:00:00Z" "2010-01-01T00:00:00Z" "2011-01-01T00:00:00Z"
-[16] "2012-01-01T00:00:00Z" "2013-01-01T00:00:00Z" "2014-01-01T00:00:00Z"
-[19] "2015-01-01T00:00:00Z" "2016-01-01T00:00:00Z" "2017-01-01T00:00:00Z"
-[22] "2018-01-01T00:00:00Z" "2019-01-01T00:00:00Z" "2020-01-01T00:00:00Z"
-[25] "2021-01-01T00:00:00Z" "2022-01-01T00:00:00Z"</code></pre>
-</div>
-</div>
-<p>To enumerate all available assets across these items, we can run:</p>
-<div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/items_functions.html">items_assets</a></span><span class="op">(</span><span class="va">glc_items</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Lists all assets name in the document</span></span>
+<span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/items_functions.html">items_assets</a></span><span class="op">(</span><span class="va">glc_items</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "lc_glc.fcs30d_c_30m_s" "qml"                   "sld"                  
 [4] "thumbnail"            </code></pre>
 </div>
 </div>
-</section><section id="spatial-overlay" class="level2"><h2 class="anchored" data-anchor-id="spatial-overlay">Spatial overlay</h2>
-<p>For overlaying multiple new points with COGs, we can leverage the <code>rstac</code> function <code><a href="https://brazil-data-cube.github.io/rstac/reference/assets_functions.html">assets_url()</a></code> to retrieve the URLs of all COG files. These URLs can then be passed to an extraction function:</p>
+<p>Here, <code>"lc_glc.fcs30d_c_30m_s"</code> is the name of the main data, while <code>"qml"</code> and <code>"sld"</code> are style assets to be used in GIS. We can use the <code>thumbnail</code> asset to take a preview on the main data:</p>
 <div class="cell">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">urls</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/assets_functions.html">assets_url</a></span><span class="op">(</span><span class="va">glc_items</span>, asset_names <span class="op">=</span> <span class="st">"lc_glc.fcs30d_c_30m_s"</span>, append_gdalvsi <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="va">urls</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "/vsicurl/https://s3.openlandmap.org/arco/lc_glc.fcs30d_c_30m_s_19850101_19851231_go_epsg.4326_v20231026.tif"
-[2] "/vsicurl/https://s3.openlandmap.org/arco/lc_glc.fcs30d_c_30m_s_19900101_19901231_go_epsg.4326_v20231026.tif"
-[3] "/vsicurl/https://s3.openlandmap.org/arco/lc_glc.fcs30d_c_30m_s_19950101_19951231_go_epsg.4326_v20231026.tif"</code></pre>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Get thumbnail URL for each item</span></span>
+<span><span class="va">thumbnails</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/assets_functions.html">assets_url</a></span><span class="op">(</span><span class="va">glc_items</span>, <span class="st">"thumbnail"</span><span class="op">)</span></span>
+<span><span class="co"># Plot the thumbnail of the first URL</span></span>
+<span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/preview_plot.html">preview_plot</a></span><span class="op">(</span><span class="va">thumbnails</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="020-stac_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Let’s define an extracting function. This function can extract the values in parallel:</p>
+<p>The <code>rstac</code> package provides many other functions to work with <code>assets</code> and <code>item</code> documents. Users can also convert <code>items</code> to a more familiar format as data frames or simple features to work with the data using their own functions:</p>
 <div class="cell">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">extract_xy</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">lon</span>, <span class="va">lat</span>, <span class="va">cogs</span>, <span class="va">mc.cores</span> <span class="op">=</span> <span class="fl">10</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">values</span> <span class="op">=</span> <span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/mclapply.html">mclapply</a></span><span class="op">(</span><span class="va">cogs</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="va">point</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">lon</span>, <span class="va">lat</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, crs <span class="op">=</span> <span class="st">"EPSG:4326"</span><span class="op">)</span></span>
-<span>    <span class="va">value</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/extract.html">extract</a></span><span class="op">(</span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html">rast</a></span><span class="op">(</span><span class="va">i</span><span class="op">)</span>, <span class="va">point</span><span class="op">)</span></span>
-<span>    <span class="co">#dplyr::as_tibble(value)[,2]</span></span>
-<span>    <span class="va">value</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span></span>
-<span>  <span class="op">}</span>, mc.cores <span class="op">=</span> <span class="va">mc.cores</span><span class="op">)</span></span>
-<span>  <span class="va">values</span> <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>glc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">values</span><span class="op">)</span><span class="op">)</span></span>
-<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">values</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Converts the items into a tibble data frame</span></span>
+<span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/items_functions.html">items_as_tibble</a></span><span class="op">(</span><span class="va">glc_items</span><span class="op">)</span></span>
+<span><span class="co"># Converts the items into a sf data frame</span></span>
+<span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/items_functions.html">items_as_sf</a></span><span class="op">(</span><span class="va">glc_items</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="spatial-overlay---example-1" class="level2"><h2 class="anchored" data-anchor-id="spatial-overlay---example-1">Spatial overlay - Example 1</h2>
+<p>This section illustrates how to overlay multiple points with Cloud-Optimized GeoTIFFs (COGs). The process involves retrieving COG URLs from STAC items and extracting values at specified coordinates.</p>
+<p>To overlay points with COGs, we utilize the <code><a href="https://brazil-data-cube.github.io/rstac/reference/assets_functions.html">assets_url()</a></code> function from <code>rstac</code>. This function retrieves the URLs of all COG files, which are then passed to an extraction function.</p>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Get main data URL for each item </span></span>
+<span><span class="va">glc_items</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/assets_functions.html">assets_url</a></span><span class="op">(</span><span class="st">"lc_glc.fcs30d_c_30m_s"</span>, append_gdalvsi <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In the code snippet above, the <code>append_gdalvsi=TRUE</code> parameter ensures the addition of <code>"/vsicurl/"</code> to each URL, necessary to GDAL open the file.</p>
+<p>Next, we define the <code>extract_xy()</code> function to extract values from COGs at specific longitude and latitude coordinates. We use <code>terra</code> package to access the files.</p>
+<div class="cell">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">extract_xy</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">urls</span>, <span class="va">lon</span>, <span class="va">lat</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"terra"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="co"># Create a SpatVector point</span></span>
+<span>  <span class="va">point</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">lon</span>, <span class="va">lat</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, crs <span class="op">=</span> <span class="st">"EPSG:4326"</span><span class="op">)</span></span>
+<span>  <span class="co"># Open COGs using terra package</span></span>
+<span>  <span class="va">rasters</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html">rast</a></span><span class="op">(</span><span class="va">urls</span><span class="op">)</span></span>
+<span>  <span class="co"># Extract values using terra package</span></span>
+<span>  <span class="va">values</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/extract.html">extract</a></span><span class="op">(</span><span class="va">rasters</span>, <span class="va">point</span>, ID <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span>  <span class="co"># Return a vector of values, one for each layer</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">values</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This only needs URL address of the COGs on some S3 storage and then longitude and latitude of the query points (in the WGS84 system). This is an example of query of all land cover classes from 1985 to 2022:</p>
+<p>The <code>extract_xy()</code> function takes a list of COG URLs, longitude, and latitude as inputs, and returns a vector containing extracted values. Let’s extract values at a specific coordinate (e.g., longitude = -55.126476, latitude = -6.864224).</p>
 <div class="cell">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">values</span> <span class="op">&lt;-</span> <span class="fu">extract_xy</span><span class="op">(</span><span class="op">-</span><span class="fl">35.5</span>, <span class="op">-</span><span class="fl">9.0</span>, <span class="va">urls</span><span class="op">)</span></span>
-<span><span class="co"># add date column</span></span>
-<span><span class="va">values</span><span class="op">$</span><span class="va">date</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/items_functions.html">items_datetime</a></span><span class="op">(</span><span class="va">glc_items</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Extract values for each URL</span></span>
+<span><span class="va">codes</span> <span class="op">&lt;-</span> <span class="va">glc_items</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/assets_functions.html">assets_url</a></span><span class="op">(</span><span class="st">"lc_glc.fcs30d_c_30m_s"</span>, append_gdalvsi <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">extract_xy</span><span class="op">(</span><span class="op">-</span><span class="fl">35.5</span>, <span class="op">-</span><span class="fl">9.0</span><span class="op">)</span></span>
+<span><span class="va">codes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 26 × 2
-     glc date      
-   &lt;int&gt; &lt;date&gt;    
- 1   130 1985-01-01
- 2   130 1990-01-01
- 3   130 1995-01-01
- 4    10 2000-01-01
- 5    10 2001-01-01
- 6    10 2002-01-01
- 7    10 2003-01-01
- 8    10 2004-01-01
- 9    10 2005-01-01
-10    10 2006-01-01
-# ℹ 16 more rows</code></pre>
+<pre><code> [1] 130 130 130  10  10  10  10  10  10  10  10  10  10  10  10  10  10  10  10
+[20]  10  10  10  10  10  10  10</code></pre>
 </div>
 </div>
+<p>The extracted values represent land cover codes. To interpret these values and assign to it a label, we can utilize the <code>qml</code> asset to retrieve information on land cover classes. This is a QML (Quantum Markup Language) file and we can use <code>xml2</code> package to find class labels.</p>
+<p>First, let’s create a function to extract class labels from the QML file based on provided class codes:</p>
+<div class="cell">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">get_qml_label</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">qml_url</span>, <span class="va">codes</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"xml2"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="co"># Read the QML file</span></span>
+<span>  <span class="va">qml</span> <span class="op">&lt;-</span> <span class="fu">xml2</span><span class="fu">::</span><span class="fu"><a href="http://xml2.r-lib.org/reference/read_xml.html">read_xml</a></span><span class="op">(</span><span class="va">qml_url</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
+<span>  <span class="co"># Find the class label in the QML</span></span>
+<span>  <span class="va">class_label</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">codes</span>, <span class="kw">function</span><span class="op">(</span><span class="va">code</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu">xml2</span><span class="fu">::</span><span class="fu"><a href="http://xml2.r-lib.org/reference/xml_find_all.html">xml_find_all</a></span><span class="op">(</span><span class="va">qml</span>, <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">".//item[@value='%s']"</span>, <span class="va">code</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>      <span class="fu">xml2</span><span class="fu">::</span><span class="fu"><a href="http://xml2.r-lib.org/reference/xml_attr.html">xml_attr</a></span><span class="op">(</span><span class="st">"label"</span><span class="op">)</span></span>
+<span>  <span class="op">}</span><span class="op">)</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">class_label</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>After creating the function, we can use it to extract class labels from the QML file based on provided class codes.</p>
+<div class="cell">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Read the QML file and get the labels</span></span>
+<span><span class="va">labels</span> <span class="op">&lt;-</span> <span class="va">glc_items</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/assets_functions.html">assets_url</a></span><span class="op">(</span><span class="st">"qml"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">get_qml_label</span><span class="op">(</span><span class="va">codes</span><span class="op">)</span></span>
+<span><span class="va">labels</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Grassland (130)"       "Grassland (130)"       "Grassland (130)"      
+ [4] "Rainfed cropland (10)" "Rainfed cropland (10)" "Rainfed cropland (10)"
+ [7] "Rainfed cropland (10)" "Rainfed cropland (10)" "Rainfed cropland (10)"
+[10] "Rainfed cropland (10)" "Rainfed cropland (10)" "Rainfed cropland (10)"
+[13] "Rainfed cropland (10)" "Rainfed cropland (10)" "Rainfed cropland (10)"
+[16] "Rainfed cropland (10)" "Rainfed cropland (10)" "Rainfed cropland (10)"
+[19] "Rainfed cropland (10)" "Rainfed cropland (10)" "Rainfed cropland (10)"
+[22] "Rainfed cropland (10)" "Rainfed cropland (10)" "Rainfed cropland (10)"
+[25] "Rainfed cropland (10)" "Rainfed cropland (10)"</code></pre>
+</div>
+</div>
+<p>We can store the extracted values and their respective labels in the <code>tibble</code> derived by <code><a href="https://brazil-data-cube.github.io/rstac/reference/items_functions.html">items_as_tibble()</a></code> function:</p>
+<div class="cell">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Convert the items document into a tibble object</span></span>
+<span><span class="va">glc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/items_functions.html">items_as_tibble</a></span><span class="op">(</span><span class="va">glc_items</span><span class="op">)</span></span>
+<span><span class="va">glc</span><span class="op">$</span><span class="va">codes</span> <span class="op">&lt;-</span> <span class="va">codes</span></span>
+<span><span class="va">glc</span><span class="op">$</span><span class="va">labels</span> <span class="op">&lt;-</span> <span class="va">labels</span></span>
+<span><span class="va">glc</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 26 × 8
+   start_datetime end_datetime gsd   instruments constellation datetime    codes
+   &lt;chr&gt;          &lt;chr&gt;        &lt;chr&gt; &lt;list&gt;      &lt;list&gt;        &lt;chr&gt;       &lt;int&gt;
+ 1 1985-01-01     1985-12-31   30    &lt;list [1]&gt;  &lt;list [1]&gt;    1985-01-01…   130
+ 2 1990-01-01     1990-12-31   30    &lt;list [1]&gt;  &lt;list [1]&gt;    1990-01-01…   130
+ 3 1995-01-01     1995-12-31   30    &lt;list [1]&gt;  &lt;list [1]&gt;    1995-01-01…   130
+ 4 2000-01-01     2000-12-31   30    &lt;list [1]&gt;  &lt;list [1]&gt;    2000-01-01…    10
+ 5 2001-01-01     2001-12-31   30    &lt;list [1]&gt;  &lt;list [1]&gt;    2001-01-01…    10
+ 6 2002-01-01     2002-12-31   30    &lt;list [1]&gt;  &lt;list [1]&gt;    2002-01-01…    10
+ 7 2003-01-01     2003-12-31   30    &lt;list [1]&gt;  &lt;list [1]&gt;    2003-01-01…    10
+ 8 2004-01-01     2004-12-31   30    &lt;list [1]&gt;  &lt;list [1]&gt;    2004-01-01…    10
+ 9 2005-01-01     2005-12-31   30    &lt;list [1]&gt;  &lt;list [1]&gt;    2005-01-01…    10
+10 2006-01-01     2006-12-31   30    &lt;list [1]&gt;  &lt;list [1]&gt;    2006-01-01…    10
+# ℹ 16 more rows
+# ℹ 1 more variable: labels &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section><section id="spatial-overlay---example-2" class="level2"><h2 class="anchored" data-anchor-id="spatial-overlay---example-2">Spatial overlay - Example 2</h2>
+<p>In this section, we’ll explore the Fraction of Absorbed Photosynthetically Active Radiation (FAPAR) dataset. It is a key biophysical data used to quantify the fraction of sunlight absorbed by vegetation for photosynthesis, typically in the wavelength range of 400 to 700 nanometers.</p>
+<p>Using Altamira municipality’s boundaries in Brazil’s Pará state, we’ll extract zonal statistics over time. The municipality data comes from the <code>gadm</code> data in the <code>geodata</code> package, stored as a <code>terra</code> <code>SpatVector</code> object. Due to its proximity to areas of high biodiversity and its history of land-use change, Altamira has been in focus of conservation debate. The agricultural expansion and access to major transportation routes have contributed to its prominence in the ongoing deforestation in the Amazon region.</p>
+<div class="cell">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/">terra</a></span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>terra 1.7.71</code></pre>
+</div>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Read data on Pará state, Brazil</span></span>
+<span><span class="va">para</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/serialize.html">readRDS</a></span><span class="op">(</span><span class="st">"data/brazil-para-state.rds"</span><span class="op">)</span></span>
+<span><span class="co"># Select Altamira municipality</span></span>
+<span><span class="va">altamira</span> <span class="op">&lt;-</span> <span class="va">para</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"^Altamira$"</span>, <span class="va">para</span><span class="op">$</span><span class="va">NAME_2</span><span class="op">)</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="co"># View municipal boundaries for Pará state</span></span>
+<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html">plot</a></span><span class="op">(</span><span class="va">para</span>, main <span class="op">=</span> <span class="st">"Altamira-Pará-Brazil"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html">plot</a></span><span class="op">(</span><span class="va">altamira</span>, col <span class="op">=</span> <span class="st">"gray"</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="020-stac_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Let’s start by find datasets related to FAPAR in OpenLandMap. This can be done by searching for datasets with <code>"FAPAR"</code> in their <code>title</code>. We then open the collection corresponding to the FAPAR dataset using the retrieved link.</p>
+<div class="cell">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fapar_link</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">links</a></span><span class="op">(</span><span class="va">olm</span>, <span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"FAPAR"</span>, <span class="va">title</span><span class="op">)</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
+<span><span class="va">fapar_collection</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">link_open</a></span><span class="op">(</span><span class="va">fapar_link</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now, we’ll read the FAPAR items from the collection, filtering for June datasets from 2000 to 2021. We use <code><a href="https://rdrr.io/r/base/grep.html">grepl()</a></code> function to filter FAPAR items based on the date embedded in their filenames. The pattern <code>"20..0601"</code> matches filenames with the format <code>"20YY0601"</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fapar_items</span> <span class="op">&lt;-</span> <span class="va">fapar_collection</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/static_functions.html">read_items</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"20..0601"</span>, <span class="va">href</span><span class="op">)</span>, progress <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>What assets are associated with the FAPAR items?</p>
+<div class="cell">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/items_functions.html">items_assets</a></span><span class="op">(</span><span class="va">fapar_items</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "fapar_essd.lstm_p05_250m_s"         "fapar_essd.lstm_p05_250m_s_preview"
+[3] "fapar_essd.lstm_p50_250m_s"         "fapar_essd.lstm_p95_250m_s"        
+[5] "fapar_essd.lstm_p95_250m_s_preview" "qml"                               
+[7] "sld"                                "thumbnail"                         </code></pre>
+</div>
+</div>
+<p>Let’s preview the first asset (June 2000) we’ll use, <code>"fapar_essd.lstm_p95_250m_s_preview"</code>. This will give us a visual representation of the FAPAR data before we proceed with the analysis.</p>
+<div class="cell">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">thumbnails</span> <span class="op">&lt;-</span> <span class="va">fapar_items</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/assets_functions.html">assets_url</a></span><span class="op">(</span><span class="st">"fapar_essd.lstm_p95_250m_s_preview"</span><span class="op">)</span></span>
+<span><span class="co"># Plot the thumbnail of the first URL</span></span>
+<span><span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/preview_plot.html">preview_plot</a></span><span class="op">(</span><span class="va">thumbnails</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="020-stac_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Next, let’s define a function to extract zonal statistics using <code>exactextractr</code> package. This function takes the URLs of COGs, geometry of the region of interest, a statistical function (such as quantile), and additional arguments as input.</p>
+<div class="cell">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">extract_zonal</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">urls</span>, <span class="va">geom</span>, <span class="va">fun</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"exactextractr"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="co"># Create a sf geometry</span></span>
+<span>  <span class="va">geom</span> <span class="op">&lt;-</span> <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="va">geom</span><span class="op">)</span></span>
+<span>  <span class="co"># Open COGs using terra package</span></span>
+<span>  <span class="va">rasters</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html">rast</a></span><span class="op">(</span><span class="va">urls</span><span class="op">)</span></span>
+<span>  <span class="co"># Extract values using exactextract package</span></span>
+<span>  <span class="va">values</span> <span class="op">&lt;-</span> <span class="fu">exactextractr</span><span class="fu">::</span><span class="fu"><a href="https://isciences.gitlab.io/exactextractr/reference/exact_extract.html">exact_extract</a></span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="va">rasters</span>, </span>
+<span>    y <span class="op">=</span> <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="va">altamira</span><span class="op">)</span>, </span>
+<span>    fun <span class="op">=</span> <span class="va">fun</span>, <span class="va">...</span></span>
+<span>  <span class="op">)</span></span>
+<span>  <span class="co"># Return a vector of values, one for each layer</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">values</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we get the URLs for the monthly <code>"fapar_essd.lstm_p95_250m_s"</code> asset. This asset represents the 95th percentile of FAPAR values observed within each month. This corresponds to high FAPAR values. Now, our focus shifts to computing the lower percentiles of FAPAR values within the Altamira territory. This approach allows us to explore the increasing area of lower values of FAPAR observed in Altamira for the month June.</p>
+<div class="cell">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">quantiles</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0.02</span>, <span class="fl">0.12</span>, <span class="fl">0.01</span><span class="op">)</span></span>
+<span><span class="va">quantiles_name</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">"0\\."</span>, <span class="st">"p"</span>, <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"%0.2f"</span>, <span class="va">quantiles</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">fapar_q</span> <span class="op">&lt;-</span> <span class="va">fapar_items</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/assets_functions.html">assets_url</a></span><span class="op">(</span><span class="st">"fapar_essd.lstm_p95_250m_s"</span>, append_gdalvsi <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">extract_zonal</span><span class="op">(</span><span class="va">altamira</span>, <span class="st">'quantile'</span>, quantiles <span class="op">=</span> <span class="va">quantiles</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span>ncol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">quantiles</span><span class="op">)</span>, dimnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="cn">NULL</span>, <span class="va">quantiles_name</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">fapar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://brazil-data-cube.github.io/rstac/reference/items_functions.html">items_as_tibble</a></span><span class="op">(</span><span class="va">fapar_items</span><span class="op">)</span></span>
+<span><span class="va">fapar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">fapar</span>, <span class="va">fapar_q</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">fapar</span><span class="op">$</span><span class="va">datetime</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">fapar</span><span class="op">$</span><span class="va">datetime</span><span class="op">)</span></span>
+<span><span class="va">fapar</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span></span>
+<span>    cols <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"p"</span><span class="op">)</span>, </span>
+<span>    names_to <span class="op">=</span> <span class="st">"percentile"</span>,</span>
+<span>    values_to <span class="op">=</span> <span class="st">"fapar"</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">datetime</span>, y <span class="op">=</span> <span class="va">fapar</span>, color <span class="op">=</span> <span class="va">percentile</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="020-stac_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The decreasing trend of the FAPAR values indicates regions within Altamira experiencing vegetation suppression. Over the period from 2008 to 2018, we observe that this area expanded by approximately one percentile, equivalent to about 1600 <span class="math inline">\(km^2\)</span>, every five years.</p>
 
 
 </section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
@@ -479,33 +637,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -574,15 +705,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  let localAlternateSentinel = 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -661,9 +790,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -673,17 +803,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -696,125 +817,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -858,7 +860,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -884,32 +885,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -971,12 +946,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
-    <div class="nav-footer-left">
-<p>© 2024, OpenGeoHub foundation</p>
-</div>   
+    <div class="nav-footer-left">© 2024, OpenGeoHub foundation</div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/openlandmap/book/edit/main/020-stac.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/openlandmap/book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
 <li class="nav-item compact">

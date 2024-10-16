@@ -8,8 +8,8 @@ editor_options:
 ```{r, include=FALSE, message=FALSE, results='hide'}
 ls <- c("jsonlite", "RCurl", "emo", "stringi", "sf")
 new.packages <- ls[!(ls %in% installed.packages()[,"Package"])]
-if(length(new.packages)) install.packages(new.packages, repos = "https://cloud.r-project.org")
-#devtools::install_github("hadley/emo")
+if (length(new.packages)) install.packages(new.packages, repos = "https://cloud.r-project.org")
+# devtools::install_github("hadley/emo")
 lapply(ls, require, character.only = TRUE)
 ```
 
