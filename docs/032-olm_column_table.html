@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>start_here – Open Land Data services</title>
+<title>olm_column_table – Open Land Data services</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -75,9 +75,9 @@ ul.task-list li input[type="checkbox"] {
 
 <meta property="og:title" content="Open Land Data services">
 <meta property="og:description" content="OpenLandMap.org are Open Land Data services providing access to spatial layers covering global land mass (at spatial resolutions of 1-km, 250-m, 100-m, 30-m or finer) hosted by the OpenGeoHub foundation, GILAB.rs and collaborators. We host and serve only data that matches some of the compatible open data licenses and has close to global coverage.">
-<meta property="og:image" content="img/example_pull_request.jpg">
 <meta property="og:site_name" content="Open Land Data services">
 <meta name="twitter:title" content="Open Land Data services">
+<meta name="twitter:description" content="">
 <meta name="twitter:image" content="img/openlandmap_gui_preview.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -311,7 +311,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Data layers</a></li><li class="breadcrumb-item"><a href="./010-start_here.html">New to markdown</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -340,7 +340,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./010-start_here.html" class="sidebar-item-text sidebar-link active">
+  <a href="./010-start_here.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">New to markdown</span></a>
   </div>
 </li>
@@ -375,6 +375,23 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Training Data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./030-olm_gedi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OpenLandMap GEDI Official Documentation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -385,68 +402,793 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#new-to-markdown" id="toc-new-to-markdown" class="nav-link active" data-scroll-target="#new-to-markdown">New to markdown</a>
+  <li><a href="#column-information-of-openlandmap-gedi-level-2" id="toc-column-information-of-openlandmap-gedi-level-2" class="nav-link active" data-scroll-target="#column-information-of-openlandmap-gedi-level-2">Column Information of OpenLandMap GEDI Level 2</a>
   <ul class="collapse">
-  <li><a href="#clone-add-reference-submit-merge-request" id="toc-clone-add-reference-submit-merge-request" class="nav-link" data-scroll-target="#clone-add-reference-submit-merge-request">Clone, add reference, submit merge request…</a></li>
-  <li><a href="#video-course-getting-started-with-r" id="toc-video-course-getting-started-with-r" class="nav-link" data-scroll-target="#video-course-getting-started-with-r">Video Course: Getting started with R</a></li>
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference">Reference</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/openlandmap/book/edit/main/010-start_here.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/openlandmap/book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/openlandmap/book/edit/main/032-olm_column_table.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/openlandmap/book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Data layers</a></li><li class="breadcrumb-item"><a href="./010-start_here.html">New to markdown</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
 
 
-<section id="new-to-markdown" class="level1">
-<h1>New to markdown</h1>
-<section id="clone-add-reference-submit-merge-request" class="level2">
-<h2 class="anchored" data-anchor-id="clone-add-reference-submit-merge-request">Clone, add reference, submit merge request…</h2>
-<p>To add a new dataset, please follow these steps:</p>
+<section id="column-information-of-openlandmap-gedi-level-2" class="level1">
+<h1>Column Information of OpenLandMap GEDI Level 2</h1>
+<p>OpenLandMap GEDI Level 2 columns are selected from:</p>
 <ol type="1">
-<li>Click on the edit button on the book homepage,<br>
-</li>
-<li>Login to Github.com and select “Start a pull-request”,<br>
-</li>
-<li>Add new references to <code>012-compendium.Rmd</code> and save,<br>
-</li>
-<li>Commit and push and make a <a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request">pull request</a>.<br>
-</li>
-<li>Once received we will check it and if you have followed the instructions closely, the reference will appear in the document as soon as the code is merged with the master,<br>
-</li>
+<li>LP DAAC GEDI02_A v002 (<a href="https://lpdaac.usgs.gov/products/gedi02_av002/" class="uri">https://lpdaac.usgs.gov/products/gedi02_av002/</a>) [1]</li>
+<li>LP DAAC GEDI02_B v002 (<a href="https://lpdaac.usgs.gov/products/gedi02_bv002/" class="uri">https://lpdaac.usgs.gov/products/gedi02_bv002/</a>) [2]</li>
 </ol>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/example_pull_request.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption>Example of a pull request on Github.com.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>If you’re new to markdown and want to learn how to use it, please refer to <a href="https://guides.github.com/features/mastering-markdown/">this tutorial</a>.</p>
-<p>If you are new to R and/or <a href="https://cran.r-project.org/web/views/Environmetrics.html"><strong>environmetrics</strong></a>, please consider reading / studying:</p>
-<ul>
-<li>Kabacoff, R.I., (2011). <a href="https://www.statmethods.net/">R in Action: Data Analysis and Graphics with R</a>. Manning publications, ISBN: 9781935182399, 472 pages.<br>
-</li>
-<li>Grolemund, G., (2014). Hands-On Programming with R. O’Reilly, <a href="https://github.com/rstudio-education/hopr" class="uri">https://github.com/rstudio-education/hopr</a><br>
-</li>
-<li><a href="http://www.rstudio.com/products/RStudio/">RStudio</a>,</li>
-</ul>
-<p>If you’d like more of a roadmap to guide you through R, have a look at Oscar’s blogpost:</p>
-<ul>
-<li><a href="https://oscarbaruffa.com/a-roadmap-for-getting-started-with-r/" class="uri">https://oscarbaruffa.com/a-roadmap-for-getting-started-with-r/</a></li>
-</ul>
-</section>
-<section id="video-course-getting-started-with-r" class="level2">
-<h2 class="anchored" data-anchor-id="video-course-getting-started-with-r">Video Course: Getting started with R</h2>
-<p>If you prefer video instruction with progress tracking:</p>
-<ul>
-<li><a href="https://rfortherestofus.com/courses/getting-started/" class="uri">https://rfortherestofus.com/courses/getting-started/</a></li>
-</ul>
+<p><em>Table: OpenLandMap GEDI Level 2 Metadata, including scaling, no data, data type and description.</em></p>
+<table class="table-striped table-hover caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 10%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 20%">
+<col style="width: 10%">
+<col style="width: 30%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Variable</strong></td>
+<td><strong>Source</strong></td>
+<td><strong>Unit</strong></td>
+<td><strong>Scale</strong></td>
+<td><strong>Data type</strong></td>
+<td><strong>Valid range (before scaling)</strong></td>
+<td><strong>NoData</strong></td>
+<td><strong>Description / Usage</strong></td>
+</tr>
+<tr class="even">
+<td>Delta time</td>
+<td>L2A</td>
+<td>second</td>
+<td>N/A</td>
+<td>Int64</td>
+<td>N/A</td>
+<td></td>
+<td>Second count from 2018-01-01 00:00:00</td>
+</tr>
+<tr class="odd">
+<td>beam</td>
+<td>L2A</td>
+<td>number</td>
+<td>N/A</td>
+<td>Uint8</td>
+<td>0 to 7</td>
+<td>N/A</td>
+<td>Beam names as integers. BEAM0000 is a Coverage beam as 0;<br>
+BEAM0001 is a Coverage beam as 1;<br>
+BEAM0010 is a Coverage beam as 2;<br>
+BEAM0011 is a Coverage beam as 3;<br>
+BEAM0101 is a Full power beam as 4;<br>
+BEAM0110 is a Full power beam as 5;<br>
+BEAM1000 is a Full power beam as 6;<br>
+BEAM1011 is a Full power beam as 7</td>
+</tr>
+<tr class="even">
+<td>shot_number</td>
+<td>L2A</td>
+<td>number</td>
+<td>N/A</td>
+<td>uint64</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>Shot number</td>
+</tr>
+<tr class="odd">
+<td>latitude</td>
+<td>L2A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>Float64</td>
+<td>-55 to 55</td>
+<td>na</td>
+<td>Latitude of the center of lowest mode in WGS84</td>
+</tr>
+<tr class="even">
+<td>longitude</td>
+<td>L2A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>Float64</td>
+<td>-180 to 180</td>
+<td>na</td>
+<td>Longitude of the center of lowest mode in WGS84</td>
+</tr>
+<tr class="odd">
+<td>elev_lowestmode</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int32</td>
+<td>-100000 to 2500000</td>
+<td>-2147483648</td>
+<td>Elevation of lowest return/terrain height in WGS84</td>
+</tr>
+<tr class="even">
+<td>rh100</td>
+<td>L2A</td>
+<td>cm</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 100%.</td>
+</tr>
+<tr class="odd">
+<td>rh99</td>
+<td>L2A</td>
+<td>cm</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 99%.</td>
+</tr>
+<tr class="even">
+<td>rh98</td>
+<td>L2A</td>
+<td>cm</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 98%.</td>
+</tr>
+<tr class="odd">
+<td>rh97</td>
+<td>L2A</td>
+<td>cm</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 97%.</td>
+</tr>
+<tr class="even">
+<td>rh95</td>
+<td>L2A</td>
+<td>cm</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 95%.</td>
+</tr>
+<tr class="odd">
+<td>rh75</td>
+<td>L2A</td>
+<td>cm</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 75%.</td>
+</tr>
+<tr class="even">
+<td>rh50</td>
+<td>L2A</td>
+<td>cm</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 50%.</td>
+</tr>
+<tr class="odd">
+<td>rh25</td>
+<td>L2A</td>
+<td>cm</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 25%.</td>
+</tr>
+<tr class="even">
+<td>sensitivity</td>
+<td>L2A</td>
+<td>percent</td>
+<td>0.0001</td>
+<td>Int16</td>
+<td>0 to 10000</td>
+<td>-32768</td>
+<td>Maximum canopy cover that can be penetrated. Sensitivity has been pre-filtered by excluding &lt;95%.</td>
+</tr>
+<tr class="odd">
+<td>night flag</td>
+<td>L2A</td>
+<td>binary</td>
+<td>N/A</td>
+<td>Boolean</td>
+<td>True, False</td>
+<td>N/A</td>
+<td>Using solar elevation to flag day night (solar elevation &gt;=0: day; solar elevation &lt;0: night). Night=True and Day=False</td>
+</tr>
+<tr class="even">
+<td>cover</td>
+<td>L2B</td>
+<td>percent</td>
+<td>0.0001</td>
+<td>Int16</td>
+<td>0 to 10000</td>
+<td>-32768</td>
+<td>Total canopy cover in percent.</td>
+</tr>
+<tr class="odd">
+<td>num_detectedmodes</td>
+<td>L2B</td>
+<td>number</td>
+<td>N/A</td>
+<td>Uint8</td>
+<td>0 to 20</td>
+<td>255</td>
+<td>Number of detected modes in received (RX) waveform</td>
+</tr>
+<tr class="even">
+<td>omega</td>
+<td>L2B</td>
+<td>percent</td>
+<td>0.0001</td>
+<td>Int16</td>
+<td>0 to 10000</td>
+<td>-32768</td>
+<td>Foliage Clumping Index</td>
+</tr>
+<tr class="odd">
+<td>pai</td>
+<td>L2B</td>
+<td>m²/m²</td>
+<td>0.001</td>
+<td>Int16</td>
+<td>N/A</td>
+<td>-32768</td>
+<td>Total Plant Area Index</td>
+</tr>
+<tr class="even">
+<td>pgap_theta</td>
+<td>L2B</td>
+<td>percent</td>
+<td>0.0001</td>
+<td>Int16</td>
+<td>0 to 10000</td>
+<td>-32768</td>
+<td>Total Gap Probability (theta).</td>
+</tr>
+<tr class="odd">
+<td>rg</td>
+<td>L2B</td>
+<td>number</td>
+<td>0.1</td>
+<td>int32</td>
+<td>0 to Inf</td>
+<td>-2147483648</td>
+<td>Integral of the ground component in the RX waveform for the selected L2A processing version.</td>
+</tr>
+<tr class="even">
+<td>rv</td>
+<td>L2B</td>
+<td>number</td>
+<td>0.1</td>
+<td>int32</td>
+<td>0 to Inf</td>
+<td>-2147483648</td>
+<td>Integral of the vegetation component in the RX waveform for the selected L2A processing version.</td>
+</tr>
+<tr class="odd">
+<td>rhog</td>
+<td>L2B</td>
+<td>number</td>
+<td>0.0001</td>
+<td>int16</td>
+<td>N/A</td>
+<td>-32768</td>
+<td>Volumetric scattering coefficient (rho) of the ground.</td>
+</tr>
+<tr class="even">
+<td>selected_rg_algorithm</td>
+<td>L2B</td>
+<td>number</td>
+<td>N/A</td>
+<td>uint8</td>
+<td>0 to 6</td>
+<td>255</td>
+<td>Selected R (ground) algorithm</td>
+</tr>
+<tr class="odd">
+<td>rhov</td>
+<td>L2B</td>
+<td>percent</td>
+<td>0.0001</td>
+<td>Int16</td>
+<td>0 to 10000</td>
+<td>-32768</td>
+<td>Volumetric scattering coefficient (rho) of the canopy.</td>
+</tr>
+<tr class="even">
+<td>selected_l2a_algorithm</td>
+<td>L2B</td>
+<td>number</td>
+<td>N/A</td>
+<td>uint8</td>
+<td>0 to 6</td>
+<td>255</td>
+<td>Selected L2A algorithm setting</td>
+</tr>
+<tr class="odd">
+<td>fhd_normal</td>
+<td>L2B</td>
+<td>index</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>N/A</td>
+<td>-32768</td>
+<td>Foliage Height Diversity.</td>
+</tr>
+<tr class="even">
+<td>surface_flag</td>
+<td>L2B</td>
+<td>binary</td>
+<td>N/A</td>
+<td>Boolean</td>
+<td>True, False</td>
+<td>N/A</td>
+<td>Surface flag indicating if elev_lowestmode is within 300 m of DEM or MSS. True = within and False = outside</td>
+</tr>
+<tr class="odd">
+<td>leaf_off_flag</td>
+<td>L2B</td>
+<td>binary</td>
+<td>N/A</td>
+<td>Boolean</td>
+<td>True, False</td>
+<td>N/A</td>
+<td>GEDI 1 km EASE 2.0 grid flag derived from leaf_off_doy, leaf_on_doy and pft_class, indicating if the observation was recorded during leaf-off conditions in deciduous forests and woodlands. True = leaf-off and False = leaf-on.</td>
+</tr>
+<tr class="even">
+<td>l2b_quality_flag</td>
+<td>L2B</td>
+<td>binary</td>
+<td>N/A</td>
+<td>Boolean</td>
+<td>True, False</td>
+<td>N/A</td>
+<td>L2B quality flag. True = qualified L2B points; False= not qualified L2B points</td>
+</tr>
+<tr class="odd">
+<td>rh25_a1</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 25% using the algorithm 1.</td>
+</tr>
+<tr class="even">
+<td>rh25_a2</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 25% using the algorithm 1.</td>
+</tr>
+<tr class="odd">
+<td>rh25_a3</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 25% using the algorithm 3.</td>
+</tr>
+<tr class="even">
+<td>rh25_a4</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 25% using the algorithm 4.</td>
+</tr>
+<tr class="odd">
+<td>rh25_a5</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 25% using the algorithm 5.</td>
+</tr>
+<tr class="even">
+<td>rh25_a6</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 25% using the algorithm 6.</td>
+</tr>
+<tr class="odd">
+<td>rh50_a1</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 50% using the algorithm 1.</td>
+</tr>
+<tr class="even">
+<td>rh50_a2</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 50% using the algorithm 2.</td>
+</tr>
+<tr class="odd">
+<td>rh50_a3</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 50% using the algorithm 3.</td>
+</tr>
+<tr class="even">
+<td>rh50_a4</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 50% using the algorithm 4.</td>
+</tr>
+<tr class="odd">
+<td>rh50_5N</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 50% using the algorithm 5.</td>
+</tr>
+<tr class="even">
+<td>rh50_6N</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 50% using the algorithm 6.</td>
+</tr>
+<tr class="odd">
+<td>rh95_a1</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 95% using the algorithm 1.</td>
+</tr>
+<tr class="even">
+<td>rh95_a2</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 95% using the algorithm 2.</td>
+</tr>
+<tr class="odd">
+<td>rh95_a3</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 95% using the algorithm 3.</td>
+</tr>
+<tr class="even">
+<td>rh95_4a</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 95% using the algorithm 4.</td>
+</tr>
+<tr class="odd">
+<td>rh95_a5</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 95% using the algorithm 5.</td>
+</tr>
+<tr class="even">
+<td>rh95_a6</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 95% using the algorithm 6.</td>
+</tr>
+<tr class="odd">
+<td>rh98_a1</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 98% using the algorithm 1.</td>
+</tr>
+<tr class="even">
+<td>rh98_a2</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 98% using the algorithm 2.</td>
+</tr>
+<tr class="odd">
+<td>rh98_a3</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 98% using the algorithm 3.</td>
+</tr>
+<tr class="even">
+<td>rh98_a4</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 98% using the algorithm 4.</td>
+</tr>
+<tr class="odd">
+<td>rh98_a5</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 98% using the algorithm 5.</td>
+</tr>
+<tr class="even">
+<td>rh98_a6</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 98% using the algorithm 6.</td>
+</tr>
+<tr class="odd">
+<td>rh99_1a</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 99% using the algorithm 1.</td>
+</tr>
+<tr class="even">
+<td>rh99_2a</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 99% using the algorithm 2.</td>
+</tr>
+<tr class="odd">
+<td>rh99_3a</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 99% using the algorithm 3.</td>
+</tr>
+<tr class="even">
+<td>rh99_4a</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 99% using the algorithm 4.</td>
+</tr>
+<tr class="odd">
+<td>rh99_5a</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 99% using the algorithm 5.</td>
+</tr>
+<tr class="even">
+<td>rh99_6a</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int16</td>
+<td>-21300 to 21300</td>
+<td>-32768</td>
+<td>Relative height values for the energy levels of 99% using the algorithm 6.</td>
+</tr>
+<tr class="odd">
+<td>elev_lowestmode_a1a</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int32</td>
+<td>-100000 to 2500000</td>
+<td>-2147483648</td>
+<td>Elevation of lowest return/terrain height in WGS84 using algorithm 1</td>
+</tr>
+<tr class="even">
+<td>elev_lowestmode_2a</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int32</td>
+<td>-100000 to 2500000</td>
+<td>-2147483648</td>
+<td>Elevation of lowest return/terrain height in WGS84 using algorithm 2</td>
+</tr>
+<tr class="odd">
+<td>elev_lowestmode_3a</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int32</td>
+<td>-100000 to 2500000</td>
+<td>-2147483648</td>
+<td>Elevation of lowest return/terrain height in WGS84 using algorithm 3</td>
+</tr>
+<tr class="even">
+<td>elev_lowestmode_4a</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int32</td>
+<td>-100000 to 2500000</td>
+<td>-2147483648</td>
+<td>Elevation of lowest return/terrain height in WGS84 using algorithm 4</td>
+</tr>
+<tr class="odd">
+<td>elev_lowestmode_5a</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int32</td>
+<td>-100000 to 2500000</td>
+<td>-2147483648</td>
+<td>Elevation of lowest return/terrain height in WGS84 using algorithm 5</td>
+</tr>
+<tr class="even">
+<td>elev_lowestmode_6a</td>
+<td>L2A</td>
+<td>m</td>
+<td>0.01</td>
+<td>Int32</td>
+<td>-100000 to 2500000</td>
+<td>-2147483648</td>
+<td>Elevation of lowest return/terrain height in WGS84 using algorithm 6</td>
+</tr>
+<tr class="odd">
+<td>sensitivity_1a</td>
+<td>L2A</td>
+<td>percent</td>
+<td>0.0001</td>
+<td>Int16</td>
+<td>0 to 10000</td>
+<td>-32768</td>
+<td>Maximum canopy cover using algorithms 1 that can be penetrated.</td>
+</tr>
+<tr class="even">
+<td>sensitivity_2a</td>
+<td>L2A</td>
+<td>percent</td>
+<td>0.0001</td>
+<td>Int16</td>
+<td>0 to 10000</td>
+<td>-32768</td>
+<td>Maximum canopy cover using algorithms 2 that can be penetrated.</td>
+</tr>
+<tr class="odd">
+<td>sensitivity_3a</td>
+<td>L2A</td>
+<td>percent</td>
+<td>0.0001</td>
+<td>Int16</td>
+<td>0 to 10000</td>
+<td>-32768</td>
+<td>Maximum canopy cover using algorithms 3 that can be penetrated.</td>
+</tr>
+<tr class="even">
+<td>sensitivity_4a</td>
+<td>L2A</td>
+<td>percent</td>
+<td>0.0001</td>
+<td>Int16</td>
+<td>0 to 10000</td>
+<td>-32768</td>
+<td>Maximum canopy cover using algorithms 4 that can be penetrated.</td>
+</tr>
+<tr class="odd">
+<td>sensitivity_5a</td>
+<td>L2A</td>
+<td>percent</td>
+<td>0.0001</td>
+<td>Int16</td>
+<td>0 to 10000</td>
+<td>-32768</td>
+<td>Maximum canopy cover using algorithms 5 that can be penetrated.</td>
+</tr>
+<tr class="even">
+<td>sensitivity_6a</td>
+<td>L2A</td>
+<td>percent</td>
+<td>0.0001</td>
+<td>Int16</td>
+<td>0 to 10000</td>
+<td>-32768</td>
+<td>Maximum canopy cover using algorithms 6 that can be penetrated.</td>
+</tr>
+</tbody>
+</table>
+<section id="reference" class="level3">
+<h3 class="anchored" data-anchor-id="reference">Reference</h3>
+<p><em>1. Dubayah, R., Hofton, M., Blair, J., Armston, J., Tang, H., Luthcke, S. (2021). GEDI L2A Elevation and Height Metrics Data Global Footprint Level V002 [Data set]. NASA EOSDIS Land Processes Distributed Active Archive Center. <a href="https://doi.org/10.5067/GEDI/GEDI02_A.002." class="uri">https://doi.org/10.5067/GEDI/GEDI02_A.002.</a></em></p>
+<p><em>2. Dubayah, R., Tang, H., Armston, J., Luthcke, S., Hofton, M., Blair, J. (2021). GEDI L2B Canopy Cover and Vertical Profile Metrics Data Global Footprint Level V002 [Data set]. NASA EOSDIS Land Processes Distributed Active Archive Center. <a href="https://doi.org/10.5067/GEDI/GEDI02_B.002." class="uri">https://doi.org/10.5067/GEDI/GEDI02_B.002.</a></em></p>
 
 
 </section>
@@ -873,7 +1615,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/openlandmap/book/edit/main/010-start_here.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/openlandmap/book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/openlandmap/book/edit/main/032-olm_column_table.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/openlandmap/book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

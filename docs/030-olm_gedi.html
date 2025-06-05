@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>start_here – Open Land Data services</title>
+<title>olm_gedi – Open Land Data services</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -75,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
 
 <meta property="og:title" content="Open Land Data services">
 <meta property="og:description" content="OpenLandMap.org are Open Land Data services providing access to spatial layers covering global land mass (at spatial resolutions of 1-km, 250-m, 100-m, 30-m or finer) hosted by the OpenGeoHub foundation, GILAB.rs and collaborators. We host and serve only data that matches some of the compatible open data licenses and has close to global coverage.">
-<meta property="og:image" content="img/example_pull_request.jpg">
+<meta property="og:image" content="docs/img/olm_gedi_stac.png">
 <meta property="og:site_name" content="Open Land Data services">
 <meta name="twitter:title" content="Open Land Data services">
 <meta name="twitter:image" content="img/openlandmap_gui_preview.jpg">
@@ -311,7 +311,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Data layers</a></li><li class="breadcrumb-item"><a href="./010-start_here.html">New to markdown</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./030-olm_gedi.html">Training point</a></li><li class="breadcrumb-item"><a href="./030-olm_gedi.html">OpenLandMap GEDI Official Documentation</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -340,7 +340,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./010-start_here.html" class="sidebar-item-text sidebar-link active">
+  <a href="./010-start_here.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">New to markdown</span></a>
   </div>
 </li>
@@ -375,6 +375,23 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Training point</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./030-olm_gedi.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">OpenLandMap GEDI Official Documentation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -385,68 +402,62 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#new-to-markdown" id="toc-new-to-markdown" class="nav-link active" data-scroll-target="#new-to-markdown">New to markdown</a>
+  <li><a href="#openlandmap-gedi-official-documentation" id="toc-openlandmap-gedi-official-documentation" class="nav-link active" data-scroll-target="#openlandmap-gedi-official-documentation">OpenLandMap GEDI Official Documentation</a>
   <ul class="collapse">
-  <li><a href="#clone-add-reference-submit-merge-request" id="toc-clone-add-reference-submit-merge-request" class="nav-link" data-scroll-target="#clone-add-reference-submit-merge-request">Clone, add reference, submit merge request…</a></li>
-  <li><a href="#video-course-getting-started-with-r" id="toc-video-course-getting-started-with-r" class="nav-link" data-scroll-target="#video-course-getting-started-with-r">Video Course: Getting started with R</a></li>
+  <li><a href="#general-description" id="toc-general-description" class="nav-link" data-scroll-target="#general-description">General Description</a></li>
+  <li><a href="#technical-specification" id="toc-technical-specification" class="nav-link" data-scroll-target="#technical-specification">Technical Specification</a>
+  <ul class="collapse">
+  <li><a href="#geoparquet" id="toc-geoparquet" class="nav-link" data-scroll-target="#geoparquet">(Geo)Parquet</a></li>
+  <li><a href="#data-pre-filtering-and-fusion" id="toc-data-pre-filtering-and-fusion" class="nav-link" data-scroll-target="#data-pre-filtering-and-fusion">Data Pre-filtering and fusion</a></li>
+  </ul></li>
+  <li><a href="#tutorial" id="toc-tutorial" class="nav-link" data-scroll-target="#tutorial">Tutorial</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/openlandmap/book/edit/main/010-start_here.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/openlandmap/book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/openlandmap/book/edit/main/030-olm_gedi.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/openlandmap/book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Data layers</a></li><li class="breadcrumb-item"><a href="./010-start_here.html">New to markdown</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./030-olm_gedi.html">Training point</a></li><li class="breadcrumb-item"><a href="./030-olm_gedi.html">OpenLandMap GEDI Official Documentation</a></li></ol></nav></header>
 
 
 
 
 
-<section id="new-to-markdown" class="level1">
-<h1>New to markdown</h1>
-<section id="clone-add-reference-submit-merge-request" class="level2">
-<h2 class="anchored" data-anchor-id="clone-add-reference-submit-merge-request">Clone, add reference, submit merge request…</h2>
-<p>To add a new dataset, please follow these steps:</p>
-<ol type="1">
-<li>Click on the edit button on the book homepage,<br>
-</li>
-<li>Login to Github.com and select “Start a pull-request”,<br>
-</li>
-<li>Add new references to <code>012-compendium.Rmd</code> and save,<br>
-</li>
-<li>Commit and push and make a <a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request">pull request</a>.<br>
-</li>
-<li>Once received we will check it and if you have followed the instructions closely, the reference will appear in the document as soon as the code is merged with the master,<br>
-</li>
-</ol>
-<div class="cell">
-<div class="cell-output-display">
+<section id="openlandmap-gedi-official-documentation" class="level1">
+<h1>OpenLandMap GEDI Official Documentation</h1>
+<section id="general-description" class="level2">
+<h2 class="anchored" data-anchor-id="general-description">General Description</h2>
+<p>Global Ecosystem Dynamics Investigation (GEDI) is a full-waveform satellite LiDAR (Light Detection And Ranging), collecting 3D measurements over land (trough recorded backscattered laser energy, i.e., waveforms) near-globally, between 51.6° N and S within a laser footprint diameter of 25 m between 2019-03-25 onward. To foster the uptake and mask out the complexity and large data volume of GEDI products (GEDI L2, version 2,- V002) to the OEMC&nbsp; and broader users, we aim to host pre-filtered and high-quality GEDI points (including their relTechnical Documentationative heights, and waveform- and derived-attributes) and offer them as a cloud service.</p>
+<p>The data is organized in Parquet Dataset and the visualization of data is in <a href="http://stac.openlandmap.org/GEDI02/collection.json">OpenLandMap STAC</a>, 3336 partitions in 5 degree by 5 degree by year (<em>Fig. 1</em>).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/example_pull_request.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption>Example of a pull request on Github.com.</figcaption>
+<p><img src="docs/img/olm_gedi_stac.png" class="img-fluid figure-img"></p>
+<figcaption><em>Fig 1: This product described can be accessed through STAC OpenLandMap.</em></figcaption>
 </figure>
 </div>
-</div>
-</div>
-<p>If you’re new to markdown and want to learn how to use it, please refer to <a href="https://guides.github.com/features/mastering-markdown/">this tutorial</a>.</p>
-<p>If you are new to R and/or <a href="https://cran.r-project.org/web/views/Environmetrics.html"><strong>environmetrics</strong></a>, please consider reading / studying:</p>
+</section>
+<section id="technical-specification" class="level2">
+<h2 class="anchored" data-anchor-id="technical-specification">Technical Specification</h2>
+<section id="geoparquet" class="level3">
+<h3 class="anchored" data-anchor-id="geoparquet">(Geo)Parquet</h3>
+<p>Apache Parquet is an open source column-oriented data format designed for efficient data storage and retrieval. Parquet has two features among other cloud-native formats (e.g.&nbsp;flatgeobuf, PMTiles) . Firstly, it provides data compression that increases I/O approximately 10 times than other formats like flatgeobuf, geopackage, and shapefile (Chris Holmes et al., 2023). Secondly, it supports file partition. Apache Parquet allows writing rows in a partition, grouped by one to multiple columns. Furthermore, if the writing follows the same partition structure, it can keep appending to a single parquet dataset.</p>
+</section>
+<section id="data-pre-filtering-and-fusion" class="level3">
+<h3 class="anchored" data-anchor-id="data-pre-filtering-and-fusion">Data Pre-filtering and fusion</h3>
+<p>In the pre-filtering, we <strong>excluded</strong> low-quality GEDI points, i.e., GEDI shots with <strong>Quality Flag equal to 0</strong>, <strong>Degradation Flag larger than 0,</strong> or <strong>Sensitivity smaller than 0.95</strong>.</p>
+<p>In the fusion, <strong>we selected attributes from L2A and L2B products respectively and joined them into a single product l2.v002.gedi</strong>. Those selected attributes are listed at the table: <a href="032-olm_column_table.html">Column Information of OpenLandMap GEDI Level 2</a></p>
+<p>The processes are committed and pushed to OpenLanMap GitHub (<a href="https://github.com/openlandmap/spatial-layers/tree/main/input_layers/GEDI_L2A" class="uri">https://github.com/openlandmap/spatial-layers/tree/main/input_layers/GEDI_L2A</a>). If you discover a bug, artifact, or inconsistency, or if you have a question please through the following channel.</p>
 <ul>
-<li>Kabacoff, R.I., (2011). <a href="https://www.statmethods.net/">R in Action: Data Analysis and Graphics with R</a>. Manning publications, ISBN: 9781935182399, 472 pages.<br>
-</li>
-<li>Grolemund, G., (2014). Hands-On Programming with R. O’Reilly, <a href="https://github.com/rstudio-education/hopr" class="uri">https://github.com/rstudio-education/hopr</a><br>
-</li>
-<li><a href="http://www.rstudio.com/products/RStudio/">RStudio</a>,</li>
-</ul>
-<p>If you’d like more of a roadmap to guide you through R, have a look at Oscar’s blogpost:</p>
-<ul>
-<li><a href="https://oscarbaruffa.com/a-roadmap-for-getting-started-with-r/" class="uri">https://oscarbaruffa.com/a-roadmap-for-getting-started-with-r/</a></li>
+<li><p>raise an issue at <a href="https://github.com/openlandmap/spatial-layers/issues" class="uri">https://github.com/openlandmap/spatial-layers/issues</a>&nbsp;</p></li>
+<li><p>directly contact through my email: yu-feng.ho@opengeohub.org</p></li>
 </ul>
 </section>
-<section id="video-course-getting-started-with-r" class="level2">
-<h2 class="anchored" data-anchor-id="video-course-getting-started-with-r">Video Course: Getting started with R</h2>
-<p>If you prefer video instruction with progress tracking:</p>
-<ul>
-<li><a href="https://rfortherestofus.com/courses/getting-started/" class="uri">https://rfortherestofus.com/courses/getting-started/</a></li>
-</ul>
+</section>
+<section id="tutorial" class="level2">
+<h2 class="anchored" data-anchor-id="tutorial">Tutorial</h2>
+<ol type="1">
+<li>Heisig, Johannes; Ho, Yu-feng: Accessing Big Vector Data on the Cloud using Arrow Parquet. GEO-OPEN-HACK – 2024, OpenGeoHub Foundation, 2024. <a href="https://doi.org/10.5446/69559" class="uri">https://doi.org/10.5446/69559</a></li>
+<li>Access OpenLandMap GEDI dataset via OpenEO: <a href="docs/031-openeo_GEDI.html">Stream GEDI Data into a Cloud-Processing Workflow</a>.</li>
+</ol>
 
 
 </section>
@@ -873,7 +884,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/openlandmap/book/edit/main/010-start_here.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/openlandmap/book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/openlandmap/book/edit/main/030-olm_gedi.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/openlandmap/book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

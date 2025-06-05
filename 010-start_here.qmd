@@ -46,7 +46,6 @@ cat('# OpenLandMap layers')
 cat("\n\n")
 cat('## List of collections')
 cat("\n\n")
-<<<<<<< HEAD
 cat("```{r, include=FALSE, message=FALSE, results='hide'}")
 cat("\n")
 cat("library(emo)")
@@ -54,9 +53,6 @@ cat("\n")
 cat("```")
 cat("\n\n")
 for(i in 1:nrow(col)){
-=======
-for (i in 1:nrow(col)) {
->>>>>>> 211c023ea77a6812ed83375d7c7bf7620d276b7d
   cat(paste0("### ", col$title[i]))
   cat("\n\n")
   cat(paste0('- `{r} emo::ji("link")` URL: <https://stac.openlandmap.org/', col$id[i], '/collection.json>'))

@@ -7,6 +7,7 @@ project:
     - 012-compendium.qmd
     - 016-project.qmd
     - 020-stac.qmd
+    - 030-olm_gedi.qmd
 
 website:
   navbar:
@@ -48,6 +49,9 @@ website:
       - section: "Tutorials"
         contents:
           - 020-stac.qmd
+      - section: "Training point"
+        contents:
+          - 030-olm_gedi.qmd
   page-footer:
     background: light
     left: "© 2024, OpenGeoHub foundation"
